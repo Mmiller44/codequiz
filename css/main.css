@@ -51,6 +51,12 @@ a {
 }
 
 /*================================================== Navigation ====================================================*/
+.title {
+	position: absolute;
+	top: 0;
+	left: -30px;
+}
+
 mark.orange {
 	color: #ef7b47;
 	background: none;
@@ -86,18 +92,20 @@ body,html{
 #front_end {
 	background-color: #7accc8;
 	height: 50%;
-	padding-top: 25px;
 }
 
 .section_title {
 	font-size: 20px;
 	color: #232d3b;
 	padding-bottom: 10px;
+	padding-top: 25px;
 }
 
 .accordion dd > a {
 	background-color: #64b7b3;
 	border-bottom: 2px solid #59a29e;
+	margin-bottom: 20px;
+	color: #232d3b;
 }
 
 .accordion dd > a:hover {
@@ -106,6 +114,8 @@ body,html{
 
 mark.arrow {
 	background: none;
+	float: right;
+	margin-top: -5px;
 }
 
 #panel2{
@@ -117,7 +127,16 @@ mark.arrow {
 	background-color: #ef7b47;
 }
 
+.back_end_accordion.accordion dd > a {
+	background-color: #d26433;
+	border-bottom: 2px solid #aa5129;
+	margin-bottom: 20px;
+	color: #232d3b;
+}
 
+.back_end_accordion.accordion dd > a:hover {
+	background-color: #d26433;
+}
 
 
 
