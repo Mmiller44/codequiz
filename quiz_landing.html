@@ -26,7 +26,7 @@
       </nav>
 
         <aside class="right-off-canvas-menu">
-          <ul class="off-canvas-list">
+           <ul class="off-canvas-list">
             <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Contribute</a></li>
@@ -42,47 +42,34 @@
           </div>
         </aside>
 
-        <section class="main-section">
+        <section class="main-section" id="front_end">
           <!-- content goes here -->
-          <!-- FRONT END -->
-          <div class="row" id="front_end">
+          <div class="row">
             <div class="small-6-centered columns">
-              <h2 class="section_title">Front End</h2>
-              <dl class="accordion front_end_accordion">
+
+              <h2 class="section_title">JavaScript</h2>
+              <dl class="accordion front_end_accordion" data-accordion>
                 <dd>
-                  <a href="quiz_landing.html">JavaScript <mark class="arrow"><img src="images/arrow.png"></mark></a>
+                  <a href="#panel2">General <mark class="plus"><img src="images/plus.png" width="20" height="20"></mark></a>
+                  <div id="panel2" class="content">
+                    <p>This quiz will challenge users on generic questions, such as: logic, arrays, and functions.</p>
+                    <h3>Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
+                    <h4>By Mike Miller</h4>
+                    <a href="" class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
+                    <a href="" class="button front_start">Ranking<img src="images/trophy.png" width="30" height="30"></a>
+                  </div>
                 </dd>
 
                 <dd>
-                  <a href="#">CSS <mark class="arrow"><img src="images/arrow.png"></mark></a>
+                  <a href="#">Prototypes <mark class="plus"><img src="images/plus.png" width="20" height="20"></mark></a>
                 </dd>
 
                 <dd>
-                  <a href="#">HTML <mark class="arrow"><img src="images/arrow.png"></mark></a>
+                  <a href="#">Functions <mark class="plus"><img src="images/plus.png" width="20" height="20"></mark></a>
                 </dd>
               </dl>
             </div>
           </div>
-          <!-- BACK END -->
-          <div class="row" id="back_end">
-            <div class="small-6-centered columns">
-              <h2 class="section_title">Back End</h2>
-              <dl class="accordion back_end_accordion">
-                <dd>
-                  <a href="#">PHP <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
-
-                <dd>
-                  <a href="#">Python <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
-
-                <dd>
-                  <a href="#">Cold Fusion <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
-              </dl>
-            </div>
-          </div>
-
         </section>
 
       <a class="exit-off-canvas"></a>

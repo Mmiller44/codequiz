@@ -72,6 +72,17 @@ nav.tab-bar{
 
 .right-off-canvas-menu {
 	background-color: #232d3b;
+	text-align: center;
+	font-size: 18px;
+}
+
+#nav-label {
+	background-color: #232d3b;
+	color: #f3f3f3;
+	font-family: 'Arial';
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-bottom: 1px solid black;
 }
 
 .off-canvas-list {
@@ -87,24 +98,61 @@ body,html{
     height:100%;   
 }
 
+.button.github {
+	background-color: #ef7b47;
+	width: 200px;
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+	float: none;
+	margin-left: 25px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-size: 18px;
+}
+
+.github img {
+	padding-top: 4px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.button.twitter {
+	width: 200px;
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+	float: none;
+	margin-left: 25px;
+	font-size: 18px;
+}
+
+.twitter img {
+	padding-top: 4px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
 /*================================================== Body ====================================================*/
 
 #front_end {
 	background-color: #7accc8;
-	height: 50%;
+	padding-bottom: 20px;
 }
 
 .section_title {
 	font-size: 20px;
 	color: #232d3b;
-	padding-bottom: 10px;
-	padding-top: 25px;
+	padding-top: 20px;
 }
 
 .accordion dd > a {
 	background-color: #64b7b3;
 	border-bottom: 2px solid #59a29e;
-	margin-bottom: 20px;
+	margin-top: 20px;
 	color: #232d3b;
 }
 
@@ -118,12 +166,48 @@ mark.arrow {
 	margin-top: -5px;
 }
 
+mark.plus {
+	background: none;
+	float: right;
+}
+
 #panel2{
 	background-color: #59a29e;
 }
 
+.content {
+	font-size: 18px;
+}
+
+.content p {
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+
+.content a {
+	width: 40%;
+	height: 45px;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.content h4 {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.front_start {
+	background-color: #7accc8;
+	color: #232d3b;
+	font-size: 14px;
+}
+
+.front_start:hover {
+	color: #232d3b;
+}
+
 #back_end {
-	height: 50%;
 	background-color: #ef7b47;
 }
 
@@ -137,7 +221,6 @@ mark.arrow {
 .back_end_accordion.accordion dd > a:hover {
 	background-color: #d26433;
 }
-
 
 
 
