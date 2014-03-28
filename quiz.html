@@ -46,42 +46,36 @@
           <!-- FRONT END -->
           <div class="row" id="front_end">
             <div class="small-6-centered columns">
-              <h2 class="section_title">Front End</h2>
-              <dl class="accordion front_end_accordion">
-                <dd>
-                  <a href="quiz_landing.html">JavaScript <mark class="arrow"><img src="images/arrow.png"></mark></a>
-                </dd>
+              <h2 class="section_title">JavaScript</h2>
+              <h3 class="progress_indicator">1/20</h3>
 
-                <dd>
-                  <a href="#">CSS <mark class="arrow"><img src="images/arrow.png"></mark></a>
-                </dd>
-
-                <dd>
-                  <a href="#">HTML <mark class="arrow"><img src="images/arrow.png"></mark></a>
-                </dd>
-              </dl>
+              <a href="" class="flag_question" data-reveal-id="report_modal" data-reveal><img src="images/flag.png"></a>
+              <div id="report_modal" class="reveal-modal small" data-reveal>
+                <h3 class="flag_header">Flag question?</h3>
+                <a class="close-reveal-modal">&#215;</a>
+                <p>Please select the options below that best relate to why you are flagging this question.</p>
+                <form class="flag_form" action="">
+                  <input type="checkbox" name="report_question" value="1"><mark class="report">No correct answer is given.</mark><br>
+                  <input type="checkbox" name="report_question" value="2"><mark class="report">Question is worded wrong.</mark><br>
+                  <input type="checkbox" name="report_question" value="3"><mark class="report">Not fit for this category.</mark><br>
+                  <input type="checkbox" name="report_question" value="4"><mark class="report">Custom:</mark><br>
+                  <textarea></textarea>
+                </form>
+                <input type="submit" class="button" value="Send Report">
+              </div>
             </div>
           </div>
-          <!-- BACK END -->
-          <div class="row" id="back_end">
+          <div class="row" id="front_end">
             <div class="small-6-centered columns">
-              <h2 class="section_title">Back End</h2>
-              <dl class="accordion back_end_accordion">
-                <dd>
-                  <a href="#">PHP <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
-
-                <dd>
-                  <a href="#">Python <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
-
-                <dd>
-                  <a href="#">Cold Fusion <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
-              </dl>
+             <p class="question">Javascript is an object oriented language, true or false?</p>
+            </div>
+            <div id="answer_block_wrap">
+                <a href="#" class="button"><img src="images/answer_a.png" height="60" width="50">True is the only answer that would make sense here. Think about it. </a?>
+                <a href="#" class="button"><img src="images/answer_b.png" height="60" width="50">False</a>
+                <a href="#" class="button"><img src="images/answer_c.png" height="60" width="50">Lol what?</a>
+                <a href="#" class="button"><img src="images/answer_d.png" height="60" width="50">None of the above</a>
             </div>
           </div>
-
         </section>
 
       <a class="exit-off-canvas"></a>
