@@ -280,6 +280,12 @@ mark.plus {
 
 /*================================================== Quiz Template ====================================================*/
 
+.quiz_title_front {
+	font-size: 20px;
+	color: #59a29e;
+	padding-top: 20px;
+}
+
 .progress_indicator {
 	position: relative;
 	top: -18px;
@@ -290,7 +296,7 @@ mark.plus {
 .flag_question {
 	position: absolute;
 	top: 10px;
-	right: 10px;
+	right: 0px;
 	width: 40px;
 	height: 40px;
 }
@@ -322,37 +328,78 @@ mark.plus {
 	line-height: 1.5;
 }
 
+.report_button {
+	background-color: #d26433;
+	border-bottom: 2px solid #aa5129;
+	margin-bottom: 20px;
+	color: #232d3b;
+}
+
 mark.report {
-	font-size: 18px;
+	font-size: 16px;
 	background: none;
 	vertical-align: text-bottom;
 }
 
-#answer_block_wrap a {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	text-align: left;
-	height: 100%;
-}
-
-#answer_block_wrap img {
-	position: relative;
-	left: 0px;
-	top: 0px;
-	bottom: 0px;
-	width: 50px;
-	height: 100%;
-	display: block;
-	float: left;
-	padding-right: 5px;
-}
-
 .question {
+	margin-top: 20px;
 	margin-bottom: 40px;
+	font-size: 16px;
 }
 
+#answer_block_wrap {
+	clear: both;
+}
 
+.answer_block {
+	min-height: 60px;
+	background-color: #f3f3f3;
+	position: relative;
+}
 
+span.answer_a {
+	background-color: #7153a4;
+	width: 20%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+span.character{
+	position: absolute;
+	top: 40%;
+	bottom: 0;
+	left: 40%;
+	text-align: center;
+	font-size: 16px;
+	color: #f3f3f3;
+	text-shadow: 1px 1px #000;
+}
+
+.answer_block a {
+	display: block;
+	color: #232d3b;
+	font-size: 16px;
+	padding-left: 22%;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.answer_block .odd {
+	background-color: #dbdbdb;
+}
+
+span.answer_b {
+	background-color: #fda804;
+}
+
+span.answer_c {
+	background-color: #efd20c;
+}
+
+span.answer_d {
+	background-color: #4aa3ef;
+}
 
 
