@@ -1,79 +1,449 @@
-/* Space out content a bit */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+	line-height: 1.5;
+	font: 62.5% 'Helvetica', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+p {
+	font-size: 1.4em;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+a {
+	outline: 0;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+/*================================================== Navigation ====================================================*/
+.title {
+	position: absolute;
+	top: 0;
+	left: -30px;
+	font-family: 'Arial';
+	font-size: 18px;
+	text-decoration: none;
+	color: #f3f3f3;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
+.title:hover {
+	color: #ef7b47;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+mark.orange {
+	color: #ef7b47;
+	background: none;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+nav.tab-bar{
+	background-color: #232d3b;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.right-off-canvas-menu {
+	background-color: #232d3b;
+	text-align: center;
+	font-size: 18px;
 }
+
+#nav-label {
+	background-color: #232d3b;
+	color: #f3f3f3;
+	font-family: 'Arial';
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-bottom: 1px solid black;
+}
+
+.off-canvas-list{
+	background-color: #232d3b;
+}
+
+body,html{
+    height:100%;
+    width:100%;
+}
+
+.page{
+    height:100%;   
+}
+
+.off-canvas-wrap,.inner-wrap{
+    height:100%;   
+}
+
+.button.github {
+	background-color: #ef7b47;
+	width: 200px;
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	float: none;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-size: 18px;
+	line-height: 2.5;
+	padding-left: 20px;
+}
+
+.github img {
+	position: absolute;
+	left: 10px;
+	bottom: 5px;
+}
+
+.button.twitter {
+	width: 200px;
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	float: none;
+	margin-bottom: 25px;
+	font-size: 18px;
+	line-height: 2.5;
+	padding-left: 20px;
+}
+
+.twitter img {
+	position: absolute;
+	left: 10px;
+	bottom: 5px;
+}
+
+
+/*================================================== Body ====================================================*/
+
+#front_end {
+	background-color: #7accc8;
+	padding-bottom: 20px;
+}
+
+.main-section {
+	height: 100vh;
+}
+
+.section_title {
+	font-size: 20px;
+	color: #232d3b;
+	padding-top: 20px;
+}
+
+.accordion dd > a {
+	background-color: #64b7b3;
+	border-bottom: 2px solid #59a29e;
+	margin-top: 20px;
+	color: #232d3b;
+}
+
+.accordion dd > a:hover {
+	background-color: #64b7b3;
+}
+
+.accordion dd.active > a{
+	background-color: #64b7b3;
+}
+
+mark.arrow {
+	background: none;
+	float: right;
+	margin-top: -5px;
+}
+
+mark.plus {
+	background: none;
+	float: right;
+}
+
+#panel2{
+	background-color: #59a29e;
+}
+
+.content {
+	font-size: 18px;
+}
+
+.content p {
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+
+.content a {
+	width: 40%;
+	height: 45px;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.content h4 {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.button.front_start {
+	background-color: #7accc8;
+	color: #232d3b;
+	font-size: 14px;
+	text-align: left;
+	padding-left: 10px;
+	width: 120px;
+	line-height: 3;
+}
+
+.front_start:hover {
+	background-color: #64b7b3;
+}
+
+.front_start img{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+}
+
+
+
+.button.front_rank {
+	background-color: #7accc8;
+	color: #232d3b;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	padding-left: 10px;
+	width: 120px;
+	position: relative;
+	bottom: 0px;
+	right: 0px;
+	line-height: 3;
+}
+
+.front_rank:hover {
+	background-color: #64b7b3;
+}
+
+.front_rank img{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+}
+
+#back_end {
+	background-color: #ef7b47;
+	height: 54%;
+}
+
+.back_end_accordion.accordion dd > a {
+	background-color: #d26433;
+	border-bottom: 2px solid #aa5129;
+	margin-bottom: 20px;
+	color: #232d3b;
+}
+
+.back_end_accordion.accordion dd > a:hover {
+	background-color: #d26433;
+}
+
+
+/*================================================== Quiz Template ====================================================*/
+
+.quiz_title_front {
+	font-size: 20px;
+	color: #59a29e;
+	padding-top: 20px;
+}
+
+.progress_indicator {
+	position: relative;
+	top: -18px;
+	left: 50%;
+	font-size: 16px;
+}
+
+.flag_question {
+	position: absolute;
+	top: 10px;
+	right: 0px;
+	width: 40px;
+	height: 40px;
+}
+
+.flag_header {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.flag_form input[type=checkbox]{
+	width: 25px; 
+	height: 25px;
+	-webkit-border-radius: 22px; 
+	-moz-border-radius: 22px; 
+	border-radius: 22px;
+	border: 1px solid #bbb;
+	margin-bottom: 30px;
+	margin-right: 5px;
+}
+
+#report_modal input[type=submit] {
+	width: 100%;
+	margin-top: 20px;
+}
+
+#report_modal p {
+	margin-bottom: 20px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.report_button {
+	background-color: #d26433;
+	border-bottom: 2px solid #aa5129;
+	margin-bottom: 20px;
+	color: #232d3b;
+}
+
+mark.report {
+	font-size: 16px;
+	background: none;
+	vertical-align: text-bottom;
+}
+
+.question {
+	margin-top: 20px;
+	margin-bottom: 40px;
+	font-size: 16px;
+}
+
+#answer_block_wrap {
+	clear: both;
+}
+
+.answer_block {
+	min-height: 60px;
+	background-color: #f3f3f3;
+	position: relative;
+}
+
+span.answer_a {
+	background-color: #7153a4;
+	width: 20%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+span.character{
+	position: absolute;
+	top: 40%;
+	bottom: 0;
+	left: 40%;
+	text-align: center;
+	font-size: 16px;
+	color: #f3f3f3;
+	text-shadow: 1px 1px #000;
+}
+
+.answer_block a {
+	display: block;
+	color: #232d3b;
+	font-size: 16px;
+	padding-left: 22%;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.answer_block .odd {
+	background-color: #dbdbdb;
+}
+
+span.answer_b {
+	background-color: #fda804;
+}
+
+span.answer_c {
+	background-color: #efd20c;
+}
+
+span.answer_d {
+	background-color: #4aa3ef;
+}
+
+
+/*================================================== Score Template ====================================================*/
+
+
+.final_score {
+	margin-top: 50px;
+	font-size: 28px;
+	float: left;
+}
+
+.score {
+	margin-top: 45px;
+	font-size: 40px;
+	float: right;
+	font-weight: bold;
+}
+
+.score_button {
+	text-align: left;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
