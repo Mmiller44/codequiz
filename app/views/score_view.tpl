@@ -1,22 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-  <title>Code Quiz The only mobile app that quizzes you on multiple web design and development languages with challenging questions</title>
-	<!-- Foundation -->
-	<link rel="stylesheet" type="text/css" href="css/foundation.css">
-  <script type="text/javascript" src="js/vendor/modernizr.min.js"></script>
-
-	<!-- My CSS -->
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body>
-	<div class="page">
+<div class="page">
 	 <div class="off-canvas-wrap">
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
         <section class="middle tab-bar-section">
-          <a href="index.html" class="title">Code <mark class="orange">Quiz</mark></a>
+          <a href="#/" class="title">Code <mark class="orange">Quiz</mark></a>
         </section>
 
         <section class="right-small">
@@ -27,7 +14,7 @@
         <aside class="right-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="#/">Home</a></li>
             <li><a href="#">Contribute</a></li>
           </ul>
           
@@ -66,14 +53,6 @@
       </div>
     </div>
   </div> <!-- Closing Page -->
-
-	<script type="text/javascript" src="js/jquery-2.0.2.js"></script>
-  <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
-  <script type="text/javascript" src="js/foundation.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-  <script>
+<script>
   $(document).foundation();
 </script>
-	</div>
-</body>
-</html>

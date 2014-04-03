@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1.5;
+	background-color: #ef7b47;
 	font: 62.5% 'Helvetica', sans-serif;
 }
 ol, ul {
@@ -263,7 +264,6 @@ mark.plus {
 
 #back_end {
 	background-color: #ef7b47;
-	height: 54%;
 }
 
 .back_end_accordion.accordion dd > a {
