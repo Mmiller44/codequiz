@@ -42,7 +42,6 @@
                     <h3>Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
                     <h4>By Mike Miller</h4>
                     <a ng-href="#/quiz" class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
-                    <a href="quiz.html" class="button front_rank">Ranking<img src="images/trophy.png" width="30" height="30"></a>
                   </div>
                 </dd>
 

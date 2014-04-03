@@ -218,11 +218,11 @@ mark.plus {
 .button.front_start {
 	background-color: #7accc8;
 	color: #232d3b;
-	font-size: 14px;
-	text-align: left;
-	padding-left: 10px;
-	width: 120px;
-	line-height: 3;
+	text-align: center;
+	font-weight: bold;
+	padding-right: 20px;
+	width: 100%;
+	line-height: 2.8;
 }
 
 .front_start:hover {
@@ -230,33 +230,6 @@ mark.plus {
 }
 
 .front_start img{
-	position: absolute;
-	right: 10px;
-	bottom: 8px;
-}
-
-
-
-.button.front_rank {
-	background-color: #7accc8;
-	color: #232d3b;
-	font-size: 14px;
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	padding-left: 10px;
-	width: 120px;
-	position: relative;
-	bottom: 0px;
-	right: 0px;
-	line-height: 3;
-}
-
-.front_rank:hover {
-	background-color: #64b7b3;
-}
-
-.front_rank img{
 	position: absolute;
 	right: 10px;
 	bottom: 8px;
@@ -315,6 +288,10 @@ mark.plus {
 	border: 1px solid #bbb;
 	margin-bottom: 30px;
 	margin-right: 5px;
+}
+
+#report_modal {
+	width: 100%;
 }
 
 #report_modal input[type=submit] {
