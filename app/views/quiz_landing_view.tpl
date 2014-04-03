@@ -36,7 +36,7 @@
               <h2 class="section_title">JavaScript</h2>
               <dl class="accordion front_end_accordion" data-accordion>
                 <dd class="no_hover">
-                  <a ng-href="#panel2" target="_self">General <mark class="plus"><img src="images/plus.png" width="20" height="20"></mark></a>
+                  <a ng-href="#panel2" target="_self" ng-click="toggleImage()">General <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
                   <div id="panel2" class="content">
                     <p>This quiz will challenge users on generic questions, such as: logic, arrays, and functions.</p>
                     <h3>Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>

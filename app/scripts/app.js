@@ -14,15 +14,15 @@ angular.module('codequizApp', [
       })
       .when('/quiz_landing', {
         templateUrl: 'views/quiz_landing_view.tpl',
-        controller: 'MainCtrl'
+        controller: 'quiz_landing_controller'
       })
       .when('/quiz', {
         templateUrl: 'views/quiz_view.tpl',
-        controller: 'MainCtrl'
+        controller: 'quiz_controller'
       })
       .when('/score', {
         templateUrl: 'views/score_view.tpl',
-        controller: 'MainCtrl'
+        controller: 'score_controller'
       })
       .otherwise({
         redirectTo: '/'
