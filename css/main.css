@@ -403,3 +403,47 @@ span.answer_d {
 }
 
 
+/*================================================== Score Template ====================================================*/
+
+
+.final_score {
+	margin-top: 50px;
+	font-size: 28px;
+	float: left;
+}
+
+.score {
+	margin-top: 45px;
+	font-size: 40px;
+	float: right;
+	font-weight: bold;
+}
+
+.score_button {
+	text-align: left;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
