@@ -37,10 +37,23 @@
                 <h2 class="quiz_title_front">JavaScript</h2>
 
                 <h3 class="final_score">Final Score:</h3>
-                <h4 class="score">85%</h4>
+                <h4 class="score">100%</h4>
 
-                <a href="#" class="button score_button">View Answers</a>
-                <a href="#" class="button score_button">Rate Quiz</a>
+                <a href="#" class="button front_score_button">View Answers <img src="images/trophy.png" alt="Trophy Icon" width="40" height="40"></a>
+                <a href="" class="button front_score_button" data-reveal-id="report_modal" data-reveal>Rate Quiz <img src="images/star.png" alt="Star Icon" width="40" height="40"></a>
+
+                <div id="report_modal" class="reveal-modal small" data-reveal>
+                <h3 class="flag_header">Rate The Quiz!</h3>
+                <a class="close-reveal-modal">&#215;</a>
+                <p>Please select how you would rate this quiz.</p>
+                <form class="flag_form" action="">
+                  <input type="radio" name="report_question" value="1"><mark class="report">I loved it!</mark><br>
+                  <input type="radio" name="report_question" value="2"><mark class="report">It was pretty good.</mark><br>
+                  <input type="radio" name="report_question" value="3"><mark class="report">Could be better.</mark><br>
+                  <input type="radio" name="report_question" value="4"><mark class="report">Not worth my time.</mark><br>
+                </form>
+                <input type="submit" class="button report_button" value="Send Report">
+              </div>
 
             </div><!-- /columns -->
 

@@ -62,22 +62,22 @@
               <ul>
                   <li class="answer_block">
                     <span class="answer_a"><span class="character">A</span></span>
-                      <a href="#/score" class="odd">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat fuga nostrum veritatis eos nobis obcaecati nemo soluta quibusdam earum hic in maxime doloribus excepturi quaerat eligendi facilis voluptatem rerum laudantium! </a>
+                      <a href="#/score" class="odd">True </a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_b"><span class="character">B</span></span>       
-                        <a href="#">Lorem ip </a>
+                        <a href="#">False</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_c"><span class="character">C</span></span>       
-                      <a href="#" class="odd">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat fu.</a>
+                      <a href="#" class="odd">I don't understand the question.</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_d"><span class="character">D</span></span>       
-                      <a href="#">loribus excepturi quaerat eligendi facilis voluptatem rerum laudantium! </a>
+                      <a href="#">None of the above.</a>
                   </li>
               <ul>
 

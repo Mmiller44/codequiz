@@ -174,6 +174,10 @@ body,html{
 	background-color: #64b7b3;
 }
 
+.accordion dd > a:active {
+	background-color: #59a29e;
+}
+
 .accordion dd.active > a{
 	background-color: #64b7b3;
 }
@@ -277,6 +281,7 @@ mark.plus {
 .flag_header {
 	font-size: 20px;
 	margin-bottom: 20px;
+	width: 100%;
 }
 
 .flag_form input[type=checkbox]{
@@ -306,10 +311,9 @@ mark.plus {
 }
 
 .report_button {
-	background-color: #d26433;
-	border-bottom: 2px solid #aa5129;
+	background-color: #232d3b;
 	margin-bottom: 20px;
-	color: #232d3b;
+	color: #f3f3f3;
 }
 
 mark.report {
@@ -365,6 +369,7 @@ span.character{
 
 .answer_block .odd {
 	background-color: #dbdbdb;
+	min-height: 60px;
 }
 
 span.answer_b {
@@ -384,26 +389,55 @@ span.answer_d {
 
 
 .final_score {
-	margin-top: 50px;
+	margin-top: 20px;
 	font-size: 28px;
-	float: left;
+	color: #232d3b;
 }
 
 .score {
-	margin-top: 45px;
-	font-size: 40px;
-	float: right;
+	font-size: 60px;
+	width: 145px;
+	margin: 0 auto;
+	margin-top: 40px;
 	font-weight: bold;
+	margin-bottom: 40px;
+	color: #232d3b;
 }
 
-.score_button {
+
+.button.front_score_button {
+	background-color: #64b7b3;
+	border-bottom: 2px solid #59a29e;
+	color: #232d3b;
 	text-align: left;
+	padding-right: 20px;
 	width: 100%;
 }
 
+.front_score_button:hover {
+	background-color: #64b7b3;
+}
 
+.front_score_button:active {
+	background-color: #59a29e;
+}
 
+.front_score_button img{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+}
 
+.flag_form input[type=radio]{
+	width: 25px; 
+	height: 25px;
+	-webkit-border-radius: 22px; 
+	-moz-border-radius: 22px; 
+	border-radius: 22px;
+	border: 1px solid #bbb;
+	margin-bottom: 30px;
+	margin-right: 5px;
+}
 
 
 
