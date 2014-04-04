@@ -199,6 +199,7 @@ mark.plus {
 
 .content {
 	font-size: 18px;
+	line-height: 1.5;
 }
 
 .content p {
@@ -212,6 +213,12 @@ mark.plus {
 	padding: 0;
 	margin: 0;
 	text-align: left;
+}
+
+.star img {
+	position: relative;
+	bottom: -3px;
+	left: 5px;
 }
 
 .content h4 {

@@ -15,7 +15,7 @@
            <ul class="off-canvas-list">
             <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
             <li><a href="#/">Home</a></li>
-            <li><a href="#">Contribute</a></li>
+            <li><a href="#/contribute">Contribute</a></li>
           </ul>
           
           <div id="login_section">
@@ -39,7 +39,7 @@
                   <a ng-href="#panel2" target="_self" ng-click="toggleImage()">General <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
                   <div id="panel2" class="content">
                     <p>This quiz will challenge users on generic questions, such as: logic, arrays, and functions.</p>
-                    <h3>Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
+                    <h3 class="star">Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
                     <h4>By Mike Miller</h4>
                     <a ng-href="#/quiz" class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
                   </div>

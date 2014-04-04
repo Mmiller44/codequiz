@@ -15,7 +15,7 @@
           <ul class="off-canvas-list">
             <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
             <li><a href="#/">Home</a></li>
-            <li><a href="#">Contribute</a></li>
+            <li><a href="#/contribute">Contribute</a></li>
           </ul>
           
           <div id="login_section">
