@@ -28,10 +28,27 @@ angular.module('codequizApp')
 
 		// Calling my checkWidth function.
 		checkWidth($scope.width);
-		
+
 		// Setting a $scope variable to always equal the route Parameter.
 		// Using the function parseInt() to convert it to a number.
 		// This number is used to tell the user what question they are filling in.
 		$scope.routeNumber = parseInt($routeParams.number);
 
+		// If the routenumber is greater than or equal to 10, and less than or equal to 20.
+		if($scope.routeNumber >= 10 && $scope.routeNumber <= 20)
+		{
+			$scope.showSubmit = false;
+			console.log('WHAT?');
+		}else
+		{
+			$scope.showSubmit = true;
+		}
+
+		if($scope.routeNumber >= 20)
+		{
+			$scope.hideContinue = true;
+		}else
+		{
+			$scope.hideContinue = false;
+		}
   });

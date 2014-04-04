@@ -64,7 +64,8 @@
                         <input type="text" placeholder="Ex: Coloring Style Sheets" />
                       </label>
 
-                      <a ng-href="#/contribute/{{routeNumber + 1}}" class="button report_button">Continue</a>
+                      <a ng-href="#/contribute/{{routeNumber + 1}}" ng-hide="hideContinue" class="button report_button">Continue</a>
+                      <a ng-href="#/" ng-hide="showSubmit" class="button report_button">Submit</a>
 
                     </div>
                   </div>
