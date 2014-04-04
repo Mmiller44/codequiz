@@ -1,20 +1,11 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-// test
-
 // This Route runs the new-user method, inside the user controller when we type /new-user
 // {id} is a Route Parameter that gets passed into the controller.
-Route::get('new-user/{id}', 'HomeController@test');
+Route::get('new-user/{id}', 'UserController@test');
+
+// This route gets all the quizzes inside the Quiz_category table
+Route::get('quiz/{sub_category}', 'QuizController@getQuizzes');
 
 
 
