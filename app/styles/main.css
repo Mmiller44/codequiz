@@ -447,11 +447,37 @@ span.answer_d {
 }
 
 
+/*================================================== Contribution Page ===================================================*/
 
+.desktop_contribution {
+	width: 45%;
+	margin: 0 auto;
+}
 
+.mobile_contribution {
 
+}
 
+#contribution_form {
+	font-size: 16px;
+	color: #232d3b;
+	margin-top: 30px;
+}
 
+#contribution_form p {
+	font-size: 16px;
+	margin-bottom: 30px;
+}
+
+#contribution_form label {
+	color: #232d3b;
+}
+
+#contribution_form h3 {
+	margin-bottom: 20px;
+	font-size: 20px;
+	color: #232d3b;
+}
 
 
 

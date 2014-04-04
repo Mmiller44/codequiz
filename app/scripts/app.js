@@ -25,6 +25,10 @@ angular.module('codequizApp', [
         controller: 'score_controller'
       })
       .when('/contribute', {
+        templateUrl: 'views/contribute_landing_view.tpl',
+        controller: 'contribute_controller'
+      })
+      .when('/contribute/:number', {
         templateUrl: 'views/contribute_view.tpl',
         controller: 'contribute_controller'
       })

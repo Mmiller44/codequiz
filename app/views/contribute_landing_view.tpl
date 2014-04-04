@@ -47,28 +47,34 @@
                 <form id='contribution_form'>
                   <div class="row">
                     <div class="medium-12 columns">
-                      <h3>Question #{{routeNumber}}</h3>
-                      <label>Question
-                        <textarea placeholder="Ex: What does CSS stand for?"></textarea>
+                      <h3>Contribute!</h3>
+                      <p>Each quiz must be a minimum of 10 questions, with a limit of 25. To begin, please fill out the fields below.</p>
+                      <label>Quiz Category
+                        <select>
+                          <option selected disabled>Select Quiz Category</option>
+                          <option value="JavaScript">JavaScript</option>
+                          <option value="HTML">HTML</option>
+                          <option value="CSS">CSS</option>
+                        </select>
                       </label>
-                      <label>Correct Answer
-                        <input type="text" placeholder="Ex: Cascading Style Sheets" />
-                      </label>
-                      <label>Wrong Answer #1
-                        <input type="text" placeholder="Ex: Coloring Style Sheets" />
-                      </label>
-                      <label>Wrong Answer #2
-                        <input type="text" placeholder="Ex: Coloring Style Sheets" />
-                      </label>                      
-                      <label>Wrong Answer #3
-                        <input type="text" placeholder="Ex: Coloring Style Sheets" />
-                      </label>
-
-                      <a ng-href="#/contribute/{{routeNumber + 1}}" class="button report_button">Continue</a>
-
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="medium-12 columns">
+                      <label>Quiz Title
+                        <input type="text" placeholder="Ex: Prototyping or Functions" />
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="medium-12 columns">
+                      <label>Description
+                        <textarea placeholder="Brief description of your quiz. Make it engaging!"></textarea>
+                      </label>
 
+                      <a ng-href="#/contribute/1" class="button report_button">Continue</a>
+                    </div>
+                  </div>
                 </form>
               </div>
 
