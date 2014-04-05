@@ -28,6 +28,7 @@ class QuizController extends BaseController {
 		return $subCategoryQuery->get();
 	}
 
+	// This query returns all the quizzes that are labeled under a certain sub_category, like javascript, html, and css
 	public function getQuizType($category)
 	{
 		$getAllTypeQuery = Quizzes::where('sub_category', '=', $category);
