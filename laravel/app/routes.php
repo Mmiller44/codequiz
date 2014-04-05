@@ -1,4 +1,5 @@
 <?php
 
 
-Route::get('get_users/', 'UsersController@test');
+Route::get('get-users/', 'UsersController@test');
+Route::get('get-quiz-categories/', 'QuizController@getAllQuizzes');
