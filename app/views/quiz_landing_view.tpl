@@ -33,25 +33,25 @@
           <div class="row">
             <div class="small-6-centered columns">
 
-              <h2 class="section_title">JavaScript</h2>
+              <h2 class="section_title">{{quizTitles[0].sub_category}}</h2>
               <dl class="accordion front_end_accordion" data-accordion>
-                <dd class="no_hover">
-                  <a ng-href="#panel2" target="_self" ng-click="toggleImage()">General <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
-                  <div id="panel2" class="content">
-                    <p>This quiz will challenge users on generic questions, such as: logic, arrays, and functions.</p>
+                <dd class="no_hover" ng-repeat="quizzes in quizTitles">
+                  <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
+                  <div id="panel{{quizzes.quiz_ID}}" class="content">
+                    <p>{{quizzes.description}}</p>
                     <h3 class="star">Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
                     <h4>By Mike Miller</h4>
                     <a ng-href="#/quiz" class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
                   </div>
                 </dd>
 
-                <dd class="no_hover">
+<!--                 <dd class="no_hover">
                   <a href="#">Prototypes <mark class="plus"><img src="images/plus.png" width="20" height="20"></mark></a>
                 </dd>
 
                 <dd class="no_hover">
                   <a href="#">Functions <mark class="plus"><img src="images/plus.png" width="20" height="20"></mark></a>
-                </dd>
+                </dd> -->
               </dl>
             </div>
           </div>

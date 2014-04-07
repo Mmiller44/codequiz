@@ -35,7 +35,7 @@
               <h2 class="section_title">Front End</h2>
               <dl class="accordion front_end_accordion">
                 <dd ng-repeat="quiz in frontQuizzes">
-                  <a href="" ng-click="loadTitles(quiz.sub_category)">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow.png"></mark></a>
+                  <a href="#/quiz_landing/{{quiz.sub_category}}" ng-click="loadTitles(quiz.sub_category)">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow.png"></mark></a>
                 </dd>
               </dl>
             </div>
@@ -46,7 +46,7 @@
               <h2 class="section_title">Back End</h2>
               <dl class="accordion back_end_accordion">
                 <dd ng-repeat="quiz in backQuizzes">
-                  <a href="" ng-click="loadTitles(quiz.sub_category)">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
+                  <a href="#/quiz_landing/{{quiz.sub_category}}" ng-click="loadTitles(quiz.sub_category)">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
                 </dd>
               </dl>
             </div>
