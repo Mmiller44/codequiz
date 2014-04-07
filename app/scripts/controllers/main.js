@@ -1,20 +1,19 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('MainCtrl', function ($scope, quizServices) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', ['$scope','$resource', function($scope, $resource) {
 
-    // This is my controller for the homepage of Code Quiz.
-    // I will be calling my quiz_services.js to make an ajax call to my API to retrieve $scope data.
-		quizServices.getAllQuizzes().then(function(foos) {
-			$scope.allQuizzes = foos;
-			console.log($scope.allQuizzes);
-		});
-
-
-
+ 	var User = $resource('http://localhost:3000/get-all-quizzes', {});
+  	$scope.quizzes = User.query({}, function() {
   });
+
+	// RestangularProvider.setBaseUrl('http://localhost:3000');
+	// var baseQuizzes = Restangular.all('/get-all-quizzes');
+	// var items = baseQuizzes.getList().$Object;
+	// console.log(items);
+}]);
+
+// .config(function(RestangularProvider) {
+//   RestangularProvider.setBaseUrl('http://www.google.com');
+//   RestangularProvider.setRequestSuffix('.json');
+// });

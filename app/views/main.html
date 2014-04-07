@@ -34,17 +34,17 @@
             <div class="small-6-centered columns">
               <h2 class="section_title">Front End</h2>
               <dl class="accordion front_end_accordion">
-                <dd>
-                  <a href="#/quiz_landing">JavaScript <mark class="arrow"><img src="images/arrow.png"></mark></a>
+                <dd ng-repeat="quiz in quizzes">
+                  <a href="#/quiz_landing">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow.png"></mark></a>
                 </dd>
 
-                <dd>
+<!--                 <dd>
                   <a href="#/quiz_landing">CSS <mark class="arrow"><img src="images/arrow.png"></mark></a>
                 </dd>
 
                 <dd>
                   <a href="#/quiz_landing">HTML <mark class="arrow"><img src="images/arrow.png"></mark></a>
-                </dd>
+                </dd> -->
               </dl>
             </div>
           </div>

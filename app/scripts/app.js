@@ -4,8 +4,10 @@ angular.module('codequizApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'restangular'
 ])
+
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -35,4 +37,5 @@ angular.module('codequizApp', [
       .otherwise({
         redirectTo: '/'
       });
+
   });

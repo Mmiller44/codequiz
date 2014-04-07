@@ -10,6 +10,7 @@ class QuizController extends BaseController {
 	// This function runs a query to returrn a JSON object of all quizzes.
 	public function getAllQuizzes()
 	{
+		header('Access-Control-Allow-Origin: *');
 		$allQuizzes = QuizCategory::all();
 		return $allQuizzes;
 	}
