@@ -34,7 +34,7 @@
             <div class="small-6-centered columns">
               <h2 class="section_title">Front End</h2>
               <dl class="accordion front_end_accordion">
-                <dd ng-repeat="quiz in quizzes">
+                <dd ng-repeat="quiz in front_quizzes">
                   <a href="#/quiz_landing">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow.png"></mark></a>
                 </dd>
 
@@ -53,16 +53,8 @@
             <div class="small-6-centered columns">
               <h2 class="section_title">Back End</h2>
               <dl class="accordion back_end_accordion">
-                <dd>
-                  <a href="#">PHP <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
-
-                <dd>
-                  <a href="#">Python <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
-
-                <dd>
-                  <a href="#">Cold Fusion <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
+                <dd ng-repeat="quiz in back_quizzes">
+                  <a href="#">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
                 </dd>
               </dl>
             </div>
