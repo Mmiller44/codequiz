@@ -9,6 +9,8 @@ class UsersController extends BaseController {
 		
 	}
 
+
+// LOGIN 
 	public function loginTwitter()
 	{
 		header('Access-Control-Allow-Origin: *');
@@ -32,5 +34,14 @@ class UsersController extends BaseController {
 		$obj = array('login' => (string)$login);;
 		return $obj;
 	}
+
+// USER
+	public function getUsers()
+	{
+		header('Access-Control-Allow-Origin: *');
+		$obj = Users::all();
+		return $obj;
+	}
+
 
 }
