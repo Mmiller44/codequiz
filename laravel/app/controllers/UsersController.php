@@ -43,5 +43,11 @@ class UsersController extends BaseController {
 		return $obj;
 	}
 
+	public function findUser($providerID)
+	{
+		header('Access-Control-Allow-Origin: *');
+		$obj = Users::where('provider_ID', '=', $providerID);
+		return $obj->get();
+	}
 
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','getUser', function($scope, $resource, $rootScope, $window, getQuizCategory,getUser) {
+  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
 	// Declaring a function that gets called from the view.
 	// This function will handle loading the next page to display all the correct titles and quiz info.

@@ -32,3 +32,6 @@ Route::get('login-google/', 'UsersController@loginGoogle');
 
 // This Route Controls login for Google.
 Route::get('get-all-users/', 'UsersController@getUsers');
+
+// Finding a specific user based on provider_ID
+Route::get('find-specific-user/{providerID}', 'UsersController@findUser');
