@@ -1,5 +1,5 @@
 <?php
-
+header('Access-Control-Allow-Origin: *');
 class QuizController extends BaseController {
 
 	public function index()
@@ -35,7 +35,8 @@ class QuizController extends BaseController {
 	public function getQuizType($category)
 	{
 		header('Access-Control-Allow-Origin: *');
-		$getAllTypeQuery = Quizzes::where('sub_category', '=', $category);
+		$getAllTypeQuery = Quizzes::where('sub_category', '=', $category)
+		->join('Users', 'Quizzes.user_ID', '=', 'Users.user_ID');
 		return $getAllTypeQuery->get();
 	}
 

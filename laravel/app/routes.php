@@ -1,7 +1,6 @@
 <?php
 
-// Get all users.
-Route::get('get-users/', 'UsersController@test');
+// QUIZZES
 
 // Get all the quiz categories. Whether front or back end.
 Route::get('get-all-quizzes/', 'QuizController@getAllQuizzes');
@@ -16,3 +15,14 @@ Route::get('get-sub-category/{sub_category}', 'QuizController@getQuizSubCategory
 // Gets all quizzes that are in the same sub_category.
 // This will get called to fill the data for the page that displays all javascript pages.
 Route::get('get-type-of/{sub_category}', 'QuizController@getQuizType');
+
+
+
+
+// USERS
+
+// This Route controls the login functionality for twitter.
+Route::get('login-twitter/', 'UsersController@loginTwitter');
+
+// This Route Controls login for Github.
+Route::get('login-github/', 'UsersController@loginGithub');

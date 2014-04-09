@@ -1,5 +1,6 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
 class UsersController extends BaseController {
 
 
@@ -8,10 +9,20 @@ class UsersController extends BaseController {
 		
 	}
 
-	public function test()
+	public function loginTwitter()
 	{
-		$test = Users::all();
-		return $test;
+		header('Access-Control-Allow-Origin: *');
+		$login = Social::login('twitter');
+		$obj = array('login' => (string)$login);;
+		return $obj;
+	}
+
+	public function loginGithub()
+	{
+		header('Access-Control-Allow-Origin: *');
+		$login = Social::login('github');
+		$obj = array('login' => (string)$login);;
+		return $obj;
 	}
 
 
