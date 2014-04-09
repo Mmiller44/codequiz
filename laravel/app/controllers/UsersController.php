@@ -25,5 +25,12 @@ class UsersController extends BaseController {
 		return $obj;
 	}
 
+	public function loginGoogle()
+	{
+		header('Access-Control-Allow-Origin: *');
+		$login = Social::login('google');
+		$obj = array('login' => (string)$login);;
+		return $obj;
+	}
 
 }

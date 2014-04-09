@@ -36,4 +36,9 @@ angular.module('codequizApp')
 
 	};
 
+	$scope.googleCallback = function()
+	{
+
+	};
+
 }]);

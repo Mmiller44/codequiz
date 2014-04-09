@@ -19,7 +19,15 @@
           </ul>
           
           <div id="login_section">
-            <a href="" ng-click="githubLogin()" class="button github"><img src="images/github.png" width="40" height="40">Github Login</a>
+            <button class="g-signin"
+              data-scope="https://www.googleapis.com/auth/plus.login"
+              data-clientid="540235514815-0p0uie0np95ehai8pr8mj2heq8vt8shq.apps.googleusercontent.com"
+              data-theme="dark"
+              data-cookiepolicy="single_host_origin"
+              data-requestvisibleactions="http://schemas.google.com/AddActivity"
+              data-width="wide">
+            </button>
+          <!--   <a href="" ng-click="googleLogin()" class="button github"><img src="images/github.png" width="40" height="40">Github Login</a> -->
             <a href="#" ng-click="twitterLogin()" class="button twitter text-center"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
           </div>
 
