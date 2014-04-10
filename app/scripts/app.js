@@ -12,7 +12,7 @@ angular.module('codequizApp', [
   'restangular'
 ])
 
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -42,7 +42,5 @@ angular.module('codequizApp', [
         redirectTo: '/'
       });
 
-    // use the HTML5 History API
-    // This is used for Pretty URL's within Angular
-    $locationProvider.html5Mode(true);
+
   });

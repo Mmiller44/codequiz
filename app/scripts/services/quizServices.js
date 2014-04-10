@@ -3,7 +3,7 @@
 angular.module('codequizApp')
 
 // Declaring a factory which will act as my API calls to the database.
-  .factory('getQuizCategory',['$resource','$rootScope',function($resource,$rootScope){
+  .factory('getQuizCategory',['$resource','$rootScope','$routeParams',function($resource,$rootScope, $routeParams){
 
 	// Establishing the $resource connection, to get specific quiz categories.
 	var Quizzes = $resource('http://localhost:3000/get-specific-category/:category', {});
@@ -19,6 +19,18 @@ angular.module('codequizApp')
 	var object = Quizzes.query({category: 'Back End'}, function() {
 			$rootScope.backQuizzes = object;
 		});
+}])
+
+// Declaring a factory which will act as my API calls to the database.
+  .factory('getQuizType',['$resource','$rootScope','$routeParams',function($resource,$rootScope,$routeParams){
+
+	// Establishing the $resource connection, to get specific quiz categories.
+	var getTitles = $resource('http://localhost:3000/get-type-of/:category', {});
+	var quizTitles = getTitles.query({category: $routeParams.sub_category}, function() {
+		return quizTitles;
+	});
+
+	return quizTitles;
 }])
 
   // Declaring a second factory. This one handles getting all the questions for the quiz the user started.
