@@ -17,7 +17,7 @@ angular.module('codequizApp')
 // FINDUSER based on provider_ID
   .factory('findUser',['$resource','$rootScope',function($resource,$rootScope){
 
-	var Users = $resource('http://localhost:3000/find-specific-user/:provider_ID',{provider_ID: 'Github:588'});
+	var Users = $resource('http://localhost:3000/find-specific-user/:provider_ID',{provider_ID: 'Github:00007'});
 
 	// userObject holds all returned results
 	var userObject = Users.query({}, function() {
@@ -27,10 +27,12 @@ angular.module('codequizApp')
 			{
 				// No user by that ID exists, and needs to be added to the database.
 				console.log('No user exists');
-				var newUser = $resource('http://localhost:3000/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:0000',firstName: 'Adam',lastName: 'Gedney', username: 'FrontEnderWear'});
+				var newUser = $resource('http://localhost:3000/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:00007',firstName: 'Harrison',lastName: 'Ford', username: 'indianaJones'});
 				var addedUser = newUser.query({}, function(){
-					console.log(addedUser);
+
 					console.log('user added');
+					// User has now been added to the database. $rootScope variables don't need to be changed,
+					// since it's the same data that was added to the database.
 				});
 
 			}else
@@ -44,16 +46,6 @@ angular.module('codequizApp')
 		});
 
 }]);
-
-//  // Declaring a factory which will call the database to find a user based on their provider_ID
-//   .factory('addUser',['$resource','$rootScope',function($resource,$rootScope){
-
-// 	var newUser = $resource('http://localhost:3000/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:0000',firstName: 'Adam',lastName: 'Gedney', username: 'FrontEnderWear'});
-// 	var addedUser = newUser.query({}, function(){
-
-// 	});
-
-// }]);
 
 
 
