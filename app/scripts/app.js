@@ -1,3 +1,7 @@
+// -- Mike Miller
+// -- Code Quiz App
+// -- 04.05.14
+
 'use strict';
 
 angular.module('codequizApp', [
@@ -18,7 +22,7 @@ angular.module('codequizApp', [
         templateUrl: 'views/quiz_landing_view.tpl',
         controller: 'quiz_landing_controller'
       })
-      .when('/quiz', {
+      .when('/quiz/:quiz_ID', {
         templateUrl: 'views/quiz_view.tpl',
         controller: 'quiz_controller'
       })
@@ -37,6 +41,8 @@ angular.module('codequizApp', [
       .otherwise({
         redirectTo: '/'
       });
+
     // use the HTML5 History API
+    // This is used for Pretty URL's within Angular
     $locationProvider.html5Mode(true);
   });
