@@ -1,12 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_controller',['$scope','$rootScope','$routeParams', function ($scope,$rootScope,$routeParams) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('quiz_controller',['$scope','$rootScope','$routeParams','getQuestions', function ($scope,$rootScope,$routeParams,getQuestions) {
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.
@@ -21,4 +16,8 @@ angular.module('codequizApp')
     // (Side note): I should probably put something in to stop users from adding more than one report per question.
 
 
-  });
+
+    // This is the returned data containing all the questions for the quiz the user started.
+    // It is an array.
+    console.log(getQuestions);
+}]);

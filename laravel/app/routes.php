@@ -19,6 +19,7 @@ Route::get('get-type-of/{sub_category}', 'QuizController@getQuizType');
 
 
 
+
 // USERS
 
 // This Route controls the login functionality for twitter.
@@ -38,3 +39,9 @@ Route::get('find-specific-user/{providerID}', 'UsersController@findUser');
 
 // Push new user into database.
 Route::get('add-new-user/{providerID}/{firstName}/{lastName}/{username}', 'UsersController@addUser');
+
+
+// QUESTIONS
+
+// Get quiz based on quiz_ID
+Route::get('get-questions/{quizID}', 'QuestionController@getQuestions');

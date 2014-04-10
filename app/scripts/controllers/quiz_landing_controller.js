@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams', function($scope, $resource, $rootScope, $routeParams) {
+  .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams','getQuizCategory', function($scope, $resource, $rootScope, $routeParams,getQuizCategory) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -33,4 +33,8 @@ angular.module('codequizApp')
 		$scope.quizTitles = getTitles.query({category: $routeParams.sub_category}, function() {
 			console.log($scope.quizTitles);
 		});
+
+		$scope.setQuizID = function(ID) {
+			$rootScope.quizID = ID;
+		}
 }]);

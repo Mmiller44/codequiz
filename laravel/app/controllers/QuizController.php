@@ -39,5 +39,4 @@ class QuizController extends BaseController {
 		->join('Users', 'Quizzes.user_ID', '=', 'Users.user_ID');
 		return $getAllTypeQuery->get();
 	}
-
 }

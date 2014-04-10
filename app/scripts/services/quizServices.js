@@ -19,4 +19,17 @@ angular.module('codequizApp')
 	var object = Quizzes.query({category: 'Back End'}, function() {
 			$rootScope.backQuizzes = object;
 		});
+}])
+
+  // Declaring a second factory. This one handles getting all the questions for the quiz the user started.
+  .factory('getQuestions',['$resource','$rootScope','$routeParams',function($resource,$rootScope,$routeParams){
+	// Establishing the $resource connection.
+	var questionResource = $resource('http://localhost:3000/get-questions/:quizID', {});
+
+	// Setting an object to equal the results from the server.
+	var currentQuiz = questionResource.query({quizID: $routeParams.quizID}, function() {
+			return currentQuiz;
+		});
+
+	return currentQuiz;
 }]);
