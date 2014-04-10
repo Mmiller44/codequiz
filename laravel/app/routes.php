@@ -35,3 +35,6 @@ Route::get('get-all-users/', 'UsersController@getUsers');
 
 // Finding a specific user based on provider_ID
 Route::get('find-specific-user/{providerID}', 'UsersController@findUser');
+
+// Push new user into database.
+Route::get('add-new-user/{providerID}/{firstName}/{lastName}/{username}', 'UsersController@addUser');

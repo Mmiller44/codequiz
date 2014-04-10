@@ -40,4 +40,12 @@ angular.module('codequizApp')
 			}
 		});
 
+}])
+
+ // Declaring a factory which will call the database to find a user based on their provider_ID
+  .factory('addUser',['$resource','$rootScope',function($resource,$rootScope){
+
+	var newUser = $resource('http://localhost:3000/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:34588'});
+
+
 }]);
