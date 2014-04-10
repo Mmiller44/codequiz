@@ -2,26 +2,24 @@
 
 angular.module('codequizApp')
 
-// Declaring a factory which will act as my API calls to the database.
+// GET ALL USERS
   .factory('getAllUsers',['$resource','$rootScope',function($resource,$rootScope){
 
 	var Users = $resource('http://localhost:3000/get-all-users/');
 
-	// This function calls the resource with the params Front End.
-	// Sets $rootScope variable for the template view to load.
+	// Variable object to hold all the results returned.
 	var objectOne = Users.query({}, function() {
 			console.log(objectOne);
 		});
 
 }])
 
-// Declaring a factory which will call the database to find a user based on their provider_ID
+// FINDUSER based on provider_ID
   .factory('findUser',['$resource','$rootScope',function($resource,$rootScope){
 
-	var Users = $resource('http://localhost:3000/find-specific-user/:provider_ID',{provider_ID: 'Github:34588'});
+	var Users = $resource('http://localhost:3000/find-specific-user/:provider_ID',{provider_ID: 'Github:588'});
 
-	// This function calls the resource with the params Front End.
-	// Sets $rootScope variable for the template view to load.
+	// userObject holds all returned results
 	var userObject = Users.query({}, function() {
 
 			// if objectOne[0] is undefined, we know a user by that provider_ID does not exist.
@@ -29,6 +27,11 @@ angular.module('codequizApp')
 			{
 				// No user by that ID exists, and needs to be added to the database.
 				console.log('No user exists');
+				var newUser = $resource('http://localhost:3000/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:0000',firstName: 'Adam',lastName: 'Gedney', username: 'FrontEnderWear'});
+				var addedUser = newUser.query({}, function(){
+					console.log(addedUser);
+					console.log('user added');
+				});
 
 			}else
 			{
@@ -40,12 +43,24 @@ angular.module('codequizApp')
 			}
 		});
 
-}])
-
- // Declaring a factory which will call the database to find a user based on their provider_ID
-  .factory('addUser',['$resource','$rootScope',function($resource,$rootScope){
-
-	var newUser = $resource('http://localhost:3000/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:34588'});
-
-
 }]);
+
+//  // Declaring a factory which will call the database to find a user based on their provider_ID
+//   .factory('addUser',['$resource','$rootScope',function($resource,$rootScope){
+
+// 	var newUser = $resource('http://localhost:3000/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:0000',firstName: 'Adam',lastName: 'Gedney', username: 'FrontEnderWear'});
+// 	var addedUser = newUser.query({}, function(){
+
+// 	});
+
+// }]);
+
+
+
+
+
+
+
+
+
+
