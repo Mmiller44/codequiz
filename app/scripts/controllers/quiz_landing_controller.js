@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams','getQuizCategory','getQuizType', function($scope, $resource, $rootScope, $routeParams, getQuizCategory, getQuizType) {
+  .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams', function($scope, $resource, $rootScope, $routeParams) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -29,12 +29,10 @@ angular.module('codequizApp')
 
 		// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
 		// the category that was clicked to get to this page, which is also the $routeParam.
-		// var getTitles = $resource('http://localhost:3000/get-type-of/:category', {});
-		// $scope.quizTitles = getTitles.query({category: $routeParams.sub_category}, function() {
-		// 	console.log($scope.quizTitles);
-		// });
-
-		$scope.quizTitles = getQuizType;
+		var getTitles = $resource('http://localhost:3000/get-type-of/:category', {});
+		$scope.quizTitles = getTitles.query({category: $routeParams.sub_category}, function() {
+			console.log($scope.quizTitles);
+		});
 
 		$scope.setQuizID = function(ID) {
 			$rootScope.quizID = ID;
