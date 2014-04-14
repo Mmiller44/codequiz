@@ -51,17 +51,26 @@
                       <label>Question
                         <textarea ng-model="question.text" placeholder="Ex: What does CSS stand for?" required ></textarea>
                       </label>
-                      <label>Correct Answer
-                        <input type="text" ng-model="question.correctAnswer" placeholder="Ex: Cascading Style Sheets" required />
+                      <label>A
+                        <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" required />
                       </label>
-                      <label>Wrong Answer #1
-                        <input type="text" ng-model="question.wrongAnswer1" placeholder="Ex: Coloring Style Sheets" required />
+                      <label>B
+                        <input type="text" ng-model="question.b" placeholder="Ex: Coloring Style Sheets" required />
                       </label>
-                      <label>Wrong Answer #2
-                        <input type="text" ng-model="question.wrongAnswer2" placeholder="Ex: Coloring Style Sheets" required />
+                      <label>C
+                        <input type="text" ng-model="question.c" placeholder="Ex: Coloring Style Sheets" required />
                       </label>                      
-                      <label>Wrong Answer #3
-                        <input type="text" ng-model="question.wrongAnswer3" placeholder="Ex: Coloring Style Sheets" required />
+                      <label>D
+                        <input type="text" ng-model="question.d" placeholder="Ex: Coloring Style Sheets" required />
+                      </label>
+                      <label>Correct Answer
+                        <select ng-model="question.correctAnswer" required >
+                          <option selected disabled>Select Correct Answer</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                          <option value="D">D</option>
+                        </select>
                       </label>
 
                       <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
