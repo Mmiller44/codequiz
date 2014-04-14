@@ -62,6 +62,16 @@ angular.module('codequizApp')
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
 			$rootScope.$broadcast("addQuizEvent", {category: quizObject.category,title: quizObject.title, description: quizObject.description, userID: 12});
 		}
+
+		$scope.storeQuestion = function(question)
+		{
+			// This is the data the user entered for the question.
+			// It contains: .text, .correctAnswer, .wrongAnswer1, .wrongAnswer2, .wrongAnswer3;
+			console.log(question);
+
+			// I need to trigger an event within the contributeServices page.
+			// This event will take the data, and pass it to the API, where it will get added.
+		}
   }]);
 
 

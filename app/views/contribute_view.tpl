@@ -49,22 +49,22 @@
                     <div class="medium-12 columns">
                       <h3>Question #{{routeNumber}}</h3>
                       <label>Question
-                        <textarea placeholder="Ex: What does CSS stand for?"></textarea>
+                        <textarea ng-model="question.text" placeholder="Ex: What does CSS stand for?" required ></textarea>
                       </label>
                       <label>Correct Answer
-                        <input type="text" placeholder="Ex: Cascading Style Sheets" />
+                        <input type="text" ng-model="question.correctAnswer" placeholder="Ex: Cascading Style Sheets" required />
                       </label>
                       <label>Wrong Answer #1
-                        <input type="text" placeholder="Ex: Coloring Style Sheets" />
+                        <input type="text" ng-model="question.wrongAnswer1" placeholder="Ex: Coloring Style Sheets" required />
                       </label>
                       <label>Wrong Answer #2
-                        <input type="text" placeholder="Ex: Coloring Style Sheets" />
+                        <input type="text" ng-model="question.wrongAnswer2" placeholder="Ex: Coloring Style Sheets" required />
                       </label>                      
                       <label>Wrong Answer #3
-                        <input type="text" placeholder="Ex: Coloring Style Sheets" />
+                        <input type="text" ng-model="question.wrongAnswer3" placeholder="Ex: Coloring Style Sheets" required />
                       </label>
 
-                      <a ng-href="#/contribute/{{routeNumber + 1}}" ng-hide="hideContinue" class="button report_button">Continue</a>
+                      <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
                       <a ng-href="#/" ng-hide="showSubmit" class="button report_button">Submit</a>
 
                     </div>
