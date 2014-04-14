@@ -2,34 +2,19 @@
 
 angular.module('codequizApp')
 
-// Declaring a factory which will act as my API calls to the database.
-  .factory('addQuiz',['$resource','$rootScope','$routeParams',function($resource,$rootScope, $routeParams){
+// All factories in this page are used for the contribute functionality.
 
-	// Establishing the $resource connection, to get specific quiz categories.
-	var Quizzes = $resource('http://localhost:3000/add-quiz/:', {});
+	// Declaring a factory which will act as my API calls to the database.
+  .factory('addQuiz',['$resource','$rootScope','$routeParams',function($resource,$rootScope,$routeParams){
 
-	// -- Queries the resource for all Front End quiz categories.
-	// -- Sets $rootScope variable for the template view to load.
-	var objectOne = Quizzes.query({category: 'Front End'}, function() {
-			$rootScope.frontQuizzes = objectOne;
+	// API call to add a quiz to Quizzes table.
+	var Quizzes = $resource('http://localhost:3000/add-quiz/:quizCategory/:quizTitle/:quizDescription', {});
+
+	// Assigning my variables to the $resource.query.
+	var addingQuiz = Quizzes.query({quizCategory: $rootScope.newQuiz.category, quizTitle: $rootScope.newQuiz.title, quizDescription: $rootScope.newQuiz.description}, function() {
+			return addingQuiz;
 		});
 
-	// -- Queries the resource for all Back End quiz categories.
-	// -- Sets $rootScope variable for the template view to load.
-	var object = Quizzes.query({category: 'Back End'}, function() {
-			$rootScope.backQuizzes = object;
-		});
+	return addingQuiz;
+
 }]);
-
-//   // Declaring a second factory. This one handles getting all the questions for the quiz the user started.
-//   .factory('getQuestions',['$resource','$rootScope','$routeParams',function($resource,$rootScope,$routeParams){
-// 	// Establishing the $resource connection.
-// 	var questionResource = $resource('http://localhost:3000/get-questions/:quizID', {});
-
-// 	// Setting an object to equal the results from the server.
-// 	var currentQuiz = questionResource.query({quizID: $routeParams.quizID}, function() {
-// 			return currentQuiz;
-// 		});
-
-// 	return currentQuiz;
-// }]);

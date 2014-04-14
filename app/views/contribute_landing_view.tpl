@@ -55,6 +55,9 @@
                           <option value="Javascript">JavaScript</option>
                           <option value="HTML">HTML</option>
                           <option value="CSS">CSS</option>
+                          <option value="PHP">PHP</option>
+                          <option value="Python">Python</option>
+                          <option value="ColdFusion">Cold Fusion</option>
                         </select>
                       </label>
                     </div>
@@ -72,7 +75,7 @@
                         <textarea ng-model="quiz.description" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
                       </label>
 
-                      <a ng-href="#/contribute/1" ng-click="addQuiz(quiz)" class="button report_button">Continue</a>
+                      <a ng-href="#/contribute/1" ng-click="submitQuizInfo(quiz)" class="button report_button">Continue</a>
                     </div>
                   </div>
                 </form>

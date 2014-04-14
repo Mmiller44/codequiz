@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('contribute_controller',['$scope','$window','$routeParams',function ($scope, $window, $routeParams) {
-
+  .controller('contribute_controller',['$scope','$window','$routeParams','$rootScope','addQuiz',function ($scope, $window, $routeParams,$rootScope,addQuiz) {
+	
     // Setting a $scope variable to equal the window width
     // With this variable, I can now check what device the user is using.
     // Depending on the device, I change booleans, to show/hide DOM elements.
@@ -49,13 +49,22 @@ angular.module('codequizApp')
 		}
 
 		// This function gets called when the continue button is clicked.
-		// It will add the Quiz Title, Quiz Description and Quiz Category to the Quizzes Table.
+		// It gets passed an object called quiz. Containing all the information the user just inputted.
 		// I will get a return from the API of the added quizzes' quiz_ID. Needed to add questions.
 		// I will need to inject a factory call for the contribute $resources.
-		$scope.addQuiz = function(quiz)
+		$scope.submitQuizInfo = function(quizObject)
 		{
+			// quiz is an object containing: .category, .title, and .description.
+			// These values are determined by what the user typed in the form.
 			console.log('Button Clicked');
-			console.log(quiz);
+			console.log(quizObject);
+
+			// addQuiz is the contribute Service that makes the call to /add-quiz.
+			// Need to assign these objects to $rootScope variables for my service to use.
+			$rootScope.newQuiz = {};
+			$rootScope.newQuiz.title = quizObject.title;
+			$rootScope.newQuiz.category = quizObject.category;
+			$rootScope.newQuiz.description = quizObject.description;
 		}
   }]);
 
