@@ -18,14 +18,14 @@ class QuestionController extends BaseController {
 	{
 		header('Access-Control-Allow-Origin: *');
 		$addQuestion = new Questions;
-		$addQuestion->question = 'LOLLY DOO';
-		$addQuestion->a = 'Woot';
-		$addQuestion->b = 'ot';
-		$addQuestion->c = 'Wo';
-		$addQuestion->d = 'Woottt';
-		$addQuestion->correct_answer = 'A';
-		$addQuestion->quiz_ID = 58;
-		$addQuestion->quiz_category_ID = 1;
+		$addQuestion->question = $question;
+		$addQuestion->a = $a;
+		$addQuestion->b = $b;
+		$addQuestion->c = $c;
+		$addQuestion->d = $d;
+		$addQuestion->correct_answer = $correctAnswer;
+		$addQuestion->quiz_ID = $quizID;
+		$addQuestion->quiz_category_ID = $quiz_category_ID;
 		$addQuestion->save();
 	}
 

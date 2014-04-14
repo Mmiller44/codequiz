@@ -58,6 +58,14 @@ angular.module('codequizApp')
 			// These values are determined by what the user typed in the form.
 			console.log(quizObject);
 
+			if(quizObject.category === 'PHP' || quizObject.category === 'Python' || quizObject.category === 'ColdFusion')
+			{
+				$rootScope.newQuizCategoryID = 2;
+			}else
+			{
+				$rootScope.newQuizCategoryID = 1;
+			}
+
 			// This triggers an event inside my contributeServices -> addQuiz.
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
 			$rootScope.$broadcast("addQuizEvent", {category: quizObject.category,title: quizObject.title, description: quizObject.description, userID: 12});
@@ -71,7 +79,7 @@ angular.module('codequizApp')
 
 			// I need to trigger an event within the contributeServices page.
 			// This event will take the data, and pass it to the API, where it will get added.
-			// $rootScope.$broadcast("addQuestionEvent", {question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, userID: $rootScope.userID, quizID: $rootScope.quizID});
+			$rootScope.$broadcast("addQuestionEvent", {text: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer,quizID: $rootScope.quizID, quizCategoryID: $rootScope.newQuizCategoryID});
 
 		}
   }]);
