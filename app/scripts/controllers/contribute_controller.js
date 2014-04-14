@@ -2,7 +2,7 @@
 
 angular.module('codequizApp')
   .controller('contribute_controller',['$scope','$window','$routeParams','$rootScope','addQuiz',function ($scope, $window, $routeParams,$rootScope,addQuiz) {
-	
+
     // Setting a $scope variable to equal the window width
     // With this variable, I can now check what device the user is using.
     // Depending on the device, I change booleans, to show/hide DOM elements.
@@ -59,12 +59,13 @@ angular.module('codequizApp')
 			console.log('Button Clicked');
 			console.log(quizObject);
 
+			$rootScope.$broadcast("addQuizEvent", {title: quizObject.title, category: quizObject.category, description: quizObject.description });
+
 			// addQuiz is the contribute Service that makes the call to /add-quiz.
 			// Need to assign these objects to $rootScope variables for my service to use.
-			$rootScope.newQuiz = {};
-			$rootScope.newQuiz.title = quizObject.title;
-			$rootScope.newQuiz.category = quizObject.category;
-			$rootScope.newQuiz.description = quizObject.description;
+			// $rootScope.newQuiz.title = quizObject.title;
+			// $rootScope.newQuiz.category = quizObject.category;
+			// $rootScope.newQuiz.description = quizObject.description;
 		}
   }]);
 
