@@ -1,12 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('contribute_controller',function ($scope, $window, $routeParams) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('contribute_controller',['$scope','$window','$routeParams',function ($scope, $window, $routeParams) {
 
     // Setting a $scope variable to equal the window width
     // With this variable, I can now check what device the user is using.
@@ -44,6 +39,7 @@ angular.module('codequizApp')
 			$scope.showSubmit = true;
 		}
 
+		// routeNumber is greater than or equal to 20, so hide the continue button and only offer submit.
 		if($scope.routeNumber >= 20)
 		{
 			$scope.hideContinue = true;
@@ -51,4 +47,25 @@ angular.module('codequizApp')
 		{
 			$scope.hideContinue = false;
 		}
-  });
+
+		// This function gets called when the continue button is clicked.
+		// It will add the Quiz Title, Quiz Description and Quiz Category to the Quizzes Table.
+		// I will get a return from the API of the added quizzes' quiz_ID. Needed to add questions.
+		// I will need to inject a factory call for the contribute $resources.
+		$scope.addQuiz = function(quiz)
+		{
+			console.log('Button Clicked');
+			console.log(quiz);
+		}
+  }]);
+
+
+
+
+
+
+
+
+
+
+

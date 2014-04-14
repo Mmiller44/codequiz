@@ -48,11 +48,11 @@
                   <div class="row">
                     <div class="medium-12 columns">
                       <h3>Contribute!</h3>
-                      <p>Each quiz must be a minimum of 10 questions, with a limit of 25. To begin, please fill out the fields below.</p>
+                      <p>Each quiz must be a minimum of 10 questions, with a limit of 20. To begin, please fill out the fields below.</p>
                       <label>Quiz Category
-                        <select>
+                        <select ng-model="quiz.category" required >
                           <option selected disabled>Select Quiz Category</option>
-                          <option value="JavaScript">JavaScript</option>
+                          <option value="Javascript">JavaScript</option>
                           <option value="HTML">HTML</option>
                           <option value="CSS">CSS</option>
                         </select>
@@ -62,17 +62,17 @@
                   <div class="row">
                     <div class="medium-12 columns">
                       <label>Quiz Title
-                        <input type="text" placeholder="Ex: Prototyping or Functions" />
+                        <input type="text" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
                       </label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="medium-12 columns">
                       <label>Description
-                        <textarea placeholder="Brief description of your quiz. Make it engaging!"></textarea>
+                        <textarea ng-model="quiz.description" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
                       </label>
 
-                      <a ng-href="#/contribute/1" class="button report_button">Continue</a>
+                      <a ng-href="#/contribute/1" ng-click="addQuiz(quiz)" class="button report_button">Continue</a>
                     </div>
                   </div>
                 </form>

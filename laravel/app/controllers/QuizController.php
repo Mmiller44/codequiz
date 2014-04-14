@@ -40,6 +40,7 @@ class QuizController extends BaseController {
 		return $getAllTypeQuery->get();
 	}
 
+	// This function gets called to add a new quiz to the database.
 	public function addQuiz()
 	{
 		header('Access-Control-Allow-Origin: *');
@@ -51,5 +52,8 @@ class QuizController extends BaseController {
 		$addQuiz->user_ID = 12;
 		$addQuiz->quiz_ranking = '0';
 		$addQuiz->save();
+		// I need to return the quiz_ID of the quiz just added.
+		// The front end needs to know, so it can make another API call to the questions Table,
+		// to add questions for this specific quiz.
 	}
 }
