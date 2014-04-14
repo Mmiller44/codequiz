@@ -75,7 +75,7 @@
                         <textarea ng-model="quiz.description" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
                       </label>
 
-                      <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button report_button">Continue</a>
+                      <a ng-href="#/contribute/1" ng-click="submitQuizInfo(quiz)" class="button report_button">Continue</a>
                     </div>
                   </div>
                 </form>
