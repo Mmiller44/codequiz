@@ -32,9 +32,11 @@ angular.module('codequizApp')
 		var getTitles = $resource('http://localhost:3000/get-type-of/:category', {});
 		$scope.quizTitles = getTitles.query({category: $routeParams.sub_category}, function() {
 			console.log($scope.quizTitles);
+			$rootScope.sub_category = $routeParams.sub_category;
 		});
 
 		$scope.setQuizID = function(ID) {
 			$rootScope.quizID = ID;
+  			//$rootScope.currentNumber = 1;
 		}
 }]);

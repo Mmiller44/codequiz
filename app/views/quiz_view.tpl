@@ -33,7 +33,7 @@
           <!-- FRONT END -->
           <div class="row">
             <div class="small-6-centered columns">
-              <h2 class="quiz_title_front">JavaScript</h2>
+              <h2 class="quiz_title_front">{{$root.sub_category}}</h2>
               <h3 class="progress_indicator">1/20</h3>
 
               <a href="" class="flag_question" data-reveal-id="report_modal" data-reveal><img src="images/flag.png"></a>

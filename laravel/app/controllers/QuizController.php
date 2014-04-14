@@ -39,4 +39,17 @@ class QuizController extends BaseController {
 		->join('Users', 'Quizzes.user_ID', '=', 'Users.user_ID');
 		return $getAllTypeQuery->get();
 	}
+
+	public function addQuiz()
+	{
+		header('Access-Control-Allow-Origin: *');
+		$addQuiz = new Quizzes;
+		$addQuiz->main_category = 'Back End';
+		$addQuiz->sub_category = 'PHP';
+		$addQuiz->title = 'TESTING';
+		$addQuiz->description = 'My test';
+		$addQuiz->user_ID = 12;
+		$addQuiz->quiz_ranking = '0';
+		$addQuiz->save();
+	}
 }

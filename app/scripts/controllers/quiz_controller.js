@@ -20,4 +20,6 @@ angular.module('codequizApp')
     // This is the returned data containing all the questions for the quiz the user started.
     // It is an array.
     console.log(getQuestions);
+    $scope.questions = getQuestions;
+    
 }]);
