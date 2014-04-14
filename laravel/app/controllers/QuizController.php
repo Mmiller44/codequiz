@@ -41,15 +41,23 @@ class QuizController extends BaseController {
 	}
 
 	// This function gets called to add a new quiz to the database.
-	public function addQuiz()
+	public function addQuiz($quizCategory, $quizTitle, $quizDescription, $userID)
 	{
 		header('Access-Control-Allow-Origin: *');
 		$addQuiz = new Quizzes;
-		$addQuiz->main_category = 'Back End';
-		$addQuiz->sub_category = 'PHP';
-		$addQuiz->title = 'TESTING';
-		$addQuiz->description = 'My test';
-		$addQuiz->user_ID = 12;
+
+		// Setting an if condition to check whether the quiz should be categorised as front or back end based on sub_category.
+		if($quizCategory === 'PHP' || $quizCategory === 'ColdFusion' || $quizCategory === 'Python')
+		{
+			$addQuiz->main_category = 'Back End';
+		}else
+		{
+			$addQuiz->main_category = 'Front End';
+		}
+		$addQuiz->sub_category = $quizCategory;
+		$addQuiz->title = $quizTitle;
+		$addQuiz->description = $quizDescription;
+		$addQuiz->user_ID = $userID;
 		$addQuiz->quiz_ranking = '0';
 		$addQuiz->save();
 		// I need to return the quiz_ID of the quiz just added.

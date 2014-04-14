@@ -50,7 +50,7 @@ Route::get('get-questions/{quizID}', 'QuestionController@getQuestions');
 // CONTRIBUTE
 
 // Add a new quiz to the quizzes DB.
-Route::get('add-quiz/', 'QuizController@addQuiz');
+Route::get('add-quiz/{quizCategory}/{quizTitle}/{quizDescription}/{userID}', 'QuizController@addQuiz');
 
 
 

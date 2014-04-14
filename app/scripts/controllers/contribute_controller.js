@@ -56,16 +56,11 @@ angular.module('codequizApp')
 		{
 			// quiz is an object containing: .category, .title, and .description.
 			// These values are determined by what the user typed in the form.
-			console.log('Button Clicked');
 			console.log(quizObject);
 
-			$rootScope.$broadcast("addQuizEvent", {title: quizObject.title, category: quizObject.category, description: quizObject.description });
-
-			// addQuiz is the contribute Service that makes the call to /add-quiz.
-			// Need to assign these objects to $rootScope variables for my service to use.
-			// $rootScope.newQuiz.title = quizObject.title;
-			// $rootScope.newQuiz.category = quizObject.category;
-			// $rootScope.newQuiz.description = quizObject.description;
+			// This triggers an event inside my contributeServices -> addQuiz.
+			// Passes all the data from the form, to the api to be added to the Quizzes Table.
+			$rootScope.$broadcast("addQuizEvent", {category: quizObject.category,title: quizObject.title, description: quizObject.description, userID: 12});
 		}
   }]);
 
