@@ -12,14 +12,16 @@ angular.module('codequizApp')
 	$rootScope.$on("addQuizEvent", function (event, args) {
 
 		// API call to add a quiz to Quizzes table.
-		var Quizzes = $resource('http://localhost:3000/add-quiz/:quizCategory/:quizTitle/:quizDescription/:userID', {});
+		var Quizzes = $resource('http://localhost:3000/add-quiz/:quizCategory/:quizTitle/:quizDescription/:userID', {}, {newQuiz: {method: 'get', isArray: false}});
 
 		// Assigning my variables to the $resource.query.
-			var addingQuiz = Quizzes.query({quizCategory: args.category, quizTitle: args.title, quizDescription: args.description, userID: args.userID}, function() {
-					return addingQuiz;
+			var addingQuiz = Quizzes.newQuiz({quizCategory: args.category, quizTitle: args.title, quizDescription: args.description, userID: args.userID}, function() {
+					
+					// This is the quiz_ID of the quiz just pushed to the DB.
+					console.log(addingQuiz.quiz_ID);
+
 				});
 
-			return addingQuiz;
 	});
 
 }]);

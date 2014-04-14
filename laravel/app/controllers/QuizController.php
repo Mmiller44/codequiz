@@ -41,9 +41,11 @@ class QuizController extends BaseController {
 	}
 
 	// This function gets called to add a new quiz to the database.
+	// variables are called through route params.
 	public function addQuiz($quizCategory, $quizTitle, $quizDescription, $userID)
 	{
 		header('Access-Control-Allow-Origin: *');
+
 		$addQuiz = new Quizzes;
 
 		// Setting an if condition to check whether the quiz should be categorised as front or back end based on sub_category.
@@ -54,14 +56,19 @@ class QuizController extends BaseController {
 		{
 			$addQuiz->main_category = 'Front End';
 		}
+
 		$addQuiz->sub_category = $quizCategory;
 		$addQuiz->title = $quizTitle;
 		$addQuiz->description = $quizDescription;
 		$addQuiz->user_ID = $userID;
 		$addQuiz->quiz_ranking = '0';
 		$addQuiz->save();
-		// I need to return the quiz_ID of the quiz just added.
-		// The front end needs to know, so it can make another API call to the questions Table,
-		// to add questions for this specific quiz.
+
+		// returning the quiz_ID of the newly added quiz, will be needed to add questions later.
+		// Setting the quiz_ID to be in an array.
+		// This will ensure the data stays together as one object in an array.
+		$obj = array('quiz_ID' => (string)$addQuiz->id);
+		return $obj;
+
 	}
 }

@@ -31,7 +31,7 @@ class UsersController extends BaseController {
 	{
 		header('Access-Control-Allow-Origin: *');
 		$login = Social::login('google');
-		$obj = array('login' => (string)$login);;
+		$obj = array('login' => (string)$login);
 		return $obj;
 	}
 
