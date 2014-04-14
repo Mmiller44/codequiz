@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('contribute_controller',['$scope','$window','$routeParams','$rootScope','addQuiz',function ($scope, $window, $routeParams,$rootScope,addQuiz) {
+  .controller('contribute_controller',['$scope','$window','$routeParams','$rootScope','addQuiz','addQuestion',function ($scope, $window, $routeParams,$rootScope,addQuiz,addQuestion) {
 
     // Setting a $scope variable to equal the window width
     // With this variable, I can now check what device the user is using.
@@ -66,11 +66,13 @@ angular.module('codequizApp')
 		$scope.storeQuestion = function(question)
 		{
 			// This is the data the user entered for the question.
-			// It contains: .text, .correctAnswer, .wrongAnswer1, .wrongAnswer2, .wrongAnswer3;
+			// It contains: .text, .a, .b, .c, .d, .correctAnswer;
 			console.log(question);
 
 			// I need to trigger an event within the contributeServices page.
 			// This event will take the data, and pass it to the API, where it will get added.
+			// $rootScope.$broadcast("addQuestionEvent", {question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, userID: $rootScope.userID, quizID: $rootScope.quizID});
+
 		}
   }]);
 
