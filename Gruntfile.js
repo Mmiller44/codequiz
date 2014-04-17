@@ -9,15 +9,38 @@
 
 module.exports = function (grunt) {
 
+  var pkg = require('./package.json');
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  grunt.loadNpmTasks('grunt-deploy');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    deploy: {
+      liveservers: {
+        options: {
+          servers: [{
+            host: 'ftp.colorvomit.com',
+            port: 21,
+            username: 'codequiz@colorvomit.com',
+            password: 'mm0681410'
+          }],
+          deploy_path: '/public_html/codequiz.io/'
+        }
+      }
+    },
+
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+      },
+},
     // Project settings
     yeoman: {
       // configurable paths
@@ -158,7 +181,6 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
@@ -253,9 +275,11 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
+            '.gitignore',
             '*.html',
+            '*.tpl',
             'views/{,*/}*.html',
-            'bower_components/**/*',
+            'views/{,*/}*.tpl',
             'images/{,*/}*.{webp}',
             'fonts/*'
           ]
@@ -352,6 +376,12 @@ module.exports = function (grunt) {
     'connect:test',
     'karma'
   ]);
+
+
+  grunt.registerTask('deploy', [
+    'deploy'
+    ]);
+
 
   grunt.registerTask('build', [
     'clean:dist',

@@ -1,7 +1,9 @@
 {
   "name": "codequiz",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-ftp-deploy": "^0.1.2"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-autoprefixer": "~0.4.0",
@@ -27,7 +29,8 @@
     "grunt-usemin": "~2.0.0",
     "jshint-stylish": "~0.1.3",
     "load-grunt-tasks": "~0.2.0",
-    "time-grunt": "~0.2.1"
+    "time-grunt": "~0.2.1",
+    "grunt-deploy": "^0.1.7"
   },
   "engines": {
     "node": ">=0.8.0"
