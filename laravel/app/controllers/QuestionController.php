@@ -14,6 +14,10 @@ class QuestionController extends BaseController {
 		return $getQuiz->get();
 	}
 
+	// Adds the question to the database with the specific quiz_ID.
+	// -- First it instantiates a new instance of my Table Questions.
+	// -- Then sets values to all the columns via the route Params.
+	// -- Lastly, it saves them to the database.
 	public function addQuestion($question,$a,$b,$c,$d,$correctAnswer,$quizID,$quiz_category_ID)
 	{
 		header('Access-Control-Allow-Origin: *');
