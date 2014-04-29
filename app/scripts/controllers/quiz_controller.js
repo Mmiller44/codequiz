@@ -22,5 +22,6 @@ angular.module('codequizApp')
     console.log(getQuestions);
     $scope.questions = getQuestions;
     console.log($rootScope.position);
+    $scope.currentPosition = getQuizPosition;
 
 }]);

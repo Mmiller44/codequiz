@@ -4,7 +4,7 @@ angular.module('codequizApp')
   .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
 	// Hard coding a userID until login is built.
-	$rootScope.userID = 12;
+	$rootScope.userID = 20;
 
 	// Declaring a function that gets called from the view.
 	// This function will handle loading the next page to display all the correct titles and quiz info.
