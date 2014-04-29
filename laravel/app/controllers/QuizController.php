@@ -36,7 +36,8 @@ class QuizController extends BaseController {
 	{
 		header('Access-Control-Allow-Origin: *');
 		$getAllTypeQuery = Quizzes::where('sub_category', '=', $category)
-		->join('Users', 'Quizzes.user_ID', '=', 'Users.user_ID');
+		->join('Users', 'Quizzes.user_ID', '=', 'Users.user_ID')
+		->join('User_quiz', 'Quizzes.quiz_ID', '=', 'User_quiz.quiz_ID');
 		return $getAllTypeQuery->get();
 	}
 
