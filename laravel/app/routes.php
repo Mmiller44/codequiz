@@ -1,7 +1,7 @@
 <?php
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // QUIZZES
-
 // Get all the quiz categories. Whether front or back end.
 Route::get('get-all-quizzes/', 'QuizController@getAllQuizzes');
 
@@ -19,8 +19,9 @@ Route::get('get-type-of/{sub_category}', 'QuizController@getQuizType');
 
 
 
-// USERS
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// USERS
 // This Route controls the login functionality for twitter.
 Route::get('login-twitter/', 'UsersController@loginTwitter');
 
@@ -40,15 +41,29 @@ Route::get('find-specific-user/{providerID}', 'UsersController@findUser');
 Route::get('add-new-user/{providerID}/{firstName}/{lastName}/{username}', 'UsersController@addUser');
 
 
-// QUESTIONS
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// User_quiz
+// Find specific Position in a quiz by quizID and userID.
+Route::get('get-position/{userID}/{quizID}', 'UserQuizController@getPosition');
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// QUESTIONS
 // Get quiz based on quiz_ID
 Route::get('get-questions/{quizID}', 'QuestionController@getQuestions');
 
 
 
-// CONTRIBUTE
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CONTRIBUTE
 // Add Quizz
 Route::get('add-quiz/{quizCategory}/{quizTitle}/{quizDescription}/{userID}', 'QuizController@addQuiz');
 

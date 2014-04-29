@@ -38,5 +38,15 @@ angular.module('codequizApp')
 		$scope.setQuizID = function(ID) {
 			$rootScope.quizID = ID;
   			//$rootScope.currentNumber = 1;
+  			var getPosition = $resource('http://localhost:3000/get-position/:userID/:quizID',{});
+  			var quizPosition = getPosition.query({userID: $rootScope.userID, quizID: ID}, function(){
+  				console.log(quizPosition);
+  				// $rootScope.position = quizPosition;
+  			});
 		}
+
+		// I need to query the DB for the users specific position in the specific quiz they click(ed).
+		// If it comes back blank or null, I need to put the user into that User_quiz table, with a position of 1.
+
+
 }]);

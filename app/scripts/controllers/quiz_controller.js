@@ -21,5 +21,6 @@ angular.module('codequizApp')
     // It is an array.
     console.log(getQuestions);
     $scope.questions = getQuestions;
-    
+    // console.log($rootScope.position);
+
 }]);

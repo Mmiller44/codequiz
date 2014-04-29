@@ -42,6 +42,7 @@ angular.module('codequizApp')
 				$rootScope.firstName = userObject[0].first_name;
 				$rootScope.lastName = userObject[0].last_name;
 				$rootScope.providerID = userObject[0].provider_ID;
+				$rootScope.userID = userObject[0].user_ID;
 			}
 		});
 
