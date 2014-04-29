@@ -45,13 +45,7 @@
                   </div>
                 </dd>
 
-<!--                 <dd class="no_hover">
-                  <a href="#">Prototypes <mark class="plus"><img src="images/plus.png" width="20" height="20"></mark></a>
-                </dd>
 
-                <dd class="no_hover">
-                  <a href="#">Functions <mark class="plus"><img src="images/plus.png" width="20" height="20"></mark></a>
-                </dd> -->
               </dl>
             </div>
           </div>

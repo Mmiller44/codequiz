@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_controller',['$scope','$rootScope','$routeParams','getQuestions', function ($scope,$rootScope,$routeParams,getQuestions) {
+  .controller('quiz_controller',['$scope','$rootScope','$routeParams','getQuestions','getQuizPosition', function ($scope,$rootScope,$routeParams,getQuestions,getQuizPosition) {
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.
@@ -21,6 +21,6 @@ angular.module('codequizApp')
     // It is an array.
     console.log(getQuestions);
     $scope.questions = getQuestions;
-    // console.log($rootScope.position);
+    console.log($rootScope.position);
 
 }]);
