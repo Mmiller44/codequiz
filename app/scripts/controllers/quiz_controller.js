@@ -23,5 +23,11 @@ angular.module('codequizApp')
     $scope.questions = getQuestions;
     console.log($rootScope.position);
     $scope.currentPosition = getQuizPosition;
+    $scope.parseInt = parseInt;
+
+    if($scope.currentPosition[0] === null || $scope.currentPosition[0] === undefined)
+    {
+        console.log('user has never started quiz');
+    }
 
 }]);

@@ -41,11 +41,11 @@ angular.module('codequizApp')
 	.factory('getQuizPosition',['$resource','$rootScope','$routeParams',function($resource,$rootScope, $routeParams){
 
 	var getPosition = $resource('http://localhost:3000/get-position/:userID/:quizID',{});
-	var quizPosition = getPosition.query({userID: 20, quizID: $routeParams.quizID}, function(){
+	var quizPosition = getPosition.query({userID: 10, quizID: $routeParams.quizID}, function(){
 		$rootScope.position = quizPosition;
 		return quizPosition;
 	});
 
 	return quizPosition;
-	
+
 }]);
