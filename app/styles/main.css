@@ -163,6 +163,10 @@ body,html{
 	padding-top: 20px;
 }
 
+.front_end_accordion .content.active {
+	background-color: #59a29e;
+}
+
 .accordion dd > a {
 	background-color: #64b7b3;
 	border-bottom: 2px solid #59a29e;
@@ -191,10 +195,6 @@ mark.arrow {
 mark.plus {
 	background: none;
 	float: right;
-}
-
-#panel2{
-	background-color: #59a29e;
 }
 
 .content {
