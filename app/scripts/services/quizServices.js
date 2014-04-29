@@ -21,7 +21,10 @@ angular.module('codequizApp')
 		});
 }])
 
-  // Declaring a second factory. This one handles getting all the questions for the quiz the user started.
+
+
+
+// This handles getting all the questions for the quiz the user clicked on.
   .factory('getQuestions',['$resource','$rootScope','$routeParams',function($resource,$rootScope,$routeParams){
 	// Establishing the $resource connection.
 	var questionResource = $resource('http://localhost:3000/get-questions/:quizID', {});
@@ -34,10 +37,10 @@ angular.module('codequizApp')
 	return currentQuiz;
 }])
 
-	// This factory gets the users position in the quiz that was clicked.
-	// I will need to have a fallback for if this object is empty, meaning they haven't ever started this quiz.
-	// Default number will need to be set to one.
-	// With this number, I now will know what question(s) they still need to answer.
+
+
+// This factory gets the users position in the quiz that was clicked, if they have started it previously.
+// Returns object to controller. If object is empty, controller handles the next API call.
 	.factory('getQuizPosition',['$resource','$rootScope','$routeParams',function($resource,$rootScope, $routeParams){
 
 	var getPosition = $resource('http://localhost:3000/get-position/:userID/:quizID',{});
@@ -49,3 +52,14 @@ angular.module('codequizApp')
 	return quizPosition;
 
 }]);
+
+
+
+
+
+
+
+
+
+
+

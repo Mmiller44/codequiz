@@ -16,18 +16,31 @@ angular.module('codequizApp')
     // (Side note): I should probably put something in to stop users from adding more than one report per question.
 
 
-
-    // This is the returned data containing all the questions for the quiz the user started.
-    // It is an array.
     console.log(getQuestions);
+
+    // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
     $scope.questions = getQuestions;
+
+
     console.log($rootScope.position);
+
+
+    // Setting scope variable to be equal to the object returned from the quizServices -> getQuizPosition.
     $scope.currentPosition = getQuizPosition;
+
+    // setting a scope var to parseInt, so in the view I can use parseInt on a string, and add numbers to it.
     $scope.parseInt = parseInt;
 
+
+
+    // IF statement checking if the user has ever started this quiz or not.
     if($scope.currentPosition[0] === null || $scope.currentPosition[0] === undefined)
     {
+        // User has never started this quiz before. Need to add them to the table User_quiz, at position 0.
         console.log('user has never started quiz');
+
+        // Need to use $resource here to call my api route for adding a user to this table.
+        
     }
 
 }]);
