@@ -26,8 +26,8 @@ class UserQuizController extends BaseController {
 		 	$addPosition->completed = 'no';
 			$addPosition->save();
 			$Newobject = $getPosition->get();
-			return $Newobject
-			
+			return $Newobject;
+
 		}else
 		{
 			return $object;
