@@ -6,7 +6,7 @@ angular.module('codequizApp')
   .factory('getQuizCategory',['$resource','$rootScope','$routeParams',function($resource,$rootScope, $routeParams){
 
 	// Establishing the $resource connection, to get specific quiz categories.
-	var Quizzes = $resource('http://localhost:3000/get-specific-category/:category', {});
+	var Quizzes = $resource('http://codequiz.io/get-specific-category/:category', {});
 
 	// -- Queries the resource for all Front End quiz categories.
 	// -- Sets $rootScope variable for the template view to load.
@@ -27,7 +27,7 @@ angular.module('codequizApp')
 // This handles getting all the questions for the quiz the user clicked on.
   .factory('getQuestions',['$resource','$rootScope','$routeParams',function($resource,$rootScope,$routeParams){
 	// Establishing the $resource connection.
-	var questionResource = $resource('http://localhost:3000/get-questions/:quizID', {});
+	var questionResource = $resource('http://codequiz.io/get-questions/:quizID', {});
 
 	// Setting an object to equal the results from the server.
 	var currentQuiz = questionResource.query({quizID: $routeParams.quizID}, function() {
@@ -43,7 +43,7 @@ angular.module('codequizApp')
 // Returns object to controller. If object is empty, controller handles the next API call.
 	.factory('getQuizPosition',['$resource','$rootScope','$routeParams',function($resource,$rootScope, $routeParams){
 
-	var getPosition = $resource('http://localhost:3000/get-position/:userID/:quizID',{});
+	var getPosition = $resource('http://codequiz.io/get-position/:userID/:quizID',{});
 	var quizPosition = getPosition.query({userID: 10, quizID: $routeParams.quizID}, function(){
 		$rootScope.position = quizPosition;
 		return quizPosition;

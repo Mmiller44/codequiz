@@ -12,7 +12,7 @@ angular.module('codequizApp')
 	$rootScope.$on('addQuizEvent', function (event, args) {
 
 		// API call to add a quiz to Quizzes table.
-		var Quizzes = $resource('http://localhost:3000/add-quiz/:quizCategory/:quizTitle/:quizDescription/:userID', {}, {newQuiz: {method: 'get', isArray: false}});
+		var Quizzes = $resource('http://codequiz.io/add-quiz/:quizCategory/:quizTitle/:quizDescription/:userID', {}, {newQuiz: {method: 'get', isArray: false}});
 
 		// Assigning my variables to the $resource.query.
 		var addingQuiz = Quizzes.newQuiz({quizCategory: args.category, quizTitle: args.title, quizDescription: args.description, userID: args.userID}, function() {
@@ -33,7 +33,7 @@ angular.module('codequizApp')
 	$rootScope.$on('addQuestionEvent', function (event, args) {
 
 		// API call to add a quiz to Quizzes table.
-		var Questions = $resource('http://localhost:3000/add-question/:text/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/', {}, {newQuestion: {method: 'get', isArray: false}});
+		var Questions = $resource('http://codequiz.io/add-question/:text/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/', {}, {newQuestion: {method: 'get', isArray: false}});
 
 		// Assigning my variables to the $resource.query.
 		var addingQuestion = Questions.newQuestion({text: args.text, a: args.a, b: args.b, c: args.c, d: args.d, correctAnswer: args.correctAnswer, quizID: args.quizID, quizCategoryID: $rootScope.newQuizCategoryID}, function() {

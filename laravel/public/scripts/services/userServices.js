@@ -5,7 +5,7 @@ angular.module('codequizApp')
 // GET ALL USERS
   .factory('getAllUsers',['$resource','$rootScope',function($resource,$rootScope){
 
-	var Users = $resource('http://localhost:3000/get-all-users/');
+	var Users = $resource('http://codequiz.io/get-all-users/');
 
 	// Variable object to hold all the results returned.
 	var objectOne = Users.query({}, function() {
@@ -17,7 +17,7 @@ angular.module('codequizApp')
 // FINDUSER based on provider_ID
   .factory('findUser',['$resource','$rootScope',function($resource,$rootScope){
 
-	var Users = $resource('http://localhost:3000/find-specific-user/:provider_ID',{provider_ID: 'Github:00007'});
+	var Users = $resource('http://codequiz.io/find-specific-user/:provider_ID',{provider_ID: 'Github:00007'});
 
 	// userObject holds all returned results
 	var userObject = Users.query({}, function() {
@@ -27,7 +27,7 @@ angular.module('codequizApp')
 			{
 				// No user by that ID exists, and needs to be added to the database.
 				console.log('No user exists');
-				var newUser = $resource('http://localhost:3000/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:00007',firstName: 'Harrison',lastName: 'Ford', username: 'indianaJones'});
+				var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:00007',firstName: 'Harrison',lastName: 'Ford', username: 'indianaJones'});
 				var addedUser = newUser.query({}, function(){
 
 					console.log('user added');
