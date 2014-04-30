@@ -27,7 +27,7 @@ class UserQuizController extends BaseController {
 		 	$addPosition->quiz_ID = $quizID;
 		 	$addPosition->currentNumber = 0;
 		 	$addPosition->completed = 'no';
-			return $addPosition->save();
+			$addPosition->save();
 		}
 
 	}
