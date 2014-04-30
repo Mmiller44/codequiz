@@ -42,7 +42,7 @@ return array(
 		'key' => 'MqDYBcvnzGRJNDTTsJZuw',
 		'secret' => 'axedHYitphEETFBNK9h3KBsvK7a5u7yh2CEg1wEpJt4',
 		'scopes' => array(),
-		'redirect_url' => 'http://127.0.0.1:9000',
+		'redirect_url' => '/',
 	),
 
 	/*
@@ -57,7 +57,7 @@ return array(
 		'key' => '540235514815-0p0uie0np95ehai8pr8mj2heq8vt8shq.apps.googleusercontent.com',
 		'secret' => 'LMeBeDWznWYLSMn-qRbp0bb-',
 		'scopes' => array(),
-		'redirect_url' => 'http://127.0.0.1:9000',
+		'redirect_url' => '/',
 	),
 	
 	/*
@@ -71,7 +71,7 @@ return array(
 	'github' => array(
 		'key' => '6255846ed300c607fae5',
 		'secret' => '266e946992314cdade6a7b6c422868a9993de4b1',
-		'scopes' => array(),
+		'scopes' => array('email'),
 		'redirect_url' => '/',
 	),
 
