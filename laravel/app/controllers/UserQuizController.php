@@ -25,6 +25,8 @@ class UserQuizController extends BaseController {
 		 	$addPosition->currentNumber = 0;
 		 	$addPosition->completed = 'no';
 			$addPosition->save();
+
+			// New data has successfully been added to the table, now return this back to the front end.
 			$Newobject = $getPosition->get();
 			return $Newobject;
 
