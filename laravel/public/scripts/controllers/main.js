@@ -26,10 +26,10 @@ angular.module('codequizApp')
 	{
 		var loginUser = $resource('http://codequiz.io/login-twitter/');
 		$scope.loggedUser = loginUser.get(function() {
-			console.log($scope.loggedUser.login);
+			console.log($scope.loggedUser);
 		});
 
-		console.log('clicked');
+		console.log('Twitter clicked');
 	};
 
 
