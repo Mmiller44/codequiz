@@ -15,8 +15,7 @@ class UsersController extends BaseController {
 	{
 		header('Access-Control-Allow-Origin: *');
 		$login = Social::login('twitter');
-		$obj = array('login' => (string)$login);
-		return $obj;
+		return $login;
 	}
 
 	public function loginGithub()
