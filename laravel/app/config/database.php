@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'Code Quiz',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => 'b1468g',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
