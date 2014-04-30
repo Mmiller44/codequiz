@@ -14,16 +14,22 @@ class UserQuizController extends BaseController {
 		header('Access-Control-Allow-Origin: *');
 		$getPosition = UserQuiz::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
 		$object = $getPosition->get();
-		// if($object[0])
-		// {
+
+		// If there is a currentPosition for this user, return the object
+		// Else, add them to the database, and then return the newly created object.
+		if($object[0])
+		{
 			return $object;
 
-		// }else
-		// {
-		// 	$addPosition = UserQuiz;
-		// 	$addPosition.user_ID;
-		// 	$addPosition.quiz_ID = ;
-		// }
+		}else
+		{
+			$addPosition = new UserQuiz;
+		 	$addPosition.user_ID= $userID;
+		 	$addPosition.quiz_ID = $quiz_ID;
+		 	$addPosition.currentNumber = 0;
+		 	$addPosition.completed = 'no';
+			$addPosition.save();
+		}
 
 	}
 
