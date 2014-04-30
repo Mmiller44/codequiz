@@ -15,8 +15,8 @@ class UserQuizController extends BaseController {
 		$getPosition = UserQuiz::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
 		$object = $getPosition->get();
 
-		// If object is not empty, return it to front end.
-		// Else, add them to the database, and then return the newly created object.
+		// If $object is empty, add the userID, quizID and currentNumber of 0 to the table.
+		// Else, return their existing data.
 		if($object->isEmpty())
 		{
 			$addPosition = new UserQuiz;
