@@ -17,7 +17,7 @@ class UserQuizController extends BaseController {
 
 		// If there is a currentPosition for this user, return the object
 		// Else, add them to the database, and then return the newly created object.
-		if($object)
+		if(empty($object))
 		{
 			return $object;
 			echo "Existed";
