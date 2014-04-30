@@ -15,12 +15,11 @@ class UserQuizController extends BaseController {
 		$getPosition = UserQuiz::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
 		$object = $getPosition->get();
 
-		// If there is a currentPosition for this user, return the object
+		// If object is not empty, return it to front end.
 		// Else, add them to the database, and then return the newly created object.
 		if(empty($object))
 		{
 			return $object;
-			echo "Existed";
 		}else
 		{
 			$addPosition = new UserQuiz;
@@ -28,8 +27,7 @@ class UserQuizController extends BaseController {
 		 	$addPosition->quiz_ID = $quizID;
 		 	$addPosition->currentNumber = 0;
 		 	$addPosition->completed = 'no';
-			$addPosition->save();
-			echo "DID NOT Exist";
+			return $addPosition->save();
 		}
 
 	}
