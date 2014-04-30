@@ -25,7 +25,7 @@ class UserQuizController extends BaseController {
 		{
 			$addPosition = new UserQuiz;
 		 	$addPosition->user_ID = $userID;
-		 	$addPosition->quiz_ID = $quiz_ID;
+		 	$addPosition->quiz_ID = $quizID;
 		 	$addPosition->currentNumber = 0;
 		 	$addPosition->completed = 'no';
 			$addPosition->save();
