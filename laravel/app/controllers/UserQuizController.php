@@ -17,7 +17,7 @@ class UserQuizController extends BaseController {
 
 		// If object is not empty, return it to front end.
 		// Else, add them to the database, and then return the newly created object.
-		if(empty($object))
+		if(!empty($object))
 		{
 			return $object;
 		}else
