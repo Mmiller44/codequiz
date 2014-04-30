@@ -17,10 +17,10 @@ class UserQuizController extends BaseController {
 
 		// If there is a currentPosition for this user, return the object
 		// Else, add them to the database, and then return the newly created object.
-		if($object[0])
+		if($object)
 		{
 			return $object;
-
+			echo "Existed";
 		}else
 		{
 			$addPosition = new UserQuiz;
@@ -29,6 +29,7 @@ class UserQuizController extends BaseController {
 		 	$addPosition->currentNumber = 0;
 		 	$addPosition->completed = 'no';
 			$addPosition->save();
+			echo "DID NOT Exist";
 		}
 
 	}
