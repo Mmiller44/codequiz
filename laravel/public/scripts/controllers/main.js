@@ -25,7 +25,7 @@ angular.module('codequizApp')
 	$scope.twitterLogin = function()
 	{
 		var loginUser = $resource('http://codequiz.io/login-twitter/');
-		$scope.loggedUser = loginUser.get(function() {
+		$scope.loggedUser = loginUser.query({},function() {
 			console.log($scope.loggedUser);
 		});
 
