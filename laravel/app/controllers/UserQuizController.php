@@ -17,10 +17,7 @@ class UserQuizController extends BaseController {
 
 		// If object is not empty, return it to front end.
 		// Else, add them to the database, and then return the newly created object.
-		if(!empty($object))
-		{
-			return $object;
-		}else
+		if(empty($object))
 		{
 			$addPosition = new UserQuiz;
 		 	$addPosition->user_ID = $userID;
@@ -28,6 +25,10 @@ class UserQuizController extends BaseController {
 		 	$addPosition->currentNumber = 0;
 		 	$addPosition->completed = 'no';
 			$addPosition->save();
+			
+		}else
+		{
+			return $object;
 		}
 
 	}
