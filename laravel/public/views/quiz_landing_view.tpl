@@ -19,7 +19,7 @@
           </ul>
           
           <div id="login_section">
-            <a href="#" class="button github"><img src="images/github.png" width="40" height="40">Github Login</a>
+            <a href="#" class="button github" ng-click="githubLogin()"><img src="images/github.png" width="40" height="40">Github Login</a>
             <a href="#" class="button twitter text-center"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
           </div>
 
