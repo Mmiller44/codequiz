@@ -38,12 +38,10 @@ angular.module('codequizApp')
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)
         {
-            console.log('correct answer');
             var correctInput = 'yes';
 
         }else
         {
-            console.log('wrong / not matching');
             var correctInput = 'no';
         }
 
@@ -53,7 +51,7 @@ angular.module('codequizApp')
         $rootScope.$broadcast("storeAnswerEvent", {userID: $scope.quizPosition[0].user_ID, 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[$scope.quizPosition[0].currentNumber].question_ID, 
-            userAnswer: value, right: correctInput});
+            userAnswer: value, correct: correctInput});
 
 
     }
