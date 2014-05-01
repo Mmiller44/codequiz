@@ -23,7 +23,7 @@ angular.module('codequizApp')
 
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuizPosition.
-    $scope.currentPosition = getQuizPosition;
+    $scope.quizPosition = getQuizPosition;
 
     // setting a scope var to parseInt, so in the view I can use parseInt on a string, and add numbers to it.
     $scope.parseInt = parseInt;
@@ -31,10 +31,18 @@ angular.module('codequizApp')
 
 
 
-
+    // Store the users answer. Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
     $scope.saveAnswer = function(value)
     {
-        console.log(value);    
+        console.log(value);
+        var userAnswer = value;
+        var correctAnswer = $scope.questions[0].correct_answer;
+
+        // If the users answer is the same as the correct answer, they are right. Else they are wrong.
+        if(userAnswer == correctAnswer)
+        {
+            
+        }
     }
 
 

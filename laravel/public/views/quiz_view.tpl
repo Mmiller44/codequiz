@@ -54,7 +54,7 @@
           </div>
           <div class="row">
             <div class="small-6-centered columns">
-             <p class="question">{{questions[currentPosition[0].currentNumber].question}}</p>
+             <p class="question">{{questions[quizPosition[0].currentNumber].question}}</p>
             </div>
             <div id="answer_block_wrap">
 
@@ -62,22 +62,22 @@
               <ul>
                   <li class="answer_block">
                     <span class="answer_a"><span class="character">A</span></span>
-                      <a href="" class="odd" ng-click="saveAnswer('A')">{{questions[currentPosition[0].currentNumber].a}}</a>
+                      <a href="" class="odd" ng-click="saveAnswer('A')">{{questions[quizPosition[0].currentNumber].a}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_b"><span class="character">B</span></span>       
-                        <a href="" ng-click="saveAnswer('B')">{{questions[currentPosition[0].currentNumber].b}}</a>
+                        <a href="" ng-click="saveAnswer('B')">{{questions[quizPosition[0].currentNumber].b}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_c"><span class="character">C</span></span>       
-                      <a href="" class="odd" ng-click="saveAnswer('C')">{{questions[currentPosition[0].currentNumber].c}}</a>
+                      <a href="" class="odd" ng-click="saveAnswer('C')">{{questions[quizPosition[0].currentNumber].c}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_d"><span class="character">D</span></span>       
-                      <a href="" ng-click="saveAnswer('D')">{{questions[currentPosition[0].currentNumber].d}}</a>
+                      <a href="" ng-click="saveAnswer('D')">{{questions[quizPosition[0].currentNumber].d}}</a>
                   </li>
               <ul>
 

@@ -45,6 +45,14 @@ Route::get('add-new-user/{providerID}/{firstName}/{lastName}/{username}', 'Users
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Answers
+// This route saves the users answer along with their id, the quizID, questionID and if they were right.
+Route::get('store-answer/{userID}/{quizID}/{questionID}/{userAnswer}/{correct}', 'AnswersController@saveAnswer');
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // User_quiz
 // Find specific Position in a quiz by quizID and userID.
 Route::get('get-position/{userID}/{quizID}', 'UserQuizController@getPosition');
