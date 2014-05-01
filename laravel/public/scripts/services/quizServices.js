@@ -52,7 +52,7 @@ angular.module('codequizApp')
 
 }])
 
-	.factory('storeAnswerFactory',['$resource','$rootScope','$routeParams',function($resource,$rootScope, $routeParams){
+	.factory('storeAnswerFactory',['$resource','$rootScope',function($resource,$rootScope){
 
 	// Listening for the broadcast of addQuestionEvent.
 	// Gets broadcasted from contribute_controller on form submission click.
