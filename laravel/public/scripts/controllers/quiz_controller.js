@@ -25,10 +25,15 @@ angular.module('codequizApp')
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuizPosition.
     $scope.quizPosition = getQuizPosition;
 
+
+
     // setting a scope var to parseInt, so in the view I can use parseInt on a string, and add numbers to it.
     $scope.parseInt = parseInt;
 
 
+
+    // Setting the currentNumber to a scope variable to use in the event that gets triggered later.
+    $scope.currentNumber = $scope.quizPosition[0].currentNumber;
 
 
     // Store the users answer. Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
@@ -54,7 +59,7 @@ angular.module('codequizApp')
         // I do not need to worry if the user already answered this question or not, because that logic is done in the backend.
         $rootScope.$broadcast("storeAnswerEvent", {userID: $scope.quizPosition[0].user_ID, 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
-            questionID: $scope.questions[quizPosition[0].currentNumber].question_ID, 
+            questionID: $scope.questions[$scope.currentNumber].question_ID, 
             userAnswer: value, correct: correctInput});
 
 
