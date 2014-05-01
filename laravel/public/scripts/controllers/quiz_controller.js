@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_controller',['$scope','$rootScope','$routeParams','getQuestions','getQuizPosition','storeAnswerFactory','$route', function ($scope,$rootScope,$routeParams,getQuestions,getQuizPosition,storeAnswerFactory,$route) {
+  .controller('quiz_controller',['$scope','$rootScope','getQuestions','getQuizPosition','storeAnswerFactory','$route', function ($scope,$rootScope,getQuestions,getQuizPosition,storeAnswerFactory,$route) {
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.
@@ -55,7 +55,10 @@ angular.module('codequizApp')
 
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
-        
+        var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber', {});
+        var dataObject = updateResource.get({userID: $rootScope.userID, quizID: $scope.questions[0].quiz_ID, newNumber: $scope.parseInt(quizPosition[0].currentNumber) + 1}, function() {
+               console.log('Sent DATA'); 
+            });
 
         // Lastly, the page needs to reload with the next question.
         $route.reload()
