@@ -29,8 +29,6 @@ angular.module('codequizApp')
     $scope.parseInt = parseInt;
 
 
-
-
     // Store the users answer. Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
     $scope.saveAnswer = function(value)
     {

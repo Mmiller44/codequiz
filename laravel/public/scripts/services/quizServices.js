@@ -62,7 +62,7 @@ angular.module('codequizApp')
 		var answerAPI = $resource('http://codequiz.io/store-answer/:userID/:userQuizID/:questionID/:userAnswer/:correct', {});
 
 		// Assigning my variables to the $resource.query.
-		var addingQuestion = Questions.get({userID: data.userID, userQuizID: data.userQuizID, questionID: data.questionID, userAnswer: data.userAnswer, correct: data.correct}, function() {
+		var addingQuestion = answerAPI.get({userID: data.userID, userQuizID: data.userQuizID, questionID: data.questionID, userAnswer: data.userAnswer, correct: data.correct}, function() {
 				
 			});
 
