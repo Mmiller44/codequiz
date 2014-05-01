@@ -32,7 +32,6 @@ angular.module('codequizApp')
     // Store the users answer. Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
     $scope.saveAnswer = function(value)
     {
-        console.log(value);
         var correctAnswer = $scope.questions[0].correct_answer;
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
@@ -53,6 +52,9 @@ angular.module('codequizApp')
             questionID: $scope.questions[$scope.quizPosition[0].currentNumber].question_ID, 
             userAnswer: value, correct: correctInput});
 
+
+        // Lastly, the page needs to reload with the next question.
+        $route.reload()
 
     }
 

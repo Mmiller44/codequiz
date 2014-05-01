@@ -19,6 +19,7 @@ angular.module('codequizApp')
 		$scope.loggedUser = loginUser.get(function() {
 			console.log($scope.loggedUser.login);
 			console.log('clicked');
+			console.log('callback function for github ran.');
 		});
 	};
 
@@ -27,6 +28,7 @@ angular.module('codequizApp')
 		var twitter = $resource('/login-twitter');
 		var returnedObject = twitter.get(function(){
 			console.log(returnedObject);
+			console.log('callback function for twitter ran.');
 		});
 	};
 
