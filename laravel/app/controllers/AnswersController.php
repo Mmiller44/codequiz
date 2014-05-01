@@ -19,7 +19,7 @@ class AnswersController extends BaseController {
 		$object = $checkExisting->first();
 
 		// If data doesn't already exist, add the data.
-		if($object->isEmpty())
+		if(!$object)
 		{
 			$quizAnswerTable = new QuizAnswers;
 			$quizAnswerTable->user_ID = $userID;
