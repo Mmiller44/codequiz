@@ -28,6 +28,7 @@ class AnswersController extends BaseController {
 			$quizAnswerTable->user_answer = $userAnswer;
 			$quizAnswerTable->correct = $correct;
 			$quizAnswerTable->save();
+			return $quizAnswerTable;
 
 		}else
 		{
