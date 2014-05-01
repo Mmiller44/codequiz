@@ -10,11 +10,11 @@ class AnswersController extends BaseController {
 	// This function will save the users answer for each question to the correct table.
 	// Will need to save the answer even if they have already answered that question while taking the quiz previously.
 	// This way a user can take the quizzes multiple times.
-	public function saveAnswer($userID,$quizID,$questionID,$userAnswer,$correct)
+	public function saveAnswer($userID,$userQuizID,$questionID,$userAnswer,$correct)
 	{
 		$quizAnswerTable = new QuizAnswers;
 		$quizAnswerTable->user_ID = $userID;
-		$quizAnswerTable->quiz_ID = $quizID;
+		$quizAnswerTable->user_quiz_ID = $userQuizID;
 		$quizAnswerTable->question_ID = $questionID;
 		$quizAnswerTable->user_answer = $userAnswer;
 		$quizAnswerTable->correct = $correct;
