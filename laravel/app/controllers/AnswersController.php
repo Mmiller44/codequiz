@@ -34,6 +34,7 @@ class AnswersController extends BaseController {
 		{
 			// There is already an answer, and now the answer needs to be updated and returned.	
 			$object->user_answer = $userAnswer;
+			$object->correct = $correct;
 			$object->save();
 
 			return $object;
