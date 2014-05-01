@@ -41,7 +41,10 @@ angular.module('codequizApp')
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(userAnswer == correctAnswer)
         {
-            
+            console.log('correct answer');
+        }else
+        {
+            console.log('wrong / not matching');
         }
     }
 
