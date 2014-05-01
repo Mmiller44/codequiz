@@ -35,17 +35,29 @@ angular.module('codequizApp')
     $scope.saveAnswer = function(value)
     {
         console.log(value);
-        var userAnswer = value;
         var correctAnswer = $scope.questions[0].correct_answer;
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
-        if(userAnswer == correctAnswer)
+        if(value == correctAnswer)
         {
             console.log('correct answer');
+            var correctInput = 'yes';
+
         }else
         {
             console.log('wrong / not matching');
+            var correctInput = 'no';
         }
+
+        // Now I know what the user answered, whether they were right, their user_ID, quiz_ID and question_ID.
+        // I need to broadcast for an event to send over the data to the database.
+        // I do not need to worry if the user already answered this question or not, because that logic is done in the backend.
+        $rootScope.$broadcast("storeAnswerEvent", {userID: $scope.quizPosition[0].user_ID, 
+            userQuizID: $scope.quizPosition[0].user_quiz_ID, 
+            questionID: $scope.questions[quizPosition[0].currentNumber].question_ID, 
+            userAnswer: value, correct: correctInput});
+
+
     }
 
 

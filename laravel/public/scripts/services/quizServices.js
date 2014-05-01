@@ -50,7 +50,21 @@ angular.module('codequizApp')
 
 	return quizPosition;
 
-}]);
+}])
+
+	// Listening for the broadcast of addQuestionEvent.
+	// Gets broadcasted from contribute_controller on form submission click.
+	$rootScope.$on('storeAnswerEvent', function (event, data) {
+
+		// API call to add a quiz to Quizzes table.
+		var answerAPI = $resource('http://codequiz.io/store-answer/:userID/:userQuizID/:questionID/:userAnswer/:correct', {});
+
+		// Assigning my variables to the $resource.query.
+		var addingQuestion = Questions.get({userID: data.userID, userQuizID: data.userQuizID, questionID: data.questionID, userAnswer: data.userAnswer, correct: data.correct}, function() {
+				
+			});
+
+	});
 
 
 
