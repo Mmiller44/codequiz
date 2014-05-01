@@ -16,7 +16,7 @@ class AnswersController extends BaseController {
 		$checkExisting = QuizAnswers::where('user_ID', '=', $userID)
 		->where('user_quiz_ID','=',$userQuizID)
 		->where('question_ID','=',$questionID);
-		$object = $checkExisting->get();
+		$object = $checkExisting->first();
 
 		// If data doesn't already exist, add the data.
 		if($object->isEmpty())
