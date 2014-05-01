@@ -32,6 +32,7 @@ angular.module('codequizApp')
     // Store the users answer. Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
     $scope.saveAnswer = function(value)
     {
+        console.log('page loaded');
         var correctAnswer = $scope.questions[0].correct_answer;
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
