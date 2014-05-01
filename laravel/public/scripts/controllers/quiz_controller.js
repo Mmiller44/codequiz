@@ -53,7 +53,7 @@ angular.module('codequizApp')
         $rootScope.$broadcast("storeAnswerEvent", {userID: $scope.quizPosition[0].user_ID, 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[$scope.quizPosition[0].currentNumber].question_ID, 
-            userAnswer: value, correct: correctInput});
+            userAnswer: value, right: correctInput});
 
 
     }
