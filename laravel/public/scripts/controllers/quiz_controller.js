@@ -22,9 +22,6 @@ angular.module('codequizApp')
     $scope.questions = getQuestions;
 
 
-    console.log($rootScope.position);
-
-
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuizPosition.
     $scope.currentPosition = getQuizPosition;
 
@@ -33,14 +30,12 @@ angular.module('codequizApp')
 
 
 
-    // IF statement checking if the user has ever started this quiz or not.
-    if($scope.currentPosition[0] === null || $scope.currentPosition[0] === undefined)
-    {
-        // User has never started this quiz before. Need to add them to the table User_quiz, at position 0.
-        console.log('user has never started quiz');
 
-        // Need to use $resource here to call my api route for adding a user to this table.
-        
+
+    $scope.saveAnswer = function(value)
+    {
+        console.log(value);    
     }
+
 
 }]);
