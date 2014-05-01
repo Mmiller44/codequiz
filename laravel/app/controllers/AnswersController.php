@@ -14,7 +14,7 @@ class AnswersController extends BaseController {
 	{
 
 		$checkExisting = QuizAnswers::where('user_ID', '=', $userID)
-		->where('user_quiz_ID','=',$user_quiz_ID)
+		->where('user_quiz_ID','=',$userQuizID)
 		->where('question_ID','=',$questionID);
 		$object = $checkExisting->get();
 
