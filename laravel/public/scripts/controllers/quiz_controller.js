@@ -39,12 +39,12 @@ angular.module('codequizApp')
         if(value == correctAnswer)
         {
             console.log('correct answer');
-            var correctInput = 'yes';
+            var correctInput = yes;
 
         }else
         {
             console.log('wrong / not matching');
-            var correctInput = 'no';
+            var correctInput = no;
         }
 
         // Now I know what the user answered, whether they were right, their user_ID, quiz_ID and question_ID.
