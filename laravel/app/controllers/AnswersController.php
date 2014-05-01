@@ -18,7 +18,7 @@ class AnswersController extends BaseController {
 		->where('question_ID','=',$questionID);
 		$object = $checkExisting->first();
 
-		// If data doesn't already exist, add the data.
+		// If data doesn't already exist, add + return the data.
 		if(!$object)
 		{
 			$quizAnswerTable = new QuizAnswers;
@@ -32,7 +32,7 @@ class AnswersController extends BaseController {
 
 		}else
 		{
-			// There is already an answer, and now the answer needs to be updated.	
+			// There is already an answer, and now the answer needs to be updated and returned.	
 			$object->user_answer = $userAnswer;
 			$object->save();
 
