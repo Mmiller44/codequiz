@@ -57,11 +57,11 @@ angular.module('codequizApp')
         // The users answer has been stored. Now I need to update what currentNumber they are on.
         var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber', {});
         var dataObject = updateResource.get({userID: $rootScope.userID, quizID: $scope.questions[0].quiz_ID, newNumber: $scope.parseInt(quizPosition[0].currentNumber) + 1}, function() {
-               console.log('Sent DATA'); 
+                console.log('Sent DATA');
+                
+                // Lastly, the page needs to reload with the next question.
+                $route.reload()
             });
-
-        // Lastly, the page needs to reload with the next question.
-        $route.reload()
 
     }
 
