@@ -33,7 +33,7 @@ angular.module('codequizApp')
 
 
     // Setting the currentNumber to a scope variable to use in the event that gets triggered later.
-    $scope.currentNumber = $scope.quizPosition[0].currentNumber;
+    $scope.currentNumber = quizPosition[0].currentNumber;
 
 
     // Store the users answer. Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
