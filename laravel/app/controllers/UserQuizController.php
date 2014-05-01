@@ -37,4 +37,15 @@ class UserQuizController extends BaseController {
 
 	}
 
+	// Find the users position, and then update with the new number passed in.
+	public function updatePosition($userID, $quizID, $newNumber)
+	{
+		$getPosition = UserQuiz::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
+		$object = $getPosition->first();
+
+		$object->currentNumber = $newNumber;
+		$object->save();
+		return $object;
+	}
+
 }

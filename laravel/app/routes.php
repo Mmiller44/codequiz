@@ -56,7 +56,8 @@ Route::get('store-answer/{userID}/{userQuizID}/{questionID}/{userAnswer}/{correc
 // User_quiz
 // Find specific Position in a quiz by quizID and userID.
 Route::get('get-position/{userID}/{quizID}', 'UserQuizController@getPosition');
-
+// Update the users current Number.
+Route::get('update-position/{userID}/{quizID}/{newNumber}', 'UserQuizController@updatePosition');
 
 
 

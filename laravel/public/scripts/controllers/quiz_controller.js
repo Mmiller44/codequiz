@@ -54,6 +54,9 @@ angular.module('codequizApp')
             userAnswer: value, correct: correctInput});
 
 
+        // The users answer has been stored. Now I need to update what currentNumber they are on.
+        
+
         // Lastly, the page needs to reload with the next question.
         $route.reload()
 
