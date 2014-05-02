@@ -60,10 +60,9 @@ angular.module('codequizApp')
         var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber', {});
         var dataObject = updateResource.get({userID: $rootScope.userID, quizID: $scope.questions[0].quiz_ID, newNumber: newNumber}, function() {
                 console.log('Sent DATA');
-                
-                // Lastly, the page needs to reload with the next question.
-                $scope.$apply();
-            });
+        });
+
+        $scope.$apply();
 
     }
 
