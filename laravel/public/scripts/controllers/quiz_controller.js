@@ -61,9 +61,7 @@ angular.module('codequizApp')
         var dataObject = updateResource.get({userID: $rootScope.userID, quizID: $scope.questions[0].quiz_ID, newNumber: newNumber}, function() {
                 console.log('Sent DATA');
         });
-
-        $scope.$apply();
-
+        
     }
 
 
