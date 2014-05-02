@@ -36,7 +36,7 @@ angular.module('codequizApp')
         console.log('page loaded');
         var correctAnswer = $scope.questions[0].correct_answer;
         var newNumber = parseInt($scope.quizPosition[0].currentNumber) + 1;
-        
+
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)
         {
@@ -62,7 +62,7 @@ angular.module('codequizApp')
                 console.log('Sent DATA');
                 
                 // Lastly, the page needs to reload with the next question.
-                $route.reload()
+                $route.reload();
             });
 
     }
