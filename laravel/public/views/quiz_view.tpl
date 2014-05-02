@@ -62,7 +62,7 @@
               <ul>
                   <li class="answer_block">
                     <span class="answer_a"><span class="character">A</span></span>
-                      <a href="http://codequiz.io/#/quiz/{{questions[0].quiz_ID}}/" class="odd" ng-click="saveAnswer('A')">{{questions[quizPosition[0].currentNumber].a}}</a>
+                      <a href="/quiz/7/1" class="odd" ng-click="saveAnswer('A')">{{questions[quizPosition[0].currentNumber].a}}</a>
                   </li>
 
                   <li class="answer_block">

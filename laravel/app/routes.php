@@ -63,9 +63,8 @@ Route::get('update-position/{userID}/{quizID}/{newNumber}', 'UserQuizController@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // QUESTIONS
-// Get quiz based on quiz_ID
+// Get all quiz questions based on quiz_ID
 Route::get('get-questions/{quizID}', 'QuestionController@getQuestions');
-
 
 
 

@@ -22,7 +22,7 @@ angular.module('codequizApp', [
         templateUrl: 'views/quiz_landing_view.tpl',
         controller: 'quiz_landing_controller'
       })
-      .when('/quiz/:quizID/', {
+      .when('/quiz/:quizID/:number', {
         templateUrl: 'views/quiz_view.tpl',
         controller: 'quiz_controller'
       })
