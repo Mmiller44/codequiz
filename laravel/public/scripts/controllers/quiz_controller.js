@@ -62,7 +62,7 @@ angular.module('codequizApp')
                 console.log('Sent DATA');
                 
                 // Lastly, the page needs to reload with the next question.
-                $route.reload();
+                $scope.$apply();
             });
 
     }
