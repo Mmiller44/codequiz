@@ -64,5 +64,10 @@ angular.module('codequizApp')
         
     }
 
+    $scope.reportQuestion = function()
+    {
+        console.log('reported');
+    }
+
 
 }]);
