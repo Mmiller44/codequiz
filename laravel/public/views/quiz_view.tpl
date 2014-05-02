@@ -1,4 +1,5 @@
-	<div class="page">
+	<div ng-controller="quiz_controller">
+  <div class="page">
 	 <div class="off-canvas-wrap">
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
@@ -88,6 +89,7 @@
       </div>
     </div>
   </div> <!-- Closing Page -->
+</div>
 <script>
   $(document).foundation();
 </script>
