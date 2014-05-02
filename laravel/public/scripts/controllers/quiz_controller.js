@@ -35,7 +35,8 @@ angular.module('codequizApp')
     {
         console.log('page loaded');
         var correctAnswer = $scope.questions[0].correct_answer;
-
+        var newNumber = parseInt($scope.quizPosition[0].currentNumber) + 1;
+        
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)
         {
@@ -57,7 +58,7 @@ angular.module('codequizApp')
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
         var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber', {});
-        var dataObject = updateResource.get({userID: $rootScope.userID, quizID: $scope.questions[0].quiz_ID, newNumber: $scope.parseInt(quizPosition[0].currentNumber) + 1}, function() {
+        var dataObject = updateResource.get({userID: $rootScope.userID, quizID: $scope.questions[0].quiz_ID, newNumber: newNumber}, function() {
                 console.log('Sent DATA');
                 
                 // Lastly, the page needs to reload with the next question.
