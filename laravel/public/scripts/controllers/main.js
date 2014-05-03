@@ -13,18 +13,10 @@ angular.module('codequizApp')
 	if(returnedUserData)
 	{
   		$window.location.href = '#/home';
-
 	}
 
 	// Hard coding a userID until login is built.
 	$rootScope.userID = 20;
-
-	// Declaring a function that gets called from the view.
-	// This function will handle loading the next page to display all the correct titles and quiz info.
-	// The parameter for the function is being generated in the view, from the other resource calls.
-	$scope.loadTitles = function(title){
-		$rootScope.title = title;
-	};
 
 	$scope.githubLogin = function()
 	{
@@ -48,14 +40,15 @@ angular.module('codequizApp')
 		});
 	};
 
-	// $scope.getTwitter = function()
-	// {
-	// 	var twitter = $resource('/get-twitter-user/');
-	// 	var returnedObject = twitter.get(function(){
-	// 		console.log('running get user.');
-	// 		console.log(returnedObject);
-	// 	})
-	// }
 
+}]);
+
+  .controller('HomeCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
+	// Declaring a function that gets called from the view.
+	// This function will handle loading the next page to display all the correct titles and quiz info.
+	// The parameter for the function is being generated in the view, from the other resource calls.
+	$scope.loadTitles = function(title){
+		$rootScope.title = title;
+	};
 
 }]);
