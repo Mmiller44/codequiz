@@ -71,7 +71,7 @@ return array(
 	'github' => array(
 		'key' => '6255846ed300c607fae5',
 		'secret' => '266e946992314cdade6a7b6c422868a9993de4b1',
-		'scopes' => array('email'),
+		'scopes' => array(),
 		'redirect_url' => '/',
 	),
 

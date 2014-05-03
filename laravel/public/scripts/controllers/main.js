@@ -25,8 +25,8 @@ angular.module('codequizApp')
 		var loginUser = $resource('/login-github/');
 		$scope.loggedUser = loginUser.get(function() {
 			console.log($scope.loggedUser.login);
-			console.log('clicked');
 			console.log('callback function for github ran.');
+			$window.location.href = loggedUser.login;
 		});
 	};
 
