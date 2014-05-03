@@ -40,16 +40,16 @@ class UsersController extends BaseController {
 	public function getTwitterUser()
 	{
 		$user = Social::twitter('user');
-		$obj = Social::setDecoder(function($user) {
-        	return json_decode($user, true);
-    	});
-    	$username = $user->{'screen_name'};
-    	// $name = $user['name'];
-    	// $providerID = $user['id_str'];
-    	// $location = $user['location'];
-    	// $profileImage = $user['profile_image_url'];
 
-    	return $username;
+    	$username = $user->{'screen_name'};
+    	$name = $user->{'name'};
+    	$providerID = $user->{'id_str'};
+    	$location = $user->{'location'};
+    	$profileImage = $user->{'profile_image_url'};
+
+    	$data = array('username' => $username,'name' => $name, 'providerID' => $providerID,'location' => $location,'profileImage' => $profileImage);
+
+    	return $data;
 
 
 	}
