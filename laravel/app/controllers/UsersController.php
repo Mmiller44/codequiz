@@ -11,8 +11,9 @@ class UsersController extends BaseController {
 // LOGIN 
 	public function loginTwitter()
 	{
-		$user = Social::twitter('user');
-		return $user;
+		$login = Social::login('twitter');
+		$obj = array('login' => (string)$login);
+		return $obj;
 	}
 
 	public function loginFacebook()
@@ -26,7 +27,7 @@ class UsersController extends BaseController {
 	{
 		$login = Social::login('github');
 		$obj = array('login' => (string)$login);
-		return $obj;
+		return $bj;
 	}
 
 	public function loginGoogle()
@@ -34,6 +35,12 @@ class UsersController extends BaseController {
 		$login = Social::login('google');
 		$obj = array('login' => (string)$login);
 		return $obj;
+	}
+
+	public function getTwitterUser()
+	{
+		$user = Social::twitter('user');
+		return $user;
 	}
 
 // USER

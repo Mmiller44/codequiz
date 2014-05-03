@@ -40,5 +40,14 @@ angular.module('codequizApp')
 		});
 	};
 
+	$scope.getTwitter = function()
+	{
+		var twitter = $resource('/get-twitter-user/');
+		var returnedObject = twitter.get(function(){
+			console.log('running get user.');
+			console.log(returnedObject);
+		})
+	}
+
 
 }]);
