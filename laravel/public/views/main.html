@@ -1,21 +1,55 @@
-<nav class="tab-bar" role="navigation">
-  <section class="middle tab-bar-section">
-    <h2 class=title>Code <mark class="orange">Quiz</mark></h2>
+<div class="page">
+   <div class="off-canvas-wrap">
+     <div class="inner-wrap">
+      <nav class="tab-bar" role="navigation">
+        <section class="middle tab-bar-section">
+          <a href="#/" class="title">Code <mark class="orange">Quiz</mark></a>
+        </section>
+
+        <section class="right-small">
+          <a class="right-off-canvas-toggle menu-icon" ><span></span></a>
+        </section>
+      </nav>
+
+        <aside class="right-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/contribute">Contribute</a></li>
+          </ul>
+          
+          <div id="login_section">
+          <span id="signin">
+            <span id="myGsignin"></span>
+          </span>
+            <a href="" ng-click="githubLogin()" class="button github"><img src="images/github.png" width="40" height="40">Github Login</a>
+            <a href="" ng-click="twitterLogin()" class="button twitter text-center"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
+          </div>
+
+          <div id="social_media">
+
+          </div>
+        </aside>
+        <section class="main-section">
+
+          <div class="row" id="home">
+            <div class="small-6-centered columns">
+              <ol>
+                <li>Challenge your skills of Web Design and Development</li>
+                <li>Create your own quizzes for others to take.</li>      
+                <li>Rate quizzes to show appretiation.</li>
+                <li>See why your answer was wrong and retake the quiz to improve yourself!</li>
+              </ol>
+
+              <a href="" ng-click="githubLogin()" class="button github"><img src="images/github.png" width="40" height="40">Github Login</a>
+              <a href="" ng-click="twitterLogin()" class="button twitter text-center"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
+
+            </div>
+          </div>
   </section>
-</nav>
 
+      <a class="exit-off-canvas"></a>
 
-<div class="row" id="home">
-  <div class="small-6-centered columns">
-    <ol>
-      <li>Challenge your skills of Web Design and Development</li>
-      <li>Create your own quizzes for others to take.</li>      
-      <li>Rate quizzes to show appretiation.</li>
-      <li>See why your answer was wrong and retake the quiz to improve yourself!</li>
-    </ol>
-
-    <a href="" ng-click="githubLogin()" class="button github"><img src="images/github.png" width="40" height="40">Github Login</a>
-    <a href="" ng-click="twitterLogin()" class="button twitter text-center"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
-
-  </div>
-</div>
+      </div>
+    </div>
+  </div> <!-- Closing Page -->
