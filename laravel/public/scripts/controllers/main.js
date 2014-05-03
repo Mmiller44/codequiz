@@ -3,12 +3,18 @@
 angular.module('codequizApp')
   .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
-  	var user = false;
 
-  	if(user)
-  	{
+	var twitterUser = $resource('/get-twitter-user/');
+	var returnedUserData = twitterUser.get(function(){
+		console.log('running get user.');
+		console.log(returnedUserData);
+	});
+
+	if(returnedUserData)
+	{
   		$window.location.href = '#/home';
-  	}
+
+	}
 
 	// Hard coding a userID until login is built.
 	$rootScope.userID = 20;
@@ -34,27 +40,22 @@ angular.module('codequizApp')
 	{
 		var twitter = $resource('/login-twitter');
 		var returnedObject = twitter.get(function(){
-			console.log(returnedObject);
-			$window.location.href=returnedObject.login;
-			console.log('callback function for twitter ran.');
 
-			var twitterUser = $resource('/get-twitter-user/');
-			var returnedUserData = twitterUser.get(function(){
-			console.log('running get user.');
-			console.log(returnedUserData);
-		});
+			$window.location.href=returnedObject.login;
+
+			console.log('callback function for twitter ran.');
 
 		});
 	};
 
-	$scope.getTwitter = function()
-	{
-		var twitter = $resource('/get-twitter-user/');
-		var returnedObject = twitter.get(function(){
-			console.log('running get user.');
-			console.log(returnedObject);
-		})
-	}
+	// $scope.getTwitter = function()
+	// {
+	// 	var twitter = $resource('/get-twitter-user/');
+	// 	var returnedObject = twitter.get(function(){
+	// 		console.log('running get user.');
+	// 		console.log(returnedObject);
+	// 	})
+	// }
 
 
 }]);
