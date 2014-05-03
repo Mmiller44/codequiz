@@ -272,6 +272,10 @@ mark.plus {
 	background-color: #d26433;
 }
 
+.features_list {
+	list-style-image: url('images/checkmark.png');
+}
+
 
 /*================================================== Quiz Template ====================================================*/
 
