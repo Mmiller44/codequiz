@@ -10,7 +10,7 @@ angular.module('codequizApp')
 		console.log(returnedUserData);
 	});
 
-	if(returnedUserData)
+	if(returnedUserData.username)
 	{
   		$window.location.href = '#/home';
 	}
