@@ -18,6 +18,10 @@ angular.module('codequizApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/home', {
+        templateUrl: 'views/home.tpl',
+        controller: 'MainCtrl'
+      })
       .when('/quiz_landing/:sub_category', {
         templateUrl: 'views/quiz_landing_view.tpl',
         controller: 'quiz_landing_controller'

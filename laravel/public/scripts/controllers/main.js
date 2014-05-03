@@ -3,6 +3,13 @@
 angular.module('codequizApp')
   .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
+  	var user = true;
+
+  	if(user)
+  	{
+  		$window.location.href = '/home';
+  	}
+
 	// Hard coding a userID until login is built.
 	$rootScope.userID = 20;
 
