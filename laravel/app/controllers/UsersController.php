@@ -43,8 +43,7 @@ class UsersController extends BaseController {
 		$obj = Social::setDecoder(function($user) {
         	return json_decode($user, true);
     	});
-		return $obj;
-		print_r($_SESSION);
+    	echo $_SESSION[Twitter];
 	}
 
 // USER
