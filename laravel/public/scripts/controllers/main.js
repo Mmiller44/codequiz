@@ -8,13 +8,12 @@ angular.module('codequizApp')
 	var returnedUserData = twitterUser.get(function(){
 		console.log('running get user.');
 		console.log(returnedUserData);
-	});
 
-	if(returnedUserData)
-	{
-  		$window.location.href = '#/home';
-  		console.log(returnedUserData);
-	}
+		if(returnedUserData[0].username)
+		{
+  			$window.location.href = '#/home';
+		}
+	});
 
 	// Hard coding a userID until login is built.
 	$rootScope.userID = 20;
