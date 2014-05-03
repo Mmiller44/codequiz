@@ -7,7 +7,7 @@ angular.module('codequizApp')
 
   	if(user)
   	{
-  		$window.location.href = '/home';
+  		$window.location.href = 'codequiz.io/#/home';
   	}
 
 	// Hard coding a userID until login is built.
