@@ -37,6 +37,13 @@ angular.module('codequizApp')
 			console.log(returnedObject);
 			$window.location.href=returnedObject.login;
 			console.log('callback function for twitter ran.');
+
+			var twitterUser = $resource('/get-twitter-user/');
+			var returnedUserData = twitterUser.get(function(){
+			console.log('running get user.');
+			console.log(returnedUserData);
+		});
+
 		});
 	};
 
