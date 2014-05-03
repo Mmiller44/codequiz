@@ -274,12 +274,10 @@ mark.plus {
 
 .intro {
 	margin-top: 20px;
-	font-size: 20px;
-	color: #f3f3f3;
+	font-size: 18px;
 }
 
 .features_list {
-	color: #f3f3f3;
 	list-style-image: url('../images/checkmark.png');
 	margin-top: 20px;
 	margin-bottom: 20px;
