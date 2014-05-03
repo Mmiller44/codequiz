@@ -25,7 +25,7 @@ angular.module('codequizApp')
 
 	$scope.twitterLogin = function()
 	{
-		var twitter = $resource('/login-twitter');
+		var twitter = $resource('/login-facebook');
 		var returnedObject = twitter.get(function(){
 			console.log(returnedObject);
 			console.log('callback function for twitter ran.');
