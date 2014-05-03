@@ -41,7 +41,7 @@ class UsersController extends BaseController {
 	{
 		if (Social::check('twitter'))
 		{
-			echo Social::twitter('user');
+			return Social::twitter('user');
  		}
 	}
 
