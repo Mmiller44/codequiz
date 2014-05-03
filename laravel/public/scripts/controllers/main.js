@@ -3,7 +3,8 @@
 angular.module('codequizApp')
   .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
-
+  	// This call gets an object containing all the information for the user.
+  	// I will use this info to search my own database, and add them if necessary.
 	var twitterUser = $resource('/get-twitter-user/');
 	var returnedUserData = twitterUser.get(function(){
 		console.log('running get user.');

@@ -20,7 +20,7 @@ angular.module('codequizApp', [
       })
       .when('/home', {
         templateUrl: 'views/home.tpl',
-        controller: 'MainCtrl'
+        controller: 'HomeCtrl'
       })
       .when('/quiz_landing/:sub_category', {
         templateUrl: 'views/quiz_landing_view.tpl',
