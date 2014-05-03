@@ -41,7 +41,7 @@ return array(
 	'twitter' => array(
 		'key' => 'MqDYBcvnzGRJNDTTsJZuw',
 		'secret' => 'axedHYitphEETFBNK9h3KBsvK7a5u7yh2CEg1wEpJt4',
-		'scopes' => array(),
+		'scopes' => array('user'),
 		'redirect_url' => '/',
 	),
 
