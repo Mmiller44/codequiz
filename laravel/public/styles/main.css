@@ -99,6 +99,11 @@ body,html{
     width:100%;
 }
 
+.home {
+	background-color: #232d3b;
+	height: 100%;
+}
+
 .page{
     height:100%;   
 }
