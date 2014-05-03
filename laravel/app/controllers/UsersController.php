@@ -27,7 +27,7 @@ class UsersController extends BaseController {
 	{
 		$login = Social::login('github');
 		$obj = array('login' => (string)$login);
-		return $bj;
+		return $obj;
 	}
 
 	public function loginGoogle()

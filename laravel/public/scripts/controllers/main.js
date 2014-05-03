@@ -45,7 +45,7 @@ angular.module('codequizApp')
 		var twitter = $resource('/get-twitter-user/');
 		var returnedObject = twitter.get(function(){
 			console.log('running get user.');
-			console.log(returnedObject.Twitter);
+			console.log(returnedObject);
 		})
 	}
 
