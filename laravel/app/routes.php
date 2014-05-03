@@ -31,6 +31,8 @@ Route::get('login-github/', 'UsersController@loginGithub');
 // This Route Controls login for Google.
 Route::get('login-google/', 'UsersController@loginGoogle');
 
+Route::get('login-facebook/', 'UsersController@loginFacebook');
+
 // This Route Controls login for Google.
 Route::get('get-all-users/', 'UsersController@getUsers');
 

@@ -24,8 +24,8 @@ return array(
 	|
 	*/
 	'facebook' => array(
-		'key' => '',
-		'secret' => '',
+		'key' => '512385565533608',
+		'secret' => '9590f270e0081307913f3e376df2ff14',
 		'scopes' => array('email'),
 		'redirect_url' => '/',
 	),
