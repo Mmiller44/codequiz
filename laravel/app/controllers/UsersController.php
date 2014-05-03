@@ -43,7 +43,7 @@ class UsersController extends BaseController {
 		$obj = Social::setDecoder(function($user) {
         	return json_decode($user, true);
     	});
-    	echo $user;
+    	echo $user + '';
 	}
 
 // USER
