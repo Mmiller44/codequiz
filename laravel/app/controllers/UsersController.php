@@ -17,7 +17,7 @@ class UsersController extends BaseController {
 
 	public function loginFacebook()
 	{
-		$login = Social::login('twitter');
+		$login = Social::login('facebook');
 		return $login;
 	}
 
