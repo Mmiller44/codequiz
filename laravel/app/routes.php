@@ -71,7 +71,7 @@ Route::get('get-questions/{quizID}', 'QuestionController@getQuestions');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CONTRIBUTE
-// Add Quizz
+// Add Quiz
 Route::get('add-quiz/{quizCategory}/{quizTitle}/{quizDescription}/{userID}', 'QuizController@addQuiz');
 
 // Add Question to specific Quiz
