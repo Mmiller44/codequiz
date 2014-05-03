@@ -273,7 +273,7 @@ mark.plus {
 }
 
 .features_list {
-	list-style-image: url('images/checkmark.png');
+	list-style-image: url('../images/checkmark.png');
 }
 
 
