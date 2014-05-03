@@ -3,7 +3,7 @@
 angular.module('codequizApp')
   .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
-  	var user = true;
+  	var user = false;
 
   	if(user)
   	{
