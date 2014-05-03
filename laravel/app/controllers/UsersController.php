@@ -43,7 +43,7 @@ class UsersController extends BaseController {
 		$obj = Social::setDecoder(function($user) {
         	return json_decode($user, true);
     	});
-    	return $_SESSION['lusitanian_oauth_token']['Twitter']['s:13'];
+    	return $_SESSION['lusitanian_oauth_token']['Twitter'];
 	}
 
 // USER
