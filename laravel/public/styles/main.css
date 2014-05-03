@@ -274,6 +274,9 @@ mark.plus {
 
 .features_list {
 	list-style-image: url('../images/checkmark.png');
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
 }
 
 
