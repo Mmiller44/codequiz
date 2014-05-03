@@ -41,7 +41,9 @@ class UsersController extends BaseController {
 	{
 		if (Social::check('twitter'))
 		{
-			return Social::twitter('user');
+			$user = Social::twitter('user');
+			$obj = array('user' => (string)$user);
+			return $obj;
  		}
 	}
 
