@@ -42,7 +42,9 @@ class UsersController extends BaseController {
 		if (Social::check('twitter'))
 		{
 			$user = Social::twitter('user');
-			$obj = array('user' => (string)$user);
+			$obj = Social::setDecoder(function($user) {
+            	return json_decode($user, true);
+        	});
 			return $obj;
  		}
 	}
