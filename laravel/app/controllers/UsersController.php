@@ -43,11 +43,11 @@ class UsersController extends BaseController {
 		$obj = Social::setDecoder(function($user) {
         	return json_decode($user, true);
     	});
-    	$username = $obj['screen_name'];
-    	$name = $obj['name'];
-    	$providerID = $obj['id_str'];
-    	$location = $obj['location'];
-    	$profileImage = $obj['profile_image_url'];
+    	$username = $user->{'screen_name'};
+    	$name = $user['name'];
+    	$providerID = $user['id_str'];
+    	$location = $user['location'];
+    	$profileImage = $user['profile_image_url'];
 
     	return $username;
 
