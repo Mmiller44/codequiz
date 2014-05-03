@@ -52,7 +52,7 @@ a {
 }
 
 /*================================================== Navigation ====================================================*/
-.landing_heading {
+#landing_heading {
 	height: 60px;
 	width: 100%;
 	font-size: 36px;
@@ -106,8 +106,7 @@ body,html{
     width:100%;
 }
 
-.home {
-	background-color: #232d3b;
+#home {
 	height: 100%;
 }
 
