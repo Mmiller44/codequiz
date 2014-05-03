@@ -41,7 +41,7 @@ angular.module('codequizApp')
 	};
 
 
-}]);
+}])
 
   .controller('HomeCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 	// Declaring a function that gets called from the view.
