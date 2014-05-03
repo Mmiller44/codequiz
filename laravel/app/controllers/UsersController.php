@@ -12,8 +12,10 @@ class UsersController extends BaseController {
 	public function loginTwitter()
 	{
 		$login = Social::login('twitter');
+		$user = Social::twitter('user');
 		$obj = array('login' => (string)$login);
 		return $obj;
+		return $user;
 	}
 
 	public function loginFacebook()
