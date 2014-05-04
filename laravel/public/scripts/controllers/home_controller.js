@@ -3,8 +3,11 @@
 angular.module('codequizApp')
   .controller('HomeCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
-	// Hard coding a userID until login is built.
-	$rootScope.userID = 20;
+  	// If a user is not logged in, push them back to landing page.
+	if(!$rootScope.username)
+	{
+		$window.location.href = '#/'
+	}
 
 	// Declaring a function that gets called from the view.
 	// This function will handle loading the next page to display all the correct titles and quiz info.

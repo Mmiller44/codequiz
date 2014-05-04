@@ -18,13 +18,6 @@
             <li><a href="#/contribute">Contribute</a></li>
           </ul>
           
-          <div id="login_section">
-          <span id="signin">
-            <span id="myGsignin"></span>
-          </span>
-            <a href="" ng-click="githubLogin()" class="button github"><img src="images/github.png" width="40" height="40">Github Login</a>
-            <a href="" ng-click="twitterLogin()" class="button twitter text-center"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
-          </div>
 
           <div id="social_media">
 

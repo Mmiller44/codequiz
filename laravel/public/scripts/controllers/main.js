@@ -10,21 +10,18 @@ angular.module('codequizApp')
 		console.log('running get user.');
 		console.log(returnedUserData);
 
+		// If a user exists, push them to the home page and set rootScope variables.
 		if(returnedUserData.username)
 		{
+			$rootScope.username = returnedUserData.username;
+			$rootScope.name = returnedUserData.name;
+			$rootScope.userLocation = returnedUserData.location;
+			$rootScope.userID = returnedUserData.providerID;
+			$rootScope.profileImage = returnedUserData.profileImage;
+
   			$window.location.href = '#/home';
 		}
 	});
-
-	// Hard coding a userID until login is built.
-	$rootScope.userID = 20;
-
-	// Declaring a function that gets called from the view.
-	// This function will handle loading the next page to display all the correct titles and quiz info.
-	// The parameter for the function is being generated in the view, from the other resource calls.
-	$scope.loadTitles = function(title){
-		$rootScope.title = title;
-	};
 
 	$scope.githubLogin = function()
 	{
@@ -36,6 +33,8 @@ angular.module('codequizApp')
 		});
 	};
 
+
+	// Authorization for a Twitter account. returns a URL, which I redirect to. User signs in and authorizes.
 	$scope.twitterLogin = function()
 	{
 		var twitter = $resource('/login-twitter');
