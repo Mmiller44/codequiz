@@ -46,8 +46,9 @@ class UsersController extends BaseController {
     	$providerID = $user->{'id_str'};
     	$location = $user->{'location'};
     	$profileImage = $user->{'profile_image_url'};
+    	$url = $user->{'url'};
 
-    	$data = array('username' => $username,'name' => $name, 'providerID' => $providerID,'location' => $location,'profileImage' => $profileImage);
+    	$data = array('username' => $username,'name' => $name, 'providerID' => $providerID,'location' => $location,'profileImage' => $profileImage,'website' => $url);
 
     	return $data;
 
@@ -73,14 +74,16 @@ class UsersController extends BaseController {
 	}
 
 	// Add new user into database.
-	public function addUser($providerID,$firstName,$lastName,$username)
+	public function addUser($providerID,$username,$name,$location,$website,$profileImage)
 	{
 		header('Access-Control-Allow-Origin: *');
 		$user = new Users;
-		$user->first_name = $firstName;
-		$user->last_name = $lastName;
+		$user->name = $name;
 		$user->provider_ID = $providerID;
 		$user->username = $username;
+		$user->location = $location;
+		$user->website = $website;
+		$user->profileImage = $profileImage;
 		$user->save();
 	}
 

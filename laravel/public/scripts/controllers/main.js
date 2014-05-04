@@ -18,14 +18,15 @@ angular.module('codequizApp')
 			$rootScope.userLocation = returnedUserData.location;
 			$rootScope.userID = returnedUserData.providerID;
 			$rootScope.profileImage = returnedUserData.profileImage;
+			$rootScope.website = returnedUserData.website;
 
-			$cookieStore.put('username',returnedUserData.username);
-			$cookieStore.put('name',returnedUserData.name);
-			$cookieStore.put('userLocation',returnedUserData.location);
-			$cookieStore.put('userID',returnedUserData.userID);
-			$cookieStore.put('profileImage',returnedUserData.profileImage);
+			// $cookieStore.put('username',returnedUserData.username);
+			// $cookieStore.put('name',returnedUserData.name);
+			// $cookieStore.put('userLocation',returnedUserData.location);
+			$cookieStore.put('providerID',returnedUserData.userID);
+			// $cookieStore.put('profileImage',returnedUserData.profileImage);
+			// $cookieStore.put('website',returnedUserData.website);
 	
-
   			$window.location.href = '#/home';
 		}
 	});
