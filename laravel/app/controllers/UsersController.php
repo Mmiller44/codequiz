@@ -83,7 +83,8 @@ class UsersController extends BaseController {
 		$user->profileImage = $profileImage;
 		$user->save();
 
-		return $user;
+		$data = array('userInfo' => $user);
+		return $data;
 	}
 
 
