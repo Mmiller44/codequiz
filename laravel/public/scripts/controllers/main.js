@@ -19,11 +19,11 @@ angular.module('codequizApp',['ngCookies'])
 			$rootScope.userID = returnedUserData.providerID;
 			$rootScope.profileImage = returnedUserData.profileImage;
 
-			$cookies.username = returnedUserData.username;
-			$cookies.name = returnedUserData.name;
-			$cookies.userLocation = returnedUserData.location;
-			$cookies.userID = returnedUserData.providerID;
-			$cookies.profileImage = returnedUserData.profileImage;	
+			$cookieStore.put('username',returnedUserData.username);
+			// $cookies.name = returnedUserData.name;
+			// $cookies.userLocation = returnedUserData.location;
+			// $cookies.userID = returnedUserData.providerID;
+			// $cookies.profileImage = returnedUserData.profileImage;	
 
   			$window.location.href = '#/home';
 		}
