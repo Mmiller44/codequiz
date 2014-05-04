@@ -60,7 +60,6 @@ class UsersController extends BaseController {
 	// Get all users
 	public function getUsers()
 	{
-		header('Access-Control-Allow-Origin: *');
 		$obj = Users::all();
 		return $obj;
 	}
@@ -68,7 +67,6 @@ class UsersController extends BaseController {
 	// Find specific user based on provider_ID
 	public function findUser($providerID)
 	{
-		header('Access-Control-Allow-Origin: *');
 		$obj = Users::where('provider_ID', '=', $providerID);
 		return $obj->get();
 	}
@@ -76,7 +74,6 @@ class UsersController extends BaseController {
 	// Add new user into database.
 	public function addUser($providerID,$username,$name,$location,$website,$profileImage)
 	{
-		header('Access-Control-Allow-Origin: *');
 		$user = new Users;
 		$user->name = $name;
 		$user->provider_ID = $providerID;
@@ -85,6 +82,8 @@ class UsersController extends BaseController {
 		$user->website = $website;
 		$user->profileImage = $profileImage;
 		$user->save();
+
+		return $user;
 	}
 
 
