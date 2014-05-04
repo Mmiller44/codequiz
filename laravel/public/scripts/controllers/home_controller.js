@@ -12,6 +12,9 @@ angular.module('codequizApp')
 		$window.location.href = '#/'
 	}
 
+	var userInformation = findUser;
+	console.log(userInformation);
+
 	// Declaring a function that gets called from the view.
 	// This function will handle loading the next page to display all the correct titles and quiz info.
 	// The parameter for the function is being generated in the view, from the other resource calls.

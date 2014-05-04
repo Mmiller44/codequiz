@@ -15,9 +15,9 @@ angular.module('codequizApp')
 }])
 
 // FINDUSER based on provider_ID
-  .factory('findUser',['$resource','$rootScope',function($resource,$rootScope){
+  .factory('findUser',['$resource','$rootScope','$cookieStore',function($resource,$rootScope,$cookieStore){
 
-	var Users = $resource('http://codequiz.io/find-specific-user/:provider_ID',{provider_ID: 'Github:00007'});
+	var Users = $resource('http://codequiz.io/find-specific-user/:provider_ID',{provider_ID: $cookieStore.get('providerID')});
 
 	// userObject holds all returned results
 	var userObject = Users.query({}, function() {
@@ -27,24 +27,26 @@ angular.module('codequizApp')
 			{
 				// No user by that ID exists, and needs to be added to the database.
 				console.log('No user exists');
-				var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:firstName/:lastName/:username',{provider_ID: 'Github:00007',firstName: 'Harrison',lastName: 'Ford', username: 'indianaJones'});
+				var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $rootScope.providerID, username: $rootScope.username, name: $rootScope.name, location: $rootScope.location, website: $rootScope.website, profileImage: $rootScope.profileImage});
 				var addedUser = newUser.query({}, function(){
 
 					console.log('user added');
 					// User has now been added to the database. $rootScope variables don't need to be changed,
 					// since it's the same data that was added to the database.
+					return addedUser;
+
 				});
+
+				return addedUser;
 
 			}else
 			{
 				// Setting the user $rootScope variables to match the returned data.
-				console.log(userObject[0].username);
-				$rootScope.firstName = userObject[0].first_name;
-				$rootScope.lastName = userObject[0].last_name;
-				$rootScope.providerID = userObject[0].provider_ID;
-				$rootScope.userID = userObject[0].user_ID;
+				return userObject;
 			}
 		});
+
+	return userObject;
 
 }]);
 
