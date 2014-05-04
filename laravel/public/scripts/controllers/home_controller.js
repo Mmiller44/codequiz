@@ -13,7 +13,7 @@ angular.module('codequizApp')
 
 	console.log(providerID);
 
-	var myUserInfo = getUserInfo(providerID);
+	var myUserInfo = $rootScope.getUserInfo(providerID);
 	console.log(myUserInfo);
 
 	// Declaring a function that gets called from the view.
