@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp',['ngCookies'])
-  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser','$cookies', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser,$cookies) {
+  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
   	// This call gets an object containing all the information for the user.
   	// I will use this info to search my own database, and add them if necessary.
