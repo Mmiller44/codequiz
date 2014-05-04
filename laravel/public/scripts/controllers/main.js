@@ -14,7 +14,7 @@ angular.module('codequizApp')
 		if(returnedUserData.username)
 		{
 			$cookieStore.put('username',returnedUserData.username);
-			$cookieStore.put('name', = returnedUserData.name);
+			$cookieStore.put('name', returnedUserData.name);
 			$cookieStore.put('location',returnedUserData.location);
 			$cookieStore.put('profileImage',returnedUserData.profileImage);
 			$cookieStore.put('website', returnedUserData.website);
