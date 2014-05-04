@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser','$cookieStore', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser,$cookieStore) {
+  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore) {
 
   	// This call gets an object containing all the information for the user.
   	// I will use this info to search my own database, and add them if necessary.
@@ -13,20 +13,27 @@ angular.module('codequizApp')
 		// If a user exists, push them to the home page and set rootScope variables.
 		if(returnedUserData.username)
 		{
+			$cookieStore.put('providerID',returnedUserData.providerID);
 			$cookieStore.put('username',returnedUserData.username);
 			$cookieStore.put('name', returnedUserData.name);
 			$cookieStore.put('location',returnedUserData.location);
 			$cookieStore.put('profileImage', 'imageLink');
+			$cookieStore.put('website', returnedUserData.url);
 			
 			if(returnedUserData.url == undefined)
 			{
 				$cookieStore.put('website', 'None');
-			}else
-			{
-				$cookieStore.put('website', returnedUserData.url);
 			}
 
-			$cookieStore.put('providerID',returnedUserData.providerID);
+			if(returnedUserData.name == undefined)
+			{
+				$cookieStore.put('name', 'None');
+			}
+
+			if(returnedUserData.location == undefined)
+			{
+				$cookieStore.put('location', 'None');
+			}
 
   			$window.location.href = '#/home';
 		}
