@@ -16,9 +16,8 @@ angular.module('codequizApp')
 			$cookieStore.put('username',returnedUserData.username);
 			$cookieStore.put('name', returnedUserData.name);
 			$cookieStore.put('location',returnedUserData.location);
-			$cookieStore.put('profileImage',returnedUserData.profileImage);
+			$cookieStore.put('profileImage', 'imageLink');
 			$cookieStore.put('website', 'codequiz.io/');
-
 			$cookieStore.put('providerID',returnedUserData.providerID);
 
   			$window.location.href = '#/home';
