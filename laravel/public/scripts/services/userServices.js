@@ -27,7 +27,7 @@ angular.module('codequizApp')
 			{
 				// No user by that ID exists, and needs to be added to the database.
 				console.log('No user exists');
-				var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $rootScope.providerID, username: $rootScope.username, name: $rootScope.name, location: $rootScope.userLocation, website: $rootScope.website, profileImage: $rootScope.profileImage});
+				var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $cookieStore.get('providerID'), username: $cookieStore.get('username'), location: $cookieStore.get('location'), website: $cookieStore.get('website'), profileImage: $cookieStore.get('profileImage')});
 				var addedUser = newUser.query({}, function(){
 
 					console.log('user added');
