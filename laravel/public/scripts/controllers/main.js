@@ -19,7 +19,7 @@ angular.module('codequizApp')
 			$rootScope.userID = returnedUserData.providerID;
 			$rootScope.profileImage = returnedUserData.profileImage;
 
-			$cookieStore.put('username',returnedUserData.username);
+			$cookieStore.put('providerID',returnedUserData.providerID);
 			// $cookies.name = returnedUserData.name;
 			// $cookies.userLocation = returnedUserData.location;
 			// $cookies.userID = returnedUserData.providerID;
