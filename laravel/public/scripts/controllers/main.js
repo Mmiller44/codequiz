@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('codequizApp')
+angular.module('codequizApp',['ngCookies'])
   .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser) {
 
   	// This call gets an object containing all the information for the user.
@@ -18,6 +18,12 @@ angular.module('codequizApp')
 			$rootScope.userLocation = returnedUserData.location;
 			$rootScope.userID = returnedUserData.providerID;
 			$rootScope.profileImage = returnedUserData.profileImage;
+
+			$cookies.username = returnedUserData.username;
+			$cookies.name = returnedUserData.name;
+			$cookies.userLocation = returnedUserData.location;
+			$cookies.userID = returnedUserData.providerID;
+			$cookies.profileImage = returnedUserData.profileImage;	
 
   			$window.location.href = '#/home';
 		}
