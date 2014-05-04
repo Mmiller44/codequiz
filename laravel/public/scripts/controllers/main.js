@@ -20,10 +20,11 @@ angular.module('codequizApp')
 			$rootScope.profileImage = returnedUserData.profileImage;
 
 			$cookieStore.put('username',returnedUserData.username);
-			// $cookies.name = returnedUserData.name;
-			// $cookies.userLocation = returnedUserData.location;
-			// $cookies.userID = returnedUserData.providerID;
-			// $cookies.profileImage = returnedUserData.profileImage;	
+			$cookieStore.put('name',returnedUserData.name);
+			$cookieStore.put('userLocation',returnedUserData.location);
+			$cookieStore.put('userID',returnedUserData.userID);
+			$cookieStore.put('profileImage',returnedUserData.profileImage);
+	
 
   			$window.location.href = '#/home';
 		}
