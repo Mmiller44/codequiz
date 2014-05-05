@@ -87,7 +87,8 @@ class UsersController extends BaseController {
 			$user->website = $website;
 			$user->profileImage = $profileImage;
 			$user->save();
-			return $user;
+
+			return $dataArray = array('userInfo' => $user);
 
 		}else
 		{
@@ -99,8 +100,7 @@ class UsersController extends BaseController {
 			$object->website = $website;
 			$object->profileImage = $profileImage;
 			$object->save();
-
-			return $object;
+			return $dataArray = array('userInfo' => $object);
 		}
 
 	}
