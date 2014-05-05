@@ -35,7 +35,7 @@
           <div class="row">
             <div class="small-6-centered columns">
               <h2 class="quiz_title_front">{{$root.sub_category}}</h2>
-              <h3 class="progress_indicator">{{currentNumber + 1}}/{{questions.length}}</h3>
+              <h3 class="progress_indicator">{{parseInt(currentNumber) + 1}}/{{questions.length}}</h3>
 
               <a href="" class="flag_question" data-reveal-id="report_modal" data-reveal><img src="images/flag.png"></a>
               <div id="report_modal" class="reveal-modal small" data-reveal>
@@ -55,7 +55,7 @@
           </div>
           <div class="row">
             <div class="small-6-centered columns">
-             <p class="question">{{questions[quizPosition[0].currentNumber].question}}</p>
+             <p class="question">{{questions[currentNumber].question}}</p>
             </div>
             <div id="answer_block_wrap">
 
@@ -63,22 +63,22 @@
               <ul>
                   <li class="answer_block">
                     <span class="answer_a"><span class="character">A</span></span>
-                      <a href="" class="odd" ng-click="saveAnswer('A')">{{questions[quizPosition[0].currentNumber].a}}</a>
+                      <a href="" class="odd" ng-click="saveAnswer('A')">{{questions[currentNumber].a}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_b"><span class="character">B</span></span>       
-                        <a href="" ng-click="saveAnswer('B')">{{questions[quizPosition[0].currentNumber].b}}</a>
+                        <a href="" ng-click="saveAnswer('B')">{{questions[currentNumber].b}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_c"><span class="character">C</span></span>       
-                      <a href="" class="odd" ng-click="saveAnswer('C')">{{questions[quizPosition[0].currentNumber].c}}</a>
+                      <a href="" class="odd" ng-click="saveAnswer('C')">{{questions[currentNumber].c}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_d"><span class="character">D</span></span>       
-                      <a href="" ng-click="saveAnswer('D')">{{questions[quizPosition[0].currentNumber].d}}</a>
+                      <a href="" ng-click="saveAnswer('D')">{{questions[currentNumber].d}}</a>
                   </li>
               <ul>
 
