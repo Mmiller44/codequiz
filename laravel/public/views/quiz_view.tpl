@@ -35,7 +35,7 @@
           <div class="row">
             <div class="small-6-centered columns">
               <h2 class="quiz_title_front">{{$root.sub_category}}</h2>
-              <h3 class="progress_indicator">{{indicatorNumber + 1}}/{{questions.length}}</h3>
+              <h3 class="progress_indicator">{{indicatorNumber}}/{{questions.length}}</h3>
 
               <a href="" class="flag_question" data-reveal-id="report_modal" data-reveal><img src="images/flag.png"></a>
               <div id="report_modal" class="reveal-modal small" data-reveal>
