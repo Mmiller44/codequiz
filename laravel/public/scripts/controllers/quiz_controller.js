@@ -26,6 +26,8 @@ angular.module('codequizApp')
     getQuizPosition.getPosition().then(function(data) {
         $scope.data = data;
         console.log($scope.data);
+        console.log($scope.data[0]);
+
         // $scope.currentNumber = $scope.data.currentNumber;
         // $scope.indicatorNumber = parseInt($scope.currentNumber + 1);
         // console.log($scope.currentNumber);
