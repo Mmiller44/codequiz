@@ -53,6 +53,11 @@ angular.module('codequizApp')
 			});
 
 			return deferred.promise;
+
+		}
+
+		return {
+			getPosition: getPosition;
 		}
 
 }])
