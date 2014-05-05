@@ -27,7 +27,7 @@ angular.module('codequizApp')
         $scope.data = data;
         for(var i=0; i < data.length; i++)
         {
-            console.log(data[i].currentNumber);
+            console.log(data[i]);
         }
 
         $scope.currentNumber = $scope.data.currentNumber;
