@@ -24,9 +24,9 @@ angular.module('codequizApp')
 
     // Using promises and then to make sure my view only loads if the data is returned.
     getQuizPosition.getPosition().then(function(data) {
-        $scope.data = data;
+        $scope.data = data[0];
         console.log($scope.data);
-        $scope.currentNumber = $scope.data[0].[0].currentNumber;
+        $scope.currentNumber = $scope.data.currentNumber;
         $scope.indicatorNumber = parseInt($scope.currentNumber + 1);
         console.log($scope.currentNumber);
     });
