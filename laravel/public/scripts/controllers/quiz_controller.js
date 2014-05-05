@@ -23,17 +23,19 @@ angular.module('codequizApp')
 
 
     // Using promises and then to make sure my view only loads if the data is returned.
-    getQuizPosition.getPosition().then(function(data) {
-        $scope.data = data;
-        for(var i=0; i < data.length; i++)
-        {
-            console.log(data[i]);
-        }
+    // getQuizPosition.getPosition().then(function(data) {
+    //     $scope.data = data;
+    //     for(var i=0; i < data.length; i++)
+    //     {
+    //         console.log(data[i]);
+    //     }
 
-        $scope.currentNumber = $scope.data.currentNumber;
-        $scope.indicatorNumber = parseInt($scope.currentNumber + 1);
-        console.log($scope.currentNumber);
-    });
+    //     $scope.currentNumber = $scope.data.currentNumber;
+    //     $scope.indicatorNumber = parseInt($scope.currentNumber + 1);
+    //     console.log($scope.currentNumber);
+    // });
+
+    console.log($scope.data);
 
     // setting a scope var to parseInt, so in the view I can use parseInt on a string, and add numbers to it.
     $scope.parseInt = parseInt;

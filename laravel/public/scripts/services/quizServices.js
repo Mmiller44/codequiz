@@ -43,25 +43,32 @@ angular.module('codequizApp')
 // Returns object to controller. If object is empty, controller handles the next API call.
 	.factory('getQuizPosition',['$resource','$cookieStore','$routeParams','$rootScope','$q',function($resource,$cookieStore,$routeParams,$rootScope,$q){
 		
-		var getPosition = function()
-		{
-			var deferred = $q.defer();
+		// var getPosition = function()
+		// {
+		// 	var deferred = $q.defer();
+
+		// 	var getPosition = $resource('http://codequiz.io/get-position/:userID/:quizID',{});
+		// 	var quizPosition = getPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
+		// 		return quizPosition;
+		// 	});
+
+		// 	deferred.resolve([quizPosition]);
+
+		// 	return deferred.promise;
+
+		// }
+
+		// return {
+		// 	getPosition: getPosition
+		// };
 
 			var getPosition = $resource('http://codequiz.io/get-position/:userID/:quizID',{});
 			var quizPosition = getPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
+				$scope.data = quizPosition;
 				return quizPosition;
 			});
 
-			deferred.resolve([quizPosition]);
-
-			return deferred.promise;
-
-		}
-
-		return {
-			getPosition: getPosition
-		};
-
+			return quizPosition;
 }])
 
 	.factory('storeAnswerFactory',['$resource','$rootScope',function($resource,$rootScope){
