@@ -52,7 +52,7 @@ angular.module('codequizApp')
 				return quizPosition;
 			});
 
-			deferred.resolve([quizPosition]);
+			deferred.resolve({object: quizPosition});
 
 			return deferred.promise;
 
