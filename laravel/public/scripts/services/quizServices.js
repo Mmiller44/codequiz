@@ -57,8 +57,8 @@ angular.module('codequizApp')
 		}
 
 		return {
-			getPosition: getPosition;
-		}
+			getPosition: getPosition
+		};
 
 }])
 
