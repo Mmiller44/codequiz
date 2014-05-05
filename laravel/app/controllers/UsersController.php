@@ -51,8 +51,6 @@ class UsersController extends BaseController {
     	$data = array('username' => $username,'name' => $name, 'providerID' => $providerID,'location' => $location,'profileImage' => $profileImage,'website' => $url);
 
     	return $data;
-
-
 	}
 
 // USER
@@ -74,14 +72,37 @@ class UsersController extends BaseController {
 	// Add new user into database.
 	public function addUser($providerID,$username,$name,$location,$website,$profileImage)
 	{
-		$user = new Users;
-		$user->name = $name;
-		$user->provider_ID = $providerID;
-		$user->username = $username;
-		$user->location = $location;
-		$user->website = $website;
-		$user->profileImage = $profileImage;
-		$user->save();
+		// Check if a user by this providerID exists in the database.
+		$checkExisting = Users::where('provider_ID', '=', $providerID);
+		$object = $checkExisting->first();
+
+		// No user by that providerID exists. Save user and return data.
+		if(!$object)
+		{
+			$user = new Users;
+			$user->name = $name;
+			$user->provider_ID = $providerID;
+			$user->username = $username;
+			$user->location = $location;
+			$user->website = $website;
+			$user->profileImage = $profileImage;
+			$user->save();
+			return $user;
+
+		}else
+		{
+			// There is already a user, and now the data needs to be updated and returned.	
+			$object->name = $name;
+			$object->provider_ID = $providerID;
+			$object->username = $username;
+			$object->location = $location;
+			$object->website = $website;
+			$object->profileImage = $profileImage;
+			$object->save();
+
+			return $object;
+		}
+
 	}
 
 

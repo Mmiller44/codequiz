@@ -17,37 +17,59 @@ angular.module('codequizApp')
 // FINDUSER based on provider_ID
   .factory('findUser',['$resource','$rootScope','$cookieStore',function($resource,$rootScope,$cookieStore){
 
-	var Users = $resource('http://codequiz.io/find-specific-user/:provider_ID',{provider_ID: $cookieStore.get('providerID')});
+  	// Making an api call to add or update a user to my database. Data gets returned back.
+	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $cookieStore.get('providerID'), username: $cookieStore.get('username'),name: $cookieStore.get('name'), location: $cookieStore.get('location'), website: $cookieStore.get('website'), profileImage: $cookieStore.get('profileImage')});
 
 	// userObject holds all returned results
-	var userObject = Users.query({}, function() {
-
-			// if objectOne[0] is undefined, we know a user by that provider_ID does not exist.
-			if(userObject[0] === undefined)
-			{
-				// No user by that ID exists, and needs to be added to the database.
-				console.log('No user exists');
-				var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $cookieStore.get('providerID'), username: $cookieStore.get('username'),name: $cookieStore.get('name'), location: $cookieStore.get('location'), website: $cookieStore.get('website'), profileImage: $cookieStore.get('profileImage')});
-				var addedUser = newUser.query({}, function(){
-
-					console.log('user added');
-					// User has now been added to the database. $rootScope variables don't need to be changed,
-					// since it's the same data that was added to the database
-
-				});
-
-				return addedUser;
-
-			}else
-			{
-				// Setting the user $rootScope variables to match the returned data.
-				return userObject;
-			}
+	var userObject = newUser.query({}, function() {
+			console.log(userObject);
+			return userObject;
 		});
 
 	return userObject;
 
-}]);
+}])
+
+// See if a Twitter user exists.
+  .factory('findTwitter',['$resource','$rootScope',function($resource,$rootScope){
+  	
+  	// This call gets an object containing all the information for the user.
+  	// I will use this info to search my own database, and add them if necessary.
+	var twitterUser = $resource('/get-twitter-user/');
+	var returnedUserData = twitterUser.get(function(){
+		console.log('running get user.');
+		console.log(returnedUserData);
+
+		// If a user exists, push them to the home page and set rootScope variables.
+		if(returnedUserData.username)
+		{
+			$cookieStore.put('providerID',returnedUserData.providerID);
+			$cookieStore.put('username',returnedUserData.username);
+			$cookieStore.put('name', returnedUserData.name);
+			$cookieStore.put('location',returnedUserData.location);
+			$cookieStore.put('profileImage', 'imageLink');
+			$cookieStore.put('website', returnedUserData.url);
+			
+			if(returnedUserData.url == undefined)
+			{
+				$cookieStore.put('website', 'None');
+			}
+
+			if(returnedUserData.name == undefined)
+			{
+				$cookieStore.put('name', 'None');
+			}
+
+			if(returnedUserData.location == undefined)
+			{
+				$cookieStore.put('location', 'None');
+			}
+
+  			$window.location.href = '#/home';
+		}
+	});
+
+}])
 
 
 

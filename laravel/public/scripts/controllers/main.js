@@ -1,43 +1,8 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore) {
+  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore','findTwitter', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore,findTwitter) {
 
-  	// This call gets an object containing all the information for the user.
-  	// I will use this info to search my own database, and add them if necessary.
-	var twitterUser = $resource('/get-twitter-user/');
-	var returnedUserData = twitterUser.get(function(){
-		console.log('running get user.');
-		console.log(returnedUserData);
-
-		// If a user exists, push them to the home page and set rootScope variables.
-		if(returnedUserData.username)
-		{
-			$cookieStore.put('providerID',returnedUserData.providerID);
-			$cookieStore.put('username',returnedUserData.username);
-			$cookieStore.put('name', returnedUserData.name);
-			$cookieStore.put('location',returnedUserData.location);
-			$cookieStore.put('profileImage', 'imageLink');
-			$cookieStore.put('website', returnedUserData.url);
-			
-			if(returnedUserData.url == undefined)
-			{
-				$cookieStore.put('website', 'None');
-			}
-
-			if(returnedUserData.name == undefined)
-			{
-				$cookieStore.put('name', 'None');
-			}
-
-			if(returnedUserData.location == undefined)
-			{
-				$cookieStore.put('location', 'None');
-			}
-
-  			$window.location.href = '#/home';
-		}
-	});
 
 	$scope.githubLogin = function()
 	{
