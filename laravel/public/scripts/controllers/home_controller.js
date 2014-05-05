@@ -13,7 +13,7 @@ angular.module('codequizApp')
 	}
 
 	var userInformation = findUser;
-	console.log(findUser.userID);
+	console.log(findUser);
 
 	// Declaring a function that gets called from the view.
 	// This function will handle loading the next page to display all the correct titles and quiz info.
