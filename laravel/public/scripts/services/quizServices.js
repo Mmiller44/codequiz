@@ -41,7 +41,7 @@ angular.module('codequizApp')
 
 // This factory gets the users position in the quiz that was clicked, if they have started it previously.
 // Returns object to controller. If object is empty, controller handles the next API call.
-	.factory('getQuizPosition',['$resource','$cookieStore','$routeParams','$rootScope','$q',function($resource,$cookieStore,$routeParams,$rootScope,$q){
+	.factory('getQuizPosition',['$resource','$cookieStore','$routeParams','$rootScope','$scope',function($resource,$cookieStore,$routeParams,$rootScope,$scope){
 		
 		// var getPosition = function()
 		// {
