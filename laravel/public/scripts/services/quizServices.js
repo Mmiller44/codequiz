@@ -49,7 +49,7 @@ angular.module('codequizApp')
 
 			var getPosition = $resource('http://codequiz.io/get-position/:userID/:quizID',{});
 			var quizPosition = getPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
-				deferred.resolve(quizPosition);
+				return deferred.resolve(quizPosition);
 			});
 
 			return deferred.promise;
