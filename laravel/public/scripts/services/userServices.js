@@ -21,7 +21,7 @@ angular.module('codequizApp')
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $cookieStore.get('providerID'), username: $cookieStore.get('username'),name: $cookieStore.get('name'), location: $cookieStore.get('location'), website: $cookieStore.get('website'), profileImage: $cookieStore.get('profileImage')});
 
 	// userObject holds all returned results
-	var userObject = newUser.query({}, function() {
+	var userObject = newUser.get({}, function() {
 			console.log(userObject);
 			return userObject;
 		});
