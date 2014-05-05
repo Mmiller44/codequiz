@@ -23,8 +23,8 @@ angular.module('codequizApp')
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuizPosition.
     $scope.quizPosition = getQuizPosition;
-    $scope.currentNumber = $scope.quizPosition;
-    $scope.indicatorNumber = parseInt(getQuizPosition.currentNumber + 1);
+    $scope.currentNumber = $rootScope.currentNumber;
+    $scope.indicatorNumber = parseInt($rootScope.currentNumber + 1);
     console.log($scope.indicatorNumber);
     console.log($scope.currentNumber);
 
