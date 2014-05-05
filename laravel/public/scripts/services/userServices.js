@@ -24,7 +24,7 @@ angular.module('codequizApp')
 	var userObject = newUser.get({}, function() {
 			console.log(userObject);
 			return userObject;
-			$cookieStore.put('userID'), userObject.user_ID;
+			$cookieStore.put('userID', userObject.user_ID);
 		});
 
 	return userObject;
