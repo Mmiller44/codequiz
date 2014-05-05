@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('HomeCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','findUser','$cookieStore', function($scope, $resource, $rootScope, $window, getQuizCategory,findUser,$cookieStore) {
+  .controller('HomeCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore) {
 
   	// If a user is not logged in, push them back to landing page.
 	var currentUser = $cookieStore.get('providerID');
@@ -11,9 +11,6 @@ angular.module('codequizApp')
 	{
 		$window.location.href = '#/'
 	}
-
-	var userInformation = findUser;
-	console.log(findUser);
 
 	// Declaring a function that gets called from the view.
 	// This function will handle loading the next page to display all the correct titles and quiz info.

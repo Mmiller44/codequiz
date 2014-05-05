@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_controller',['$scope','$rootScope','getQuestions','getQuizPosition','storeAnswerFactory','$route','$resource', function ($scope,$rootScope,getQuestions,getQuizPosition,storeAnswerFactory,$route,$resource) {
+  .controller('quiz_controller',['$scope','$rootScope','getQuestions','getQuizPosition','storeAnswerFactory','$route','$resource','findUser', function ($scope,$rootScope,getQuestions,getQuizPosition,storeAnswerFactory,$route,$resource,findUser) {
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.
@@ -15,12 +15,12 @@ angular.module('codequizApp')
     // -- Also, who is submitting the report.
     // (Side note): I should probably put something in to stop users from adding more than one report per question.
 
-
     console.log(getQuestions);
-    console.log($rootScope.userID);
+
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
     $scope.questions = getQuestions;
+    $scope.userData = findUser;
 
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuizPosition.
@@ -50,7 +50,7 @@ angular.module('codequizApp')
         // Now I know what the user answered, whether they were right, their user_ID, quiz_ID and question_ID.
         // I need to broadcast for an event to send over the data to the database.
         // I do not need to worry if the user already answered this question or not, because that logic is done in the backend.
-        $rootScope.$broadcast("storeAnswerEvent", {userID: $scope.quizPosition[0].user_ID, 
+        $rootScope.$broadcast("storeAnswerEvent", {userID: $scope.userData.user_ID, 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[$scope.quizPosition[0].currentNumber].question_ID, 
             userAnswer: value, correct: correctInput});
@@ -58,7 +58,7 @@ angular.module('codequizApp')
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
         var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber', {});
-        var dataObject = updateResource.get({userID: $rootScope.userID, quizID: $scope.questions[0].quiz_ID, newNumber: newNumber}, function() {
+        var dataObject = updateResource.get({userID: $scope.userData.user_ID, quizID: $scope.questions[0].quiz_ID, newNumber: newNumber}, function() {
                 console.log('Sent DATA');
         });
         

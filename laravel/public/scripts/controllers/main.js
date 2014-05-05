@@ -3,7 +3,6 @@
 angular.module('codequizApp')
   .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore','findTwitter', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore,findTwitter) {
 
-
 	$scope.githubLogin = function()
 	{
 		var loginUser = $resource('/login-github/');
@@ -13,7 +12,6 @@ angular.module('codequizApp')
 			$window.location.href = loggedUser.login;
 		});
 	};
-
 
 	// Authorization for a Twitter account. returns a URL, which I redirect to. User signs in and authorizes.
 	$scope.twitterLogin = function()
