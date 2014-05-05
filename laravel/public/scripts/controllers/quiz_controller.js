@@ -35,7 +35,7 @@ angular.module('codequizApp')
     //     console.log($scope.currentNumber);
     // });
 
-    console.log($scope.data);
+    console.log($rootScope.data);
 
     // setting a scope var to parseInt, so in the view I can use parseInt on a string, and add numbers to it.
     $scope.parseInt = parseInt;
