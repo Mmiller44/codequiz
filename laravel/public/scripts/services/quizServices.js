@@ -41,14 +41,19 @@ angular.module('codequizApp')
 
 // This factory gets the users position in the quiz that was clicked, if they have started it previously.
 // Returns object to controller. If object is empty, controller handles the next API call.
-	.factory('getQuizPosition',['$resource','$cookieStore','$routeParams','$rootScope',function($resource,$cookieStore,$routeParams,$rootScope){
+	.factory('getQuizPosition',['$resource','$cookieStore','$routeParams','$rootScope','$q',function($resource,$cookieStore,$routeParams,$rootScope,$q){
+		
+		var getPosition = function()
+		{
+			var deferred = $q.defer();
 
-	var getPosition = $resource('http://codequiz.io/get-position/:userID/:quizID',{});
-	var quizPosition = getPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
-		return quizPosition;
-	});
+			var getPosition = $resource('http://codequiz.io/get-position/:userID/:quizID',{});
+			var quizPosition = getPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
+				deferred.resolve(quizPosition);
+			});
 
-	return quizPosition;
+			return deferred.promise;
+		}
 
 }])
 
