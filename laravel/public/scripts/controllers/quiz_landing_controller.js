@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams', function($scope, $resource, $rootScope, $routeParams) {
+  .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams','findUser',function($scope, $resource, $rootScope, $routeParams,findUser) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
