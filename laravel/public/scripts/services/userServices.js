@@ -31,7 +31,7 @@ angular.module('codequizApp')
 }])
 
 // See if a Twitter user exists.
-  .factory('findTwitter',['$resource','$rootScope',function($resource,$rootScope){
+  .factory('findTwitter',['$resource','$rootScope','$cookieStore','$window',function($resource,$rootScope,$cookieStore,$window){
   	
   	// This call gets an object containing all the information for the user.
   	// I will use this info to search my own database, and add them if necessary.
