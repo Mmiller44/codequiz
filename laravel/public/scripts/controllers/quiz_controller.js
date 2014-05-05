@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition', function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition) {
+  .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore) {
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.
@@ -48,7 +48,7 @@ angular.module('codequizApp')
         // Now I know what the user answered, whether they were right, their user_ID, quiz_ID and question_ID.
         // I need to broadcast for an event to send over the data to the database.
         // I do not need to worry if the user already answered this question or not, because that logic is done in the backend.
-        $rootScope.$broadcast("storeAnswerEvent", {userID: $scope.userData.user_ID, 
+        $rootScope.$broadcast("storeAnswerEvent", {userID: $cookieStore.get('userID'), 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[$scope.quizPosition[0].currentNumber].question_ID, 
             userAnswer: value, correct: correctInput});
