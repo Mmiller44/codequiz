@@ -32,7 +32,7 @@ angular.module('codequizApp')
 
 					console.log('user added');
 					// User has now been added to the database. $rootScope variables don't need to be changed,
-					// since it's the same data that was added to the database.
+					// since it's the same data that was added to the database
 
 				});
 
