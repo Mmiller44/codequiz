@@ -44,7 +44,9 @@ angular.module('codequizApp')
 	.factory('getQuizPosition',['$resource','$cookieStore','$routeParams',function($resource,$cookieStore,$routeParams){
 
 	var getPosition = $resource('http://codequiz.io/get-position/:userID/:quizID',{});
-	var quizPosition = getPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
+	var userID = $cookieStore.get('userID');
+
+	var quizPosition = getPosition.query({userID: userID, quizID: $routeParams.quizID}, function(){
 		return quizPosition;
 	});
 
