@@ -17,7 +17,7 @@ angular.module('codequizApp')
 
     console.log(getQuestions);
 
-    $rootScope.userID = $findUser.user_ID;
+    $rootScope.userID = findUser.user_ID;
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
     $scope.questions = getQuestions;
