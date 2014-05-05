@@ -24,7 +24,7 @@ angular.module('codequizApp')
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuizPosition.
     $scope.quizPosition = getQuizPosition;
     $scope.currentNumber = parseInt($scope.quizPosition.currentNumber);
-    $scope.indicatorNumber = $scope.currentNumber + 1;
+    $scope.indicatorNumber = parseInt($scope.currentNumber + 1);
 
     // setting a scope var to parseInt, so in the view I can use parseInt on a string, and add numbers to it.
     $scope.parseInt = parseInt;
@@ -35,9 +35,9 @@ angular.module('codequizApp')
     {
         console.log('page loaded');
         var correctAnswer = $scope.questions[0].correct_answer;
-        var newNumber = parseInt($scope.quizPosition[0].currentNumber) + 1;
+        var newNumber = parseInt($scope.currentNumber) + 1;
 
-        $scope.currentNumber = newNumber;
+        $scope.currentNumber++;
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)
