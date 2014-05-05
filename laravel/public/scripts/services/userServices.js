@@ -23,8 +23,8 @@ angular.module('codequizApp')
 	// userObject holds all returned results
 	var userObject = newUser.get({}, function() {
 			console.log(userObject);
-			return userObject;
 			$cookieStore.put('userID', userObject.user_ID);
+			return userObject;
 		});
 
 	return userObject;
