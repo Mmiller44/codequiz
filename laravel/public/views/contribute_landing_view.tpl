@@ -3,7 +3,7 @@
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
         <section class="middle tab-bar-section">
-          <a href="#/" class="title">Code <mark class="orange">Quiz</mark></a>
+          <a href="#/home" class="title">Code <mark class="orange">Quiz</mark></a>
         </section>
 
         <section class="right-small">

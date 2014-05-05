@@ -4,7 +4,7 @@
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
         <section class="middle tab-bar-section">
-          <a href="#/" class="title">Code <mark class="orange">Quiz</mark></a>
+          <a href="#/home" class="title">Code <mark class="orange">Quiz</mark></a>
         </section>
 
         <section class="right-small">
@@ -63,7 +63,7 @@
               <ul>
                   <li class="answer_block">
                     <span class="answer_a"><span class="character">A</span></span>
-                      <a href="/quiz/{{questions[0].quiz_ID}}/" class="odd" ng-click="saveAnswer('A')">{{questions[quizPosition[0].currentNumber].a}}</a>
+                      <a href="" class="odd" ng-click="saveAnswer('A')">{{questions[quizPosition[0].currentNumber].a}}</a>
                   </li>
 
                   <li class="answer_block">
