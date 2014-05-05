@@ -69,7 +69,7 @@ angular.module('codequizApp')
 		}
 	});
 
-}])
+}]);
 
 
 
