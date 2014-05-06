@@ -1,5 +1,5 @@
 	<div ng-controller="quiz_controller">
-  <div class="page">
+  <div class="page" ng-cloak>
 	 <div class="off-canvas-wrap">
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
