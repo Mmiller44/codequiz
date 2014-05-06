@@ -400,6 +400,9 @@ span.character{
 
 .answer_block .odd {
 	background-color: #dbdbdb;
+}
+
+.answer_block {
 	min-height: 60px;
 }
 
