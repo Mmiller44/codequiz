@@ -28,8 +28,6 @@
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
 
-    <script>hljs.initHighlightingOnLoad();</script>
-    
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -51,9 +49,10 @@
     <script src="bower_components/foundation/js/foundation.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-  <script>
-  $(document).foundation();
-</script>
+    <script>
+        $(document).foundation();
+        hljs.initHighlightingOnLoad();
+    </script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/highlight.pack.js"></script>
         <script src="scripts/app.js"></script>
