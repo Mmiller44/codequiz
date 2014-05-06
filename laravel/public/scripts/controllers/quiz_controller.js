@@ -54,6 +54,7 @@ angular.module('codequizApp')
             $scope.completed = 'no';
         }
 
+        console.log($scope.completed);
 
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
