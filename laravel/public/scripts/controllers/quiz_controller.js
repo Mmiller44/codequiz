@@ -49,19 +49,8 @@ angular.module('codequizApp')
 
         // increment my values so the view knows new data needs to be rendered.
         $scope.currentNumber++;
-
-        // IF condition checking to see if the user has answered all the questions.
-        // Will set $scope.completed to either yes or no, which is used with updateResource call.
-        if($scope.indicatorNumber > $scope.questions.length)
-        {
-            $scope.completed = 'yes';
-            $window.location.href = '#/score';
-        }else
-        {
-            $scope.completed = 'no';
-        }
-
         $scope.indicatorNumber++;
+
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)
@@ -83,6 +72,17 @@ angular.module('codequizApp')
                 console.log('Stored Answer');
         });
         
+
+        // IF condition checking to see if the user has answered all the questions.
+        // Will set $scope.completed to either yes or no, which is used with updateResource call.
+        if($scope.currentNumber == $scope.questions.length)
+        {
+            $scope.completed = 'yes';
+            $window.location.href = '#/score';
+        }else
+        {
+            $scope.completed = 'no';
+        }
 
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
