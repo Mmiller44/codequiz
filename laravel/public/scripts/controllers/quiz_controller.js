@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore','$routeParams',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore,$routeParams) {
+  .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore','$routeParams','$window',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore,$routeParams,$window) {
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.
@@ -47,10 +47,11 @@ angular.module('codequizApp')
         // Will set $scope.completed to either yes or no, which is used with updateResource call.
         if($scope.indicatorNumber >= $scope.questions.length)
         {
-            $scope.completed = 'no';
+            $scope.completed = 'yes';
+            $window.location.href = '#/score';
         }else
         {
-            $scope.completed = 'yes';
+            $scope.completed = 'no';
         }
 
 
