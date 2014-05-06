@@ -50,12 +50,13 @@ angular.module('codequizApp')
 			$cookieStore.put('location',returnedUserData.location);
 			$cookieStore.put('profileImage', 'imageLink');
 
-			if(returnedUserData.url == undefined)
+			if(returnedUserData.website == undefined)
 			{
 				$cookieStore.put('website', 'None');
+
 			}else
 			{
-				var newURL = returnedUserData.url;
+				var newURL = returnedUserData.website;
 				newURL.slice('http');
 				newURL.slice('/');
 				newURL.slice(':');
