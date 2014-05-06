@@ -41,7 +41,7 @@ angular.module('codequizApp')
 
 
     // Store the users answer. 
-    // Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
+    // Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'.
     $scope.saveAnswer = function(value)
     {
         var correctAnswer = $scope.questions[$scope.currentNumber].correct_answer;
