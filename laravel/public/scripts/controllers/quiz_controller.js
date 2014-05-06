@@ -21,6 +21,8 @@ angular.module('codequizApp')
     $scope.questions = getQuestions;
     $scope.userData = findUser;
 
+    // Getting the users current position in this quiz. And then setting my scope variables to the proper values.
+    // the values will change on click later and will make the view render the new data making the user traverse the quiz.
     var quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
         console.log(quizPosition);
         $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
@@ -28,19 +30,30 @@ angular.module('codequizApp')
         $scope.quizPosition = quizPosition;
     });
 
-    // setting a scope var to parseInt, so in the view I can use parseInt on a string, and add numbers to it.
-    $scope.parseInt = parseInt;
 
-
-    // Store the users answer. Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
+    // Store the users answer. 
+    // Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
     $scope.saveAnswer = function(value)
     {
-        console.log('page loaded');
         var correctAnswer = $scope.questions[0].correct_answer;
         var newNumber = parseInt($scope.currentNumber) + 1;
 
+        // increment my values so the view knows new data needs to be rendered.
         $scope.currentNumber++;
         $scope.indicatorNumber++;
+
+
+        // IF condition checking to see if the user has answered all the questions.
+        // Will set $scope.completed to either yes or no, which is used with updateResource call.
+        if($scope.indicatorNumber >= $scope.questions.length)
+        {
+            $scope.completed = 'no';
+        }else
+        {
+            $scope.completed = 'yes';
+        }
+
+
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)
@@ -62,8 +75,8 @@ angular.module('codequizApp')
 
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
-        var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber', {});
-        var dataObject = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber}, function() {
+        var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber/:completed', {});
+        var dataObject = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber, completed: $scope.completed}, function() {
                 console.log('Sent DATA');
         });
         
