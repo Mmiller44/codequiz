@@ -61,7 +61,7 @@
             <div id="answer_block_wrap">
 
 
-              <ul>
+              <ul ng-cloak>
                   <li class="answer_block">
                     <span class="answer_a"><span class="character">A</span></span>
                       <a href="" class="odd" ng-click="saveAnswer('A')">{{questions[currentNumber].a}}</a>
