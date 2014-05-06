@@ -55,9 +55,7 @@
           </div>
           <div class="row">
             <div class="small-6-centered columns">
-              <pre><code>
-                <p class="question">{{questions[currentNumber].question}}</p>
-              </code></pre>
+              <pre><code>{{questions[currentNumber].question}}</code></pre>
             </div>
             <div id="answer_block_wrap">
 
