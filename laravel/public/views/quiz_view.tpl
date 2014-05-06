@@ -55,7 +55,7 @@
           </div>
           <div class="row">
             <div class="small-6-centered columns">
-              <code hljs source="questions[currentNumber].question"></code>
+              <code class="question" hljs source="questions[currentNumber].question"></code>
               </div>
             </div>
             <div id="answer_block_wrap">
