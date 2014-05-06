@@ -78,7 +78,7 @@ angular.module('codequizApp')
         // I do not need to worry if the user already answered this question or not, because that logic is done in the backend.
         var sendData = storeAnswerFactory.get({userID: $cookieStore.get('userID'), 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
-            questionID: $scope.questions[$scope.quizPosition[0].currentNumber].question_ID, 
+            questionID: $scope.questions[$scope.currentNumber].question_ID, 
             userAnswer: value, correct: correctInput}, function() {
                 console.log('Stored Answer');
         });
