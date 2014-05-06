@@ -357,7 +357,7 @@ mark.report {
 	margin-top: 20px;
 	margin-bottom: 40px;
 	font-size: 16px;
-	min-height: 100px;
+	height: 100px;
 }
 
 #answer_block_wrap {
