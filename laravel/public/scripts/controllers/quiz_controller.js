@@ -25,9 +25,18 @@ angular.module('codequizApp')
     // the values will change on click later and will make the view render the new data making the user traverse the quiz.
     var quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
         console.log(quizPosition);
-        $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
-        $scope.indicatorNumber = $scope.currentNumber + 1;
         $scope.quizPosition = quizPosition;
+
+        if($scope.quizPosition[0].completed == 'yes')
+        {
+            $scope.currentNumber = 0;
+        }else
+        {
+            $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
+        }
+
+         $scope.indicatorNumber = $scope.currentNumber + 1;
+
     });
 
 
@@ -42,7 +51,6 @@ angular.module('codequizApp')
         $scope.currentNumber++;
         $scope.indicatorNumber++;
 
-
         // IF condition checking to see if the user has answered all the questions.
         // Will set $scope.completed to either yes or no, which is used with updateResource call.
         if($scope.indicatorNumber >= $scope.questions.length)
@@ -53,8 +61,6 @@ angular.module('codequizApp')
         {
             $scope.completed = 'no';
         }
-
-        console.log($scope.completed);
 
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
