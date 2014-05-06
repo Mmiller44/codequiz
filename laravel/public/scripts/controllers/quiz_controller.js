@@ -44,7 +44,7 @@ angular.module('codequizApp')
     // Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'
     $scope.saveAnswer = function(value)
     {
-        var correctAnswer = $scope.questions[0].correct_answer;
+        var correctAnswer = $scope.questions[$scope.currentNumber].correct_answer;
         var newNumber = parseInt($scope.currentNumber) + 1;
 
         // increment my values so the view knows new data needs to be rendered.
