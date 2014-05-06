@@ -50,18 +50,10 @@ angular.module('codequizApp')
 			$cookieStore.put('location',returnedUserData.location);
 			$cookieStore.put('profileImage', 'image');
 			$cookieStore.put('website', returnedUserData.website);
-			// if(returnedUserData.website == undefined)
-			// {
-			// 	$cookieStore.put('website', 'None');
-
-			// }else
-			// {
-			// 	var newURL = returnedUserData.website;
-			// 	newURL.slice('http');
-			// 	newURL.slice('/');
-			// 	newURL.slice(':');
-			// 	$cookieStore.put('website', newURL);
-			// }
+			if(returnedUserData.website == undefined)
+			{
+				$cookieStore.put('website', 'None');
+			}
 
 			if(returnedUserData.name == undefined)
 			{
