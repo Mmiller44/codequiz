@@ -76,16 +76,19 @@ angular.module('codequizApp')
         // Now I know what the user answered, whether they were right, their user_ID, quiz_ID and question_ID.
         // I need to broadcast for an event to send over the data to the database.
         // I do not need to worry if the user already answered this question or not, because that logic is done in the backend.
-        $rootScope.$broadcast("storeAnswerEvent", {userID: $cookieStore.get('userID'), 
+        var sendData = storeAnswerFactory.get({userID: $cookieStore.get('userID'), 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[$scope.quizPosition[0].currentNumber].question_ID, 
-            userAnswer: value, correct: correctInput});
+            userAnswer: value, correct: correctInput}, function() {
+                console.log('Stored Answer');
+        });
+        
 
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
         var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber/:completed', {});
         var dataObject = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber, completed: $scope.completed}, function() {
-                console.log('Sent DATA');
+                console.log('Updated Position');
         });
         
     }
