@@ -9,7 +9,8 @@ angular.module('codequizApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'restangular'
+  'restangular',
+  'hljs'
 ])
 
   .config(function ($routeProvider) {
