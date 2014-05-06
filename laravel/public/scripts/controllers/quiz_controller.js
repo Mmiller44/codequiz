@@ -53,7 +53,7 @@ angular.module('codequizApp')
 
         // IF condition checking to see if the user has answered all the questions.
         // Will set $scope.completed to either yes or no, which is used with updateResource call.
-        if($scope.indicatorNumber >= $scope.questions.length)
+        if($scope.indicatorNumber > $scope.questions.length)
         {
             $scope.completed = 'yes';
             $window.location.href = '#/score';
