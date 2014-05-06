@@ -39,6 +39,7 @@ angular.module('codequizApp')
         var newNumber = parseInt($scope.currentNumber) + 1;
 
         $scope.currentNumber++;
+        $scope.indicatorNumber++;
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)
