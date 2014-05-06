@@ -25,6 +25,7 @@ angular.module('codequizApp')
         console.log(quizPosition);
         $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
         $scope.indicatorNumber = $scope.currentNumber + 1;
+        $scope.quizPosition = quizPosition;
     });
 
     // setting a scope var to parseInt, so in the view I can use parseInt on a string, and add numbers to it.
