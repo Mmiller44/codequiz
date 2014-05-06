@@ -21,7 +21,7 @@ angular.module('codequizApp')
     $scope.questions = getQuestions;
     $scope.userData = findUser;
 
-    var quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
+    var quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID}, function(){
         console.log(quizPosition);
         $scope.currentNumber = quizPosition[0].currentNumber;
     });
