@@ -55,7 +55,9 @@ angular.module('codequizApp')
 				$cookieStore.put('website', 'None');
 			}else
 			{
-				$cookieStore.put('website', encodeURIComponent(returnedUserData.website));
+				var newUrl = encodeURIComponent(returnedUserData.website);
+				console.log(newUrl);
+				$cookieStore.put('website', newUrl);
 			}
 
 			if(returnedUserData.name == undefined)
