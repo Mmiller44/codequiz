@@ -396,14 +396,11 @@ span.character{
 	padding-right: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	min-height: 60px;
 }
 
 .answer_block .odd {
 	background-color: #dbdbdb;
-}
-
-.answer_block {
-	min-height: 60px;
 }
 
 span.answer_b {
