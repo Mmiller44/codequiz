@@ -49,10 +49,13 @@ angular.module('codequizApp')
 			$cookieStore.put('name', returnedUserData.name);
 			$cookieStore.put('location',returnedUserData.location);
 			$cookieStore.put('profileImage', 'image');
-			$cookieStore.put('website', returnedUserData.website);
+			
 			if(returnedUserData.website == undefined)
 			{
 				$cookieStore.put('website', 'None');
+			}else
+			{
+				$cookieStore.put('website', encodeURIComponent(returnedUserData.website));
 			}
 
 			if(returnedUserData.name == undefined)
