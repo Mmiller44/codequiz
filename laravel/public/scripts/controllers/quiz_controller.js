@@ -41,12 +41,6 @@ angular.module('codequizApp')
 
          $scope.indicatorNumber = $scope.currentNumber + 1;
 
-         $scope.testing = "var counter = 0;
-                            for (var i = Things.length - 1; i >= 0; i--)
-                            {
-                                Things[i]
-                            };";
-
     });
 
 
