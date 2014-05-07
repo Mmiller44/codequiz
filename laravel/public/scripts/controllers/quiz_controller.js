@@ -42,7 +42,7 @@ angular.module('codequizApp')
          $scope.indicatorNumber = $scope.currentNumber + 1;
 
         console.log($scope.questions[$scope.currentNumber].question);
-        console.log($scope.questions[$scope.currentNumber].question.indexOf('}'));
+        console.log($scope.questions[$scope.currentNumber].split(}));
 
     });
 
