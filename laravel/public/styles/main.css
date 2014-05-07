@@ -426,6 +426,8 @@ span.answer_d {
 	font-size: 60px;
 	color: #232d3b;
 	font-weight: bold;
+	float: right;
+	margin-top: -60px;
 }
 
 .final_score {
