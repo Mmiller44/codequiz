@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="row">
-              <code class="question" language="javascript" hljs source="questions[currentNumber].question"></code>
+              <code class="question" language="Javascript" hljs source="questions[currentNumber].question"></code>
             <div id="answer_block_wrap">
 
 
