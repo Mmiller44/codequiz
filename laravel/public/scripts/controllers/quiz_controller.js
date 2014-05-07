@@ -19,6 +19,13 @@ angular.module('codequizApp')
     // Setting an object to equal the results from the server.
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
         $scope.questions = currentQuiz;
+
+        // Making a for loop to run through all the questions.
+        // Will use this to add line breaks at all the necessary spots.
+        for(var i=0;i < $scope.questions.length; i++)
+        {
+            console.log($scope.questions[i].question.indexof('}'));
+        }
     });
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
