@@ -425,6 +425,7 @@ span.answer_d {
 .percentSign {
 	font-size: 60px;
 	color: #232d3b;
+	font-weight: bold;
 }
 
 .final_score {
@@ -441,7 +442,6 @@ span.answer_d {
 	font-weight: bold;
 	margin-bottom: 40px;
 	color: #232d3b;
-	float: left;
 }
 
 
