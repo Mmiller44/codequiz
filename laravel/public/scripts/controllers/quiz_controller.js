@@ -43,8 +43,8 @@ angular.module('codequizApp')
 
     });
 
-        console.log($scope.questions[i].question);
-        console.log($scope.questions[i].question.indexOf('}'));
+        console.log($scope.questions[$scope.currentNumber].question);
+        console.log($scope.questions[$scope.currentNumber].question.indexOf('}'));
 
 
     // Store the users answer. 
