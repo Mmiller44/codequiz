@@ -25,7 +25,7 @@
           <div class="row">
             <div class="small-6-centered columns">
               <div class="final_score_wrap">
-                <h2 class="quiz_title_front">JavaScript</h2>
+                <h2 class="quiz_title_front">{{$root.sub_category}}</h2>
 
                 <h3 class="final_score">Final Score:</h3>
                 <h4 class="score" count-to="{{$root.finalScore}}" value="0" duration="{{duration}}"></h4>
