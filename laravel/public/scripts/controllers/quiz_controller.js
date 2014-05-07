@@ -17,7 +17,7 @@ angular.module('codequizApp')
 
     // Setting a scope variable to be a counter for how many answers they have right.
     // if the variable doesn't exist. Make it and set it to 0;
-    if(!scope.score)
+    if(!$scope.score)
     {
         $scope.score = 0;
     }
