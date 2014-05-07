@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="row">
-              <code class="question" language="$root.sub_category" hljs source="questions[currentNumber].question"></code>
+              <code class="question" hljs source="questions[currentNumber].question"></code>
             <div id="answer_block_wrap">
 
 
