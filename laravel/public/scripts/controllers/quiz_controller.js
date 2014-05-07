@@ -17,7 +17,7 @@ angular.module('codequizApp')
 
     
     // Setting an object to equal the results from the server.
-    var currentQuiz = getQuestions.questionResource.query({quizID: $routeParams.quizID}, function() {
+    var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
         $scope.questions = currentQuiz;
     });
 
