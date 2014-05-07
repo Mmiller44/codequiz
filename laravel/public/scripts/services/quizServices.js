@@ -28,13 +28,7 @@ angular.module('codequizApp')
   .factory('getQuestions',['$resource','$rootScope','$routeParams',function($resource,$rootScope,$routeParams){
 	// Establishing the $resource connection.
 	var questionResource = $resource('http://codequiz.io/get-questions/:quizID', {});
-
-	// Setting an object to equal the results from the server.
-	var currentQuiz = questionResource.query({quizID: $routeParams.quizID}, function() {
-			return currentQuiz;
-		});
-
-	return currentQuiz;
+	return questionResource;
 }])
 
 

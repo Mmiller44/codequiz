@@ -15,10 +15,13 @@ angular.module('codequizApp')
     // -- Also, who is submitting the report.
     // (Side note): I should probably put something in to stop users from adding more than one report per question.
 
-    console.log(getQuestions);
+    
+    // Setting an object to equal the results from the server.
+    var currentQuiz = questionResource.query({quizID: $routeParams.quizID}, function() {
+        $scope.questions = currentQuiz;
+    });
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
-    $scope.questions = getQuestions;
     $scope.userData = findUser;
 
     // Getting the users current position in this quiz. And then setting my scope variables to the proper values.
