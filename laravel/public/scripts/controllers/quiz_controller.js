@@ -41,7 +41,7 @@ angular.module('codequizApp')
 
          $scope.indicatorNumber = $scope.currentNumber + 1;
 
-        console.log($scope.questions[$scope.currentNumber].question);
+         $scope.testing = 'var counter = 0;';
 
     });
 
