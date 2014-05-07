@@ -34,9 +34,12 @@
                 <a href="#" class="button front_score_button">View Answers <img src="images/trophy.png" alt="Trophy Icon" width="40" height="40"></a>
                 <a href="" class="button front_score_button" data-reveal-id="report_modal" data-reveal>Rate Quiz <img src="images/star.png" alt="Star Icon" width="40" height="40"></a>
 
-                <h5 class="final_score">Share Your Results:</h5>
+                <h5 class="final_score">Share Your Results!</h5>
                 <!-- Twitter button for sharing here-->
-                
+                <a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="large" data-count="none">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
                 <div id="report_modal" class="reveal-modal small" data-reveal>
                 <h3 class="flag_header">Rate The Quiz!</h3>
                 <a class="close-reveal-modal">&#215;</a>
