@@ -24,7 +24,7 @@ angular.module('codequizApp')
         // Will use this to add line breaks at all the necessary spots.
         for(var i=0;i < $scope.questions.length; i++)
         {
-            console.log($scope.questions[i].question.indexof('}'));
+            console.log($scope.questions[i].question.indexOf('}'));
         }
     });
 
