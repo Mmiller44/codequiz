@@ -423,7 +423,8 @@ span.answer_d {
 
 /*================================================== Score Template ====================================================*/
 .percentSign {
-	float: right;
+	font-size: 60px;
+	color: #232d3b;
 }
 
 .final_score {
@@ -440,6 +441,7 @@ span.answer_d {
 	font-weight: bold;
 	margin-bottom: 40px;
 	color: #232d3b;
+	float: left;
 }
 
 
