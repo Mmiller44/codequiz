@@ -14,14 +14,9 @@
         <aside class="right-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
-            <li><a href="#/">Home</a></li>
+            <li><a href="#/home">Home</a></li>
             <li><a href="#/contribute">Contribute</a></li>
           </ul>
-          
-
-          <div id="social_media">
-
-          </div>
         </aside>
         <section class="main-section">
           <!-- content goes here -->
