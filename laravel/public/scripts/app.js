@@ -10,8 +10,7 @@ angular.module('codequizApp', [
   'ngSanitize',
   'ngRoute',
   'restangular',
-  'hljs',
-  'count-to'
+  'hljs'
 ])
 
   .config(function ($routeProvider) {
