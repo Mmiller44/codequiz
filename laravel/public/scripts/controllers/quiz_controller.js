@@ -15,6 +15,12 @@ angular.module('codequizApp')
     // -- Also, who is submitting the report.
     // (Side note): I should probably put something in to stop users from adding more than one report per question.
 
+    // Setting a scope variable to be a counter for how many answers they have right.
+    // if the variable doesn't exist. Make it and set it to 0;
+    if(!scope.score)
+    {
+        $scope.score = 0;
+    }
     
     // Setting an object to equal the results from the server.
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
