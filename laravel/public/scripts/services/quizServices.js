@@ -45,7 +45,7 @@ angular.module('codequizApp')
 	.factory('storeAnswerFactory',['$resource','$rootScope',function($resource,$rootScope){
 
 		// API call to add a quiz to Quizzes table.
-		var answerAPI = $resource('http://codequiz.io/store-answer/:userID/:userQuizID/:questionID/:userAnswer/:correct', {});
+		var answerAPI = $resource('http://codequiz.io/store-answer/:userID/:userQuizID/:questionID/:userAnswer/:correct/:score', {});
 		return answerAPI;
 }]);
 

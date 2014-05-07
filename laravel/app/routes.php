@@ -49,7 +49,7 @@ Route::get('get-twitter-user/', 'UsersController@getTwitterUser');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Answers
 // This route saves the users answer along with their id, the quizID, questionID and if they were right.
-Route::get('store-answer/{userID}/{userQuizID}/{questionID}/{userAnswer}/{correct}', 'AnswersController@saveAnswer');
+Route::get('store-answer/{userID}/{userQuizID}/{questionID}/{userAnswer}/{correct}/{score}', 'AnswersController@saveAnswer');
 
 
 

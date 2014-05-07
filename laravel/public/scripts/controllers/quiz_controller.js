@@ -54,6 +54,7 @@ angular.module('codequizApp')
     {
         var correctAnswer = $scope.questions[$scope.currentNumber].correct_answer;
         var newNumber = $scope.currentNumber;
+        var finalScore = 0;
 
         // increment my values so the view knows new data needs to be rendered.
         $scope.currentNumber++;
@@ -67,11 +68,14 @@ angular.module('codequizApp')
         if(value == correctAnswer)
         {
             var correctInput = 'yes';
+            $scope.score += 1;
 
         }else
         {
             var correctInput = 'no';
         }
+
+        finalScore = ($scope.score / $scope.questions.length) * 100;
 
         // Now I know what the user answered, whether they were right, their user_ID, quiz_ID and question_ID.
         // I need to broadcast for an event to send over the data to the database.
@@ -79,7 +83,7 @@ angular.module('codequizApp')
         var sendData = storeAnswerFactory.get({userID: $cookieStore.get('userID'), 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[newNumber].question_ID, 
-            userAnswer: value, correct: correctInput}, function() {
+            userAnswer: value, correct: correctInput, score: score}, function() {
                 console.log('Stored Answer');
         });
         
