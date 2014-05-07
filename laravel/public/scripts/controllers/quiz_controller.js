@@ -20,12 +20,6 @@ angular.module('codequizApp')
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
         $scope.questions = currentQuiz;
 
-        // Making a for loop to run through all the questions.
-        // Will use this to add line breaks at all the necessary spots.
-        for(var i=0;i < $scope.questions.length; i++)
-        {
-            console.log($scope.questions[i].question.indexOf('}'));
-        }
     });
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
@@ -48,6 +42,9 @@ angular.module('codequizApp')
          $scope.indicatorNumber = $scope.currentNumber + 1;
 
     });
+
+        console.log($scope.questions[i].question);
+        console.log($scope.questions[i].question.indexOf('}'));
 
 
     // Store the users answer. 
