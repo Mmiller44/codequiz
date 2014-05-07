@@ -10,7 +10,7 @@ class AnswersController extends BaseController {
 	// This function will save the users answer for each question to the correct table.
 	// Will need to save the answer even if they have already answered that question while taking the quiz previously.
 	// This way a user can take the quizzes multiple times.
-	public function saveAnswer($userID,$userQuizID,$questionID,$userAnswer,$correct,$score)
+	public function saveAnswer($userID,$userQuizID,$questionID,$userAnswer,$correct)
 	{
 
 		$checkExisting = QuizAnswers::where('user_ID', '=', $userID)
@@ -27,7 +27,6 @@ class AnswersController extends BaseController {
 			$quizAnswerTable->question_ID = $questionID;
 			$quizAnswerTable->user_answer = $userAnswer;
 			$quizAnswerTable->correct = $correct;
-			$quizAnswerTable->score = $score;
 			$quizAnswerTable->save();
 			return $quizAnswerTable;
 
@@ -36,7 +35,6 @@ class AnswersController extends BaseController {
 			// There is already an answer, and now the answer needs to be updated and returned.	
 			$object->user_answer = $userAnswer;
 			$object->correct = $correct;
-			$object->score = $score;
 			$object->save();
 
 			return $object;

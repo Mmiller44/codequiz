@@ -89,7 +89,7 @@ angular.module('codequizApp')
         var sendData = storeAnswerFactory.get({userID: $cookieStore.get('userID'), 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[newNumber].question_ID, 
-            userAnswer: value, correct: correctInput, score: finalScore}, function() {
+            userAnswer: value, correct: correctInput}, function() {
                 console.log('Stored Answer');
         });
         
@@ -107,8 +107,8 @@ angular.module('codequizApp')
 
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
-        var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber/:completed', {});
-        var dataObject = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber, completed: $scope.completed}, function() {
+        var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber/:completed/:score', {});
+        var dataObject = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber, completed: $scope.completed, score: finalScore}, function() {
                 console.log('Updated Position');
         });
         
