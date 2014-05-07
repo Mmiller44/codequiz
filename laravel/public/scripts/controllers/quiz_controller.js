@@ -41,6 +41,7 @@ angular.module('codequizApp')
 
          $scope.indicatorNumber = $scope.currentNumber + 1;
          $scope.quizCategory = $rootScope.sub_category.toLowerCase();
+         console.log($scope.quizCategory);
 
     });
 
