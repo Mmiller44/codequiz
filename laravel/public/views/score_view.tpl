@@ -29,7 +29,8 @@
 
                 <h3 class="final_score">Final Score:</h3>
                 <h4 class="score" count-to="{{$root.finalScore}}" value="0" duration="{{duration}}"></h4>
-
+                <h4 class="score percentSign">%<h4>
+                  
                 <a href="#" class="button front_score_button">View Answers <img src="images/trophy.png" alt="Trophy Icon" width="40" height="40"></a>
                 <a href="" class="button front_score_button" data-reveal-id="report_modal" data-reveal>Rate Quiz <img src="images/star.png" alt="Star Icon" width="40" height="40"></a>
 
