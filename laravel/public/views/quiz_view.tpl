@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="row">
-              <code class="question" ng-bind-html-unsafe='questions[currentNumber].question' language="javascript" hljs></code>
+              <code class="question" ng-bind-html-unsafe='questions[currentNumber].question' language="javascript" hljs source="questions[currentNumber].question"></code>
             <div id="answer_block_wrap">
 
 
