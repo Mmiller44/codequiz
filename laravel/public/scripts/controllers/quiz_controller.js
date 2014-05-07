@@ -89,7 +89,7 @@ angular.module('codequizApp')
         var sendData = storeAnswerFactory.get({userID: $cookieStore.get('userID'), 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[newNumber].question_ID, 
-            userAnswer: value, correct: correctInput, score: score}, function() {
+            userAnswer: value, correct: correctInput, score: finalScore}, function() {
                 console.log('Stored Answer');
         });
         
