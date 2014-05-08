@@ -34,11 +34,11 @@
                 <a class="close-reveal-modal">&#215;</a>
                 <p>Please select the options below that best relate to why you are flagging this question.</p>
                 <form class="flag_form" name="reportForm">
-                  <input type="checkbox" name="1" value="No correct Answer is given"><mark class="report">No correct answer is given.</mark><br>
-                  <input type="checkbox" name="2" value="Question is worded wrong"><mark class="report">Question is worded wrong.</mark><br>
-                  <input type="checkbox" name="3" value="Not fit for this category"><mark class="report">Not fit for this category.</mark><br>
+                  <input type="checkbox" ng-model="input1" name="1" value="No correct Answer is given"><mark class="report">No correct answer is given.</mark><br>
+                  <input type="checkbox" ng-model="input2" name="2" value="Question is worded wrong"><mark class="report">Question is worded wrong.</mark><br>
+                  <input type="checkbox" ng-model="input3" name="3" value="Not fit for this category"><mark class="report">Not fit for this category.</mark><br>
                   <label class="report">Other:</label>
-                  <textarea name="4"></textarea>
+                  <textarea ng-model="input4" name="4"></textarea>
                   <input type="submit" class="button report_button" value="Send Report" ng-click="submitReport(reportForm)">
                 </form>
               </div>
