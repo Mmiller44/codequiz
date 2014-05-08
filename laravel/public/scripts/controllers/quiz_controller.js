@@ -117,7 +117,7 @@ angular.module('codequizApp')
 
     $scope.submitReport = function()
     {
-        console.log($scope.reportForm);
+        console.log($scope.reportForm.input1);
         console.log('reported');
     }
 
