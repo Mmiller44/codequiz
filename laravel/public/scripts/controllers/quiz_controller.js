@@ -115,33 +115,9 @@ angular.module('codequizApp')
         
     }
 
-    $scope.submitReport = function()
+    $scope.submitReport = function(data)
     {
-        console.log($scope.input4);
-
-        if($scope.input1)
-        {
-            console.log('Selected: No correct answer is given')
-        }
-
-        if($scope.input2)
-        {
-            console.log('Selected: Question is worded wrong')
-
-        }
-
-        if($scope.input3)
-        {
-            console.log('Selected: Not fit for this category')
-        }
-
-        if($scope.input4)
-        {
-            console.log('Selected: custom')   
-        }
-
-
-        console.log('reported');
+        console.log(data);
     }
 
 
