@@ -41,7 +41,7 @@
                   <input type="checkbox" ng-model="input.radio3" name="input3" value="Not fit for this category"><mark class="report">Not fit for this category.</mark><br>
                   <label class="report">Other:</label>
                   <textarea ng-model="input.custom" name="input4"></textarea>
-                  <input type="submit" class="button report_button" value="Send Report">
+                  <input type="submit" class="button report_button" value="Send Report" ng-disabled="reportForm.$invalid">
                 </form>
 
 
