@@ -117,6 +117,11 @@ angular.module('codequizApp')
 
     $scope.submitReport = function(data)
     {
+        var config = {
+            params: {
+                data: data
+            }
+      };
         console.log(data);
     }
 
