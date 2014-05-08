@@ -39,7 +39,7 @@
                   <input type="checkbox" name="report_question" value="3"><mark class="report">Not fit for this category.</mark><br>
                   <input type="checkbox" name="report_question" value="4"><mark class="report">Custom:</mark><br>
                   <textarea></textarea>
-                <input type="submit" class="button report_button" value="Send Report" ng-click="reportQuestion()">
+                <input type="submit" class="button report_button" value="Send Report" ng-click="reportQuestion(reportQuestion)">
                 </form>
               </div>
             </div>
