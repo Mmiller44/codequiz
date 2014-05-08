@@ -33,14 +33,14 @@
                 <h3 class="flag_header">Flag question?</h3>
                 <a class="close-reveal-modal">&#215;</a>
                 <p>Please select the options below that best relate to why you are flagging this question.</p>
-                <form class="flag_form" action="" name="reportQuestion">
-                  <input type="checkbox" name="report_question" value="1"><mark class="report">No correct answer is given.</mark><br>
-                  <input type="checkbox" name="report_question" value="2"><mark class="report">Question is worded wrong.</mark><br>
-                  <input type="checkbox" name="report_question" value="3"><mark class="report">Not fit for this category.</mark><br>
-                  <input type="checkbox" name="report_question" value="4"><mark class="report">Custom:</mark><br>
-                  <textarea></textarea>
-                <input type="submit" class="button report_button" value="Send Report" ng-click="reportQuestion()">
+                <form class="flag_form" name="reportForm">
+                  <input type="checkbox" name="1" value="No correct Answer is given"><mark class="report">No correct answer is given.</mark><br>
+                  <input type="checkbox" name="2" value="Question is worded wrong"><mark class="report">Question is worded wrong.</mark><br>
+                  <input type="checkbox" name="3" value="Not fit for this category"><mark class="report">Not fit for this category.</mark><br>
+                  <label class="report">Other:</label>
+                  <textarea name="4"></textarea>
                 </form>
+                <input type="submit" class="button report_button" value="Send Report" ng-click="submitReport(reportForm)">
               </div>
             </div>
           </div>
