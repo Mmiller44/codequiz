@@ -31,7 +31,7 @@
                   <div id="panel{{quizzes.quiz_ID}}" class="content">
                     <p>{{quizzes.description}}</p>
                     <h3 class="star">Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
-                    <h4>By <a href="" ng-click="getUserQuizzes(quizzes.username)">{{quizzes.username}}</a></h4>
+                    <h4>By <a href="#/quizzes/quizzes.username">{{quizzes.username}}</a></h4>
                     <a ng-href="#/quiz/{{quizzes.quiz_ID}}/" ng-click='setQuizID(quizzes.quiz_ID)' class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
                   </div>
                 </dd>
