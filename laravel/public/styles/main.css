@@ -424,9 +424,10 @@ span.character{
 	font-size: 16px;
 	padding-left: 22%;
 	padding-right: 10px;
-	padding-top: 10px;
+	padding-top: 20px;
 	padding-bottom: 10px;
 	min-height: 60px;
+
 }
 
 .answer_block .odd {
