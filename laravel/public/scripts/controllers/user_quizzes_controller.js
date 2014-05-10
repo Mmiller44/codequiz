@@ -29,8 +29,8 @@ angular.module('codequizApp')
 		}
 
 	var getAll = getAllByUser.query({username: $routeParams.username}, function() {
-		console.log(getAll);
 		$scope.quizInfo = getAll;
+		console.log($scope.quizInfo.username);
 
 		if($scope.quizInfo.username == undefined)
 		{
