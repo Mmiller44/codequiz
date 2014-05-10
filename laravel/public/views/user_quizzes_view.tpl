@@ -38,7 +38,7 @@
               </dl>
             </div>
             
-            <div ng-hide="isUser">
+            <div ng-show="noUser">
               <h2 class="section_title">Sorry, no quizzes found.</h2>
             </div>
 
