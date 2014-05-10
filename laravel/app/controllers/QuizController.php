@@ -18,7 +18,7 @@ class QuizController extends BaseController {
 	{
 		$allQuizzesBy = Users::where('username', '=', $username)
 		->join('Quizzes', 'Quizzes.user_ID', 'Users.user_ID');
-		return $allQuizzesBy;
+		return $allQuizzesBy->get();
 	}
 
 	// This function gets a specific quiz Main Category, like Front End or Back End
