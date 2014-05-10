@@ -34,7 +34,10 @@ angular.module('codequizApp')
 		$scope.quizInfo = getAll;
 		console.log($scope.quizInfo);
 
-		if(!$scope.quizInfo)
+		if($scope.quizInfo[0].username)
+		{
+
+		}else
 		{
 			console.log('no quizzes by that username.');
 			$scope.isUser = true;
