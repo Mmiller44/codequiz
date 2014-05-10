@@ -29,7 +29,7 @@
               <h3 class="progress_indicator">{{indicatorNumber}}/{{questions.length}}</h3>
 
               <a href="" class="flag_question" data-reveal-id="report_modal" data-reveal><img src="images/flag.png"></a>
-              <div id="report_modal" class="reveal-modal small" data-reveal>
+              <div id="report_modal" class="reveal-modal" data-reveal>
                 <h3 class="flag_header">Flag question?</h3>
                 <a class="close-reveal-modal">&#215;</a>
                 <p>Please select the options below that best relate to why you are flagging this question.</p>
@@ -43,7 +43,7 @@
                   <textarea ng-model="input.custom" name="input4"></textarea>
                 </form>
                 
-                <a ng-href="" class="button report_button" ng-click="submitReport(input)">Send Report</a>
+                <a ng-href="#/quiz/{{quizID}}" class="button report_button" ng-click="submitReport(input)">Send Report</a>
 
 
               </div>

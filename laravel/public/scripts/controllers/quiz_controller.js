@@ -22,6 +22,7 @@ angular.module('codequizApp')
         $scope.score = 0;
     }
     
+    $scope.quizID = $routeParams.quizID;
     $scope.reportData = {};
 
     // Setting an object to equal the results from the server.
