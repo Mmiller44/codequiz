@@ -26,12 +26,9 @@ angular.module('codequizApp')
 			$rootScope.quizID = ID;
 		}
 
-		$scope.getUserQuizzes = function(username) {
-			console.log(username);
-			var getAll = getAllByUser.query({username: username}, function() {
-				console.log(getAll);
-				$scope.quizInfo = getAll;
-			});
-		}
+	var getAll = getAllByUser.query({username: username}, function() {
+		console.log(getAll);
+		$scope.quizInfo = getAll;
+	});
 
 }]);
