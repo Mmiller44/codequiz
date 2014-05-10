@@ -34,7 +34,7 @@ angular.module('codequizApp')
 		$scope.quizInfo = getAll;
 		console.log($scope.quizInfo);
 
-		if($scope.quizInfo[0].username)
+		if($scope.quizInfo.length > 0)
 		{
 
 		}else
