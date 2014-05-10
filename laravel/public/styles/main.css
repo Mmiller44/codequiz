@@ -316,10 +316,6 @@ code.question {
 	min-height: 150px;
 }
 
-code.question > pre {
-	width: 50%;
-}
-
 .quiz_title_front {
 	font-size: 20px;
 	color: #59a29e;
