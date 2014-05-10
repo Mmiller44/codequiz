@@ -17,7 +17,7 @@ class QuizController extends BaseController {
 	public function getAllBy($username)
 	{
 		$allQuizzesBy = Users::where('username', '=', $username)
-		->join('Quizzes', 'Quizzes.user_ID', 'Users.user_ID');
+		->join('Quizzes', 'Quizzes.user_ID', '=', 'Users.user_ID');
 		return $allQuizzesBy->get();
 	}
 
