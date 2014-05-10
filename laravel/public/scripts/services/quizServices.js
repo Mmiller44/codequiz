@@ -33,7 +33,7 @@ angular.module('codequizApp')
 
 
 // This factory will be used to return all the quizzes that a certain user has created.
-	.factory('getAllByUser',['$resource','$cookieStore','$routeParams','$rootScope',function($resource,$cookieStore,$routeParams,$rootScope){
+	.factory('getAllByUser',['$resource','$rootScope',function($resource,$rootScope){
 		
 		var getAll = $resource('http://codequiz.io/get-all-by/:username/',{});
 		return getAll;
