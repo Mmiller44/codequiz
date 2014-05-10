@@ -32,7 +32,7 @@ angular.module('codequizApp')
 		console.log(getAll);
 		$scope.quizInfo = getAll;
 
-		if($scope.quizInfo == undefined)
+		if($scope.quizInfo.username == undefined)
 		{
 			console.log('no quizzes by that username.');
 			$scope.isUser = true;
