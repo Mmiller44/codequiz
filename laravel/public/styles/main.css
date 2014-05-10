@@ -312,6 +312,10 @@ mark.plus {
 
 /*================================================== Quiz Template ====================================================*/
 
+code {
+	min-height: 150px;
+	overflow: hidden;
+}
 
 .quiz_title_front {
 	font-size: 20px;
