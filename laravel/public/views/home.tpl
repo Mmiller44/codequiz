@@ -14,7 +14,7 @@
         <aside class="right-off-canvas-menu">
           <ul class="off-canvas-list">
             <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
-          <img src="http://pbs.twimg.com/profile_images/448539995364544512/yeX3PlpV_bigger.jpeg" class="profileImage" alt="Profile Picture" title="You!">
+          <img src="//pbs.twimg.com/profile_images/448539995364544512/yeX3PlpV_bigger.jpeg" class="profileImage" alt="Profile Picture" title="You!">
           <h2 class="profileUser">MikeTMiller04</h2>
             <li><a href="#/home">Home</a></li>
             <li><a href="#/contribute">Contribute</a></li>
