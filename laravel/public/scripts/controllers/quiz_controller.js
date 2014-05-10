@@ -22,6 +22,8 @@ angular.module('codequizApp')
         $scope.score = 0;
     }
     
+    $scope.master = {};
+
     // Setting an object to equal the results from the server.
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
         $scope.questions = currentQuiz;
@@ -112,12 +114,8 @@ angular.module('codequizApp')
 
     $scope.submitReport = function(data)
     {
-        var config = {
-            params: {
-                data: data
-            }
-      };
-        console.log(data);
+        $scope.master = angular.copy(data);
+        console.log($scope.master);
     }
 
 
