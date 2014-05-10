@@ -21,14 +21,10 @@ angular.module('codequizApp')
     {
         $scope.score = 0;
     }
-
-    $scope.doneLoading = false;
     
     // Setting an object to equal the results from the server.
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
         $scope.questions = currentQuiz;
-        $scope.doneLoading = true;
-
     });
 
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
@@ -47,15 +43,6 @@ angular.module('codequizApp')
         {
             $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
         }
-
-        if($scope.doneLoading)
-        {
-            $scope.answerA = $scope.questions[$scope.currentNumber].a;
-            $scope.answerB = $scope.questions[$scope.currentNumber].b;
-            $scope.answerC = $scope.questions[$scope.currentNumber].c;
-            $scope.answerD = $scope.questions[$scope.currentNumber].d;  
-        }
-
 
          $scope.indicatorNumber = $scope.currentNumber + 1;
          // $scope.quizCategory = $rootScope.sub_category.toLowerCase();
@@ -77,14 +64,6 @@ angular.module('codequizApp')
         // increment my values so the view knows new data needs to be rendered.
         $scope.currentNumber++;
         $scope.indicatorNumber++;
-
-        if($scope.currentNumber < $scope.questions.length)
-        {
-            $scope.answerA = $scope.questions[$scope.currentNumber].a;
-            $scope.answerB = $scope.questions[$scope.currentNumber].b;
-            $scope.answerC = $scope.questions[$scope.currentNumber].c;
-            $scope.answerD = $scope.questions[$scope.currentNumber].d;
-        }
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)

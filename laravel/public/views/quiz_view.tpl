@@ -55,22 +55,22 @@
               <ul ng-cloak>
                   <li class="answer_block">
                     <span class="answer_a"><span class="character">A</span></span>
-                      <a href="" class="odd" ng-click="saveAnswer('A')">{{answerA}}</a>
+                      <a href="" class="odd" ng-click="saveAnswer('A')">{{questions[currentNumber].a}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_b"><span class="character">B</span></span>       
-                        <a href="" ng-click="saveAnswer('B')">{{answerB}}</a>
+                        <a href="" ng-click="saveAnswer('B')">{{questions[currentNumber].b}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_c"><span class="character">C</span></span>       
-                      <a href="" class="odd" ng-click="saveAnswer('C')">{{answerC}}</a>
+                      <a href="" class="odd" ng-click="saveAnswer('C')">{{questions[currentNumber].c}}</a>
                   </li>
 
                   <li class="answer_block">
                       <span class="answer_a answer_d"><span class="character">D</span></span>       
-                      <a href="" ng-click="saveAnswer('D')">{{answerD}}</a>
+                      <a href="" ng-click="saveAnswer('D')">{{questions[currentNumber].d}}</a>
                   </li>
               <ul>
             </div>
