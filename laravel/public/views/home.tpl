@@ -12,6 +12,8 @@
       </nav>
 
         <aside class="right-off-canvas-menu">
+          <img src="" class="profileImage" alt="Profile Picture" title="You!">
+          <h2 class="profileUser">MikeTMiller04</h2>
           <ul class="off-canvas-list">
             <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
             <li><a href="#/home">Home</a></li>

@@ -65,6 +65,8 @@ angular.module('codequizApp')
 				$cookieStore.put('location', 'None');
 			}
 
+			console.log(returnedUserData.profileImage);
+
   			$window.location.href = '#/home';
 		}
 	});
