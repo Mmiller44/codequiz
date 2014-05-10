@@ -32,7 +32,7 @@ angular.module('codequizApp')
 
 	var getAll = getAllByUser.query({username: $routeParams.username}, function() {
 		$scope.quizInfo = getAll;
-		console.log($scope.quizInfo[0].username);
+		console.log($scope.quizInfo);
 
 		if(!$scope.quizInfo)
 		{
