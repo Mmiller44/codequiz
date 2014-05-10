@@ -24,7 +24,7 @@
           <div class="row">
             <div class="small-6-centered columns">
 
-              <h2 class="section_title">All Quizzes by: </h2>
+              <h2 class="section_title">All Quizzes by: {{quizInfo[0].username}}</h2>
               <dl class="accordion front_end_accordion" data-accordion>
                 <dd class="no_hover" ng-repeat="quizzes in quizInfo">
                   <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
