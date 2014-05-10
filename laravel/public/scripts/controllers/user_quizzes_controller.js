@@ -3,7 +3,7 @@
 angular.module('codequizApp')
   .controller('user_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','getAllByUser',function($scope, $resource, $rootScope, $routeParams,getAllByUser) {
 
-  	$scope.isUser = true;
+  	$scope.isUser = false;
 
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
@@ -35,7 +35,7 @@ angular.module('codequizApp')
 		if($scope.quizInfo == undefined)
 		{
 			console.log('no quizzes by that username.');
-			$scope.isUser = false;
+			$scope.isUser = true;
 		}
 	});
 

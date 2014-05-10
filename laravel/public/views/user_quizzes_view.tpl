@@ -39,7 +39,7 @@
             </div>
             
             <div ng-show="isUser">
-              <h2 class="section_title">Sorry, no results found.</h2>
+              <h2 class="section_title">Sorry, no quizzes found.</h2>
             </div>
 
             </div>
