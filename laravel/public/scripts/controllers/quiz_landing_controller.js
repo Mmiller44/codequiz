@@ -2,11 +2,6 @@
 
 angular.module('codequizApp')
   .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
@@ -37,13 +32,6 @@ angular.module('codequizApp')
 
 		$scope.setQuizID = function(ID) {
 			$rootScope.quizID = ID;
-		}
-
-		$scope.getUserQuizzes = function(username) {
-			console.log(username);
-			var getAll = getAllByUser.query({username: username}, function() {
-				console.log(getAll);
-			});
 		}
 
 }]);
