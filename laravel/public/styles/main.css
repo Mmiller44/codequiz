@@ -389,6 +389,7 @@ mark.report {
 
 #answer_block_wrap {
 	clear: both;
+	overflow: hidden;
 }
 
 .answer_block {
