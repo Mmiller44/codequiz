@@ -45,6 +45,11 @@ angular.module('codequizApp')
             $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
         }
 
+        $scope.answerA = $scope.questions[$scope.currentNumber].a;
+        $scope.answerB = $scope.questions[$scope.currentNumber].b;
+        $scope.answerC = $scope.questions[$scope.currentNumber].c;
+        $scope.answerD = $scope.questions[$scope.currentNumber].d;
+
          $scope.indicatorNumber = $scope.currentNumber + 1;
          // $scope.quizCategory = $rootScope.sub_category.toLowerCase();
          // console.log($scope.quizCategory);
