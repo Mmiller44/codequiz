@@ -19,7 +19,7 @@
             <li><a href="#/home">Home</a></li>
             <li><a href="#/contribute">Contribute</a></li>
           </ul>
-          <h3 class="menuShare">Share our page!</h3>
+          <h3 class="menuShare">Share us!</h3>
           <a href="https://twitter.com/share" class="twitter-share-button" data-via="MikeTMiller04" data-size="large" data-count="none">Tweet about us!</a>
           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </aside>
