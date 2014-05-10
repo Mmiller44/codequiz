@@ -71,6 +71,11 @@ angular.module('codequizApp')
         $scope.currentNumber++;
         $scope.indicatorNumber++;
 
+        $scope.answerA = $scope.questions[$scope.currentNumber].a;
+        $scope.answerB = $scope.questions[$scope.currentNumber].b;
+        $scope.answerC = $scope.questions[$scope.currentNumber].c;
+        $scope.answerD = $scope.questions[$scope.currentNumber].d;
+
         console.log($scope.currentNumber);
         console.log($scope.indicatorNumber);
         console.log(newNumber);
