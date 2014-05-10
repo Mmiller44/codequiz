@@ -372,11 +372,11 @@ code {
 
 #reportButton {
 	position: relative;
-	bottom: 20px;
-	left: 20px;
+	left: 0px;
 	background-color: #232d3b;
 	margin-bottom: 20px;
 	color: #f3f3f3;
+	font-size: 20px;
 }
 
 mark.report {
