@@ -43,7 +43,7 @@
                   <textarea ng-model="input.custom" name="input4"></textarea>
                 </form>
                 
-                <a ng-href="" class="button report_button" ng-click="submitReport(input)">Send Report</a>
+                <a ng-href="" id="reportButton" class="button close-reveal-modal" ng-click="submitReport(input)">Send Report</a>
 
 
               </div>

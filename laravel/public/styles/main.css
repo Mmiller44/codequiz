@@ -370,7 +370,10 @@ code {
 	line-height: 1.5;
 }
 
-.report_button {
+.reportButton {
+	position: relative;
+	bottom: 20px;
+	left: 20px;
 	background-color: #232d3b;
 	margin-bottom: 20px;
 	color: #f3f3f3;

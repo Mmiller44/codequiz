@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore','$routeParams','$window','$modalInstance',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore,$routeParams,$window,$modalInstance) {
+  .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore','$routeParams','$window',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore,$routeParams,$window) {
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.
@@ -116,7 +116,6 @@ angular.module('codequizApp')
     {
         $scope.reportData = angular.copy(data);
         console.log($scope.reportData);
-        $modalInstance.close();
     }
 
 
