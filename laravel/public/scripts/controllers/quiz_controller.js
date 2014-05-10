@@ -71,14 +71,13 @@ angular.module('codequizApp')
         $scope.currentNumber++;
         $scope.indicatorNumber++;
 
-        $scope.answerA = $scope.questions[$scope.currentNumber].a;
-        $scope.answerB = $scope.questions[$scope.currentNumber].b;
-        $scope.answerC = $scope.questions[$scope.currentNumber].c;
-        $scope.answerD = $scope.questions[$scope.currentNumber].d;
-
-        console.log($scope.currentNumber);
-        console.log($scope.indicatorNumber);
-        console.log(newNumber);
+        if($scope.currentNumber < $scope.questions.length)
+        {
+            $scope.answerA = $scope.questions[$scope.currentNumber].a;
+            $scope.answerB = $scope.questions[$scope.currentNumber].b;
+            $scope.answerC = $scope.questions[$scope.currentNumber].c;
+            $scope.answerD = $scope.questions[$scope.currentNumber].d;
+        }
 
         // If the users answer is the same as the correct answer, they are right. Else they are wrong.
         if(value == correctAnswer)
