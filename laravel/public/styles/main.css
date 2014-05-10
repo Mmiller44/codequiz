@@ -285,6 +285,12 @@ mark.plus {
 	font-size: 16px;
 }
 
+.usernameLink {
+	font-weight: bold;
+	color: #232d3b;
+	text-decoration: underline;
+}
+
 /*================================================== Quiz Template ====================================================*/
 
 code {
