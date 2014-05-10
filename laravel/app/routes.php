@@ -16,6 +16,8 @@ Route::get('get-sub-category/{sub_category}', 'QuizController@getQuizSubCategory
 // This will get called to fill the data for the page that displays all javascript pages.
 Route::get('get-type-of/{sub_category}', 'QuizController@getQuizType');
 
+// Get all quizzes created by a certain user.
+Route::get('get-all-by/{username}', 'QuizController@getAllBy');
 
 
 
@@ -42,6 +44,7 @@ Route::get('find-specific-user/{providerID}', 'UsersController@findUser');
 // Push new user into database.
 Route::get('add-new-user/{providerID}/{username}/{name}/{location}/{website}/{profileImage}/', 'UsersController@addUser');
 
+// Get the twitter user
 Route::get('get-twitter-user/', 'UsersController@getTwitterUser');
 
 

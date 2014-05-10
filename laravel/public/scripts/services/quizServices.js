@@ -32,6 +32,13 @@ angular.module('codequizApp')
 }])
 
 
+// This factory will be used to return all the quizzes that a certain user has created.
+	.factory('getAllByUser',['$resource','$cookieStore','$routeParams','$rootScope',function($resource,$cookieStore,$routeParams,$rootScope){
+		
+		var getAll = $resource('http://codequiz.io/get-all-by/:username/',{});
+		return getAll;
+
+}])
 
 // This factory gets the users position in the quiz that was clicked, if they have started it previously.
 // Returns object to controller. If object is empty, controller handles the next API call.
