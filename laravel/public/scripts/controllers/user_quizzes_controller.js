@@ -36,7 +36,7 @@ angular.module('codequizApp')
 		{
 			console.log('no quizzes by that username.');
 			$scope.isUser = true;
-			$scope.noUser = false;
+			$scope.noUser = true;
 		}
 	});
 
