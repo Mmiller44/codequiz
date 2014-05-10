@@ -66,6 +66,7 @@ angular.module('codequizApp')
 			}
 
 			console.log(returnedUserData.profileImage);
+			$rootScope.myImage = returnedUserData.profileImage;
 
   			$window.location.href = '#/home';
 		}
