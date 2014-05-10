@@ -370,7 +370,7 @@ code {
 	line-height: 1.5;
 }
 
-.reportButton {
+#reportButton {
 	position: relative;
 	bottom: 20px;
 	left: 20px;
