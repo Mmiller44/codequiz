@@ -49,9 +49,8 @@
               </div>
             </div>
           </div>
-            <div class="row">
-            <div class="small-6-centered columns">
-              <code class="question" language="javascript" hljs source="questions[currentNumber].question"></code>
+          
+            <code class="question" language="javascript" hljs source="questions[currentNumber].question"></code>
             <div id="answer_block_wrap">
               <ul ng-cloak>
                   <li class="answer_block">
@@ -75,8 +74,7 @@
                   </li>
               <ul>
             </div>
-          </div>
-        </div>
+
         </section>
 
       <a class="exit-off-canvas"></a>
