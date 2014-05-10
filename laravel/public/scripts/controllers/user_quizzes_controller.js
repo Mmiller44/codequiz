@@ -5,7 +5,7 @@ angular.module('codequizApp')
 
   	$scope.isUser = false;
   	$scope.searchUser = $routeParams.username;
-
+  	$scope.noUser = false;
 
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
