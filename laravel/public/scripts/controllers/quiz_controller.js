@@ -21,10 +21,13 @@ angular.module('codequizApp')
     {
         $scope.score = 0;
     }
+
+    $scope.doneLoading = false;
     
     // Setting an object to equal the results from the server.
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
         $scope.questions = currentQuiz;
+        $scope.doneLoading = true;
 
     });
 
@@ -45,10 +48,14 @@ angular.module('codequizApp')
             $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
         }
 
-        $scope.answerA = $scope.questions[$scope.currentNumber].a;
-        $scope.answerB = $scope.questions[$scope.currentNumber].b;
-        $scope.answerC = $scope.questions[$scope.currentNumber].c;
-        $scope.answerD = $scope.questions[$scope.currentNumber].d;
+        if($scope.doneLoading)
+        {
+            $scope.answerA = $scope.questions[$scope.currentNumber].a;
+            $scope.answerB = $scope.questions[$scope.currentNumber].b;
+            $scope.answerC = $scope.questions[$scope.currentNumber].c;
+            $scope.answerD = $scope.questions[$scope.currentNumber].d;  
+        }
+
 
          $scope.indicatorNumber = $scope.currentNumber + 1;
          // $scope.quizCategory = $rootScope.sub_category.toLowerCase();
