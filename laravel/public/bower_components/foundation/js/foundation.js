@@ -9,11 +9,6 @@
 (function ($, window, document, undefined) {
   'use strict';
 
-  $('a.custom-close-reveal-modal').click(function(){
-    $('#report_modal').foundation('reveal', 'close');
-  });
-
-
   var header_helpers = function (class_array) {
     var i = class_array.length;
     var head = $('head');

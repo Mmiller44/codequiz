@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore','$routeParams','$window',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore,$routeParams,$window) {
+  .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore','$routeParams','$window','$modalInstance',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore,$routeParams,$window,$modalInstance) {
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.
@@ -22,7 +22,6 @@ angular.module('codequizApp')
         $scope.score = 0;
     }
     
-    $scope.quizID = $routeParams.quizID;
     $scope.reportData = {};
 
     // Setting an object to equal the results from the server.
@@ -117,6 +116,7 @@ angular.module('codequizApp')
     {
         $scope.reportData = angular.copy(data);
         console.log($scope.reportData);
+        $modalInstance.close();
     }
 
 
