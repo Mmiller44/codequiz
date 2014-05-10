@@ -49,7 +49,6 @@
               </div>
             </div>
           </div>
-          <div class="row">
               <code class="question" language="javascript" hljs source="questions[currentNumber].question"></code>
             <div id="answer_block_wrap">
 
@@ -75,7 +74,7 @@
                       <a href="" ng-click="saveAnswer('D')">{{questions[currentNumber].d}}</a>
                   </li>
               <ul>
-
+            </div>
         </section>
 
       <a class="exit-off-canvas"></a>
