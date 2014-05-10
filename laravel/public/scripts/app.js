@@ -44,6 +44,10 @@ angular.module('codequizApp', [
         templateUrl: 'views/contribute_view.tpl',
         controller: 'contribute_controller'
       })
+      .when('/quizzes/:username', {
+        templateUrl: 'views/user_quizzes_view.tpl',
+        controller: 'user_quizzes_controller'
+      })
       .otherwise({
         redirectTo: '/'
       });
