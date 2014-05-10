@@ -393,7 +393,6 @@ mark.report {
 }
 
 .answer_block {
-	min-height: 60px;
 	background-color: #f3f3f3;
 	position: relative;
 }
