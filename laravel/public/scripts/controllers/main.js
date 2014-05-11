@@ -5,11 +5,13 @@ angular.module('codequizApp')
 
 	$scope.githubLogin = function()
 	{
-		var loginUser = $resource('/login-github/');
-		$scope.loggedUser = loginUser.get(function() {
-			console.log($scope.loggedUser.login);
+		var github = $resource('/login-github');
+		var returnedObject = github.get(function(){
+
+			$window.location.href=returnedObject.login;
+
 			console.log('callback function for github ran.');
-			$window.location.href = loggedUser.login;
+
 		});
 	};
 
