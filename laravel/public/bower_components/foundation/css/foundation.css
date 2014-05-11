@@ -5500,7 +5500,7 @@ ul.off-canvas-list {
     border-top: 1px solid #5e5e5e;
     border-bottom: none;
     margin: 0; }
-  ul.off-canvas-list li a:first-child {
+  ul.off-canvas-list li:first-child {
     border-top: 1px solid #262626;
   }
   ul.off-canvas-list li a {
