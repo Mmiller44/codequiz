@@ -45,6 +45,8 @@ Route::get('add-new-user/{providerID}/{username}/{name}/{location}/{website}/{pr
 // Get the twitter user
 Route::get('get-twitter-user/', 'UsersController@getTwitterUser');
 
+// Get the facebook user
+Route::get('get-facebook-user/', 'UsersController@getFacebookUser');
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

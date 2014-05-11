@@ -10,7 +10,7 @@ angular.module('codequizApp')
 
 			$window.location.href=returnedObject.login;
 
-			console.log('callback function for facebook ran.');
+			console.log(returnedObject);
 
 		});
 	};

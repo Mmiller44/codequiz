@@ -30,6 +30,13 @@ class UsersController extends BaseController {
 		return $obj;
 	}
 
+	public function getFacebookUser()
+	{
+		$user = Social::facebook('user');
+    	return $user;
+	}
+
+
 	public function getTwitterUser()
 	{
 		$user = Social::twitter('user');
