@@ -33,7 +33,8 @@ class UsersController extends BaseController {
 	public function getFacebookUser()
 	{
 		$user = Social::facebook('user');
-    	return $user;
+		$obj = array('dataInfo' => (string)$user);
+    	return $obj;
 	}
 
 
