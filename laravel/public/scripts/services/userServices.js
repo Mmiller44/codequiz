@@ -33,7 +33,7 @@ angular.module('codequizApp')
 
 
 // Get Facebook user
-  .factory('getFacebook',['$resource','$rootScope','$cookieStore',function($resource,$rootScope,$cookieStore){
+  .factory('getFacebook',['$resource','$rootScope','$cookieStore','$window',function($resource,$rootScope,$cookieStore,$window){
 
   	// Making an api call to add or update a user to my database. Data gets returned back.
 	var user = $resource('http://codequiz.io/get-facebook-user');
