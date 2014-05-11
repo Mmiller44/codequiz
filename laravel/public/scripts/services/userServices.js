@@ -66,8 +66,7 @@ angular.module('codequizApp')
 	  				if(userImage.picture.data)
 	  				{
 	  					var url = userImage.picture.data;
-	  					var newURL = encodeURIComponent(url);
-	  					$cookieStore.put('profileImage', newURL);
+	  					$cookieStore.put('profileImage', encodeURIComponent(userImage.picture.data.link));
 						$window.location.href = '#/home';
 	  				}
 
