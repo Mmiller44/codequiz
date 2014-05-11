@@ -65,7 +65,9 @@ angular.module('codequizApp')
 				var userImage = imageResource.get({userID: userObject.dataInfo.id},function() {
 	  				if(userImage.picture.data)
 	  				{
-	  					$cookieStore.put('profileImage', userImage.picture.data.url);
+	  					var url = userImage.picture.data;
+	  					var newURL = url.split('/');
+	  					$cookieStore.put('profileImage', newURL);
 						$window.location.href = '#/home';
 	  				}
 
