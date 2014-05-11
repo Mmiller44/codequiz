@@ -42,21 +42,21 @@ angular.module('codequizApp')
 	var userObject = user.get(function() {
 			console.log(userObject);
 
-			if(userObject.dataObject)
+			if(userObject.dataInfo)
 			{
-				$cookieStore.put('providerID', userObject.dataObject.id);
-				$cookieStore.put('username', userObject.dataObject.email);
-				$cookieStore.put('name', userObject.dataObject.name);
-				$cookieStore.put('location', userObject.dataObject.locale);
+				$cookieStore.put('providerID', userObject.dataInfo.id);
+				$cookieStore.put('username', userObject.dataInfo.email);
+				$cookieStore.put('name', userObject.dataInfo.name);
+				$cookieStore.put('location', userObject.dataInfo.locale);
 				$cookieStore.put('profileImage', 'none');
-				$cookieStore.put('website', userObject.dataObject.link);
+				$cookieStore.put('website', userObject.dataInfo.link);
 
-				if(userObject.dataObject.name == undefined)
+				if(userObject.dataInfo.name == undefined)
 				{
 					$cookieStore.put('name', 'None');
 				}
 
-				if(userObject.dataObject.locale == undefined)
+				if(userObject.dataInfo.locale == undefined)
 				{
 					$cookieStore.put('location', 'None');
 				}
