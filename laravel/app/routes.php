@@ -30,9 +30,7 @@ Route::get('login-twitter/', 'UsersController@loginTwitter');
 // This Route Controls login for Github.
 Route::get('login-github/', 'UsersController@loginGithub');
 
-// This Route Controls login for Google.
-Route::get('login-google/', 'UsersController@loginGoogle');
-
+// Controls login for facebook.
 Route::get('login-facebook/', 'UsersController@loginFacebook');
 
 // This Route Controls login for Google.
