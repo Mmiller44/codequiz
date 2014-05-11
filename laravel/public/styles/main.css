@@ -138,8 +138,8 @@ body,html{
 
 .facebook img {
 	position: absolute;
-	left: 10px;
-	bottom: 5px;
+	left: 5px;
+	bottom: 10px;
 }
 
 .button.twitter {
