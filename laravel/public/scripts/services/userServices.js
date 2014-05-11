@@ -40,7 +40,6 @@ angular.module('codequizApp')
 
 	// userObject holds all returned results
 	var userObject = user.get(function() {
-			console.log(userObject);
 
 			if(userObject.dataInfo)
 			{
@@ -61,11 +60,15 @@ angular.module('codequizApp')
 					$cookieStore.put('location', 'None');
 				}
 
+				// Nesting this resource to retrieve / store the profile image of the logged in user for facebook.
 				var imageResource = $resource('https://graph.facebook.com/:userID?fields=picture.type(normal)');
 				var userImage = imageResource.get({userID: userObject.dataInfo.id},function() {
-	  				
-					console.log(userImage);
-	  				$window.location.href = '#/home';
+	  				if(userImage.picture.data)
+	  				{
+	  					$cookieStore.put('profileImage', userImage.picture.data.url);
+						$window.location.href = '#/home';
+	  				}
+
 	  			});
 
 			}
