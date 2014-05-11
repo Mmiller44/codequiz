@@ -31,6 +31,20 @@ angular.module('codequizApp')
 
 }])
 
+
+// Get Facebook user
+  .factory('getFacebook',['$resource','$rootScope','$cookieStore',function($resource,$rootScope,$cookieStore){
+
+  	// Making an api call to add or update a user to my database. Data gets returned back.
+	var user = $resource('http://codequiz.io/get-facebook-user',{});
+
+	// userObject holds all returned results
+	var userObject = user.get({}, function() {
+			console.log(userObject);
+		});
+}])
+
+
 // See if a Twitter user exists.
   .factory('findTwitter',['$resource','$rootScope','$cookieStore','$window',function($resource,$rootScope,$cookieStore,$window){
   	

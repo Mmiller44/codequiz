@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('HomeCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore) {
+  .controller('HomeCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore','getFacebook', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore,getFacebook) {
 
   	// If a user is not logged in, push them back to landing page.
 	var currentUser = $cookieStore.get('providerID');
