@@ -48,7 +48,7 @@ angular.module('codequizApp')
 				$cookieStore.put('username', userObject.dataInfo.email);
 				$cookieStore.put('name', userObject.dataInfo.name);
 				$cookieStore.put('location', userObject.dataInfo.locale);
-				$cookieStore.put('profileImage', 'none');
+				$cookieStore.put('profileImage', 'Facebook User');
 				$cookieStore.put('website', userObject.dataInfo.link);
 
 				if(userObject.dataInfo.name == undefined)
@@ -60,6 +60,8 @@ angular.module('codequizApp')
 				{
 					$cookieStore.put('location', 'None');
 				}
+
+				// var nextResource = $resource('https://graph.facebook.com/[:username]?fields=picture.type(large)');
 
 	  			$window.location.href = '#/home';
 			}
