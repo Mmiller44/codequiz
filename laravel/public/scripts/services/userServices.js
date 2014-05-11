@@ -48,7 +48,7 @@ angular.module('codequizApp')
 				$cookieStore.put('name', userObject.dataInfo.name);
 				$cookieStore.put('location', userObject.dataInfo.locale);
 				$cookieStore.put('profileImage', 'Facebook User');
-				$cookieStore.put('website', userObject.dataInfo.link);
+				$cookieStore.put('website', encodeURIComponent(userObject.dataInfo.link));
 
 				if(userObject.dataInfo.name == undefined)
 				{
