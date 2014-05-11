@@ -66,9 +66,9 @@ angular.module('codequizApp')
 	  				if(userImage.picture.data)
 	  				{
 	  					console.log(userImage.picture.data);
-	  					
+
 	  					var url = userImage.picture.data;
-	  					$cookieStore.put('profileImage', encodeURIComponent(userImage.picture.data.link));
+	  					$cookieStore.put('profileImage', encodeURIComponent(userImage.picture.data.url));
 						$window.location.href = '#/home';
 	  				}
 
@@ -98,7 +98,7 @@ angular.module('codequizApp')
 			$cookieStore.put('username',returnedUserData.username);
 			$cookieStore.put('name', returnedUserData.name);
 			$cookieStore.put('location',returnedUserData.location);
-			$cookieStore.put('profileImage', 'image');
+			$cookieStore.put('profileImage', encodeURIComponent(returnedUserData.profileImage));
 			
 			if(returnedUserData.website == undefined)
 			{
@@ -115,7 +115,10 @@ angular.module('codequizApp')
 				$cookieStore.put('location', 'None');
 			}
 
-			console.log(returnedUserData.profileImage);
+			if(returnedUserData.profileImage == undefined)
+			{
+				$cookieStore.put('profileImage', 'images/defaultPerson.jpg');
+			}
 
   			$window.location.href = '#/home';
 		}
