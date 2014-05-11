@@ -61,9 +61,13 @@ angular.module('codequizApp')
 					$cookieStore.put('location', 'None');
 				}
 
-				// var nextResource = $resource('https://graph.facebook.com/[:username]?fields=picture.type(large)');
+				var imageResource = $resource('https://graph.facebook.com/:userID?fields=picture.type(normal)');
+				var userImage = imageResource.get({userID: userObject.dataInfo.id},function() {
+	  				
+					console.log(userImage);
+	  				$window.location.href = '#/home';
+	  			});
 
-	  			$window.location.href = '#/home';
 			}
 
 
