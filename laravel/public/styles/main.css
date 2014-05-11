@@ -122,8 +122,8 @@ body,html{
     height:100%;   
 }
 
-.button.github {
-	background-color: #ff0000;
+.button.facebook {
+	background-color: #3B5998;
 	width: 200px;
 	height: 50px;
 	padding: 0;
@@ -136,7 +136,7 @@ body,html{
 	padding-left: 20px;
 }
 
-.github img {
+.facebook img {
 	position: absolute;
 	left: 10px;
 	bottom: 5px;
