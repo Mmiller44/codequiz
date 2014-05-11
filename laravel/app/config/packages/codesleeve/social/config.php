@@ -70,7 +70,7 @@ return array(
 	*/
 	'github' => array(
 		'key' => '6255846ed300c607fae5',
-		'secret' => '266e946992314cdade6a7b6c422868a9993de4b1',
+		'secret' => '9fa9d185aa932be99d49b79ac9958a5ad0f6341e',
 		'scopes' => array(),
 		'redirect_url' => '/',
 	),
