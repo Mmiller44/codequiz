@@ -3,14 +3,14 @@
 angular.module('codequizApp')
   .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore','findTwitter', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore,findTwitter) {
 
-	$scope.githubLogin = function()
+	$scope.facebookLogin = function()
 	{
-		var github = $resource('/login-github');
-		var returnedObject = github.get(function(){
+		var facebook = $resource('/login-facebook');
+		var returnedObject = facebook.get(function(){
 
 			$window.location.href=returnedObject.login;
 
-			console.log('callback function for github ran.');
+			console.log('callback function for facebook ran.');
 
 		});
 	};
