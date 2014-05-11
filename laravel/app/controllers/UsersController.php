@@ -30,13 +30,6 @@ class UsersController extends BaseController {
 		return $obj;
 	}
 
-	public function loginGoogle()
-	{
-		$login = Social::login('google');
-		$obj = array('login' => (string)$login);
-		return $obj;
-	}
-
 	public function getTwitterUser()
 	{
 		$user = Social::twitter('user');
