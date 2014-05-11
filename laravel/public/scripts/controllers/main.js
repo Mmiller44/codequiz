@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore','findTwitter', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore,findTwitter) {
+  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore','findTwitter','getFacebook', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore,findTwitter,getFacebook) {
 
 	$scope.facebookLogin = function()
 	{
@@ -9,9 +9,7 @@ angular.module('codequizApp')
 		var returnedObject = facebook.get(function(){
 
 			$window.location.href=returnedObject.login;
-
-			console.log(returnedObject);
-
+			
 		});
 	};
 

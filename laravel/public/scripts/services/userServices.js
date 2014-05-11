@@ -41,6 +41,30 @@ angular.module('codequizApp')
 	// userObject holds all returned results
 	var userObject = user.get(function() {
 			console.log(userObject);
+
+			if(userObject.dataObject)
+			{
+				$cookieStore.put('providerID', userObject.dataObject.id);
+				$cookieStore.put('username', userObject.dataObject.email);
+				$cookieStore.put('name', userObject.dataObject.name);
+				$cookieStore.put('location', userObject.dataObject.locale);
+				$cookieStore.put('profileImage', 'none');
+				$cookieStore.put('website', userObject.dataObject.link);
+
+				if(userObject.dataObject.name == undefined)
+				{
+					$cookieStore.put('name', 'None');
+				}
+
+				if(userObject.dataObject.locale == undefined)
+				{
+					$cookieStore.put('location', 'None');
+				}
+
+	  			$window.location.href = '#/home';
+			}
+
+
 		});
 }])
 
