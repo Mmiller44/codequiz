@@ -3,6 +3,18 @@
 angular.module('codequizApp')
   .controller('user_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','getAllByUser',function($scope, $resource, $rootScope, $routeParams,getAllByUser) {
 
+  	// If a user is not logged in, push them back to landing page.
+	var currentUser = $cookieStore.get('providerID');
+	console.log(currentUser);
+
+	if(!currentUser)
+	{
+		$window.location.href = '#/'
+	}
+
+	$scope.user = $cookieStore.get('username');
+	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+
   	$scope.isUser = false;
   	$scope.searchUser = $routeParams.username;
   	$scope.noUser = true;

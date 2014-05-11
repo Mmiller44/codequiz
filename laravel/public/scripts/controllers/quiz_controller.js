@@ -3,10 +3,17 @@
 angular.module('codequizApp')
   .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore','$routeParams','$window',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore,$routeParams,$window) {
 
-    if(!$cookieStore.get('username'))
+    // If a user is not logged in, push them back to landing page.
+    var currentUser = $cookieStore.get('providerID');
+    console.log(currentUser);
+
+    if(!currentUser)
     {
-        $window.location.href = '#/';
+        $window.location.href = '#/'
     }
+
+    $scope.user = $cookieStore.get('username');
+    $scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 
     // This is the controller that will control the functionality for Quizzes.
     // -- First it needs to know who the user is, which has been established in $rootScope variables.

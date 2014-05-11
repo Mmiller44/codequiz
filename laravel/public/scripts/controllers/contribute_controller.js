@@ -3,6 +3,18 @@
 angular.module('codequizApp')
   .controller('contribute_controller',['$scope','$window','$routeParams','$rootScope','addQuiz','addQuestion',function ($scope, $window, $routeParams,$rootScope,addQuiz,addQuestion) {
 
+  	// If a user is not logged in, push them back to landing page.
+	var currentUser = $cookieStore.get('providerID');
+	console.log(currentUser);
+
+	if(!currentUser)
+	{
+		$window.location.href = '#/'
+	}
+
+	$scope.user = $cookieStore.get('username');
+	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+
     // Setting a $scope variable to equal the window width
     // With this variable, I can now check what device the user is using.
     // Depending on the device, I change booleans, to show/hide DOM elements.

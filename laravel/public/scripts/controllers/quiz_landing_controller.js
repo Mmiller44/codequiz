@@ -3,6 +3,18 @@
 angular.module('codequizApp')
   .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser) {
 
+  	// If a user is not logged in, push them back to landing page.
+	var currentUser = $cookieStore.get('providerID');
+	console.log(currentUser);
+
+	if(!currentUser)
+	{
+		$window.location.href = '#/'
+	}
+
+	$scope.user = $cookieStore.get('username');
+	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
 
