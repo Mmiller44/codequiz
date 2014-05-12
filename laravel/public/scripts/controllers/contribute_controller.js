@@ -109,8 +109,9 @@ angular.module('codequizApp')
 			}
 
 			console.log($cookieStore.get('questions'));
-
 		}
+
+
   }]);
 
 
