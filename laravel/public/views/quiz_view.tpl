@@ -44,7 +44,7 @@
               <h2 class="quiz_title_front">{{$root.sub_category}}</h2>
               <h3 class="progress_indicator">{{indicatorNumber}}/{{questions.length}}</h3>
 
-              <a href="" class="flag_question" data-reveal-id="report_modal" data-reveal><img src="images/flag.png"></a>
+              <a href="" class="flag_question" data-reveal-id="report_modal"><img src="images/flag.png"></a>
              
             </div>
           </div>
@@ -83,23 +83,23 @@
   </div> <!-- Closing Page -->
 </div>
  <div id="report_modal" class="reveal-modal" data-reveal>
-                <h3 class="flag_header">Flag question?</h3>
-                <a class="close-reveal-modal">&#215;</a>
-                <p>Please select the options below that best relate to why you are flagging this question.</p>
-               
+    <h3 class="flag_header">Flag question?</h3>
+    <a class="close-reveal-modal">&#215;</a>
+    <p>Please select the options below that best relate to why you are flagging this question.</p>
+   
 
-                <form class="flag_form" novalidate>
-                  <input type="checkbox" ng-model="input.radio1" name="input1" value="No correct Answer is given"><mark class="report">No correct answer is given.</mark><br>
-                  <input type="checkbox" ng-model="input.radio2" name="input2" value="Question is worded wrong"><mark class="report">Question is worded wrong.</mark><br>
-                  <input type="checkbox" ng-model="input.radio3" name="input3" value="Not fit for this category"><mark class="report">Not fit for this category.</mark><br>
-                  <label class="report">Other:</label>
-                  <textarea ng-model="input.custom" name="input4"></textarea>
-                </form>
-                
-                <a ng-href="" id="reportButton" class="button close-reveal-modal" ng-click="submitReport(input)">Send Report</a>
+    <form class="flag_form" novalidate>
+      <input type="checkbox" ng-model="input.radio1" name="input1" value="No correct Answer is given"><mark class="report">No correct answer is given.</mark><br>
+      <input type="checkbox" ng-model="input.radio2" name="input2" value="Question is worded wrong"><mark class="report">Question is worded wrong.</mark><br>
+      <input type="checkbox" ng-model="input.radio3" name="input3" value="Not fit for this category"><mark class="report">Not fit for this category.</mark><br>
+      <label class="report">Other:</label>
+      <textarea ng-model="input.custom" name="input4"></textarea>
+    </form>
+    
+    <a ng-href="" id="reportButton" class="button close-reveal-modal" ng-click="submitReport(input)">Send Report</a>
 
 
-              </div>
+  </div>
 <script>
   $(document).foundation();
 </script>
