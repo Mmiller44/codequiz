@@ -126,8 +126,31 @@ angular.module('codequizApp')
 
     $scope.submitReport = function(data)
     {
+        var questionID = scope.questions[$scope.currentNumber].question_ID;
+        var userID = $cookieStore.get('userID');
+        var reason1 = 'None';
+        var reason2 = 'None';
+        var reason3 = 'None';
+
         $scope.reportData = angular.copy(data);
-        console.log($scope.reportData);
+
+        if($scope.reportData.radio1)
+        {
+            reason1 = 'No correct answer is given.';
+        }
+        if($scope.reportData.radio2)
+        {
+            reason2 = 'Question is worded wrong.';
+        }
+        if($scope.reportData.radio3)
+        {
+            reason3 = 'Not fit for this category.';
+        }
+
+        var reportResource = $resource('http://codequiz.io/report-question/:questionID/:userID/:reasonOne/:reasonTwo/:reasonThree/:reasonFour');
+        var data = reportResource.get({questionID: questionID, userID: userID, reasonOne: reason1, reasonTwo: reason2, reasonThree: reason3, reasonFour: $scope.reportData.custom}, function(){
+
+        });
     }
 
 
