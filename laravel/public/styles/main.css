@@ -360,10 +360,6 @@ code {
 	margin-right: 5px;
 }
 
-#report_modal {
-	width: 100%;
-}
-
 #report_modal input[type=submit] {
 	width: 100%;
 	margin-top: 20px;
