@@ -12,8 +12,14 @@ angular.module('codequizApp')
 		$window.location.href = '#/'
 	}
 
+	$scope.ready = false;
 	$scope.user = $cookieStore.get('username');
 	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+
+	if($scope.quiz.title && $scope.quiz.description && $scope.quiz.category)
+	{
+		$scope.ready = true;
+	}
 
     // Setting a $scope variable to equal the window width
     // With this variable, I can now check what device the user is using.
