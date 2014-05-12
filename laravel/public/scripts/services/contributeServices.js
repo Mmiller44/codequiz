@@ -21,12 +21,15 @@ angular.module('codequizApp')
 				console.log(addingQuiz.quizID);
 				$rootScope.quizID = addingQuiz.quizID;
 
-				// This will add the user and new quiz to the Created_quiz table.
-				var user = args.userID;
-				var createdQuiz = $resource('http://codequiz.io/update-contribution-position/:quizID/:userID/:currentNumber/:completed');
-				var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: user, currentNumber: 1, completed: 'No'}, function(){
-					console.log(dataObject);
-				});
+				if(addingQuiz.quizID)
+				{
+					// This will add the user and new quiz to the Created_quiz table.
+					var createdQuiz = $resource('http://codequiz.io/update-contribution-position/:quizID/:userID/:currentNumber/:completed');
+					var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: args.userID, currentNumber: 1, completed: 'No'}, function(){
+						console.log(dataObject);
+					});	
+				}
+
 
 			});
 

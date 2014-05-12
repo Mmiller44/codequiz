@@ -86,7 +86,8 @@ angular.module('codequizApp')
 
 			// This triggers an event inside my contributeServices -> addQuiz.
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
-			$rootScope.$broadcast("addQuizEvent", {category: quizObject.category,title: quizObject.title, description: quizObject.description, userID: 12});
+			var user = $cookieStore.get('userID');
+			$rootScope.$broadcast("addQuizEvent", {category: quizObject.category,title: quizObject.title, description: quizObject.description, userID: user});
 		}
 
 		$scope.storeQuestion = function(question)
