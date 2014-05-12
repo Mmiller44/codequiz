@@ -83,4 +83,10 @@ Route::get('add-quiz/{quizCategory}/{quizTitle}/{quizDescription}/{userID}', 'Qu
 Route::get('add-question/{question}/{a}/{b}/{c}/{d}/{correct_answer}/{quiz_ID}/{quiz_category_ID}', 'QuestionController@addQuestion');
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ReporterQuestions
+// Add reports to the DB.
+Route::get('report-question/{questionID}/{userID}/{reasonOne}/{reasonTwo}/{reasonThree}/{reasonFour}', 'ReportController@addReport');
+
+
 
