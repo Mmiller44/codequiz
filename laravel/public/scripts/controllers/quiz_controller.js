@@ -126,7 +126,7 @@ angular.module('codequizApp')
 
     $scope.submitReport = function(data)
     {
-        var questionID = scope.questions[$scope.currentNumber].question_ID;
+        var questionID = $scope.questions[$scope.currentNumber].question_ID;
         var userID = $cookieStore.get('userID');
         var reason1 = 'None';
         var reason2 = 'None';
