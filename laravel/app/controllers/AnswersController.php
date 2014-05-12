@@ -1,5 +1,4 @@
 <?php
-header('Access-Control-Allow-Origin: *');
 class AnswersController extends BaseController {
 
 	public function index()

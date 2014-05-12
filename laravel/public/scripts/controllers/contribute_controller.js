@@ -95,8 +95,6 @@ angular.module('codequizApp')
 			// It contains: .text, .a, .b, .c, .d, .correctAnswer;
 			console.log(question);
 
-			console.log($cookieStore.get('questions'));
-
 			// Check if this is the first answer being submitted. If it is, create an empty array and push the object.
 			// Otherwise just push the question into the array. Then I can check the length before storing the data in DB.
 			if($rootScope.dataArray)
@@ -109,6 +107,8 @@ angular.module('codequizApp')
 				$rootScope.dataArray.push(question);
 				$cookieStore.put('questions', $rootScope.dataArray);
 			}
+
+			console.log($cookieStore.get('questions'));
 
 		}
   }]);

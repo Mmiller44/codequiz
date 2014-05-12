@@ -71,6 +71,19 @@ class QuizController extends BaseController {
 		// This will ensure the data stays together as one object in an array.
 		$obj = array('quizID' => (string)$addQuiz->id);
 		return $obj;
-
 	}
+
+	public function updateContributePosition($quizID,$userID,$currentNumber,$completed)
+	{
+		$table = new CreatedQuiz;
+		$table->quizID = $quizID;
+		$table->userID = $userID;
+		$table->currentNumber = $currentNumber;
+		$table->completed = $completed;
+		$table->save();
+
+		$obj = array('Data' => (string)$table->id);
+		return $obj;
+	}
+
 }

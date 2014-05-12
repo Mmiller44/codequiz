@@ -82,6 +82,7 @@ Route::get('add-quiz/{quizCategory}/{quizTitle}/{quizDescription}/{userID}', 'Qu
 // Add Question to specific Quiz
 Route::get('add-question/{question}/{a}/{b}/{c}/{d}/{correct_answer}/{quiz_ID}/{quiz_category_ID}', 'QuestionController@addQuestion');
 
+Route::get('update-contribute-position/{quizID}/{userID}/{currentNumber}/{completed}', 'QuizController@updateContributePosition');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ReporterQuestions
