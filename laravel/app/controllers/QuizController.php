@@ -79,6 +79,12 @@ class QuizController extends BaseController {
 		// This checks to see if a position for this user exists. Then it updates or creates the row.
 		$getPosition = CreatedQuiz::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
 		$object = $getPosition->first();
+
+		if(!$object)
+		{
+			$object = new CreatedQuiz;
+		}
+		
 		$object->quiz_ID = $quizID;
 		$object->user_ID = $userID;
 		$object->currentNumber = $currentNumber;
