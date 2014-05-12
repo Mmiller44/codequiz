@@ -97,15 +97,15 @@ angular.module('codequizApp')
 
 			// Check if this is the first answer being submitted. If it is, create an empty array and push the object.
 			// Otherwise just push the question into the array. Then I can check the length before storing the data in DB.
-			if($scope.dataArray)
+			if($rootScope.dataArray)
 			{
-				$scope.dataArray.push(question);
-				console.log($scope.dataArray);
+				$rootScope.dataArray.push(question);
+				console.log($rootScope.dataArray);
 			}else
 			{
-				$scope.dataArray = [];
-				$scope.dataArray.push(question);
-				console.log($scope.dataArray);
+				$rootScope.dataArray = [];
+				$rootScope.dataArray.push(question);
+				console.log($rootScope.dataArray);
 			}
 
 		}
