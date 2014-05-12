@@ -1,5 +1,4 @@
 <?php
-header('Access-Control-Allow-Origin: *');
 class UserQuizController extends BaseController {
 
 	public function index()
@@ -11,7 +10,6 @@ class UserQuizController extends BaseController {
 	// Blank array if no userID and quizID of this combination are found.
 	public function getPosition($userID, $quizID)
 	{
-		header('Access-Control-Allow-Origin: *');
 		$getPosition = UserQuiz::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
 		$object = $getPosition->get();
 

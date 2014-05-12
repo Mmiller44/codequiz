@@ -73,17 +73,19 @@ class QuizController extends BaseController {
 		return $obj;
 	}
 
+	// This is used to track what the users position in creating a quiz is.
 	public function updateContributePosition($quizID,$userID,$currentNumber,$completed)
 	{
-		$table = new CreatedQuiz;
-		$table->quiz_ID = $quizID;
-		$table->user_ID = $userID;
-		$table->currentNumber = $currentNumber;
-		$table->completed = $completed;
-		$table->save();
+		// This checks to see if a position for this user exists. Then it updates or creates the row.
+		$getPosition = CreatedQuiz::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
+		$object = $getPosition->first();
+		$object->quiz_ID = $quizID;
+		$object->user_ID = $userID;
+		$object->currentNumber = $currentNumber;
+		$object->completed = $completed;
+		$object->save();
 
-		$obj = array('Data' => (string)$table->id);
-		return $obj;
+		return $object;
 	}
 
 }
