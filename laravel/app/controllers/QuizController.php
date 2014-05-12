@@ -76,8 +76,8 @@ class QuizController extends BaseController {
 	public function updateContributePosition($quizID,$userID,$currentNumber,$completed)
 	{
 		$table = new CreatedQuiz;
-		$table->quizID = $quizID;
-		$table->userID = $userID;
+		$table->quiz_ID = $quizID;
+		$table->user_ID = $userID;
 		$table->currentNumber = $currentNumber;
 		$table->completed = $completed;
 		$table->save();
