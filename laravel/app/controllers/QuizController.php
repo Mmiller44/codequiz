@@ -64,6 +64,7 @@ class QuizController extends BaseController {
 		$addQuiz->description = $quizDescription;
 		$addQuiz->user_ID = $userID;
 		$addQuiz->quiz_ranking = '0';
+		$addQuiz->completed = 'No';
 		$addQuiz->save();
 
 		// returning the quiz_ID of the newly added quiz, will be needed to add questions later.
@@ -84,7 +85,7 @@ class QuizController extends BaseController {
 		{
 			$object = new CreatedQuiz;
 		}
-		
+
 		$object->quiz_ID = $quizID;
 		$object->user_ID = $userID;
 		$object->currentNumber = $currentNumber;
