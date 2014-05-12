@@ -105,6 +105,7 @@ angular.module('codequizApp')
 			{
 				$scope.dataArray = [];
 				$scope.dataArray.push(question);
+				console.log($scope.dataArray);
 			}
 
 		}
