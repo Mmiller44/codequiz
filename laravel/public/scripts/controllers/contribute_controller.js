@@ -78,6 +78,12 @@ angular.module('codequizApp')
 				$rootScope.newQuizCategoryID = 1;
 			}
 
+			// This will only allow the user to move to the next page if they have submitted all the data.
+			if($scope.quizObject.title && $scope.quizObject.category && $scope.quizObject.description)
+			{
+				$window.location.href = '#/contribute/1';
+			}
+
 			// This triggers an event inside my contributeServices -> addQuiz.
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
 			$rootScope.$broadcast("addQuizEvent", {category: quizObject.category,title: quizObject.title, description: quizObject.description, userID: 12});
@@ -89,9 +95,17 @@ angular.module('codequizApp')
 			// It contains: .text, .a, .b, .c, .d, .correctAnswer;
 			console.log(question);
 
-			// I need to trigger an event within the contributeServices page.
-			// This event will take the data, and pass it to the API, where it will get added.
-			$rootScope.$broadcast("addQuestionEvent", {text: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer,quizID: $rootScope.quizID, quizCategoryID: $rootScope.newQuizCategoryID});
+			// Check if this is the first answer being submitted. If it is, create an empty array and push the object.
+			// Otherwise just push the question into the array. Then I can check the length before storing the data in DB.
+			if($scope.dataArray)
+			{
+				$scope.dataArray.push(question);
+				console.log($scope.dataArray);
+			}else
+			{
+				$scope.dataArray = [];
+				$scope.dataArray.push(question);
+			}
 
 		}
   }]);
