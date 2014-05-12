@@ -98,7 +98,6 @@
     
     <a ng-href="" id="reportButton" class="button close-reveal-modal" ng-click="submitReport(input)">Send Report</a>
 
-
   </div>
 <script>
   $(document).foundation();
