@@ -40,6 +40,18 @@ angular.module('codequizApp')
 		$scope.quizTitles = getTitles.query({category: $routeParams.sub_category}, function() {
 			console.log($scope.quizTitles);
 			$rootScope.sub_category = $routeParams.sub_category;
+
+			$scope.quiz = [];
+
+			for(var i = 0; i< $scope.quizTitles.length; i++)
+			{
+				if($scope.quizTitles[i].completed === 'Yes')
+				{
+					$scope.quiz.push($scope.quizTitles[i]);
+				}
+			}
+
+			console.log($scope.quiz);
 		});
 
 		$scope.setQuizID = function(ID) {
