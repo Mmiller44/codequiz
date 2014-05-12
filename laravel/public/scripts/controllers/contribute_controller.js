@@ -79,7 +79,7 @@ angular.module('codequizApp')
 			}
 
 			// This will only allow the user to move to the next page if they have submitted all the data.
-			if($scope.quizObject.title && $scope.quizObject.category && $scope.quizObject.description)
+			if(quizObject.title && quizObject.category && quizObject.description)
 			{
 				$window.location.href = '#/contribute/1';
 			}
