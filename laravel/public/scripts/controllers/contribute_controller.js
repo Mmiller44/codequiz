@@ -78,16 +78,16 @@ angular.module('codequizApp')
 				$rootScope.newQuizCategoryID = 1;
 			}
 
-			// This will only allow the user to move to the next page if they have submitted all the data.
-			if(quizObject.title && quizObject.category && quizObject.description)
-			{
-				$window.location.href = '#/contribute/1';
-			}
-
 			// This triggers an event inside my contributeServices -> addQuiz.
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
 			var userID = $cookieStore.get('userID');
 			$rootScope.$broadcast("addQuizEvent", {category: quizObject.category,title: quizObject.title, description: quizObject.description, userID: userID});
+
+			// This will only allow the user to move to the next page if they have submitted all the data.
+			if(quizObject.title && quizObject.category && quizObject.description)
+			{
+				$window.location.href = '#/contribute/{{$root.newQuizData}}';
+			}
 		}
 
 		$scope.storeQuestion = function(question)

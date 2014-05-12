@@ -27,6 +27,7 @@ angular.module('codequizApp')
 					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
 					var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: args.userID, currentNumber: 1, completed: 'No'}, function(){
 						console.log(dataObject);
+						$rootScope.newQuizData = dataObject;
 					});	
 				}
 
