@@ -67,7 +67,7 @@ angular.module('codequizApp')
 			var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
 			var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $scope.userID}, function(){
 				console.log(dataObject);
-				if(dataObject.currentNumber)
+				if(dataObject)
 				{
 					$scope.currentNumber = dataObject.currentNumber;
 					$window.location.href = '#/contribute/' + $scope.currentNumber;
