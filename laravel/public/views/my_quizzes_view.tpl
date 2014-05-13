@@ -43,7 +43,20 @@
 
               <h2 class="section_title">My Quizzes</h2>
               <dl class="accordion front_end_accordion" data-accordion>
-                <dd class="no_hover" ng-repeat="quizzes in quizData">
+                <dd class="no_hover" ng-repeat="quizzes in published">
+                  <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
+                  <div id="panel{{quizzes.quiz_ID}}" class="content">
+                    <p>{{quizzes.description}}</p>
+                    <h3 class="star">Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
+                    <h4>By <a href="#/quizzes/{{quizzes.username}}" class="usernameLink">{{quizzes.username}}</a></h4>
+                    <a ng-href="#/quiz/{{quizzes.quiz_ID}}/" ng-click='setQuizID(quizzes.quiz_ID)' class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
+                    <a ng-href="" class="button delete">Delete Quiz<img src="images/trash.png" width="20" height="20"></a>
+                  </div>
+                </dd>
+
+              <h2 class="section_title">Unpublished</h2>
+              <dl class="accordion front_end_accordion" data-accordion>
+                <dd class="no_hover" ng-repeat="quizzes in unpublished">
                   <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
                   <div id="panel{{quizzes.quiz_ID}}" class="content">
                     <p>{{quizzes.description}}</p>

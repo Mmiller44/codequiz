@@ -38,7 +38,19 @@ angular.module('codequizApp')
 		// the category that was clicked to get to this page, which is also the $routeParam.
 		var getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
 		var quizData = getQuizzes.query({username: $scope.user}, function() {
-			$scope.quizData = quizData;
+			$scope.published = [];
+			$scope.unpublished = [];
+
+			for(var i = 0;i<quizData.length;i++)
+			{
+				if(quizData[i].completed == 'Yes')
+				{
+					$scope.published.push(quizData[i]);
+				}else
+				{
+					$scope.unpublished.push(quizData[i]);
+				}
+			}
 		});
 
 		$scope.setQuizID = function(ID) {
