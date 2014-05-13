@@ -54,7 +54,8 @@ angular.module('codequizApp')
 			}
 		});
 
-		$scope.setQuizID = function(ID) {
+		$scope.setQuizID = function(ID) 
+		{
 			$rootScope.quizID = ID;
 		}
 
@@ -65,6 +66,7 @@ angular.module('codequizApp')
 			// Update the table to reflect how many questions they have entered.
 			var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
 			var dataObject = createdQuiz.get({quizID: $rootScope.quizID, userID: $scope.userID}, function(){
+				console.log(dataObject);
 				if(dataObject.currentNumber)
 				{
 					$scope.currentNumber = dataObject.currentNumber;
