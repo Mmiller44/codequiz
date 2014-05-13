@@ -83,7 +83,7 @@
                         <textarea ng-model="question.explanation"></textarea>
                       </label>
                       <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
-                      <a ng-href="#/" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Submit</a>
+                      <a ng-href="#/home" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Submit</a>
 
                     </div>
                   </div>

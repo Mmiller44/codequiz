@@ -98,7 +98,7 @@ class QuizController extends BaseController {
 	public function publishQuiz($quizID,$completed)
 	{
 		$getQuiz = Quizzes::where('quiz_ID', '=', $quizID);
-		$quizData = $getQuiz->get();
+		$quizData = $getQuiz->first();
 
 		if($quizData)
 		{
