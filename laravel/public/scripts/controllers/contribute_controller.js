@@ -14,6 +14,7 @@ angular.module('codequizApp')
 
 	$scope.user = $cookieStore.get('username');
 	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+	$scope.userID = $cookieStore.get('userID');
 
     // Setting a $scope variable to equal the window width
     // With this variable, I can now check what device the user is using.
@@ -76,7 +77,6 @@ angular.module('codequizApp')
 			}
 
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
-			$scope.userID = $cookieStore.get('userID');
 			var resource = addQuiz;
 			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID}, function() {
 
