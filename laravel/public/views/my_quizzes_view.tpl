@@ -41,7 +41,7 @@
           <div class="row">
             <div class="small-6-centered columns">
 
-              <h2 class="section_title">My Quizzes</h2>
+              <h2 class="section_title">Published Quizzes</h2>
               <dl class="accordion front_end_accordion" data-accordion>
                 <dd class="no_hover" ng-repeat="quizzes in published">
                   <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
@@ -54,7 +54,7 @@
                   </div>
                 </dd>
 
-              <h2 class="section_title">Unpublished</h2>
+              <h2 class="section_title">Unpublished Quizzes</h2>
               <dl class="accordion front_end_accordion" data-accordion>
                 <dd class="no_hover" ng-repeat="quizzes in unpublished">
                   <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
