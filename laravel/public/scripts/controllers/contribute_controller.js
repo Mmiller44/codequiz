@@ -120,7 +120,7 @@ angular.module('codequizApp')
 
 			// Now I need to store the actual question.
 			var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
-			var QuestionObject = createdQuiz.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation}, function(){
+			var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation}, function(){
 				console.log(QuestionObject);
 				if(QuestionObject)
 				{
