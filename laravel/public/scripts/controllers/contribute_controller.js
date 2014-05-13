@@ -124,7 +124,7 @@ angular.module('codequizApp')
 				console.log(QuestionObject);
 				if(QuestionObject)
 				{
-					$window.location.href = '#/contribute/' + $scope.currentNumber;
+					$window.location.href = '#/contribute/' + $scope.routeNumber;
 				}
 			});
 		}
