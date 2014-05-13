@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('my_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser','$cookieStore',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser,$cookieStore) {
+  .controller('my_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser','$cookieStore','$window',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser,$cookieStore,$window) {
 
   	// If a user is not logged in, push them back to landing page.
 	var currentUser = $cookieStore.get('providerID');
@@ -14,6 +14,7 @@ angular.module('codequizApp')
 
 	$scope.user = $cookieStore.get('username');
 	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+	$scope.userID = $cookieStore.get('userID');
 
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
@@ -55,6 +56,21 @@ angular.module('codequizApp')
 
 		$scope.setQuizID = function(ID) {
 			$rootScope.quizID = ID;
+		}
+
+		$scope.addQuestions = function(ID)
+		{
+			$rootScope.quizID = ID;
+
+			// Update the table to reflect how many questions they have entered.
+			var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
+			var dataObject = createdQuiz.get({quizID: $rootScope.quizID, userID: $scope.userID}, function(){
+				if(dataObject.currentNumber)
+				{
+					$scope.currentNumber = dataObject.currentNumber;
+					$window.location.href = '#/contribute/' + $scope.currentNumber;
+				}
+			});
 		}
 
 }]);

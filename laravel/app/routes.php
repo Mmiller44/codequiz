@@ -81,11 +81,13 @@ Route::get('get-questions/{quizID}', 'QuestionController@getQuestions');
 // CONTRIBUTE
 // Add Quiz
 Route::get('add-quiz/{quizCategory}/{quizTitle}/{quizDescription}/{userID}', 'QuizController@addQuiz');
-
 // Add Question to specific Quiz
 Route::get('add-question/{question}/{a}/{b}/{c}/{d}/{correct_answer}/{quiz_ID}/{quiz_category_ID}/{explanation}', 'QuestionController@addQuestion');
-
+// Update the position the creator is in.
 Route::get('update-contribute-position/{quizID}/{userID}/{currentNumber}/{completed}', 'QuizController@updateContributePosition');
+// Return the position the creator is in.
+Route::get('get-contribute-position/{quizID}/{userID}', 'QuizController@getContributePosition');
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ReporterQuestions

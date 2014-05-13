@@ -95,6 +95,13 @@ class QuizController extends BaseController {
 		return $object;
 	}
 
+	public function getContributePosition($quizID,$userID)
+	{
+		$getPosition = CreatedQuiz::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
+		$object = $getPosition->first();
+		return $object;
+	}
+
 	public function publishQuiz($quizID,$completed)
 	{
 		$getQuiz = Quizzes::where('quiz_ID', '=', $quizID);
