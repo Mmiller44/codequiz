@@ -112,12 +112,20 @@ angular.module('codequizApp')
 			var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
 			var dataObject = createdQuiz.get({quizID: $scope.quizID, userID: $scope.userID, currentNumber: $scope.routeNumber, completed: 'No'}, function(){
 				console.log(dataObject);
+				if(dataObject.currentNumber)
+				{
+					$scope.currentNumber = dataObject.currentNumber;
+				}
 			});
 
 			// Now I need to store the actual question.
 			var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
 			var QuestionObject = createdQuiz.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation}, function(){
 				console.log(QuestionObject);
+				if(QuestionObject)
+				{
+					$window.location.href = '#/contribute/' + $scope.currentNumber;
+				}
 			});
 		}
 
