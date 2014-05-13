@@ -17,7 +17,7 @@ class QuestionController extends BaseController {
 	// -- First it instantiates a new instance of my Table Questions.
 	// -- Then sets values to all the columns via the route Params.
 	// -- Lastly, it saves them to the database.
-	public function addQuestion($question,$a,$b,$c,$d,$correctAnswer,$quizID,$quiz_category_ID)
+	public function addQuestion($question,$a,$b,$c,$d,$correctAnswer,$quizID,$quiz_category_ID,$explanation)
 	{
 		$addQuestion = new Questions;
 		$addQuestion->question = $question;
@@ -28,6 +28,7 @@ class QuestionController extends BaseController {
 		$addQuestion->correct_answer = $correctAnswer;
 		$addQuestion->quiz_ID = $quizID;
 		$addQuestion->quiz_category_ID = $quiz_category_ID;
+		$addQuestion->explanation = $explanation;
 		$addQuestion->save();
 	}
 

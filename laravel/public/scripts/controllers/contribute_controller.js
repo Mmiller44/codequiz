@@ -76,21 +76,21 @@ angular.module('codequizApp')
 			}
 
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
-			var userID = $cookieStore.get('userID');
+			$scope.userID = $cookieStore.get('userID');
 			var resource = addQuiz;
-			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: userID}, function() {
+			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID}, function() {
 
 					if(addingQuiz.quizID)
 					{
 						// This will add the user and new quiz to the Created_quiz table.
 						var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
-						var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: userID, currentNumber: 1, completed: 'No'}, function(){
+						var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'}, function(){
 							console.log(dataObject);
 				
 							// This will only allow the user to move to the next page if they have submitted all the data.
 							if(quizObject.title && quizObject.category && quizObject.description)
 							{
-								console.log($rootScope.newQuizData);
+								$scope.quizID = addingQuiz.quizID;
 								$window.location.href = '#/contribute/' + dataObject.currentNumber;
 							}
 
@@ -103,12 +103,22 @@ angular.module('codequizApp')
 
 		$scope.storeQuestion = function(question)
 		{
+			$scope.routeNumber++;
 			// This is the data the user entered for the question.
-			// It contains: .text, .a, .b, .c, .d, .correctAnswer;
+			// It contains: .text, .a, .b, .c, .d, .correctAnswer and explanation;
 			console.log(question);
 
-			// I can store the question on every button click now because it won't be published until I set
-			// the completed part to say Yes. 
+			// Update the table to reflect how many questions they have entered.
+			var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
+			var dataObject = createdQuiz.get({quizID: $scope.quizID, userID: $scope.userID, currentNumber: $scope.routeNumber, completed: 'No'}, function(){
+				console.log(dataObject);
+			});
+
+			// Now I need to store the actual question.
+			var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
+			var QuestionObject = createdQuiz.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation}, function(){
+				console.log(QuestionObject);
+			});
 		}
 
 		$scope.viewAllQuizzes = function()
