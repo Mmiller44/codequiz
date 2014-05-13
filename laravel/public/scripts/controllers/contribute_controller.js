@@ -45,7 +45,6 @@ angular.module('codequizApp')
 		if($scope.routeNumber >= 10 && $scope.routeNumber <= 20)
 		{
 			$scope.showSubmit = false;
-			console.log('WHAT?');
 		}else
 		{
 			$scope.showSubmit = true;
@@ -61,12 +60,10 @@ angular.module('codequizApp')
 		}
 
 		// This function gets called when the continue button is clicked.
-		// It gets passed an object called quiz. Containing all the information the user just inputted.
-		// I will get a return from the API of the added quizzes' quiz_ID. Needed to add questions.
-		// I will need to inject a factory call for the contribute $resources.
+		// It creates the quiz in the DB. And also creates a new row in the Created_quiz Table.
 		$scope.submitQuizInfo = function(quizObject)
 		{
-			// quiz is an object containing: .category, .title, and .description.
+			// quizObject contains: .category, .title, and .description.
 			// These values are determined by what the user typed in the form.
 			console.log(quizObject);
 
@@ -78,10 +75,22 @@ angular.module('codequizApp')
 				$rootScope.newQuizCategoryID = 1;
 			}
 
-			// This triggers an event inside my contributeServices -> addQuiz.
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
 			var userID = $cookieStore.get('userID');
-			$rootScope.$broadcast("addQuizEvent", {category: quizObject.category,title: quizObject.title, description: quizObject.description, userID: userID});
+			var resource = addQuiz;
+			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: userID}, function() {
+
+					if(addingQuiz.quizID)
+					{
+						// This will add the user and new quiz to the Created_quiz table.
+						var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
+						var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: userID, currentNumber: 1, completed: 'No'}, function(){
+							console.log(dataObject);
+							$rootScope.newQuizData = dataObject;
+						});	
+					}
+
+			});
 
 			// This will only allow the user to move to the next page if they have submitted all the data.
 			if(quizObject.title && quizObject.category && quizObject.description)
@@ -111,6 +120,10 @@ angular.module('codequizApp')
 			}
 
 			console.log($cookieStore.get('questions'));
+
+			// I can store the question on every button click now because it won't be published until I set
+			// the completed part to say Yes. 
+			// I need to remove the broadcast event, and rewrite it so the $rootScope.newQuizData is not undefined.
 		}
 
 
