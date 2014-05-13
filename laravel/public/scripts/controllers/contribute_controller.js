@@ -107,26 +107,14 @@ angular.module('codequizApp')
 			// It contains: .text, .a, .b, .c, .d, .correctAnswer;
 			console.log(question);
 
-			// Check if this is the first answer being submitted. If it is, create an empty array and push the object.
-			// Otherwise just push the question into the array. Then I can check the length before storing the data in DB.
-			if($rootScope.dataArray)
-			{
-				$rootScope.dataArray.push(question);
-				$cookieStore.put('questions', $rootScope.dataArray);
-			}else
-			{
-				$rootScope.dataArray = [];
-				$rootScope.dataArray.push(question);
-				$cookieStore.put('questions', $rootScope.dataArray);
-			}
-
-			console.log($cookieStore.get('questions'));
-
 			// I can store the question on every button click now because it won't be published until I set
 			// the completed part to say Yes. 
-			// I need to remove the broadcast event, and rewrite it so the $rootScope.newQuizData is not undefined.
 		}
 
+		$scope.viewAllQuizzes = function()
+		{
+
+		}
 
   }]);
 

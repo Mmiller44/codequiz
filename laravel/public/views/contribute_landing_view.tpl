@@ -83,6 +83,8 @@
                       </label>
 
                       <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button report_button">Continue</a>
+                      <a ng-href="" ng-click="viewAllQuizzes()" class="button report_button">View My Quizzes</a>
+
                     </div>
                   </div>
                 </form>

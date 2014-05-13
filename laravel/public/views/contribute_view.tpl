@@ -79,7 +79,9 @@
                           <option value="D">D</option>
                         </select>
                       </label>
-
+                      <label>Explanation
+                        <textarea ng-model="question.explanation"></textarea>
+                      </label>
                       <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
                       <a ng-href="#/contribute/1" ng-hide="showSubmit" class="button report_button">Submit</a>
 
