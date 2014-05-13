@@ -37,7 +37,7 @@ angular.module('codequizApp')
 		// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
 		// the category that was clicked to get to this page, which is also the $routeParam.
 		var getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
-		var quizData = getQuizzes.get({username: $scope.user}, function() {
+		var quizData = getQuizzes.query({username: $scope.user}, function() {
 			$scope.quizData = quizData;
 		});
 
