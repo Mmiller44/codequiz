@@ -86,23 +86,19 @@ angular.module('codequizApp')
 						var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
 						var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: userID, currentNumber: 1, completed: 'No'}, function(){
 							console.log(dataObject);
-							
-							if(dataObject.currentNumber)
+				
+							// This will only allow the user to move to the next page if they have submitted all the data.
+							if(quizObject.title && quizObject.category && quizObject.description)
 							{
-								$rootScope.newQuizData = dataObject;
+								console.log($rootScope.newQuizData);
+								$window.location.href = '#/contribute/' + dataObject.currentNumber;
 							}
-							
+
 						});	
 					}
 
 			});
 
-			// This will only allow the user to move to the next page if they have submitted all the data.
-			if(quizObject.title && quizObject.category && quizObject.description)
-			{
-				console.log($rootScope.newQuizData);
-				$window.location.href = '#/contribute/' + $rootScope.newQuizData.currentNumber;
-			}
 		}
 
 		$scope.storeQuestion = function(question)
