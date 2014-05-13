@@ -1,5 +1,5 @@
 <div class="page">
-   <div class="off-canvas-wrap">
+	 <div class="off-canvas-wrap">
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
         <section class="middle tab-bar-section">
@@ -7,7 +7,7 @@
         </section>
 
         <section class="right-small">
-          <a class="right-off-canvas-toggle menu-icon" ><span></span></a>
+          <a class="right-off-canvas-toggle menu-icon"><span></span></a>
         </section>
       </nav>
 
@@ -35,27 +35,25 @@
             fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));</script>
         </aside>
-        <section class="main-section">
+
+        <section class="main-section" id="front_end">
           <!-- content goes here -->
-          <!-- FRONT END -->
-          <div class="row" id="front_end">
+          <div class="row">
             <div class="small-6-centered columns">
-              <h2 class="section_title">Front End</h2>
-              <dl class="accordion front_end_accordion">
-                <dd ng-repeat="quiz in $root.frontQuizzes">
-                  <a href="#/quiz_landing/{{quiz.sub_category}}" ng-click="loadTitles(quiz.sub_category)">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow.png"></mark></a>
+
+              <h2 class="section_title">My Quizzes</h2>
+              <dl class="accordion front_end_accordion" data-accordion>
+                <dd class="no_hover" ng-repeat="quizzes in quizData">
+                  <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
+                  <div id="panel{{quizzes.quiz_ID}}" class="content">
+                    <p>{{quizzes.description}}</p>
+                    <h3 class="star">Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
+                    <h4>By <a href="#/quizzes/{{quizzes.username}}" class="usernameLink">{{quizzes.username}}</a></h4>
+                    <a ng-href="#/quiz/{{quizzes.quiz_ID}}/" ng-click='setQuizID(quizzes.quiz_ID)' class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
+                  </div>
                 </dd>
-              </dl>
-            </div>
-          </div>
-          <!-- BACK END -->
-          <div class="row" id="back_end">
-            <div class="small-6-centered columns">
-              <h2 class="section_title">Back End</h2>
-              <dl class="accordion back_end_accordion">
-                <dd ng-repeat="quiz in $root.backQuizzes">
-                  <a href="#/quiz_landing/{{quiz.sub_category}}" ng-click="loadTitles(quiz.sub_category)">{{quiz.sub_category}} <mark class="arrow"><img src="images/arrow_back.png"></mark></a>
-                </dd>
+
+
               </dl>
             </div>
           </div>
@@ -66,3 +64,6 @@
       </div>
     </div>
   </div> <!-- Closing Page -->
+<script>
+  $(document).foundation();
+</script>

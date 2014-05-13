@@ -18,6 +18,7 @@
           <h2 class="profileUser">{{user}}</h2>
             <li class="borderTop"><a href="#/home">Home</a></li>
             <li><a href="#/contribute">Contribute</a></li>
+            <li><a href="#/myQuizzes">My Quizzes</a></li>
           </ul>
           <h3 class="menuShare">Share Us!</h3>
           <a href="https://twitter.com/share" class="twitter-share-button" data-via="MikeTMiller04" data-size="large" data-count="none">Tweet!</a>

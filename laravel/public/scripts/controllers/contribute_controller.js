@@ -127,10 +127,8 @@ angular.module('codequizApp')
 			});
 		}
 
-		$scope.viewAllQuizzes = function()
-		{
 
-		}
+		
 
 		// This gets triggered when a user clicks submit.
 		// It will change the 'completed' column from no to yes. Allowing all users to see the quiz.
