@@ -95,4 +95,16 @@ class QuizController extends BaseController {
 		return $object;
 	}
 
+	public function publishQuiz($quizID,$completed)
+	{
+		$getQuiz = Quizzes::where('quiz_ID', '=', $quizID);
+		$quizData = $getQuiz->get();
+
+		if($quizData)
+		{
+			$quizData->completed = $completed;
+			$quizData->save();
+		}
+	}
+
 }

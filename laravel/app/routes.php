@@ -19,6 +19,9 @@ Route::get('get-type-of/{sub_category}', 'QuizController@getQuizType');
 // Get all quizzes created by a certain user.
 Route::get('get-all-by/{username}', 'QuizController@getAllBy');
 
+// Publish the quiz.
+Route::get('publish-quiz/{quizID}/{completed}', 'QuizController@publishQuiz');
+
 
 
 

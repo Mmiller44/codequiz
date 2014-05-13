@@ -111,7 +111,6 @@ angular.module('codequizApp')
 			// Update the table to reflect how many questions they have entered.
 			var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
 			var dataObject = createdQuiz.get({quizID: $rootScope.quizID, userID: $scope.userID, currentNumber: $scope.routeNumber, completed: 'No'}, function(){
-				console.log(dataObject);
 				if(dataObject.currentNumber)
 				{
 					$scope.currentNumber = dataObject.currentNumber;
@@ -121,7 +120,6 @@ angular.module('codequizApp')
 			// Now I need to store the actual question.
 			var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
 			var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $rootScope.quizID, quizCategoryID: 1, explanation: question.explanation}, function(){
-				console.log(QuestionObject);
 				if(QuestionObject)
 				{
 					$window.location.href = '#/contribute/' + $scope.routeNumber;
@@ -132,6 +130,16 @@ angular.module('codequizApp')
 		$scope.viewAllQuizzes = function()
 		{
 
+		}
+
+		// This gets triggered when a user clicks submit.
+		// It will change the 'completed' column from no to yes. Allowing all users to see the quiz.
+		$scope.publishQuiz = function()
+		{
+			var publishResource = $resource('http://codequiz.io/publish-quiz/:quizID/:completed');
+			var returnedObject = publishResource.get({quizID: $rootScope.quizID, completed: 'Yes'},function(){
+				console.log(returnedObject);
+			});
 		}
 
   }]);
