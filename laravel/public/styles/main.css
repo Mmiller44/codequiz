@@ -456,6 +456,7 @@ span.answer_d {
 	padding-right: 20px;
 	width: 100%;
 	line-height: 2.8;
+	margin-top: 20px;
 }
 
 .delete:hover {
@@ -464,8 +465,8 @@ span.answer_d {
 
 .delete img{
 	position: absolute;
-	right: 10px;
-	bottom: 8px;
+	right: 14px;
+	bottom: 12px;
 }
 
 /*================================================== Score Template ====================================================*/
