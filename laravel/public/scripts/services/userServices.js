@@ -42,12 +42,13 @@ angular.module('codequizApp')
 	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
 		if(userObject)
 		{
+			console.log('WORKIEREDSD');
 			if($window.localStorage)
 			{
-				$window.localStorage.setItem('userID',userObject.user_ID);
+				$window.localStorage.setItem('userID', userObject.user_ID);
 			}else
 			{
-				$cookieStore.put('userID',userObject.user_ID);
+				$cookieStore.put('userID', userObject.user_ID);
 			}
 
 		}else
