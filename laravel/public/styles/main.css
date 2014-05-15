@@ -298,7 +298,13 @@ mark.plus {
 
 .intro {
 	margin-top: 20px;
-	font-size: 18px;
+	font-size: 14px;
+}
+
+.iphone {
+	width: 400px;
+	height: auto;
+	float: right;
 }
 
 .features_list {
