@@ -53,7 +53,7 @@
 
                 <h5 class="final_score">Share Your Results!</h5>
                 <!-- Twitter button for sharing here-->
-                 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://codequiz.io/" data-via="MikeTMiller04" data-lang="en" data-count="none">Tweet</a>
+                 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://codequiz.io/" data-via="MikeTMiller04" data-lang="en" data-count="none" data-text="I just scored a {{$root.finalScore}}% on a {{$root.sub_category}} quiz.">Tweet</a>
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
