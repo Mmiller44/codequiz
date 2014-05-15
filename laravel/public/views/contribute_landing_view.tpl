@@ -52,8 +52,8 @@
 
           <!-- IF ON A DESKTOP THIS IS THE VIEW -->
               <div ng-hide="mobile" class="desktop_contribution">
-                  <div class="row">
-                    <div class="medium-12 columns instructions">
+                  <div class="row instructions">
+                    <div class="medium-12 columns">
                       <h3>Contribute!</h3>
                       <p>Thanks for joining the Code Quiz community. Our community strives off contributions from users like you. To get started, please follow the instructions below.</p>
                       <ul>
