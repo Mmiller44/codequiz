@@ -41,9 +41,7 @@ angular.module('codequizApp')
 	// userObject holds all returned results
 	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
 		
-		console.log('Worafafdfasdfsdf');
-
-		if(userObject)
+		if(userObject.user_ID)
 		{
 			if($window.localStorage)
 			{

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('user_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','getAllByUser','$cookieStore','findUser',function($scope, $resource, $rootScope, $routeParams,getAllByUser,$cookieStore,findUser) {
+  .controller('user_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','getAllByUser','$cookieStore','findUser','$window',function($scope, $resource, $rootScope, $routeParams,getAllByUser,$cookieStore,findUser,$window) {
 
 
 	if($window.localStorage)
@@ -15,8 +15,6 @@ angular.module('codequizApp')
 		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 		$scope.userID = $cookieStore.get('userID');
 	}
-
-	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 
   	$scope.isUser = false;
   	$scope.searchUser = $routeParams.username;
