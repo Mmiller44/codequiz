@@ -73,12 +73,8 @@ angular.module('codequizApp')
 		$rootScope.quizID = ID;
 		$scope.data = addQuestions.get({quizID: ID, userID: $cookieStore.get('userID')});
    		$scope.data.$promise.then(function(data) {
-       		console.log(data);
-       		$scope.blah = data;
-       		console.log($scope.blah);
+   			$scope.data = data;
    		});
-
-   		console.log($scope.blah);
 	}
 
 }]);
