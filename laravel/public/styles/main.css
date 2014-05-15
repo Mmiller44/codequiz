@@ -184,6 +184,13 @@ body,html{
 
 /*================================================== Body ====================================================*/
 
+
+span[class^='hljs'] {
+	width: 500px;
+	word-wrap: break-word;
+}
+
+
 #front_end {
 	background-color: #7accc8;
 	padding-bottom: 20px;
