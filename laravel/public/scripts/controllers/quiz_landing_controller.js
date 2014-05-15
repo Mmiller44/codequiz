@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser','$cookieStore',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser,$cookieStore) {
+  .controller('quiz_landing_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser','$cookieStore','$window',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser,$cookieStore,$window) {
 
 	if($window.localStorage)
 	{
