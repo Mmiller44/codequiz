@@ -15,17 +15,6 @@ angular.module('codequizApp')
     $scope.user = $cookieStore.get('username');
     $scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 
-    // This is the controller that will control the functionality for Quizzes.
-    // -- First it needs to know who the user is, which has been established in $rootScope variables.
-    // -- Next, I need to query for the quiz that was selected on the previous screen. (quiz_ID is a $routeParam).
-    // -- Set $scope variables for the view to use and load up.
-    // -- When an answer is clicked, store it to this users database for this quiz.
-    // -- Load same view with the next question.
-
-    // -- Lastly, this controller needs to handle the report question modal window.
-    // -- I will need to know the number of the question being reported and the reason for the report.
-    // -- Also, who is submitting the report.
-    // (Side note): I should probably put something in to stop users from adding more than one report per question.
 
     // Setting a scope variable to be a counter for how many answers they have right.
     // if the variable doesn't exist. Make it and set it to 0;
@@ -41,6 +30,8 @@ angular.module('codequizApp')
         $scope.questions = currentQuiz;
     });
 
+    // Getting the users current position in this quiz. And then setting my scope variables to the proper values.
+    // the values will change on click later and will make the view render the new data making the user traverse the quiz.
     $scope.quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID});
     $scope.quizPosition.$promise.then(function(data) {
         $scope.quizPosition = data;
@@ -59,28 +50,6 @@ angular.module('codequizApp')
     // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
     $scope.userData = findUser;
 
-    // Getting the users current position in this quiz. And then setting my scope variables to the proper values.
-    // the values will change on click later and will make the view render the new data making the user traverse the quiz.
-    // var quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
-    //     console.log(quizPosition);
-    //     $scope.quizPosition = quizPosition;
-
-    //     if($scope.quizPosition[0].completed == 'yes')
-    //     {
-    //         $scope.currentNumber = 0;
-    //     }else
-    //     {
-    //         $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
-    //     }
-
-    //      $scope.indicatorNumber = $scope.currentNumber + 1;
-    //      // $scope.quizCategory = $rootScope.sub_category.toLowerCase();
-    //      // console.log($scope.quizCategory);
-
-    // });
-
-
-
 
     // Store the users answer. 
     // Function gets called from the view on click. Passes: 'A', 'B', 'C' or 'D'.
@@ -94,7 +63,7 @@ angular.module('codequizApp')
         $scope.currentNumber++;
         $scope.indicatorNumber++;
 
-        // If the users answer is the same as the correct answer, they are right. Else they are wrong.
+        // Checking their answers
         if(value == correctAnswer)
         {
             var correctInput = 'yes';
@@ -105,6 +74,7 @@ angular.module('codequizApp')
             var correctInput = 'no';
         }
 
+        // Setting their score.
         finalScore = ($scope.score / $scope.questions.length) * 100;
         $rootScope.finalScore = finalScore.toFixed(0);
 
@@ -114,7 +84,8 @@ angular.module('codequizApp')
         var sendData = storeAnswerFactory.get({userID: $cookieStore.get('userID'), 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[newNumber].question_ID, 
-            userAnswer: value, correct: correctInput}, function() {
+            userAnswer: value, 
+            correct: correctInput}, function() {
                 console.log('Stored Answer');
         });
         
@@ -133,10 +104,10 @@ angular.module('codequizApp')
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
         var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber/:completed/:score', {});
-        var dataObject = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber, completed: $scope.completed, score: finalScore}, function() {
-                console.log('Updated Position');
-        });
-        
+        $scope.updatePosition = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber, completed: $scope.completed, score: finalScore});
+        $scope.updatePosition.$promise.then(function(data) {
+            $scope.ready = true;
+        }
     }
 
     $scope.submitReport = function(data)
@@ -164,7 +135,10 @@ angular.module('codequizApp')
 
         var reportResource = $resource('http://codequiz.io/report-question/:questionID/:userID/:reasonOne/:reasonTwo/:reasonThree/:reasonFour');
         var data = reportResource.get({questionID: questionID, userID: userID, reasonOne: reason1, reasonTwo: reason2, reasonThree: reason3, reasonFour: $scope.reportData.custom}, function(){
-
+            $scope.reportData.radio1 = false;
+            $scope.reportData.radio2 = false;
+            $scope.reportData.radio3 = false;
+            $scope.reportData.custom = '';
         });
     }
 
