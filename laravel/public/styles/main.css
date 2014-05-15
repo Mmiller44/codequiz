@@ -315,6 +315,14 @@ mark.plus {
 	width: 48%;
 }
 
+.instructions ul {
+	margin-bottom: 20px;
+}
+
+.instructions li {
+	padding-bottom: 5px;
+}
+
 #homeButton {
 	margin-right: 15px;
 }
