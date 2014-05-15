@@ -6,7 +6,7 @@ angular.module('codequizApp')
 
 	if($window.localStorage)
 	{
-		$scope.user = $window.localStorage.getItem('providerID');
+		$scope.user = $window.localStorage.getItem('username');
 		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
 		$scope.userID = $window.localStorage.getItem('userID');
 	}else
