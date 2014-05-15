@@ -35,13 +35,18 @@ angular.module('codequizApp')
 		var profileImage = $cookieStore.get('profileImage');
 	}
 
+	if(!name)
+	{
+		$window.location.href = '#/';
+	}
+
 	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
 	// userObject holds all returned results
 	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
 		
-		if(userObject.user_ID)
+		if(userObject)
 		{
 			if($window.localStorage)
 			{
@@ -51,9 +56,6 @@ angular.module('codequizApp')
 				$cookieStore.put('userID', userObject.user_ID);
 			}
 
-		}else
-		{
-			$window.location.href = "#/";
 		}
 
 	});
