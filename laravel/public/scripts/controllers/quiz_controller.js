@@ -95,7 +95,6 @@ angular.module('codequizApp')
         if(newNumber + 1 == $scope.questions.length)
         {
             $scope.completed = 'yes';
-            $window.location.href = '#/score';
         }else
         {
             $scope.completed = 'no';
@@ -106,7 +105,11 @@ angular.module('codequizApp')
         var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber/:completed/:score', {});
         $scope.updatePosition = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber+1, completed: $scope.completed, score: finalScore});
         $scope.updatePosition.$promise.then(function(data) {
-            $scope.ready = true;
+            $scope.updatePosition = data;
+            if($scope.updatePosition.completed = 'yes')
+            {
+                $window.location.href = '#/score';
+            }
         });
     }
 
