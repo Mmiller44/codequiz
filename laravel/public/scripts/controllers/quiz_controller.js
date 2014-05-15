@@ -41,7 +41,7 @@ angular.module('codequizApp')
             $scope.currentNumber = 0;
         }else
         {
-            $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
+            $scope.currentNumber = parseInt($scope.quizPosition[0].currentNumber);
         }
 
          $scope.indicatorNumber = $scope.currentNumber + 1;
