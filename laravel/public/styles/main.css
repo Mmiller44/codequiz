@@ -315,6 +315,10 @@ mark.plus {
 	width: 48%;
 }
 
+.instructions {
+	float: left;
+}
+
 #homeButton {
 	margin-right: 15px;
 }
