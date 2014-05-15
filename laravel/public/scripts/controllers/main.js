@@ -5,7 +5,7 @@ angular.module('codequizApp')
 
 	if($window.localStorage)
 	{
-		if($window.localStorage.getItem('username')
+		if($window.localStorage.getItem('username'))
 		{
 			$window.location.href = '#/home';
 		};
