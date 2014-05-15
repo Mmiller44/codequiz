@@ -52,8 +52,8 @@
 
           <!-- IF ON A DESKTOP THIS IS THE VIEW -->
               <div ng-hide="mobile" class="desktop_contribution">
-                  <div class="row left">
-                    <div class="large-12 columns instructions">
+                  <div class="row">
+                    <div class="medium-6 columns left">
                       <h3>Contribute!</h3>
                       <p>Thanks for joining the Code Quiz community. Our community strives off contributions from users like you. To get started, please follow the instructions below.</p>
                       <ul>
@@ -64,7 +64,7 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="medium-12 columns">
+                    <div class="medium-6 columns right">
                       <form id='contribution_form'>
                       <label>Quiz Category
                         <select ng-model="quiz.category" required >
@@ -80,20 +80,16 @@
                       <label>Quiz Title
                         <input type="text" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
                       </label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="medium-12 columns">
+
                       <label>Description
                         <textarea ng-model="quiz.description" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
                       </label>
 
                       <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">Continue</a>
                       <a ng-href="#/myQuizzes" class="button contributeButton">My Quizzes</a>
-
+                </form>
                     </div>
                   </div>
-                </form>
               </div>
 
         </section>
