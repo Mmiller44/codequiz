@@ -71,7 +71,7 @@ angular.module('codequizApp')
 	$scope.addQuestions = function(ID)
 	{
 		$rootScope.quizID = ID;
-		addQuestions.getQuestion().then(function(data) {
+		addQuestions.getQuestion(ID, $cookieStore.get('userID')).then(function(data) {
 		  console.log(data);
 		});
 

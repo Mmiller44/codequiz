@@ -17,9 +17,9 @@ angular.module('codequizApp')
 	var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
 
 	return {
-    	getQuestion: function() {
+    	getQuestion: function(quizID,userID) {
 			var deferred = $q.defer();
-			createdQuiz.query({quizID: $rootScope.quizID, userID: $cookieStore.get('userID')}, function(object){
+			createdQuiz.query({quizID: quizID, userID: userID}, function(object){
 				deferred.resolve(object);
 			});
     		return deferred.promise;
