@@ -33,6 +33,10 @@ angular.module('codequizApp')
 			{
 				this.imageSrc = 'images/plus.png';
 				this.toggle = !this.toggle;
+			}else
+			{
+				this.imageSrc = 'images/minus.png';
+				this.toggle = !this.toggle;
 			}
 		};
 
@@ -46,19 +50,17 @@ angular.module('codequizApp')
 
 		if($scope.quizInfo.length > 0)
 		{
-
-		}else
-		{
 			for(var i = 0;i<getAll.length;i++)
 			{
 				if(getAll[i].completed == 'Yes')
 				{
 					$scope.published.push(getAll[i]);
-				}else
-				{
-					$scope.unpublished.push(getAll[i]);
 				}
 			}
+			
+		}else
+		{
+
 			console.log('no quizzes by that username.');
 			$scope.isUser = true;
 			$scope.noUser = false;
