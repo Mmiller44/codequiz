@@ -311,6 +311,11 @@ mark.plus {
 	background-color: #232d3b;
 }
 
+.contributeButton {
+	width: 48%;
+	margin-right: 10px;
+}
+
 #homeButton {
 	margin-right: 15px;
 }
