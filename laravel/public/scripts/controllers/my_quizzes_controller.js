@@ -73,7 +73,7 @@ angular.module('codequizApp')
 		$rootScope.quizID = ID;
 		$scope.data = addQuestions.get({quizID: ID, userID: $cookieStore.get('userID')});
    		$scope.data.$promise.then(function(data) {
-       		console.log(data.currentNumber);
+       		console.log(JSON.stringify(data));
    		});
 
 	}
