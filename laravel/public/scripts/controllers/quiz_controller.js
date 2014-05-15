@@ -56,7 +56,7 @@ angular.module('codequizApp')
     $scope.saveAnswer = function(value)
     {
         var correctAnswer = $scope.questions[$scope.currentNumber].correct_answer;
-        var newNumber = $scope.currentNumber;
+        var newNumber = $scope.indicatorNumber;
         var finalScore = 0;
 
         // increment my values so the view knows new data needs to be rendered.
