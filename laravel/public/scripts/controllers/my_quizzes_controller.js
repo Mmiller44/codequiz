@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('my_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser','$cookieStore','$window','$q',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser,$cookieStore,$window,$q) {
+  .controller('my_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser','$cookieStore','$window','addQuestions',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser,$cookieStore,$window,addQuestions) {
 
   	// If a user is not logged in, push them back to landing page.
 	var currentUser = $cookieStore.get('providerID');
@@ -71,17 +71,9 @@ angular.module('codequizApp')
 	$scope.addQuestions = function(ID)
 	{
 		$rootScope.quizID = ID;
-		var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
-		var defer = $q.defer();
-
-		// Update the table to reflect how many questions they have entered.
-		var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $cookieStore.get('userID')}, function(object){
-			defer.resolve(object);
+		addQuestions.getQuestion().then(function(data) {
+		  console.log(data);
 		});
-
-		console.log(defer.promise);
-		
-
 
 	}
 
