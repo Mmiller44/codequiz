@@ -25,12 +25,6 @@ angular.module('codequizApp')
     
     $scope.reportData = {};
 
-
-    if($scope.completed == 'yes')
-    {
-        $window.location.href = '#/score';
-    }
-
     // Setting an object to equal the results from the server.
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
         $scope.questions = currentQuiz;
@@ -101,6 +95,7 @@ angular.module('codequizApp')
         if(newNumber + 1 == $scope.questions.length)
         {
             $scope.completed = 'yes';
+            $window.location.href = '#/score';
         }else
         {
             $scope.completed = 'no';
