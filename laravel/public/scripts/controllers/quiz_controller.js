@@ -56,7 +56,7 @@ angular.module('codequizApp')
     $scope.saveAnswer = function(value)
     {
         var correctAnswer = $scope.questions[$scope.currentNumber].correct_answer;
-        var newNumber = $scope.indicatorNumber;
+        var newNumber = $scope.currentNumber;
         var finalScore = 0;
 
         // increment my values so the view knows new data needs to be rendered.
@@ -92,7 +92,7 @@ angular.module('codequizApp')
 
         // IF condition checking to see if the user has answered all the questions.
         // Will set $scope.completed to either yes or no, which is used with updateResource call.
-        if(newNumber >= $scope.questions.length)
+        if(newNumber + 1 == $scope.questions.length)
         {
             $scope.completed = 'yes';
             $window.location.href = '#/score';
