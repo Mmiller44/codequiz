@@ -54,12 +54,12 @@
               <div ng-hide="mobile" class="desktop_contribution">
                 <form id='contribution_form'>
                   <div class="row">
-                    <div class="medium-12 columns">
+                    <div class="large-12 columns">
                       <h3>Contribute!</h3>
                       <p>Thanks for joining the Code Quiz community. Our community strives off contribution from users like you. To get started, please see the instructions below.</p>
                       <ul>
                         <li>Each Quiz must be a minimum of 10 questions to be published.</li>
-                        <li>Your unfinished quizzes are automatically saved and unpublished until you complete them.</li>
+                        <li>Your quizzes are automatically saved and unpublished until you complete them.</li>
                         <li>All your quizzes can be seen under the "My Quizzes" tab.</li>
                       </ul>
 
