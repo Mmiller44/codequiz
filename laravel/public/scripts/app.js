@@ -11,8 +11,7 @@ angular.module('codequizApp', [
   'ngRoute',
   'restangular',
   'hljs',
-  'countTo',
-  'ngAnimate'
+  'countTo'
 ])
 
   .config(function ($routeProvider) {
