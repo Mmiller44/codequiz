@@ -15,7 +15,7 @@ angular.module('codequizApp')
 }])
 
 // FINDUSER based on provider_ID
-  .factory('findUser',['$resource','$cookieStore',function($resource,$cookieStore){
+  .factory('findUser',['$resource','$cookieStore','$window',function($resource,$cookieStore,$window){
 
   	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $cookieStore.get('providerID'), username: $cookieStore.get('username'),name: $cookieStore.get('name'), location: $cookieStore.get('location'), website: $cookieStore.get('website'), profileImage: $cookieStore.get('profileImage')});
@@ -49,7 +49,7 @@ angular.module('codequizApp')
 			{
 				$cookieStore.put('userID',userObject.user_ID);
 			}
-			
+
 		}else
 		{
 			$window.location.href = "#/";
