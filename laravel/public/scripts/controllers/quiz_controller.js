@@ -107,7 +107,7 @@ angular.module('codequizApp')
         $scope.updatePosition = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber, completed: $scope.completed, score: finalScore});
         $scope.updatePosition.$promise.then(function(data) {
             $scope.ready = true;
-        }
+        });
     }
 
     $scope.submitReport = function(data)
