@@ -22,14 +22,4 @@ angular.module('codequizApp')
 		$rootScope.title = title;
 	};
 
-}])
-
-	.run(function($rootScope, $window) {  
-        $rootScope.slide = '';  
-        $rootScope.$on('$routeChangeStart', function() {
-            //event button item list to move forward  
-            $rootScope.next = function() {  
-                $rootScope.slide = 'slide-left';  
-            }  
-        });  
-    });
+}]);
