@@ -34,12 +34,12 @@ angular.module('codequizApp')
 		var website = $cookieStore.get('website');
 		var profileImage = $cookieStore.get('profileImage');
 	}
-	
+
 	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
 	// userObject holds all returned results
-	var userData = newUser.query({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
+	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
 		
 		console.log('Worafafdfasdfsdf');
 
