@@ -43,6 +43,9 @@ angular.module('codequizApp')
 
 			if(userObject.dataInfo)
 			{
+				var username = userObject.dataInfo.email;
+				username = username.substring(0, s.indexOf('@'));
+
 				$cookieStore.put('providerID', userObject.dataInfo.id);
 				$cookieStore.put('username', userObject.dataInfo.email);
 				$cookieStore.put('name', userObject.dataInfo.name);
