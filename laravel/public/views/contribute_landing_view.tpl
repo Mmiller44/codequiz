@@ -52,11 +52,10 @@
 
           <!-- IF ON A DESKTOP THIS IS THE VIEW -->
               <div ng-hide="mobile" class="desktop_contribution">
-                <form id='contribution_form'>
                   <div class="row">
                     <div class="medium-12 columns instructions">
                       <h3>Contribute!</h3>
-                      <p>Thanks for joining the Code Quiz community. Our community strives off contribution from users like you. To get started, please see the instructions below.</p>
+                      <p>Thanks for joining the Code Quiz community. Our community strives off contributions from users like you. To get started, please follow the instructions below.</p>
                       <ul>
                         <li>Each Quiz must be a minimum of 10 questions to be published.</li>
                         <li>Your quizzes are automatically saved and unpublished until you complete them.</li>
@@ -78,6 +77,7 @@
                   </div>
                   <div class="row">
                     <div class="medium-12 columns">
+                    <form id='contribution_form'>
                       <label>Quiz Title
                         <input type="text" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
                       </label>
