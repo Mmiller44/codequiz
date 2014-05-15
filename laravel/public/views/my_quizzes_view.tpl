@@ -40,8 +40,7 @@
           <!-- content goes here -->
           <div class="row" ng-hide="noQuizzes">
             <div class="small-6-centered columns">
-
-              <h2 class="section_title">Published Quizzes</h2>
+              <h2 class="section_title" ng-hide="noPublish">Published Quizzes</h2>
               <dl class="accordion front_end_accordion" data-accordion>
                 <dd class="no_hover" ng-repeat="quizzes in published">
                   <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>

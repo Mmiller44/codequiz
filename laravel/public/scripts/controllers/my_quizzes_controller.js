@@ -19,7 +19,8 @@ angular.module('codequizApp')
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
     $scope.noQuizzes = false;
-    
+    $scope.noPublish =  true;
+
 	// Setting a function that will swap out the image of ONLY the clicked accordion.
 	$scope.toggleImage = function(){
 		
@@ -50,6 +51,7 @@ angular.module('codequizApp')
 				if(quizData[i].completed == 'Yes')
 				{
 					$scope.published.push(quizData[i]);
+					$scope.noPublish = false;
 				}else
 				{
 					$scope.unpublished.push(quizData[i]);
