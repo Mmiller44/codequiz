@@ -25,6 +25,12 @@ angular.module('codequizApp')
     
     $scope.reportData = {};
 
+
+    if($scope.completed == 'yes')
+    {
+        $window.location.href = '#/score';
+    }
+
     // Setting an object to equal the results from the server.
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
         $scope.questions = currentQuiz;
@@ -106,10 +112,6 @@ angular.module('codequizApp')
         $scope.updatePosition = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber+1, completed: $scope.completed, score: finalScore});
         $scope.updatePosition.$promise.then(function(data) {
             $scope.updatePosition = data;
-            if($scope.completed == 'yes')
-            {
-                $window.location.href = '#/score';
-            }
         });
     }
 
