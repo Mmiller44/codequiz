@@ -89,7 +89,7 @@ angular.module('codequizApp')
 		if(defer.resolve)
 		{
 			console.log('Worked.');
-			console.log(defer.resolve);
+			console.log(defer.resolve.value);
 		}else
 		{
 			console.log('Did not work');
