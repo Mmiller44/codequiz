@@ -15,7 +15,7 @@ angular.module('codequizApp')
 	$scope.user = $cookieStore.get('username');
 	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 
-  	$scope.duration = 2;
+  	$scope.duration = 1;
 
     if(!$rootScope.finalScore)
     {
