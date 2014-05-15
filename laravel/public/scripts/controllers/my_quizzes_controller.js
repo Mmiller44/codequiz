@@ -74,26 +74,12 @@ angular.module('codequizApp')
 		var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
 		var defer = $q.defer();
 
-		defer.promise.then(function (){
+		// Update the table to reflect how many questions they have entered.
+		var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $cookieStore.get('userID')}, function(object){
+			defer.resolve(object);
+		});
 
-			// Update the table to reflect how many questions they have entered.
-			var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $cookieStore.get('userID')}, function(object){
-				
-				defer.resolve(object);
-			});
-
-			return defer.promise;
-
-		})
-
-		if(defer.resolve)
-		{
-			console.log('Worked.');
-			console.log(defer.resolve.value);
-		}else
-		{
-			console.log('Did not work');
-		}
+		console.log(defer.promise);
 		
 
 
