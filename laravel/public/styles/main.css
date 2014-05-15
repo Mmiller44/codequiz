@@ -595,8 +595,8 @@ span.answer_d {
 	margin: 0 auto;
 }
 
-.mobile_contribution {
-
+.mobile_contribution p {
+	margin-top: 15px;
 }
 
 #contribution_form {
