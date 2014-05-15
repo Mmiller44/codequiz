@@ -73,8 +73,8 @@
           <div class="row" ng-show="noQuizzes">
             <div class="small-6-centered columns">
               <h2 class="section_title">Woah! You haven't made any quizzes!</h2>
-              <p>Let's change that!</p>
-              <a ng-href="#/contribute" class="button">Create a Quiz</a>
+              <h2 class="section_title">Let's change that!</h2>
+              <a ng-href="#/contribute" class="button">Create a Quiz!</a>
             </div>
           </div>
         </section>
