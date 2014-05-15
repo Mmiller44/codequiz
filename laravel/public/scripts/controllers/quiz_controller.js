@@ -106,7 +106,7 @@ angular.module('codequizApp')
         $scope.updatePosition = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber+1, completed: $scope.completed, score: finalScore});
         $scope.updatePosition.$promise.then(function(data) {
             $scope.updatePosition = data;
-            if($scope.updatePosition.completed = 'yes')
+            if($scope.completed == 'yes')
             {
                 $window.location.href = '#/score';
             }
