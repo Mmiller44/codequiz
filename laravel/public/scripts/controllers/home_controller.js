@@ -22,6 +22,8 @@ angular.module('codequizApp')
 		$rootScope.title = title;
 	};
 
+}])
+
 	.run(function($rootScope, $window) {  
         $rootScope.slide = '';  
         $rootScope.$on('$routeChangeStart', function() {
@@ -31,5 +33,3 @@ angular.module('codequizApp')
             }  
         });  
     });
-
-}]);
