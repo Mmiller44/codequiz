@@ -135,10 +135,7 @@ angular.module('codequizApp')
 
         var reportResource = $resource('http://codequiz.io/report-question/:questionID/:userID/:reasonOne/:reasonTwo/:reasonThree/:reasonFour');
         var data = reportResource.get({questionID: questionID, userID: userID, reasonOne: reason1, reasonTwo: reason2, reasonThree: reason3, reasonFour: $scope.reportData.custom}, function(){
-            $scope.reportData.radio1 = false;
-            $scope.reportData.radio2 = false;
-            $scope.reportData.radio3 = false;
-            $scope.reportData.custom = '';
+            
         });
     }
 
