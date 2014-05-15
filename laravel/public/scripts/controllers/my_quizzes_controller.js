@@ -71,11 +71,16 @@ angular.module('codequizApp')
 	$scope.addQuestions = function(ID)
 	{
 		$rootScope.quizID = ID;
-
+		var that = this;
 		// Update the table to reflect how many questions they have entered.
 		var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
-		var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $cookieStore.get('userID')}, function(){
-				$window.location.href = '#/contribute/' + dataObject.currentNumber;
+		var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $cookieStore.get('userID')}, function(object){
+			
+			that.child.currentNumber = object.currentNumber;
+
+			console.log(dataObject);
+			$window.location.href = '#/contribute/' + that.child.currentNumber;
+				
 		});
 
 
