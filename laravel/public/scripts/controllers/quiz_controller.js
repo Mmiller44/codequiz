@@ -41,14 +41,9 @@ angular.module('codequizApp')
         $scope.questions = currentQuiz;
     });
 
-    // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
-    $scope.userData = findUser;
-
-    // Getting the users current position in this quiz. And then setting my scope variables to the proper values.
-    // the values will change on click later and will make the view render the new data making the user traverse the quiz.
-    var quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
-        console.log(quizPosition);
-        $scope.quizPosition = quizPosition;
+    $scope.quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID});
+    $scope.quizPosition.$promise.then(function(data) {
+        $scope.quizPosition = data;
 
         if($scope.quizPosition[0].completed == 'yes')
         {
@@ -59,10 +54,30 @@ angular.module('codequizApp')
         }
 
          $scope.indicatorNumber = $scope.currentNumber + 1;
-         // $scope.quizCategory = $rootScope.sub_category.toLowerCase();
-         // console.log($scope.quizCategory);
-
     });
+
+    // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
+    $scope.userData = findUser;
+
+    // Getting the users current position in this quiz. And then setting my scope variables to the proper values.
+    // the values will change on click later and will make the view render the new data making the user traverse the quiz.
+    // var quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID}, function(){
+    //     console.log(quizPosition);
+    //     $scope.quizPosition = quizPosition;
+
+    //     if($scope.quizPosition[0].completed == 'yes')
+    //     {
+    //         $scope.currentNumber = 0;
+    //     }else
+    //     {
+    //         $scope.currentNumber = parseInt(quizPosition[0].currentNumber);
+    //     }
+
+    //      $scope.indicatorNumber = $scope.currentNumber + 1;
+    //      // $scope.quizCategory = $rootScope.sub_category.toLowerCase();
+    //      // console.log($scope.quizCategory);
+
+    // });
 
 
 
