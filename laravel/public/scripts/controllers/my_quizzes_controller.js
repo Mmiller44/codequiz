@@ -76,11 +76,11 @@ angular.module('codequizApp')
 		var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
 		var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $cookieStore.get('userID')}, function(object){
 			
-			that.child.currentNumber = object.currentNumber;
+			that.currentNumber = object.currentNumber;
 
 			console.log(dataObject);
 			$window.location.href = '#/contribute/' + that.child.currentNumber;
-				
+
 		});
 
 
