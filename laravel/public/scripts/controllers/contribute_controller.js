@@ -1,20 +1,19 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('contribute_controller',['$scope','$window','$routeParams','$rootScope','addQuiz','$cookieStore','$resource',function ($scope, $window, $routeParams,$rootScope,addQuiz,$cookieStore,$resource) {
+  .controller('contribute_controller',['$scope','$window','$routeParams','$rootScope','addQuiz','$cookieStore','$resource','findUser',function ($scope, $window, $routeParams,$rootScope,addQuiz,$cookieStore,$resource,findUser) {
 
-  	// If a user is not logged in, push them back to landing page.
-	var currentUser = $cookieStore.get('providerID');
-	console.log(currentUser);
-
-	if(!currentUser)
+	if($window.localStorage)
 	{
-		$window.location.href = '#/'
+		$scope.user = $window.localStorage.getItem('providerID');
+		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
+		$scope.userID = $window.localStorage.getItem('userID');
+	}else
+	{
+		$scope.user = $cookieStore.get('username');
+		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+		$scope.userID = $cookieStore.get('userID');
 	}
-
-	$scope.user = $cookieStore.get('username');
-	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
-	$scope.userID = $cookieStore.get('userID');
 
     // Setting a $scope variable to equal the window width
     // With this variable, I can now check what device the user is using.

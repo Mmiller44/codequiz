@@ -15,7 +15,7 @@ angular.module('codequizApp')
 }])
 
 // FINDUSER based on provider_ID
-  .factory('findUser',['$resource','$rootScope','$cookieStore',function($resource,$rootScope,$cookieStore){
+  .factory('findUser',['$resource','$cookieStore',function($resource,$cookieStore){
 
   	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $cookieStore.get('providerID'), username: $cookieStore.get('username'),name: $cookieStore.get('name'), location: $cookieStore.get('location'), website: $cookieStore.get('website'), profileImage: $cookieStore.get('profileImage')});
@@ -40,7 +40,8 @@ angular.module('codequizApp')
 
 	// userObject holds all returned results
 	var userData = newUser.query({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
-
+		if(userObject)
+		{
 			if($window.localStorage)
 			{
 				$window.localStorage.setItem('userID',userObject.user_ID);
@@ -48,6 +49,12 @@ angular.module('codequizApp')
 			{
 				$cookieStore.put('userID',userObject.user_ID);
 			}
+			
+		}else
+		{
+			$window.location.href = "#/";
+		}
+
 	});
 
 }])
@@ -138,6 +145,7 @@ angular.module('codequizApp')
 			$window.localStorage.setItem('name', userObject.name);
 			$window.localStorage.setItem('location', userObject.location);
 			$window.localStorage.setItem('profileImage', encodeURIComponent(userObject.profileImage));
+			$window.localStorage.setItem('website', encodeURIComponent(userObject.website));
 
 			if(userObject.name == undefined)
 			{
@@ -147,6 +155,11 @@ angular.module('codequizApp')
 			if(userObject.locale == undefined)
 			{
 				$window.localStorage.setItem('location', 'None');
+			}
+
+			if(userObject.website == undefined)
+			{
+				$window.localStorage.setItem('website', 'None');
 			}
 
 		}else
