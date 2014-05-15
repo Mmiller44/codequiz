@@ -19,6 +19,8 @@ angular.module('codequizApp')
   	$scope.searchUser = $routeParams.username;
   	$scope.noUser = true;
 
+  	$scope.published = [];
+
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
 
@@ -30,10 +32,6 @@ angular.module('codequizApp')
 			if(this.toggle)
 			{
 				this.imageSrc = 'images/plus.png';
-				this.toggle = !this.toggle;
-			}else
-			{
-				this.imageSrc = 'images/minus.png';
 				this.toggle = !this.toggle;
 			}
 		};
@@ -51,6 +49,16 @@ angular.module('codequizApp')
 
 		}else
 		{
+			for(var i = 0;i<getAll.length;i++)
+			{
+				if(getAll[i].completed == 'Yes')
+				{
+					$scope.published.push(getAll[i]);
+				}else
+				{
+					$scope.unpublished.push(getAll[i]);
+				}
+			}
 			console.log('no quizzes by that username.');
 			$scope.isUser = true;
 			$scope.noUser = false;
