@@ -7,6 +7,9 @@ angular.module('codequizApp')
 	var currentUser = $cookieStore.get('providerID');
 	console.log(currentUser);
 
+	$window.localStorage.setItem('providerID', 'Mike');
+	console.log($window.localStorage, $window.localStorage.providerID);
+
 	if(!currentUser)
 	{
 		$window.location.href = '#/'
