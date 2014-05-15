@@ -1,30 +1,30 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('score_controller',['$scope','$rootScope','$window','$cookieStore', function ($scope,$rootScope,$window,$cookieStore) {
+  .controller('score_controller',['$scope','$rootScope','$window','$cookieStore','findUser', function ($scope,$rootScope,$window,$cookieStore,findUser) {
 
-  	// If a user is not logged in, push them back to landing page.
-	var currentUser = $cookieStore.get('providerID');
-	console.log(currentUser);
+  if($window.localStorage)
+  {
+    $scope.user = $window.localStorage.getItem('providerID');
+    $scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
+    $scope.userID = $window.localStorage.getItem('userID');
+  }else
+  {
+    $scope.user = $cookieStore.get('username');
+    $scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+    $scope.userID = $cookieStore.get('userID');
+  }
 
-	if(!currentUser)
-	{
-		$window.location.href = '#/'
-	}
+	$scope.duration = 1;
 
-	$scope.user = $cookieStore.get('username');
-	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+  if(!$rootScope.finalScore)
+  {
+  	$window.location.href = '#/home';
 
+  }else if($rootScope.finalScore < 50)
+  {
   	$scope.duration = 1;
-
-    if(!$rootScope.finalScore)
-    {
-    	$window.location.href = '#/home';
-
-    }else if($rootScope.finalScore < 50)
-    {
-    	$scope.duration = 1;
-    }
+  }
 
 
 

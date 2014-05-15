@@ -3,18 +3,17 @@
 angular.module('codequizApp')
   .controller('my_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','findUser','getAllByUser','$cookieStore','$window','addQuestions',function($scope, $resource, $rootScope, $routeParams,findUser,getAllByUser,$cookieStore,$window,addQuestions) {
 
-  	// If a user is not logged in, push them back to landing page.
-	var currentUser = $cookieStore.get('providerID');
-	console.log(currentUser);
-
-	if(!currentUser)
+	if($window.localStorage)
 	{
-		$window.location.href = '#/'
+		$scope.user = $window.localStorage.getItem('providerID');
+		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
+		$scope.userID = $window.localStorage.getItem('userID');
+	}else
+	{
+		$scope.user = $cookieStore.get('username');
+		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+		$scope.userID = $cookieStore.get('userID');
 	}
-
-	$scope.user = $cookieStore.get('username');
-	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
-	$scope.userID = $cookieStore.get('userID');
 
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
@@ -71,7 +70,7 @@ angular.module('codequizApp')
 	$scope.addQuestions = function(ID)
 	{
 		$rootScope.quizID = ID;
-		$scope.data = addQuestions.get({quizID: ID, userID: $cookieStore.get('userID')});
+		$scope.data = addQuestions.get({quizID: ID, userID: $scope.userID});
    		$scope.data.$promise.then(function(data) {
    			$window.location.href = '#/contribute/' + data.currentNumber;
    		});

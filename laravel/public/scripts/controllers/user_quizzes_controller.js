@@ -1,18 +1,21 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('user_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','getAllByUser','$cookieStore',function($scope, $resource, $rootScope, $routeParams,getAllByUser,$cookieStore) {
+  .controller('user_quizzes_controller', ['$scope','$resource','$rootScope','$routeParams','getAllByUser','$cookieStore','findUser',function($scope, $resource, $rootScope, $routeParams,getAllByUser,$cookieStore,findUser) {
 
-  	// If a user is not logged in, push them back to landing page.
-	var currentUser = $cookieStore.get('providerID');
-	console.log(currentUser);
 
-	if(!currentUser)
+	if($window.localStorage)
 	{
-		$window.location.href = '#/'
+		$scope.user = $window.localStorage.getItem('providerID');
+		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
+		$scope.userID = $window.localStorage.getItem('userID');
+	}else
+	{
+		$scope.user = $cookieStore.get('username');
+		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+		$scope.userID = $cookieStore.get('userID');
 	}
 
-	$scope.user = $cookieStore.get('username');
 	$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 
   	$scope.isUser = false;
@@ -24,25 +27,25 @@ angular.module('codequizApp')
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
 
-    	// Setting a function that will swap out the image of ONLY the clicked accordion.
-		$scope.toggleImage = function(){
-			
-			this.toggle;
+	// Setting a function that will swap out the image of ONLY the clicked accordion.
+	$scope.toggleImage = function(){
+		
+		this.toggle;
 
-			if(this.toggle)
-			{
-				this.imageSrc = 'images/plus.png';
-				this.toggle = !this.toggle;
-			}else
-			{
-				this.imageSrc = 'images/minus.png';
-				this.toggle = !this.toggle;
-			}
-		};
-
-		$scope.setQuizID = function(ID) {
-			$rootScope.quizID = ID;
+		if(this.toggle)
+		{
+			this.imageSrc = 'images/plus.png';
+			this.toggle = !this.toggle;
+		}else
+		{
+			this.imageSrc = 'images/minus.png';
+			this.toggle = !this.toggle;
 		}
+	};
+
+	$scope.setQuizID = function(ID) {
+		$rootScope.quizID = ID;
+	}
 
 	var getAll = getAllByUser.query({username: $routeParams.username}, function() {
 		$scope.quizInfo = getAll;

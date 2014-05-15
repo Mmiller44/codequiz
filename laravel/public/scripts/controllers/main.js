@@ -1,15 +1,20 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore','findTwitter','getFacebook', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore,findTwitter,getFacebook) {
+  .controller('MainCtrl', ['$scope','$resource','$rootScope','$window','getQuizCategory','$cookieStore','findTwitter','getFacebook','findUser', function($scope, $resource, $rootScope, $window, getQuizCategory,$cookieStore,findTwitter,getFacebook,findUser) {
 
-  	// If a user is logged in, push to home page.
-	var currentUser = $cookieStore.get('providerID');
-	console.log(currentUser);
-
-	if(currentUser)
+	if($window.localStorage)
 	{
-		$window.location.href = '#/home'
+		if($window.localStorage.getItem('username')
+		{
+			$window.location.href = '#/home';
+		};
+	}else
+	{
+		if($cookieStore.get('username'))
+		{
+			$window.location.href = '#/home';
+		}
 	}
 
 	$scope.width = $window.innerWidth;

@@ -3,18 +3,18 @@
 angular.module('codequizApp')
   .controller('quiz_controller',['$scope','$rootScope','getQuestions','storeAnswerFactory','$route','$resource','findUser','getQuizPosition','$cookieStore','$routeParams','$window',function ($scope,$rootScope,getQuestions,storeAnswerFactory,$route,$resource,findUser,getQuizPosition,$cookieStore,$routeParams,$window) {
 
-    // If a user is not logged in, push them back to landing page.
-    var currentUser = $cookieStore.get('providerID');
-    console.log(currentUser);
-
-    if(!currentUser)
+    if($window.localStorage)
     {
-        $window.location.href = '#/'
+        $scope.user = $window.localStorage.getItem('username');
+        $scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
+        $scope.userID = $window.localStorage.getItem('userID');
+
+    }else
+    {
+        $scope.user = $cookieStore.get('username');
+        $scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+        $scope.userID = $cookieStore.get('userID');
     }
-
-    $scope.user = $cookieStore.get('username');
-    $scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
-
 
     // Setting a scope variable to be a counter for how many answers they have right.
     // if the variable doesn't exist. Make it and set it to 0;
@@ -32,7 +32,7 @@ angular.module('codequizApp')
 
     // Getting the users current position in this quiz. And then setting my scope variables to the proper values.
     // the values will change on click later and will make the view render the new data making the user traverse the quiz.
-    $scope.quizPosition = getQuizPosition.query({userID: $cookieStore.get('userID'), quizID: $routeParams.quizID});
+    $scope.quizPosition = getQuizPosition.query({userID: $scope.userID, quizID: $routeParams.quizID});
     $scope.quizPosition.$promise.then(function(data) {
         $scope.quizPosition = data;
 
@@ -46,9 +46,6 @@ angular.module('codequizApp')
 
          $scope.indicatorNumber = $scope.currentNumber + 1;
     });
-
-    // Setting scope variable to be equal to the object returned from the quizServices -> getQuestions.
-    $scope.userData = findUser;
 
 
     // Store the users answer. 
@@ -81,7 +78,7 @@ angular.module('codequizApp')
         // Now I know what the user answered, whether they were right, their user_ID, quiz_ID and question_ID.
         // I need to broadcast for an event to send over the data to the database.
         // I do not need to worry if the user already answered this question or not, because that logic is done in the backend.
-        var sendData = storeAnswerFactory.get({userID: $cookieStore.get('userID'), 
+        var sendData = storeAnswerFactory.get({userID: $scope.userID, 
             userQuizID: $scope.quizPosition[0].user_quiz_ID, 
             questionID: $scope.questions[newNumber].question_ID, 
             userAnswer: value, 
@@ -104,7 +101,7 @@ angular.module('codequizApp')
 
         // The users answer has been stored. Now I need to update what currentNumber they are on.
         var updateResource = $resource('http://codequiz.io/update-position/:userID/:quizID/:newNumber/:completed/:score', {});
-        $scope.updatePosition = updateResource.get({userID: $cookieStore.get('userID'), quizID: $scope.questions[0].quiz_ID, newNumber: newNumber+1, completed: $scope.completed, score: finalScore});
+        $scope.updatePosition = updateResource.get({userID: $scope.userID, quizID: $scope.questions[0].quiz_ID, newNumber: newNumber+1, completed: $scope.completed, score: finalScore});
         $scope.updatePosition.$promise.then(function(data) {
             $scope.updatePosition = data;
         });
@@ -113,7 +110,6 @@ angular.module('codequizApp')
     $scope.submitReport = function(data)
     {
         var questionID = $scope.questions[$scope.currentNumber].question_ID;
-        var userID = $cookieStore.get('userID');
         var reason1 = 'None';
         var reason2 = 'None';
         var reason3 = 'None';
@@ -134,7 +130,7 @@ angular.module('codequizApp')
         }
 
         var reportResource = $resource('http://codequiz.io/report-question/:questionID/:userID/:reasonOne/:reasonTwo/:reasonThree/:reasonFour');
-        var data = reportResource.get({questionID: questionID, userID: userID, reasonOne: reason1, reasonTwo: reason2, reasonThree: reason3, reasonFour: $scope.reportData.custom}, function(){
+        var data = reportResource.get({questionID: questionID, userID: $scope.userID, reasonOne: reason1, reasonTwo: reason2, reasonThree: reason3, reasonFour: $scope.reportData.custom}, function(){
             
         });
     }
