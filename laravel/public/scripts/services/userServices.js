@@ -47,7 +47,7 @@ angular.module('codequizApp')
 				username = username.substring(0, s.indexOf('@'));
 
 				$cookieStore.put('providerID', userObject.dataInfo.id);
-				$cookieStore.put('username', userObject.dataInfo.email);
+				$cookieStore.put('username', username);
 				$cookieStore.put('name', userObject.dataInfo.name);
 				$cookieStore.put('location', userObject.dataInfo.locale);
 				$cookieStore.put('profileImage', 'Facebook User');
