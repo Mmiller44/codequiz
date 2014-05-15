@@ -301,6 +301,15 @@ mark.plus {
 	font-size: 14px;
 }
 
+.introHeader {
+	font-size: 24px;
+	margin-top: 60px;
+}
+
+#home a:first-child {
+	margin-right: 30px;
+}
+
 .iphone {
 	width: 400px;
 	height: auto;
