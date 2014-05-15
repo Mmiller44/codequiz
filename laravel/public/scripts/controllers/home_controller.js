@@ -7,9 +7,9 @@ angular.module('codequizApp')
 	var currentUser = $cookieStore.get('providerID');
 	console.log(currentUser);
 
-	$window.localStorage.setItem('providerID', 'Mike');
-	var test = $window.localStorage.getItem('providerID');
-	console.log(test);
+	// $window.localStorage.setItem('providerID', 'Mike');
+	// var test = $window.localStorage.getItem('providerID');
+	// console.log(test);
 
 	if(!currentUser)
 	{

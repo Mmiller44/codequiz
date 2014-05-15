@@ -20,14 +20,35 @@ angular.module('codequizApp')
   	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $cookieStore.get('providerID'), username: $cookieStore.get('username'),name: $cookieStore.get('name'), location: $cookieStore.get('location'), website: $cookieStore.get('website'), profileImage: $cookieStore.get('profileImage')});
 
-	// userObject holds all returned results
-	var userObject = newUser.get({}, function() {
-			console.log(userObject);
-			$cookieStore.put('userID',userObject.user_ID);
-			return userObject;
-		});
+	if($window.localStorage)
+	{
+		var providerID = $window.localStorage.getItem('providerID');
+		var username = $window.localStorage.getItem('username');
+		var name = $window.localStorage.getItem('name');
+		var location = $window.localStorage.getItem('location');
+		var website = $window.localStorage.getItem('website');
+		var profileImage = $window.localStorage.getItem('profileImage');
+	}else
+	{
+		var providerID = $cookieStore.get('providerID');
+		var username = $cookieStore.get('username');
+		var name = $cookieStore.get('name');
+		var location = $cookieStore.get('location');
+		var website = $cookieStore.get('website');
+		var profileImage = $cookieStore.get('profileImage');
+	}
 
-	return userObject;
+	// userObject holds all returned results
+	var userData = newUser.query({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
+
+			if($window.localStorage)
+			{
+				$window.localStorage.setItem('userID',userObject.user_ID);
+			}else
+			{
+				$cookieStore.put('userID',userObject.user_ID);
+			}
+	});
 
 }])
 
@@ -39,13 +60,31 @@ angular.module('codequizApp')
 	var user = $resource('http://codequiz.io/get-facebook-user');
 
 	// userObject holds all returned results
-	var userObject = user.get(function() {
+	var promise = user.get().$promise.then(function(userObject) {
 
-			if(userObject.dataInfo)
+			var username = userObject.dataInfo.email;
+			username = username.substring(0, username.indexOf('@'));
+
+			if($window.localStorage)
 			{
-				var username = userObject.dataInfo.email;
-				username = username.substring(0, username.indexOf('@'));
+				$window.localStorage.setItem('providerID', userObject.dataInfo.id);
+				$window.localStorage.setItem('username', userObject.dataInfo.username);
+				$window.localStorage.setItem('name', userObject.dataInfo.name);
+				$window.localStorage.setItem('location', userObject.dataInfo.locale);
+				$window.localStorage.setItem('profileImage', 'Facebook User');
+				$window.localStorage.setItem('website', encodeURIComponent(userObject.dataInfo.link));
 
+				if(userObject.dataInfo.name == undefined)
+				{
+					$window.localStorage.setItem('name', 'None');
+				}
+
+				if(userObject.dataInfo.locale == undefined)
+				{
+					$window.localStorage.setItem('location', 'None');
+				}
+			}else
+			{
 				$cookieStore.put('providerID', userObject.dataInfo.id);
 				$cookieStore.put('username', username);
 				$cookieStore.put('name', userObject.dataInfo.name);
@@ -62,22 +101,25 @@ angular.module('codequizApp')
 				{
 					$cookieStore.put('location', 'None');
 				}
-
-				// Nesting this resource to retrieve / store the profile image of the logged in user for facebook.
-				var imageResource = $resource('https://graph.facebook.com/:userID?fields=picture.type(normal)');
-				var userImage = imageResource.get({userID: userObject.dataInfo.id},function() {
-
-	  					var url = userImage.picture.data;
-	  					$cookieStore.put('profileImage', encodeURIComponent(userImage.picture.data.url));
-						$window.location.href = '#/home';
-	  				
-
-	  			});
-
 			}
 
+			// Nesting this resource to retrieve / store the profile image of the logged in user for facebook.
+			var imageResource = $resource('https://graph.facebook.com/:userID?fields=picture.type(normal)');
+			var userImage = imageResource.get({userID: userObject.dataInfo.id},function() {
 
-		});
+				if($window.localStorage)
+				{
+					$window.localStorage.setItem('profileImage', encodeURIComponent(userImage.picture.data.url))
+				}else
+				{
+					var url = userImage.picture.data;
+					$cookieStore.put('profileImage', encodeURIComponent(userImage.picture.data.url));
+				}
+
+				$window.location.href = '#/home';
+
+			});
+    });
 }])
 
 
@@ -87,41 +129,58 @@ angular.module('codequizApp')
   	// This call gets an object containing all the information for the user.
   	// I will use this info to search my own database, and add them if necessary.
 	var twitterUser = $resource('/get-twitter-user/');
-	var returnedUserData = twitterUser.get(function(){
-		console.log('running get user.');
-		console.log(returnedUserData);
+	var returnedUserData = twitterUser.get().$promise.then(function(userObject) {
 
-		// If a user exists, push them to the home page and set rootScope variables.
-		if(returnedUserData.username)
+		if($window.localStorage)
 		{
-			$cookieStore.put('providerID',returnedUserData.providerID);
-			$cookieStore.put('username',returnedUserData.username);
-			$cookieStore.put('name', returnedUserData.name);
-			$cookieStore.put('location',returnedUserData.location);
-			$cookieStore.put('profileImage', encodeURIComponent(returnedUserData.profileImage));
+			$window.localStorage.setItem('providerID', userObject.providerID);
+			$window.localStorage.setItem('username', userObject.username);
+			$window.localStorage.setItem('name', userObject.name);
+			$window.localStorage.setItem('location', userObject.location);
+			$window.localStorage.setItem('profileImage', encodeURIComponent(userObject.profileImage));
+
+			if(userObject.name == undefined)
+			{
+				$window.localStorage.setItem('name', 'None');
+			}
+
+			if(userObject.locale == undefined)
+			{
+				$window.localStorage.setItem('location', 'None');
+			}
+
+		}else
+		{
+			$cookieStore.put('providerID',userObject.providerID);
+			$cookieStore.put('username',userObject.username);
+			$cookieStore.put('name', userObject.name);
+			$cookieStore.put('location',userObject.location);
+			$cookieStore.put('profileImage', encodeURIComponent(userObject.profileImage));
 			
-			if(returnedUserData.website == undefined)
+			if(userObject.website == undefined)
 			{
 				$cookieStore.put('website', 'None');
 			}
 
-			if(returnedUserData.name == undefined)
+			if(userObject.name == undefined)
 			{
 				$cookieStore.put('name', 'None');
 			}
 
-			if(returnedUserData.location == undefined)
+			if(userObject.location == undefined)
 			{
 				$cookieStore.put('location', 'None');
 			}
 
-			if(returnedUserData.profileImage == undefined)
+			if(userObject.profileImage == undefined)
 			{
 				$cookieStore.put('profileImage', 'images/defaultPerson.jpg');
 			}
 
-  			$window.location.href = '#/home';
 		}
+
+  			$window.location.href = '#/home';
+
 	});
 
 }]);
