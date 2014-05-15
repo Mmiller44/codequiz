@@ -18,7 +18,7 @@ angular.module('codequizApp')
   .factory('findUser',['$resource','$cookieStore','$window',function($resource,$cookieStore,$window){
 
   	// Making an api call to add or update a user to my database. Data gets returned back.
-	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage',{provider_ID: $cookieStore.get('providerID'), username: $cookieStore.get('username'),name: $cookieStore.get('name'), location: $cookieStore.get('location'), website: $cookieStore.get('website'), profileImage: $cookieStore.get('profileImage')});
+	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
 	if($window.localStorage)
 	{
@@ -39,7 +39,7 @@ angular.module('codequizApp')
 	}
 
 	// userObject holds all returned results
-	var userData = newUser.query({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
+	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
 		if(userObject)
 		{
 			if($window.localStorage)
