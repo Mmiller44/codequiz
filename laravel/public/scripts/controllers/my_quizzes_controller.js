@@ -71,9 +71,10 @@ angular.module('codequizApp')
 	$scope.addQuestions = function(ID)
 	{
 		$rootScope.quizID = ID;
-		addQuestions.getQuestion(ID, $cookieStore.get('userID')).then(function(data) {
-			$window.location.href = '#/contribute/' + data.currentNumber;
-		});
+		$scope.data = addQuestions.query({quizID: ID, userID: $cookieStore.get('userID')});
+   		$scope.data.$promise.then(function(data) {
+       		console.log(data);
+   		});
 
 	}
 

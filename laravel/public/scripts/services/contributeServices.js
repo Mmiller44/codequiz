@@ -13,17 +13,6 @@ angular.module('codequizApp')
 	
 }])
 
-  .factory('addQuestions',['$resource','$rootScope','$q', function($resource,$rootScope,$q){
-	var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
-
-	return {
-    	getQuestion: function(quizID,userID) {
-			var deferred = $q.defer();
-			createdQuiz.query({quizID: quizID, userID: userID}, function(object){
-				deferred.resolve(object);
-			});
-    		return deferred.promise;
-    	}
-   }
-
+  .factory('addQuestions',['$resource','$rootScope','$q', function($resource,$rootScope){
+	return $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
 }]);
