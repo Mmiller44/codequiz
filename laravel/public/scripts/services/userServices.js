@@ -63,14 +63,11 @@ angular.module('codequizApp')
 				// Nesting this resource to retrieve / store the profile image of the logged in user for facebook.
 				var imageResource = $resource('https://graph.facebook.com/:userID?fields=picture.type(normal)');
 				var userImage = imageResource.get({userID: userObject.dataInfo.id},function() {
-	  				if(userImage.picture.data)
-	  				{
-	  					console.log(userImage.picture.data);
 
 	  					var url = userImage.picture.data;
 	  					$cookieStore.put('profileImage', encodeURIComponent(userImage.picture.data.url));
 						$window.location.href = '#/home';
-	  				}
+	  				
 
 	  			});
 
