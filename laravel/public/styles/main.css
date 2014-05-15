@@ -307,6 +307,10 @@ mark.plus {
 	margin-top: 60px;
 }
 
+.button {
+	background-color: #232d3b;
+}
+
 #homeButton {
 	margin-right: 15px;
 }
