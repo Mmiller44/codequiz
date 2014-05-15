@@ -8,7 +8,8 @@ angular.module('codequizApp')
 	console.log(currentUser);
 
 	$window.localStorage.setItem('providerID', 'Mike');
-	console.log($window.localStorage, $window.localStorage.providerID);
+	var test = $window.localStorage.getItem('providerID');
+	console.log(test);
 
 	if(!currentUser)
 	{
