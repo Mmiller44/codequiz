@@ -306,7 +306,7 @@ mark.plus {
 	margin-top: 60px;
 }
 
-#home a:first-child {
+.homeButton {
 	margin-right: 30px;
 }
 
