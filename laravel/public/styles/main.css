@@ -191,6 +191,11 @@ span[class^='hljs'] {
 	white-space: pre-wrap;
 }
 
+#questionContainer {
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #282B2E;
+}
 
 #front_end {
 	background-color: #7accc8;
