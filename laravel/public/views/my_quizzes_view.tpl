@@ -38,7 +38,7 @@
 
         <section class="main-section" id="front_end">
           <!-- content goes here -->
-          <div class="row">
+          <div class="row" ng-hide="noQuizzes">
             <div class="small-6-centered columns">
 
               <h2 class="section_title">Published Quizzes</h2>
@@ -67,9 +67,14 @@
                     <a ng-href="" class="button delete">Delete Quiz<img src="images/trash.png" width="20" height="20"></a>
                   </div>
                 </dd>
-
-
               </dl>
+            </div>
+          </div>
+          <div class="row" ng-show="noQuizzes">
+            <div class="small-6-centered columns">
+              <h2 class="section_title">Woah! You haven't made any quizzes!</h2>
+              <p>Let's change that!</p>
+              <a ng-href="#/contribute" class="button">Create a Quiz</a>
             </div>
           </div>
         </section>

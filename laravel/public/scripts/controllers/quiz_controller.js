@@ -91,7 +91,7 @@ angular.module('codequizApp')
         }
 
         finalScore = ($scope.score / $scope.questions.length) * 100;
-        $rootScope.finalScore = finalScore.toFixed(2);
+        $rootScope.finalScore = finalScore.toFixed(0);
 
         // Now I know what the user answered, whether they were right, their user_ID, quiz_ID and question_ID.
         // I need to broadcast for an event to send over the data to the database.

@@ -18,30 +18,33 @@ angular.module('codequizApp')
 
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/plus.png';
+    $scope.noQuizzes = false;
+    
+	// Setting a function that will swap out the image of ONLY the clicked accordion.
+	$scope.toggleImage = function(){
+		
+		this.toggle;
 
-    	// Setting a function that will swap out the image of ONLY the clicked accordion.
-		$scope.toggleImage = function(){
-			
-			this.toggle;
+		if(this.toggle)
+		{
+			this.imageSrc = 'images/plus.png';
+			this.toggle = !this.toggle;
+		}else
+		{
+			this.imageSrc = 'images/minus.png';
+			this.toggle = !this.toggle;
+		}
+	};
 
-			if(this.toggle)
-			{
-				this.imageSrc = 'images/plus.png';
-				this.toggle = !this.toggle;
-			}else
-			{
-				this.imageSrc = 'images/minus.png';
-				this.toggle = !this.toggle;
-			}
-		};
+	// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
+	// the category that was clicked to get to this page, which is also the $routeParam.
+	var getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
+	var quizData = getQuizzes.query({username: $scope.user}, function() {
+		$scope.published = [];
+		$scope.unpublished = [];
 
-		// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
-		// the category that was clicked to get to this page, which is also the $routeParam.
-		var getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
-		var quizData = getQuizzes.query({username: $scope.user}, function() {
-			$scope.published = [];
-			$scope.unpublished = [];
-
+		if(quizData.length > 0)
+		{
 			for(var i = 0;i<quizData.length;i++)
 			{
 				if(quizData[i].completed == 'Yes')
@@ -52,28 +55,32 @@ angular.module('codequizApp')
 					$scope.unpublished.push(quizData[i]);
 				}
 			}
+		}else 
+		{
+			$scope.noQuizzes = true;
+		}
+	});
+
+	$scope.setQuizID = function(ID) 
+	{
+		$rootScope.quizID = ID;
+	}
+
+	$scope.addQuestions = function(ID)
+	{
+		$rootScope.quizID = ID;
+
+		// Update the table to reflect how many questions they have entered.
+		var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
+		var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $scope.userID}, function(){
+			if(dataObject.currentNumber)
+			{
+				console.log(dataObject);
+				$window.location.href = '#/contribute/' + dataObject.currentNumber;
+			}
 		});
 
-		$scope.setQuizID = function(ID) 
-		{
-			$rootScope.quizID = ID;
-		}
 
-		$scope.addQuestions = function(ID)
-		{
-			$rootScope.quizID = ID;
-
-			// Update the table to reflect how many questions they have entered.
-			var createdQuiz = $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
-			var dataObject = createdQuiz.query({quizID: $rootScope.quizID, userID: $scope.userID}, function(){
-				if(dataObject.currentNumber)
-				{
-					console.log(dataObject);
-					$window.location.href = '#/contribute/' + dataObject.currentNumber;
-				}
-			});
-
-
-		}
+	}
 
 }]);
