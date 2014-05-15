@@ -84,7 +84,7 @@
                       </label>
 
                       <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">Continue</a>
-                      <a ng-href="#/myQuizzes" class="button contributeButton">View My Quizzes</a>
+                      <a ng-href="#/myQuizzes" class="button contributeButton">My Quizzes</a>
 
                     </div>
                   </div>
