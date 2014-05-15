@@ -49,8 +49,9 @@
              
             </div>
           </div>
-          
-            <code class="question" language="javascript" hljs source="questions[currentNumber].question"></code>
+            <div id="questionContainer">
+              <code class="question" language="javascript" hljs source="questions[currentNumber].question"></code>
+            </div>
             <div id="answer_block_wrap">
               <ul ng-cloak>
                   <li class="answer_block">
