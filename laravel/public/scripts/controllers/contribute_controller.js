@@ -84,13 +84,13 @@ angular.module('codequizApp')
 				{
 					// This will add the user and new quiz to the Created_quiz table.
 					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
-					var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
+					var dataObject = createdQuiz.get({quizID: data.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
 					dataObject.$promise.then(function(data){
 
 						if(data.quizTitle && data.category && data.description)
 						{
-							$rootScope.quizID = addingQuiz.quizID;
-							$window.location.href = '#/contribute/' + dataObject.currentNumber;
+							$rootScope.quizID = data.quizID;
+							$window.location.href = '#/contribute/' + data.currentNumber;
 						}
 
 					});
