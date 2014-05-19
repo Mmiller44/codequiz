@@ -65,7 +65,6 @@ angular.module('codequizApp')
 		{
 			// quizObject contains: .category, .title, and .description.
 			// These values are determined by what the user typed in the form.
-			console.log(quizObject);
 
 			if(quizObject.category === 'PHP' || quizObject.category === 'Python' || quizObject.category === 'ColdFusion')
 			{
@@ -79,6 +78,7 @@ angular.module('codequizApp')
 			var resource = addQuiz;
 			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID});
 			addingQuiz.$promise.then(function(data) {
+				console.log(data);
 
 				if(data.quizID)
 				{
@@ -86,6 +86,7 @@ angular.module('codequizApp')
 					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
 					var dataObject = createdQuiz.get({quizID: data.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
 					dataObject.$promise.then(function(data){
+						console.log(data);
 
 						if(data.quizTitle && data.category && data.description)
 						{
