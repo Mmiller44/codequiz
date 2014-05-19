@@ -635,7 +635,7 @@ span.answer_d {
 	margin-bottom: 3px;
 }
 
-.contributeTitle {
+#contribution_form.contributeTitle {
 	width: 350px;
 }
 
@@ -646,6 +646,7 @@ span.answer_d {
 
 .contributeDesc {
 	width: 350px;
+	min-height: 100px;
 }
 
 
