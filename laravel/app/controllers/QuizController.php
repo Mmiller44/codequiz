@@ -70,7 +70,7 @@ class QuizController extends BaseController {
 		// returning the quiz_ID of the newly added quiz, will be needed to add questions later.
 		// Setting the quiz_ID to be in an array.
 		// This will ensure the data stays together as one object in an array.
-		$obj = array('quizID' => (string)$addQuiz->id);
+		$obj = array('quizID' => (string)$addQuiz->quiz_ID);
 		return $obj;
 	}
 
