@@ -70,30 +70,39 @@ angular.module('codequizApp')
 			$scope.shake2 = 'none';
 			$scope.shake3 = 'none';
 
-			if(!quizObject.category)
+
+			if(quizObject)
 			{
-				console.log('No Category');
-				$scope.ready = false;
+				if(!quizObject.category)
+				{
+					console.log('No Category');
+					$scope.ready = false;
+					$scope.shake1 = 'shake';
+				}
+
+				if(!quizObject.title)
+				{
+					console.log('No Title');
+					$scope.ready = false;
+					$scope.shake2 = 'shake';
+				}
+
+				if(!quizObject.description)
+				{
+					console.log('No description');
+					$scope.ready = false;
+					$scope.shake3 = 'shake';
+
+				}else if(quizObject.description.length < 20)
+				{
+					console.log('Not a long enough description');
+					$scope.ready = false;
+					$scope.shake3 = 'shake';
+				}
+			}else
+			{
 				$scope.shake1 = 'shake';
-			}
-
-			if(!quizObject.title)
-			{
-				console.log('No Title');
-				$scope.ready = false;
 				$scope.shake2 = 'shake';
-			}
-
-			if(!quizObject.description)
-			{
-				console.log('No description');
-				$scope.ready = false;
-				$scope.shake3 = 'shake';
-
-			}else if(quizObject.description.length < 20)
-			{
-				console.log('Not a long enough description');
-				$scope.ready = false;
 				$scope.shake3 = 'shake';
 			}
 
@@ -107,7 +116,7 @@ angular.module('codequizApp')
 				{
 					$rootScope.newQuizCategoryID = 1;
 				}
-				
+
 				// Passes all the data from the form, to the api to be added to the Quizzes Table.
 				var resource = addQuiz;
 				var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID});
