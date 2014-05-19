@@ -52,42 +52,39 @@
 
           <!-- IF ON A DESKTOP THIS IS THE VIEW -->
               <div ng-hide="mobile" class="desktop_contribution">
-                <form id='contribution_form'>
-                      <h3>Contribute!</h3>
-                      <p>Thanks for joining the Code Quiz community. Our community strives off contributions from users like you. To get started, please follow the instructions below.</p>
-                      <ul>
-                        <li>Each Quiz must be a minimum of 10 questions to be published.</li>
-                        <li>Your quizzes are automatically saved and unpublished until you complete them.</li>
-                        <li>All your quizzes can be seen under the "My Quizzes" tab.</li>
-                      </ul>
-                      <label>Quiz Category
-                        <select ng-model="quiz.category" required >
-                          <option selected disabled>Select Quiz Category</option>
-                          <option value="Javascript">JavaScript</option>
-                          <option value="HTML">HTML</option>
-                          <option value="CSS">CSS</option>
-                          <option value="PHP">PHP</option>
-                          <option value="Python">Python</option>
-                          <option value="ColdFusion">ColdFusion</option>
-                        </select>
-                      </label>
-                      <label>Quiz Title
-                        <input type="text" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
-                      </label>
-
-                      <label>Description
-                        <textarea ng-model="quiz.description" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
-                      </label>
-
-                      <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">Continue</a>
-                      <a ng-href="#/myQuizzes" class="button contributeButton">My Quizzes</a>
-                </form>
+                <h3>Contribute!</h3>
+                <p>Thanks for joining the Code Quiz community. Our community strives off contributions from users like you. To get started, please follow the instructions below.</p>
+                <ul>
+                  <li>Each Quiz must be a minimum of 10 questions to be published.</li>
+                  <li>Your quizzes are automatically saved and unpublished until you complete them.</li>
+                  <li>All your quizzes can be seen under the "My Quizzes" tab.</li>
+                </ul>
               </div>
+              <form id='contribution_form'>
+                  <label>Quiz Category
+                    <select ng-model="quiz.category" required >
+                      <option selected disabled>Select Quiz Category</option>
+                      <option value="Javascript">JavaScript</option>
+                      <option value="HTML">HTML</option>
+                      <option value="CSS">CSS</option>
+                      <option value="PHP">PHP</option>
+                      <option value="Python">Python</option>
+                      <option value="ColdFusion">ColdFusion</option>
+                    </select>
+                  </label>
+                  <label>Quiz Title
+                    <input type="text" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
+                  </label>
 
+                  <label>Description
+                    <textarea ng-model="quiz.description" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
+                  </label>
+
+                  <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">Continue</a>
+                  <a ng-href="#/myQuizzes" class="button contributeButton">My Quizzes</a>
+            </form>
         </section>
-
       <a class="exit-off-canvas"></a>
-
       </div>
     </div>
   </div> <!-- Closing Page -->

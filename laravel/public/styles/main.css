@@ -603,8 +603,7 @@ span.answer_d {
 /*================================================== Contribution Page ===================================================*/
 
 .desktop_contribution {
-	width: 45%;
-	margin: 0 auto;
+	margin-left: 20px;
 }
 
 .mobile_contribution p {
