@@ -73,7 +73,7 @@
                     </select>
                   </label>
                   <label>Quiz Title
-                    <input type="text" class="contributeTitle" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
+                    <input type="text" id="contributeTitle" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
                   </label>
 
                   <label>Description
