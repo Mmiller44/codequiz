@@ -60,7 +60,7 @@
                   <li>All your quizzes can be seen under the "My Quizzes" tab.</li>
                 </ol>
               </div>
-              <form id='contribution_form'>
+              <form id='contribution_form' ng-hide="mobile">
                   <label>Quiz Category
                     <select ng-model="quiz.category" class="contributeCategory" required >
                       <option selected disabled>Select Quiz Category</option>
