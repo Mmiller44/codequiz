@@ -70,33 +70,29 @@ angular.module('codequizApp')
 			$scope.shake2 = 'none';
 			$scope.shake3 = 'none';
 
-
 			if(quizObject)
 			{
 				if(!quizObject.category)
 				{
 					console.log('No Category');
 					$scope.ready = false;
+					$scope.shake1 = 'none';
 					$scope.shake1 = 'shake';
 				}
 
-				if(!quizObject.title)
+				if(!quizObject.title || quizObject.title.length < 3)
 				{
 					console.log('No Title');
 					$scope.ready = false;
+					$scope.shake2 = 'none';
 					$scope.shake2 = 'shake';
 				}
 
-				if(!quizObject.description)
+				if(!quizObject.description || quizObject.description.length < 20)
 				{
 					console.log('No description');
 					$scope.ready = false;
-					$scope.shake3 = 'shake';
-
-				}else if(quizObject.description.length < 20)
-				{
-					console.log('Not a long enough description');
-					$scope.ready = false;
+					$scope.shake3 = 'none';
 					$scope.shake3 = 'shake';
 				}
 			}else
