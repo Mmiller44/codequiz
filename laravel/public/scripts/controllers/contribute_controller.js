@@ -88,16 +88,11 @@ angular.module('codequizApp')
 					dataObject.$promise.then(function(data){
 						console.log(data);
 
-						if(data.quizTitle && data.category && data.description)
-						{
-							$rootScope.quizID = data.quizID;
-							$window.location.href = '#/contribute/' + data.currentNumber;
-						}
+						$rootScope.quizID = data.quizID;
+						$window.location.href = '#/contribute/' + data.currentNumber;
 
 					});
-
 				}
-
 			});
 
 		}
