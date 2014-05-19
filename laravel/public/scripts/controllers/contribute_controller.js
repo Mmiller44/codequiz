@@ -70,25 +70,16 @@ angular.module('codequizApp')
 			$scope.shake2 = 'none';
 			$scope.shake3 = 'none';
 
-
-			if(quizObject.category === 'PHP' || quizObject.category === 'Python' || quizObject.category === 'ColdFusion')
+			if(!quizObject.category)
 			{
-				$rootScope.newQuizCategoryID = 2;
-			}else
-			{
-				$rootScope.newQuizCategoryID = 1;
+				console.log('No Category');
+				$scope.ready = false;
+				$scope.shake1 = 'shake';
 			}
 
 			if(!quizObject.title)
 			{
 				console.log('No Title');
-				$scope.ready = false;
-				$scope.shake1 = 'shake';
-			}
-
-			if(!quizObject.category)
-			{
-				console.log('No Category');
 				$scope.ready = false;
 				$scope.shake2 = 'shake';
 			}
@@ -109,6 +100,14 @@ angular.module('codequizApp')
 			// If all the requirements have been met. Then add to DB.
 			if($scope.ready)
 			{
+				if(quizObject.category === 'PHP' || quizObject.category === 'Python' || quizObject.category === 'ColdFusion')
+				{
+					$rootScope.newQuizCategoryID = 2;
+				}else
+				{
+					$rootScope.newQuizCategoryID = 1;
+				}
+				
 				// Passes all the data from the form, to the api to be added to the Quizzes Table.
 				var resource = addQuiz;
 				var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID});
