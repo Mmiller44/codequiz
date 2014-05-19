@@ -77,24 +77,25 @@ angular.module('codequizApp')
 
 			// Passes all the data from the form, to the api to be added to the Quizzes Table.
 			var resource = addQuiz;
-			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID}, function() {
+			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID});
+			addingQuiz.$promise.then(function(data) {
 
-					if(addingQuiz.quizID)
-					{
-						// This will add the user and new quiz to the Created_quiz table.
-						var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
-						var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'}, function(){
-							console.log(dataObject);
-				
-							// This will only allow the user to move to the next page if they have submitted all the data.
-							if(quizObject.title && quizObject.category && quizObject.description)
-							{
-								$rootScope.quizID = addingQuiz.quizID;
-								$window.location.href = '#/contribute/' + dataObject.currentNumber;
-							}
+				if(data.quizID)
+				{
+					// This will add the user and new quiz to the Created_quiz table.
+					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
+					var dataObject = createdQuiz.get({quizID: addingQuiz.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
+					dataObject.$promise.then(function(data){
 
-						});	
-					}
+						if(data.quizTitle && data.category && data.description)
+						{
+							$rootScope.quizID = addingQuiz.quizID;
+							$window.location.href = '#/contribute/' + dataObject.currentNumber;
+						}
+
+					});
+
+				}
 
 			});
 
