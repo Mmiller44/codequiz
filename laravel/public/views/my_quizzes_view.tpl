@@ -62,7 +62,7 @@
                     <h3 class="star">Rating:<img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"><img src="images/star.png" width="20" height="20"></h3>
                     <h4>By <a href="#/quizzes/{{quizzes.username}}" class="usernameLink">{{quizzes.username}}</a></h4>
                     <a ng-href="#/quiz/{{quizzes.quiz_ID}}/" ng-click='setQuizID(quizzes.quiz_ID)' class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
-                    <a ng-href="" ng-click='addQuestions(quizzes.quiz_ID)' class="button edit">Add Questions<img src="images/edit.png" width="25" height="25"></a>
+                    <a ng-href="" ng-click='addQuestions(quizzes.quiz_ID)' class="button edit">Edit Quiz<img src="images/edit.png" width="25" height="25"></a>
                     <a ng-href="" class="button delete">Delete Quiz<img src="images/trash.png" width="20" height="20"></a>
                   </div>
                 </dd>
