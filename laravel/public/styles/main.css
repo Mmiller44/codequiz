@@ -324,7 +324,7 @@ mark.plus {
 }
 
 .contributeButton {
-	width: 48%;
+	width: 170px;
 }
 
 .instructions ul {
@@ -603,34 +603,50 @@ span.answer_d {
 /*================================================== Contribution Page ===================================================*/
 
 .desktop_contribution {
+	width: 45%;
 	margin-left: 20px;
+	margin-top: 30px;
+	float: left;
+}
+
+.desktop_contribution p {
+	font-size: 16px;
+	margin-bottom: 30px;
 }
 
 .mobile_contribution p {
 	margin-top: 15px;
 }
 
-#contribution_form {
-	font-size: 16px;
-	color: #232d3b;
-	margin-top: 30px;
+.desktop_contribution h3 {
+	margin-bottom: 20px;
+	font-size: 20px;
 }
 
-#contribution_form p {
+#contribution_form {
 	font-size: 16px;
-	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-right: 5%;
+	float: right;
+	width: 45%;
 }
 
 #contribution_form label {
-	color: #232d3b;
+	margin-bottom: 3px;
 }
 
-#contribution_form h3 {
-	margin-bottom: 20px;
-	font-size: 20px;
-	color: #232d3b;
+.contributeTitle {
+	width: 350px;
 }
 
+.contributeCategory {
+	width: 200px;
+	display: block;
+}
+
+.contributeDesc {
+	width: 350px;
+}
 
 
 
