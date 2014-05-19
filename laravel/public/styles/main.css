@@ -450,7 +450,7 @@ mark.report {
 }
 
 span.answer_a {
-	background-color: #7153a4;
+	background-color: #009999;
 	width: 20%;
 	position: absolute;
 	top: 0;
@@ -485,15 +485,15 @@ span.character{
 }
 
 span.answer_b {
-	background-color: #fda804;
+	background-color: #ffa400;
 }
 
 span.answer_c {
-	background-color: #efd20c;
+	background-color: #ffcd00;
 }
 
 span.answer_d {
-	background-color: #4aa3ef;
+	background-color: #9b2766;
 }
 
 .button.delete {
