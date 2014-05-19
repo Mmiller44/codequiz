@@ -62,7 +62,7 @@
               </div>
               <form id='contribution_form' ng-hide="mobile">
                   <label>Quiz Category
-                    <select ng-model="quiz.category" class="contributeCategory {{shake1}}" required >
+                    <select ng-model="quiz.category" class="contributeCategory animated {{shake1}}" required >
                       <option selected disabled>Select Quiz Category</option>
                       <option value="Javascript">JavaScript</option>
                       <option value="HTML">HTML</option>
@@ -73,11 +73,11 @@
                     </select>
                   </label>
                   <label>Quiz Title
-                    <input type="text" id="contributeTitle" class="{{shake2}}" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
+                    <input type="text" id="contributeTitle" class="animated {{shake2}}" ng-model="quiz.title" placeholder="Ex: Prototyping or Functions" required />
                   </label>
 
                   <label>Description
-                    <textarea ng-model="quiz.description" class="contributeDesc {{shake3}}" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
+                    <textarea ng-model="quiz.description" class="contributeDesc animated {{shake3}}" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
                   </label>
 
                   <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">Continue</a>
