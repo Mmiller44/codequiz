@@ -603,7 +603,7 @@ span.answer_d {
 /*================================================== Contribution Page ===================================================*/
 
 .desktop_contribution {
-	width: 45%;
+	width: 50%;
 	margin-left: 20px;
 	margin-top: 30px;
 	float: left;
@@ -623,30 +623,43 @@ span.answer_d {
 	font-size: 20px;
 }
 
+.desktop_contribution ol {
+	list-style-type: decimal;
+	margin-left: 20px;
+}
+
+.desktop_contribution ol li {
+	padding-bottom: 10px;
+	font-size: 14px;
+}
+
 #contribution_form {
 	font-size: 16px;
 	margin-top: 30px;
-	margin-right: 5%;
+	margin-right: 2%;
 	float: right;
-	width: 45%;
+	width: 40%;
 }
 
 #contribution_form label {
-	margin-bottom: 3px;
+	color: #222;
 }
 
 #contribution_form.contributeTitle {
 	width: 350px;
+	margin-top: 5px;
 }
 
 .contributeCategory {
 	width: 200px;
 	display: block;
+	margin-top: 5px;
 }
 
 .contributeDesc {
 	width: 350px;
 	min-height: 100px;
+	margin-top: 5px;
 }
 
 

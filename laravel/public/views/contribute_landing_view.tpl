@@ -54,11 +54,11 @@
               <div ng-hide="mobile" class="desktop_contribution">
                 <h3>Contribute!</h3>
                 <p>Thanks for joining the Code Quiz community. Our community strives off contributions from users like you. To get started, please follow the instructions below.</p>
-                <ul>
+                <ol>
                   <li>Each Quiz must be a minimum of 10 questions to be published.</li>
                   <li>Your quizzes are automatically saved and unpublished until you complete them.</li>
                   <li>All your quizzes can be seen under the "My Quizzes" tab.</li>
-                </ul>
+                </ol>
               </div>
               <form id='contribution_form'>
                   <label>Quiz Category
