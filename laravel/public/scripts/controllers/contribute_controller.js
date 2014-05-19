@@ -65,6 +65,11 @@ angular.module('codequizApp')
 		{
 			// quizObject contains: .category, .title, and .description.
 			// These values are determined by what the user typed in the form.
+			$scope.ready = true;
+			$scope.shake1 = none;
+			$scope.shake2 = none;
+			$scope.shake3 = none;
+
 
 			if(quizObject.category === 'PHP' || quizObject.category === 'Python' || quizObject.category === 'ColdFusion')
 			{
@@ -77,41 +82,55 @@ angular.module('codequizApp')
 			if(!quizObject.title)
 			{
 				console.log('No Title');
+				$scope.ready = false;
+				$scope.shake1 = shake;
 			}
 
 			if(!quizObject.category)
 			{
 				console.log('No Category');
+				$scope.ready = false;
+				$scope.shake2 = shake;
 			}
 
 			if(!quizObject.description)
 			{
 				console.log('No description');
+				$scope.ready = false;
+				$scope.shake3 = shake;
+
 			}else if(quizObject.description.length < 20)
 			{
 				console.log('Not a long enough description');
+				$scope.ready = false;
+				$scope.shake3 = shake;
 			}
 
-			// Passes all the data from the form, to the api to be added to the Quizzes Table.
-			var resource = addQuiz;
-			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID});
-			addingQuiz.$promise.then(function(data) {
-				console.log(data);
+			// If all the requirements have been met. Then add to DB.
+			if($scope.ready)
+			{
+				// Passes all the data from the form, to the api to be added to the Quizzes Table.
+				var resource = addQuiz;
+				var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID});
+				addingQuiz.$promise.then(function(data) {
+					console.log(data);
 
-				if(data.quizID)
-				{
-					// This will add the user and new quiz to the Created_quiz table.
-					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
-					var dataObject = createdQuiz.get({quizID: data.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
-					dataObject.$promise.then(function(data){
-						console.log(data);
+					if(data.quizID)
+					{
+						// This will add the user and new quiz to the Created_quiz table.
+						var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
+						var dataObject = createdQuiz.get({quizID: data.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
+						dataObject.$promise.then(function(data){
+							console.log(data);
 
-						$rootScope.quizID = data.quizID;
-						$window.location.href = '#/contribute/' + data.currentNumber;
+							$rootScope.quizID = data.quizID;
+							$window.location.href = '#/contribute/' + data.currentNumber;
 
-					});
-				}
-			});
+						});
+					}
+				});		
+			}
+
 
 		}
 
