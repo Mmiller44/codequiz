@@ -66,9 +66,9 @@ angular.module('codequizApp')
 			// quizObject contains: .category, .title, and .description.
 			// These values are determined by what the user typed in the form.
 			$scope.ready = true;
-			$scope.shake1 = none;
-			$scope.shake2 = none;
-			$scope.shake3 = none;
+			$scope.shake1 = 'none';
+			$scope.shake2 = 'none';
+			$scope.shake3 = 'none';
 
 
 			if(quizObject.category === 'PHP' || quizObject.category === 'Python' || quizObject.category === 'ColdFusion')
@@ -83,27 +83,27 @@ angular.module('codequizApp')
 			{
 				console.log('No Title');
 				$scope.ready = false;
-				$scope.shake1 = shake;
+				$scope.shake1 = 'shake';
 			}
 
 			if(!quizObject.category)
 			{
 				console.log('No Category');
 				$scope.ready = false;
-				$scope.shake2 = shake;
+				$scope.shake2 = 'shake';
 			}
 
 			if(!quizObject.description)
 			{
 				console.log('No description');
 				$scope.ready = false;
-				$scope.shake3 = shake;
+				$scope.shake3 = 'shake';
 
 			}else if(quizObject.description.length < 20)
 			{
 				console.log('Not a long enough description');
 				$scope.ready = false;
-				$scope.shake3 = shake;
+				$scope.shake3 = 'shake';
 			}
 
 			// If all the requirements have been met. Then add to DB.
