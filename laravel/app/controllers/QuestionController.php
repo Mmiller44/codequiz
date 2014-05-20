@@ -21,7 +21,7 @@ class QuestionController extends BaseController {
 	{
 		$addQuestion = new Questions;
 		$ReplaceQuestion = str_replace(",","COMMA",$question);
-		$addQuestion->question = $question;
+		$addQuestion->question = $ReplaceQuestion;
 		$addQuestion->a = $a;
 		$addQuestion->b = $b;
 		$addQuestion->c = $c;
