@@ -20,14 +20,14 @@ class QuestionController extends BaseController {
 	public function addQuestion($question,$a,$b,$c,$d,$correctAnswer,$quizID,$quiz_category_ID,$explanation)
 	{
 		$addQuestion = new Questions;
-		$regExArray = [
+		$regExArray = array(
 		',' => ', ',
 		'{' => '{ ',
 		'}' => '} ',
 		'[' => '[ ',
 		']' => '] ',
 		';' => '; '
-		];
+		);
 
 		for ($i=0; $i < $regExArray.length; $i++)
 		{ 
