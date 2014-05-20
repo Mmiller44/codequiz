@@ -82,7 +82,7 @@
                     <textarea ng-model="quiz.description" class="contributeDesc animated {{shake3}}" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
                   </label>
 
-                  <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">Continue</a>
+                  <a ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">Create</a>
                   <a ng-href="#/myQuizzes" class="button contributeButton">My Quizzes</a>
             </form>
         </section>

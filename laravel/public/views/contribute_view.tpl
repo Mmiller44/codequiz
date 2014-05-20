@@ -65,7 +65,7 @@
                 <form id='contribution_form'>
                   <h3>Question #{{routeNumber}}</h3>
                     <textarea ng-model="question.text" placeholder="Type your question out just like you would in a text editor. Comments, strings, variables and numbers are all supported and highlighted." class="contributeDesc" title="Line Breaks are needed for breaking up code.
-                Ex: // What is counter equal to?
+            Ex: // What is counter equal to?
                 var counter = 10;
                 counter++;
                 counter = ?;"></textarea>
@@ -93,7 +93,7 @@
                   <label>Explanation
                     <textarea ng-model="question.explanation" class="contributeDesc" placeholder="Be descriptive and helpful. Remember this is going to teach someone why they were wrong!"></textarea>
                   </label>
-                  <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
+                  <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Next</a>
                   <a ng-href="#/home" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Submit</a>
                 </form>
         </section>
