@@ -128,7 +128,12 @@ angular.module('codequizApp')
 				}
 
 				$window.location.href = '#/home';
-			});
+
+			},function(error){
+
+    			$window.location.href = '#/home';
+    			
+  			});
     });
 }])
 
