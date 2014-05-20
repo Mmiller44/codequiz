@@ -142,7 +142,7 @@ angular.module('codequizApp')
 		{
 			if(question)
 			{
-				if(question.text && question.a && question.b && question.c && question.d && question.correctAnswer && question.explanation.length > 20)
+				if(question.text && question.a && question.b && question.c && question.d && question.correctAnswer)
 				{
 					$scope.routeNumber++;
 					// This is the data the user entered for the question.
