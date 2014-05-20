@@ -47,7 +47,7 @@
                   <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
                   <div id="panel{{quizzes.quiz_ID}}" class="content">
                     <p>{{quizzes.description}}</p>
-                    <h3 class="star">Rating:<img ng-repeat="rank in getNumber(quizzes.quiz_ranking)"src="images/star.png" width="20" height="20"></h3>
+                    <h3 class="star">Rating:<img ng-repeat="rank in getNumber(quizzes.quiz_ranking) track by $index"src="images/star.png" width="20" height="20"></h3>
                     <h4>By <a href="#/quizzes/{{quizzes.username}}" class="usernameLink">{{quizzes.username}}</a></h4>
                     <a ng-href="#/quiz/{{quizzes.quiz_ID}}/" ng-click='setQuizID(quizzes.quiz_ID)' class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
                   </div>
