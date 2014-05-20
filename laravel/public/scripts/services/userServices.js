@@ -78,10 +78,10 @@ angular.module('codequizApp')
 			if($window.localStorage)
 			{
 				$window.localStorage.setItem('providerID', userObject.dataInfo.id);
-				$window.localStorage.setItem('username', userObject.dataInfo.username);
+				$window.localStorage.setItem('username', username);
 				$window.localStorage.setItem('name', userObject.dataInfo.name);
 				$window.localStorage.setItem('location', userObject.dataInfo.locale);
-				$window.localStorage.setItem('profileImage', 'Facebook User');
+				$window.localStorage.setItem('profileImage', 'images/defaultPerson.jpg');
 				$window.localStorage.setItem('website', encodeURIComponent(userObject.dataInfo.link));
 
 				if(userObject.dataInfo.name == undefined)
