@@ -664,10 +664,21 @@ span.answer_d {
 	margin-top: 5px;
 }
 
-.main-section#contribution_form.inputText {
+#inputText {
 	width: 350px;
 }
 
+#inputText1 {
+	width: 350px;
+}
+
+#inputText2 {
+	width: 350px;
+}
+
+#inputText3 {
+	width: 350px;
+}
 
 
 @-webkit-keyframes shake {

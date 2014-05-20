@@ -70,16 +70,16 @@
                 counter++;
                 counter = ?;"></textarea>
                   <label>A
-                    <input type="text" ng-model="question.a" class="inputText" placeholder="Ex: Cascading Style Sheets" />
+                    <input type="text" ng-model="question.a" id="inputText" placeholder="Ex: Cascading Style Sheets" />
                   </label>
                   <label>B
-                    <input type="text" ng-model="question.b" class="inputText" placeholder="Ex: Creative Style Selectors" />
+                    <input type="text" ng-model="question.b" id="inputText1" placeholder="Ex: Creative Style Selectors" />
                   </label>
                   <label>C
-                    <input type="text" ng-model="question.c" class="inputText" placeholder="Ex: Both A and B." />
+                    <input type="text" ng-model="question.c" id="inputText2" placeholder="Ex: Both A and B." />
                   </label>                      
                   <label>D
-                    <input type="text" ng-model="question.d" class="inputText" placeholder="Ex: None of the above." />
+                    <input type="text" ng-model="question.d" id="inputText3" placeholder="Ex: None of the above." />
                   </label>
                   <label>Correct Answer
                     <select ng-model="question.correctAnswer" class="contributeCategory">
