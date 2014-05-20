@@ -39,21 +39,24 @@ angular.module('codequizApp')
 	// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
 	// the category that was clicked to get to this page, which is also the $routeParam.
 	var getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
-	var quizData = getQuizzes.query({username: $scope.user}, function() {
+	var quizData = getQuizzes.query({username: $scope.user});
+	quizData.$promise.then(function(data){
 		$scope.published = [];
 		$scope.unpublished = [];
 
-		if(quizData.length > 0)
+		if(data.length > 0)
 		{
-			for(var i = 0;i<quizData.length;i++)
+			for(var i = 0;i<data.length;i++)
 			{
-				if(quizData[i].completed == 'Yes')
+				data[i].quiz_ranking = parseInt(data[i].quiz_ranking);
+
+				if(data[i].completed == 'Yes')
 				{
-					$scope.published.push(quizData[i]);
+					$scope.published.push(data[i]);
 					$scope.noPublish = false;
 				}else
 				{
-					$scope.unpublished.push(quizData[i]);
+					$scope.unpublished.push(data[i]);
 				}
 			}
 		}else 
@@ -61,6 +64,7 @@ angular.module('codequizApp')
 			$scope.noQuizzes = true;
 		}
 	});
+
 
 	$scope.setQuizID = function(ID) 
 	{
@@ -75,5 +79,10 @@ angular.module('codequizApp')
    			$window.location.href = '#/contribute/' + data.currentNumber;
    		});
 	}
+
+	// This is used for displaying the proper amount of stars based off the quizzes rating.
+	$scope.getNumber = function(num) {
+	    return new Array(num);   
+	}	
 
 }]);
