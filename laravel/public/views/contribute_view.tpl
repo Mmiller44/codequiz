@@ -57,18 +57,18 @@
                 <ol>
                   <li>Use line breaks to break up your question.</li>
                   <li>If your quiz doesn't look how you'd like, edit it!</li>
-                  <li>Detailed explanations help everyone learn more.</li>
+                  <li>You can use code comments to describe or ask a question.</li>
                   <li>White space is very important for word wrapping.</li>
                   <li>Double check your answers before publishing!</li>
                 </ol>
               </div>
                 <form id='contribution_form'>
                   <h3>Question #{{routeNumber}}</h3>
-                    <textarea ng-model="question.text" placeholder="Ex: // What does CSS stand for?" class="contributeDesc" title="Line Breaks are extremely important for breaking up code.
-                    Ex: // What is counter equal to?
-                    var counter = 10;
-                    counter++;
-                    counter = ?;"></textarea>
+                    <textarea ng-model="question.text" placeholder="Type your question out just like you would in a text editor. Comments, strings, variables and numbers are all supported and highlighted." class="contributeDesc" title="Line Breaks are needed for breaking up code.
+                Ex: // What is counter equal to?
+                var counter = 10;
+                counter++;
+                counter = ?;"></textarea>
                   <label>A
                     <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" />
                   </label>
