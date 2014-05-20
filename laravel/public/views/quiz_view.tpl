@@ -50,7 +50,7 @@
             </div>
           </div>
             <div id="questionContainer">
-              <code class="question" language="{{quizCategory}}" hljs source="questions[currentNumber].question" ng-bind="questions[currentNumber].question"></code>
+              <code class="question" language="{{quizCategory}}" hljs source="questions[currentNumber].question"></code>
             </div>
             <div id="answer_block_wrap">
               <ul ng-cloak>
