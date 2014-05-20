@@ -21,14 +21,14 @@ class QuestionController extends BaseController {
 	{
 		$addQuestion = new Questions;
 		$regExArray = [
-		',', ', ',
-		'{', '{ ',
-		'}', '} ',
-		'[', '[ ',
-		']', '] ',
-		';', '; '
+		',' => ', ',
+		'{' => '{ ',
+		'}' => '} ',
+		'[' => '[ ',
+		']' => '] ',
+		';' => '; '
 		];
-		
+
 		for ($i=0; $i < $regExArray.length; $i++)
 		{ 
 			$ReplaceQuestion = str_replace($regExArray[i],$regExArray[i+1],$question);
