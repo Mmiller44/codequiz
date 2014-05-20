@@ -65,22 +65,22 @@
                 <form id='contribution_form'>
                   <h3>Question #{{routeNumber}}</h3>
                   <label>Question
-                    <textarea ng-model="question.text" placeholder="Ex: What does CSS stand for?" required ></textarea>
+                    <textarea ng-model="question.text" placeholder="Ex: What does CSS stand for?" class="contributeDesc" required ></textarea>
                   </label>
                   <label>A
                     <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" required />
                   </label>
                   <label>B
-                    <input type="text" ng-model="question.b" placeholder="Ex: Coloring Style Sheets" required />
+                    <input type="text" ng-model="question.b" placeholder="Ex: Creative Style Selectors" required />
                   </label>
                   <label>C
-                    <input type="text" ng-model="question.c" placeholder="Ex: Coloring Style Sheets" required />
+                    <input type="text" ng-model="question.c" placeholder="Ex: Both A and B." required />
                   </label>                      
                   <label>D
-                    <input type="text" ng-model="question.d" placeholder="Ex: Coloring Style Sheets" required />
+                    <input type="text" ng-model="question.d" placeholder="Ex: None of the above." required />
                   </label>
                   <label>Correct Answer
-                    <select ng-model="question.correctAnswer" required >
+                    <select ng-model="question.correctAnswer" class="contributeCategory" required >
                       <option selected disabled>Select Correct Answer</option>
                       <option value="A">A</option>
                       <option value="B">B</option>
@@ -89,7 +89,7 @@
                     </select>
                   </label>
                   <label>Explanation
-                    <textarea ng-model="question.explanation"></textarea>
+                    <textarea ng-model="question.explanation" class="contributeDesc" placeholder:"Be descriptive and helpful.Remember this is going to teach someone why they were wrong!"></textarea>
                   </label>
                   <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
                   <a ng-href="#/home" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Submit</a>
