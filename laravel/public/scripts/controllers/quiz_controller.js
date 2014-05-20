@@ -32,7 +32,7 @@ angular.module('codequizApp')
         $scope.questions = [];
         for(var i = 0; i < data.length; i++)
         {
-            data[i].question.replace(/,/g,', ');
+            data[i].question.replace(/,/g,'COMMA');
             $scope.questions.push(data[i]);
         }
 
