@@ -28,12 +28,11 @@ angular.module('codequizApp')
     // Setting an object to equal the results from the server.
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID});
     currentQuiz.$promise.then(function(data){
+        $scope.questions = data;
 
         for(var i = 0; i < data.length; i++)
         {
-            data[i].question.replace(/,/g,', ');
-            console.log(data[i].question.replace(/,/g,', '));
-            $scope.questions = data;
+            $scope.questions[i].question.replace(/,/g,', ');
         }
 
     });
