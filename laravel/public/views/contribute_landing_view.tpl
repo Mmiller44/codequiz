@@ -59,7 +59,7 @@
                   <li>Your quizzes are automatically saved and unpublished until you complete them.</li>
                   <li>All your quizzes can be seen under "My Quizzes".</li>
                   <li>Quizzes can be unpublished and edited anytime.</li>
-                  <li>Any inappropriate content will be removed, and result in a ban.</li>
+                  <li>Any inappropriate content will be removed.</li>
                 </ol>
               </div>
               <form id='contribution_form' ng-hide="mobile">

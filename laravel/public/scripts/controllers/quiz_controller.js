@@ -26,8 +26,18 @@ angular.module('codequizApp')
     $scope.reportData = {};
 
     // Setting an object to equal the results from the server.
-    var currentQuiz = getQuestions.query({quizID: $routeParams.quizID}, function() {
-        $scope.questions = currentQuiz;
+    var currentQuiz = getQuestions.query({quizID: $routeParams.quizID});
+    currentQuiz.$promise.then(function(data){
+
+        for(var i = 0; i < data.length; i++)
+        {
+            data[i].question.replace(',', ', ');
+            data[i].question.replace('{', '{ ');
+            data[i].question.replace('}', '} ');
+        }
+
+        $scope.questions = data;
+
     });
 
     // Getting the users current position in this quiz. And then setting my scope variables to the proper values.

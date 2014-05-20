@@ -163,11 +163,7 @@ angular.module('codequizApp')
 						$window.location.href = '#/contribute/' + $scope.routeNumber;
 					});
 				}
-			}else
-			{
-
 			}
-			
 		}
 
 

@@ -32,4 +32,25 @@ class QuestionController extends BaseController {
 		$addQuestion->save();
 	}
 
+	public function editQuestion($questionID,$question,$a,$b,$c,$d,$correctAnswer,$quizID,$quizCategoryID,$explanation)
+	{
+		$getQuestion = Questions::where('question_ID', '=', $questionID);
+		$first = $getQuestion->first();
+		
+		if($first)
+		{
+			$first->question = $question;
+			$first->a = $a;
+			$first->b = $b;
+			$first->c = $c;
+			$first->d = $d;
+			$first->correct_answer = $correctAnswer;
+			$first->quiz_ID = $quizID;
+			$first->quiz_category_ID = $quizCategoryID;
+			$first->explanation = $explanation;
+			$first->save();
+		}
+	
+	}
+
 }
