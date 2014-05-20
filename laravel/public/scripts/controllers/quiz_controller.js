@@ -30,12 +30,7 @@ angular.module('codequizApp')
     var currentQuiz = getQuestions.query({quizID: $routeParams.quizID});
     currentQuiz.$promise.then(function(data){
         
-        $scope.questions = [];
-
-        for(var i = 0; i < data.length; i++)
-        {
-            $scope.questions.push(data[i].question.replace(/,/g,'comma'));
-        }
+        $scope.questions = data;
 
     });
 
