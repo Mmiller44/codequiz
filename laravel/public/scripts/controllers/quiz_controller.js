@@ -31,9 +31,9 @@ angular.module('codequizApp')
 
         for(var i = 0; i < data.length; i++)
         {
-            data[i].question.replace(',', ', ');
-            data[i].question.replace('{', '{ ');
-            data[i].question.replace('}', '} ');
+            data[i].question.split(',').join(', ');
+            data[i].question.split('{').join('{ ');
+            data[i].question.split('}').join('} ');
             $scope.questions = data;
         }
 
