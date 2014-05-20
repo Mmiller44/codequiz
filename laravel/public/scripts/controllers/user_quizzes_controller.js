@@ -45,17 +45,20 @@ angular.module('codequizApp')
 		$rootScope.quizID = ID;
 	}
 
-	var getAll = getAllByUser.query({username: $routeParams.username}, function() {
-		$scope.quizInfo = getAll;
-		console.log($scope.quizInfo);
+	var getAll = getAllByUser.query({username: $routeParams.username});
+	getAll.$promise.then(function(data){
+		
+		$scope.quizInfo = data;
 
 		if($scope.quizInfo.length > 0)
 		{
-			for(var i = 0;i<getAll.length;i++)
+			for(var i = 0;i<data.length;i++)
 			{
-				if(getAll[i].completed == 'Yes')
+				data[i].quiz_ranking = parseInt(data[i].quiz_ranking);
+
+				if(data[i].completed == 'Yes')
 				{
-					$scope.published.push(getAll[i]);
+					$scope.published.push(data[i]);
 				}
 			}
 			
@@ -67,5 +70,10 @@ angular.module('codequizApp')
 			$scope.noUser = false;
 		}
 	});
+
+	// Used to display the amount of stars/rating for each quiz.
+	$scope.getNumber = function(num){
+		return new Array(num);
+	}
 
 }]);
