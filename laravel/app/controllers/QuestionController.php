@@ -20,7 +20,20 @@ class QuestionController extends BaseController {
 	public function addQuestion($question,$a,$b,$c,$d,$correctAnswer,$quizID,$quiz_category_ID,$explanation)
 	{
 		$addQuestion = new Questions;
-		$ReplaceQuestion = str_replace(",","COMMA",$question);
+		$regExArray = [
+		',', ', ',
+		'{', '{ ',
+		'}', '} ',
+		'[', '[ ',
+		']', '] ',
+		';', '; '
+		];
+		
+		for ($i=0; $i < $regExArray.length; $i++)
+		{ 
+			$ReplaceQuestion = str_replace($regExArray[i],$regExArray[i+1],$question);
+		}
+
 		$addQuestion->question = $ReplaceQuestion;
 		$addQuestion->a = $a;
 		$addQuestion->b = $b;
