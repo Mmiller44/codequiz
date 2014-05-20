@@ -64,11 +64,11 @@
               </div>
                 <form id='contribution_form'>
                   <h3>Question #{{routeNumber}}</h3>
-                    <textarea ng-model="question.text" placeholder="Ex: // What does counter equal?
-                          var counter = 10;
-                          counter++;
-                          counter = ?;
-                          " class="contributeDesc" required ></textarea>
+                    <textarea ng-model="question.text" placeholder="Ex: // What does CSS stand for?" class="contributeDesc" title="Line Breaks are extremely important for breaking up code.
+                    Ex: // What is counter equal to?
+                    var counter = 10;
+                    counter++;
+                    counter = ?;"></textarea>
                   <label>A
                     <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" />
                   </label>
