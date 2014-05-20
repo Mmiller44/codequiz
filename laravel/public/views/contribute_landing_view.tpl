@@ -53,11 +53,13 @@
           <!-- IF ON A DESKTOP THIS IS THE VIEW -->
               <div ng-hide="mobile" class="desktop_contribution">
                 <h3>Contribute!</h3>
-                <p>Thanks for joining the Code Quiz community. Our community strives off contributions from users like you. To get started, please follow the instructions below.</p>
+                <p>Thanks for joining the Code Quiz community. Our community strives off contributions from users like you. To get started, please see the instructions below.</p>
                 <ol>
                   <li>Each Quiz must be a minimum of 10 questions to be published.</li>
                   <li>Your quizzes are automatically saved and unpublished until you complete them.</li>
-                  <li>All your quizzes can be seen under the "My Quizzes" tab.</li>
+                  <li>All your quizzes can be seen under "My Quizzes".</li>
+                  <li>Quizzes can be unpublished and edited anytime.</li>
+                  <li>Any inappropriate content will be removed, and result in a ban.</li>
                 </ol>
               </div>
               <form id='contribution_form' ng-hide="mobile">

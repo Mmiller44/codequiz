@@ -52,46 +52,48 @@
 
           <!-- IF ON A DESKTOP THIS IS THE VIEW -->
               <div ng-hide="mobile" class="desktop_contribution">
-                <form id='contribution_form'>
-                  <div class="row">
-                    <div class="medium-12 columns">
-                      <h3>Question #{{routeNumber}}</h3>
-                      <label>Question
-                        <textarea ng-model="question.text" placeholder="Ex: What does CSS stand for?" required ></textarea>
-                      </label>
-                      <label>A
-                        <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" required />
-                      </label>
-                      <label>B
-                        <input type="text" ng-model="question.b" placeholder="Ex: Coloring Style Sheets" required />
-                      </label>
-                      <label>C
-                        <input type="text" ng-model="question.c" placeholder="Ex: Coloring Style Sheets" required />
-                      </label>                      
-                      <label>D
-                        <input type="text" ng-model="question.d" placeholder="Ex: Coloring Style Sheets" required />
-                      </label>
-                      <label>Correct Answer
-                        <select ng-model="question.correctAnswer" required >
-                          <option selected disabled>Select Correct Answer</option>
-                          <option value="A">A</option>
-                          <option value="B">B</option>
-                          <option value="C">C</option>
-                          <option value="D">D</option>
-                        </select>
-                      </label>
-                      <label>Explanation
-                        <textarea ng-model="question.explanation"></textarea>
-                      </label>
-                      <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
-                      <a ng-href="#/home" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Submit</a>
-
-                    </div>
-                  </div>
-
-                </form>
+                <h3>Contribute!</h3>
+                <p>Here are some Tips and Tricks to making your quiz:</p>
+                <ol>
+                  <li>Use line breaks to break up your question.</li>
+                  <li>If your quiz doesn't look how you'd like, you can always edit it.</li>
+                  <li>Detailed explanations help everyone learn more.</li>
+                  <li>White space is very important for word wrapping.</li>
+                  <li>Double check your answers before publishing!</li>
+                </ol>
               </div>
-
+                <form id='contribution_form'>
+                  <h3>Question #{{routeNumber}}</h3>
+                  <label>Question
+                    <textarea ng-model="question.text" placeholder="Ex: What does CSS stand for?" required ></textarea>
+                  </label>
+                  <label>A
+                    <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" required />
+                  </label>
+                  <label>B
+                    <input type="text" ng-model="question.b" placeholder="Ex: Coloring Style Sheets" required />
+                  </label>
+                  <label>C
+                    <input type="text" ng-model="question.c" placeholder="Ex: Coloring Style Sheets" required />
+                  </label>                      
+                  <label>D
+                    <input type="text" ng-model="question.d" placeholder="Ex: Coloring Style Sheets" required />
+                  </label>
+                  <label>Correct Answer
+                    <select ng-model="question.correctAnswer" required >
+                      <option selected disabled>Select Correct Answer</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                    </select>
+                  </label>
+                  <label>Explanation
+                    <textarea ng-model="question.explanation"></textarea>
+                  </label>
+                  <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
+                  <a ng-href="#/home" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Submit</a>
+                </form>
         </section>
 
       <a class="exit-off-canvas"></a>
