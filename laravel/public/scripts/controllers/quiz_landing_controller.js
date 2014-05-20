@@ -58,6 +58,8 @@ angular.module('codequizApp')
 
 			for(var i = 0; i<data.length; i++)
 			{
+				data[i].quiz_ranking = parseInt(data[i].quiz_ranking);
+				
 				if(data[i].completed === 'Yes')
 				{
 					$scope.quiz.push(data[i]);
