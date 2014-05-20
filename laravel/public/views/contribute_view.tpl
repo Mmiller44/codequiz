@@ -70,16 +70,16 @@
                 counter++;
                 counter = ?;"></textarea>
                   <label>A
-                    <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" />
+                    <input type="text" ng-model="question.a" class="inputText" placeholder="Ex: Cascading Style Sheets" />
                   </label>
                   <label>B
-                    <input type="text" ng-model="question.b" placeholder="Ex: Creative Style Selectors" />
+                    <input type="text" ng-model="question.b" class="inputText" placeholder="Ex: Creative Style Selectors" />
                   </label>
                   <label>C
-                    <input type="text" ng-model="question.c" placeholder="Ex: Both A and B." />
+                    <input type="text" ng-model="question.c" class="inputText" placeholder="Ex: Both A and B." />
                   </label>                      
                   <label>D
-                    <input type="text" ng-model="question.d" placeholder="Ex: None of the above." />
+                    <input type="text" ng-model="question.d" class="inputText" placeholder="Ex: None of the above." />
                   </label>
                   <label>Correct Answer
                     <select ng-model="question.correctAnswer" class="contributeCategory">
@@ -91,7 +91,7 @@
                     </select>
                   </label>
                   <label>Explanation
-                    <textarea ng-model="question.explanation" class="contributeDesc" placeholder="Be descriptive and helpful.Remember this is going to teach someone why they were wrong!"></textarea>
+                    <textarea ng-model="question.explanation" class="contributeDesc" placeholder="Be descriptive and helpful. Remember this is going to teach someone why they were wrong!"></textarea>
                   </label>
                   <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
                   <a ng-href="#/home" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Submit</a>
