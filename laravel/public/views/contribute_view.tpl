@@ -56,7 +56,7 @@
                 <p>Here are some Tips and Tricks to making your quiz:</p>
                 <ol>
                   <li>Use line breaks to break up your question.</li>
-                  <li>If your quiz doesn't look how you'd like, you can always edit it.</li>
+                  <li>If your quiz doesn't look how you'd like, edit it!</li>
                   <li>Detailed explanations help everyone learn more.</li>
                   <li>White space is very important for word wrapping.</li>
                   <li>Double check your answers before publishing!</li>
@@ -64,23 +64,21 @@
               </div>
                 <form id='contribution_form'>
                   <h3>Question #{{routeNumber}}</h3>
-                  <label>Question
                     <textarea ng-model="question.text" placeholder="Ex: What does CSS stand for?" class="contributeDesc" required ></textarea>
-                  </label>
                   <label>A
-                    <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" required />
+                    <input type="text" ng-model="question.a" placeholder="Ex: Cascading Style Sheets" />
                   </label>
                   <label>B
-                    <input type="text" ng-model="question.b" placeholder="Ex: Creative Style Selectors" required />
+                    <input type="text" ng-model="question.b" placeholder="Ex: Creative Style Selectors" />
                   </label>
                   <label>C
-                    <input type="text" ng-model="question.c" placeholder="Ex: Both A and B." required />
+                    <input type="text" ng-model="question.c" placeholder="Ex: Both A and B." />
                   </label>                      
                   <label>D
-                    <input type="text" ng-model="question.d" placeholder="Ex: None of the above." required />
+                    <input type="text" ng-model="question.d" placeholder="Ex: None of the above." />
                   </label>
                   <label>Correct Answer
-                    <select ng-model="question.correctAnswer" class="contributeCategory" required >
+                    <select ng-model="question.correctAnswer" class="contributeCategory">
                       <option selected disabled>Select Correct Answer</option>
                       <option value="A">A</option>
                       <option value="B">B</option>
@@ -89,7 +87,7 @@
                     </select>
                   </label>
                   <label>Explanation
-                    <textarea ng-model="question.explanation" class="contributeDesc" placeholder:"Be descriptive and helpful.Remember this is going to teach someone why they were wrong!"></textarea>
+                    <textarea ng-model="question.explanation" class="contributeDesc" placeholder="Be descriptive and helpful.Remember this is going to teach someone why they were wrong!"></textarea>
                   </label>
                   <a ng-href="#/contribute/{{routeNumber + 1}}" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Continue</a>
                   <a ng-href="#/home" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Submit</a>
