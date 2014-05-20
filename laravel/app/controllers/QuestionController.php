@@ -29,7 +29,7 @@ class QuestionController extends BaseController {
 		';' => '; '
 		);
 
-		for ($i=0; $i < $regExArray.length; $i++)
+		for ($i=0; $i < count($regExArray); $i++)
 		{ 
 			$ReplaceQuestion = str_replace($regExArray[i],$regExArray[i+1],$question);
 		}
