@@ -140,28 +140,34 @@ angular.module('codequizApp')
 
 		$scope.storeQuestion = function(question)
 		{
-			$scope.routeNumber++;
-			// This is the data the user entered for the question.
-			// It contains: .text, .a, .b, .c, .d, .correctAnswer and explanation;
-			console.log(question);
-
-			// Update the table to reflect how many questions they have entered.
-			var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
-			var dataObject = createdQuiz.get({quizID: $rootScope.quizID, userID: $scope.userID, currentNumber: $scope.routeNumber, completed: 'No'}, function(){
-				if(dataObject.currentNumber)
+			if(question)
+			{
+				if(question.text && question.a && question.b && question.c && question.d && question.correctAnswer && question.explanation.length > 20)
 				{
-					$scope.currentNumber = dataObject.currentNumber;
-				}
-			});
+					$scope.routeNumber++;
+					// This is the data the user entered for the question.
+					// It contains: .text, .a, .b, .c, .d, .correctAnswer and explanation;
+					console.log(question);
 
-			// Now I need to store the actual question.
-			var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
-			var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $rootScope.quizID, quizCategoryID: 1, explanation: question.explanation}, function(){
-				if(QuestionObject)
-				{
-					$window.location.href = '#/contribute/' + $scope.routeNumber;
+					// Update the table to reflect how many questions they have entered.
+					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
+					var dataObject = createdQuiz.get({quizID: $rootScope.quizID, userID: $scope.userID, currentNumber: $scope.routeNumber, completed: 'No'});
+					dataObject.$promise.then(function(data){
+						$scope.currentNumber = data.currentNumber;
+					});
+
+					// Now I need to store the actual question.
+					var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
+					var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $rootScope.quizID, quizCategoryID: 1, explanation: question.explanation});
+					QuestionObject.$promise.then(function(data){
+						$window.location.href = '#/contribute/' + $scope.routeNumber;
+					});
 				}
-			});
+			}else
+			{
+
+			}
+			
 		}
 
 
