@@ -37,7 +37,8 @@ angular.module('codequizApp')
 		// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
 		// the category that was clicked to get to this page, which is also the $routeParam.
 		var getTitles = $resource('http://codequiz.io/get-type-of/:category', {});
-		$scope.quizTitles = getTitles.query({category: $routeParams.sub_category}, function() {
+		$scope.quizTitles = getTitles.query({category: $routeParams.sub_category});
+		$scope.quizTitles.$promise.then(function(data){
 
 			var subCategory = angular.lowercase($routeParams.sub_category);
 
@@ -51,16 +52,17 @@ angular.module('codequizApp')
 
 			$scope.quiz = [];
 
-			for(var i = 0; i< $scope.quizTitles.length; i++)
+			for(var i = 0; i<data.length; i++)
 			{
-				if($scope.quizTitles[i].completed === 'Yes')
+				if(data[i].completed === 'Yes')
 				{
-					$scope.quiz.push($scope.quizTitles[i]);
+					$scope.quiz.push(data[i]);
 				}
 			}
 
 			console.log($scope.quiz);
 		});
+
 
 		$scope.setQuizID = function(ID) {
 			$rootScope.quizID = ID;
