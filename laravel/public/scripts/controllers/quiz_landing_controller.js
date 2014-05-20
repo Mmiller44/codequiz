@@ -38,12 +38,9 @@ angular.module('codequizApp')
 		// the category that was clicked to get to this page, which is also the $routeParam.
 		var getTitles = $resource('http://codequiz.io/get-type-of/:category', {});
 		$scope.quizTitles = getTitles.query({category: $routeParams.sub_category}, function() {
-			console.log($scope.quizTitles);
-
-			$rootScope.sub_category = $routeParams.sub_category;
 
 			var subCategory = angular.lowercase($routeParams.sub_category);
-			
+
 			if($window.localStorage)
 			{
 				$window.localStorage.setItem('category', subCategory)

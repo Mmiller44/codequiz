@@ -8,12 +8,13 @@ angular.module('codequizApp')
         $scope.user = $window.localStorage.getItem('username');
         $scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
         $scope.userID = $window.localStorage.getItem('userID');
-
+        $scope.quizcategory = $window.localStorage.getItem('category');
     }else
     {
         $scope.user = $cookieStore.get('username');
         $scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
         $scope.userID = $cookieStore.get('userID');
+        $scope.quizcategory = $cookieStore.get('category');
     }
 
     // Setting a scope variable to be a counter for how many answers they have right.

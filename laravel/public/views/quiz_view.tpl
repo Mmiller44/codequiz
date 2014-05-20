@@ -42,7 +42,7 @@
           <!-- FRONT END -->
           <div class="row">
             <div class="small-6-centered columns">
-              <h2 class="quiz_title_front">{{$root.sub_category}}</h2>
+              <h2 class="quiz_title_front">{{quizCategory}}</h2>
               <h3 class="progress_indicator">{{indicatorNumber}}/{{questions.length}}</h3>
 
               <a href="" class="flag_question" data-reveal-id="report_modal"><img src="images/flag.png"></a>
@@ -50,7 +50,7 @@
             </div>
           </div>
             <div id="questionContainer">
-              <code class="question" language="javascript" hljs source="questions[currentNumber].question"></code>
+              <code class="question" language="{{quizCategory}}" hljs source="questions[currentNumber].question"></code>
             </div>
             <div id="answer_block_wrap">
               <ul ng-cloak>
