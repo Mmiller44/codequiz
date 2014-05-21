@@ -31,10 +31,10 @@ class QuestionController extends BaseController {
 
 		foreach($regExArray as $key => $value)
 		{ 
-			$ReplaceQuestion = str_replace($key,$value,$question);
+			$question = str_replace($key,$value,$question);
 		}
 
-		$addQuestion->question = $ReplaceQuestion;
+		$addQuestion->question = $question;
 		$addQuestion->a = $a;
 		$addQuestion->b = $b;
 		$addQuestion->c = $c;
