@@ -29,9 +29,9 @@ class QuestionController extends BaseController {
 		';' => '; '
 		);
 
-		foreach($regExArray as $item)
+		foreach($regExArray as $key => $value)
 		{ 
-			$ReplaceQuestion = str_replace($item,($item +1),$question);
+			$ReplaceQuestion = str_replace($key,$value,$question);
 		}
 
 		$addQuestion->question = $ReplaceQuestion;
