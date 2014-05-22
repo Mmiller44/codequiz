@@ -9,7 +9,6 @@ angular.module('codequizApp')
 		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
 		$scope.userID = $window.localStorage.getItem('userID');
 		$scope.quizID = $window.localStorage.getItem('quizID');
-
 	}else
 	{
 		$scope.user = $cookieStore.get('username');
@@ -18,6 +17,10 @@ angular.module('codequizApp')
 		$scope.quizID = $cookieStore.get('quizID');
 	}
 
+
+	// Checking to see if there is a quiz ID set.
+	// If there is, Then a resource gets called to retrieve the existing questions.
+	// The input fields get set with the existing data.
 	if($scope.quizID)
 	{
 		var getQuestions = $resource('http://codequiz.io/get-questions/:quizID');
@@ -37,10 +40,8 @@ angular.module('codequizApp')
 			$scope.questionID = data[currentNumber].question_ID;
 			$scope.existingQuestion = true;
 			console.log(data);
-		}, function(error) {
-
+		},function(error){
 			$scope.existingQuestion = false;
-			console.log('No questions Exist');
 		});
 	}
 
@@ -156,6 +157,14 @@ angular.module('codequizApp')
 					var dataObject = createdQuiz.get({quizID: data.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
 					dataObject.$promise.then(function(data){
 						console.log(data);
+
+						if($window.localStorage)
+						{
+							$window.localStorage.setItem('quizID', data.quizID);
+						}else
+						{
+							$cookieStore.set('quizID', data.quizID);
+						}
 
 						$scope.quizID = data.quizID;
 						$window.location.href = '#/contribute/1';
