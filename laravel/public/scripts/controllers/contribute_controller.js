@@ -21,7 +21,7 @@ angular.module('codequizApp')
 	if($scope.quizID)
 	{
 		$scope.getQuestions = $resource('http://codequiz.io/get-questions/:quizID');
-		$scope.getQuestions.get({quizID: $scope.quizID});
+		$scope.getQuestions.query({quizID: $scope.quizID});
 		$scope.getQuestions.$promise.then(function(data){
 				$scope.questions = data;
 				console.log(data);
