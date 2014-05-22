@@ -103,6 +103,8 @@ angular.module('codequizApp')
 			$scope.quizData.$promise.then(function(data){
 			$scope.published = [];
 			$scope.unpublished = [];
+			$scope.noQuizzes = false;
+    		$scope.noPublish =  true;
 
 			if(data.length > 0)
 			{
