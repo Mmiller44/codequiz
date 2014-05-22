@@ -28,8 +28,11 @@ angular.module('codequizApp')
 					b: data[$scope.routeNumber].b,
 					c: data[$scope.routeNumber].c,
 					d: data[$scope.routeNumber].d,
-					correctAnswer: data[$scope.routeNumber].correctAnswer,
-					}
+					correctAnswer: data[$scope.routeNumber].correct_answer,
+					explanation: data[$scope.routeNumber].explanation,
+					question: data[$scope.routeNumber].question
+				}
+
 			console.log(data);
 		}, function(error){
 			console.log('No questions Exist');
