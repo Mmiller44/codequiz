@@ -14,6 +14,12 @@ class QuizController extends BaseController {
 		return $allQuizzes;
 	}
 
+	public function getQuiz($quizID,$userID)
+	{
+		$quiz = Quizzes::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
+		return $quiz->first();
+	}
+
 	public function getAllBy($username)
 	{
 		$allQuizzesBy = Users::where('username', '=', $username)

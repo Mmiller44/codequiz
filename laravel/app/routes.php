@@ -9,11 +9,9 @@ Route::get('get-all-quizzes/', 'QuizController@getAllQuizzes');
 Route::get('get-specific-category/{main_category}', 'QuizController@getSpecificQuiz');
 
 // Get specific sub category, ex: Javascript, CSS, HTML.
-// It uses a route Param to query the database with the route Param
 Route::get('get-sub-category/{sub_category}', 'QuizController@getQuizSubCategory');
 
 // Gets all quizzes that are in the same sub_category.
-// This will get called to fill the data for the page that displays all javascript pages.
 Route::get('get-type-of/{sub_category}', 'QuizController@getQuizType');
 
 // Get all quizzes created by a certain user.
@@ -22,6 +20,8 @@ Route::get('get-all-by/{username}', 'QuizController@getAllBy');
 // Publish the quiz.
 Route::get('publish-quiz/{quizID}/{completed}', 'QuizController@publishQuiz');
 
+// Retrieve quiz Info -  Title, description, etc.
+Route::get('get-quiz/{quizID}/{userID}', 'QuizController@getQuiz');
 
 
 
@@ -36,7 +36,7 @@ Route::get('login-github/', 'UsersController@loginGithub');
 // Controls login for facebook.
 Route::get('login-facebook/', 'UsersController@loginFacebook');
 
-// This Route Controls login for Google.
+// Get all users in the database.
 Route::get('get-all-users/', 'UsersController@getUsers');
 
 // Finding a specific user based on provider_ID

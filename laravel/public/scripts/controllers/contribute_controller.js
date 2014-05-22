@@ -17,12 +17,14 @@ angular.module('codequizApp')
 		$scope.quizID = $cookieStore.get('quizID');
 	}
 
+	$scope.createText = 'Create!';
 
 	// Checking to see if there is a quiz ID set.
 	// If there is, Then a resource gets called to retrieve the existing questions.
 	// The input fields get set with the existing data.
 	if($scope.quizID)
-	{
+	{	
+		$scope.createText = 'Next';
 		var getQuestions = $resource('http://codequiz.io/get-questions/:quizID');
 		$scope.getQuestions = getQuestions.query({quizID: $scope.quizID});
 		$scope.getQuestions.$promise.then(function(data){
