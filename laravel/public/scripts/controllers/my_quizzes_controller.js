@@ -93,7 +93,7 @@ angular.module('codequizApp')
 	    return new Array(num);   
 	}
 
-	$scope.unpublishQuiz = function(quizID)
+	$scope.unpublish = function(quizID)
 	{
 		var resource = $resource('http://codequiz.io/unpublish-quiz/:quizID/:completed');
 		var unpublish = resource.get({quizID: quizID, completed: 'No'});
