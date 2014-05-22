@@ -49,7 +49,7 @@
                     <h3 class="star">Rating:<img ng-repeat="rank in getNumber(quizzes.quiz_ranking) track by $index" src="images/star.png" width="20" height="20"></h3>
                     <h4>By <a href="#/quizzes/{{quizzes.username}}" class="usernameLink">{{quizzes.username}}</a></h4>
                     <a ng-href="#/quiz/{{quizzes.quiz_ID}}/" ng-click='setQuizID(quizzes.quiz_ID)' class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
-                    <a ng-href="" ng-click="unpublish(quizzes.quizID)" class="button delete">Unpubish Quiz<img src="images/trash.png" width="20" height="20"></a>
+                    <a ng-href="" ng-click="unpublish(quizzes.quiz_ID)" class="button delete">Unpubish Quiz<img src="images/trash.png" width="20" height="20"></a>
                   </div>
                 </dd>
 
