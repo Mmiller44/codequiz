@@ -74,10 +74,16 @@ angular.module('codequizApp')
 	$scope.addQuestions = function(ID)
 	{
 		$rootScope.quizID = ID;
-		$scope.data = addQuestions.get({quizID: ID, userID: $scope.userID});
-   		$scope.data.$promise.then(function(data) {
-   			$window.location.href = '#/contribute/' + data.currentNumber;
-   		});
+		
+		if($window.localStorage)
+		{
+			$window.localStorage.setItem('quizID', ID);
+		}else
+		{
+			$cookieStore.set('quizID', ID);
+		}
+
+		$window.location.href = '#/contribute/1';
 	}
 
 	// This is used for displaying the proper amount of stars based off the quizzes rating.

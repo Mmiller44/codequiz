@@ -13,6 +13,6 @@ angular.module('codequizApp')
 	
 }])
 
-  .factory('addQuestions',['$resource','$rootScope','$q', function($resource,$rootScope){
+  .factory('addQuestions',['$resource','$rootScope', function($resource,$rootScope){
 	return $resource('http://codequiz.io/get-contribute-position/:quizID/:userID/');
 }]);
