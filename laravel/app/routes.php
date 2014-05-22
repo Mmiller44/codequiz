@@ -23,6 +23,9 @@ Route::get('publish-quiz/{quizID}/{completed}', 'QuizController@publishQuiz');
 // Retrieve quiz Info -  Title, description, etc.
 Route::get('get-quiz/{quizID}/{userID}', 'QuizController@getQuiz');
 
+//Update Quiz
+Route::get('update-quiz/{quizID}/{userID}/{quizCategory}/{quizTitle}/{quizDescription}', 'QuizController@updateQuiz');
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

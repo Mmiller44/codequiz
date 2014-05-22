@@ -1,6 +1,6 @@
 'use strict';
 
-  app.controller('contribute_landing_controller',['$scope','$window','$routeParams','$rootScope','addQuiz','$cookieStore','$resource','findUser',function ($scope, $window, $routeParams,$rootScope,addQuiz,$cookieStore,$resource,findUser) {
+  .controller('contribute_landing_controller',['$scope','$window','$routeParams','$rootScope','addQuiz','$cookieStore','$resource','findUser',function ($scope, $window, $routeParams,$rootScope,addQuiz,$cookieStore,$resource,findUser) {
 
 	if($window.localStorage)
 	{
@@ -114,34 +114,49 @@
 				$rootScope.newQuizCategoryID = 1;
 			}
 
-			// Passes all the data from the form, to the api to be added to the Quizzes Table.
-			var resource = addQuiz;
-			var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID});
-			addingQuiz.$promise.then(function(data) {
-				console.log(data);
+			if(!$scope.quizID)
+			{
+				// This is a new quiz and needs to be added to the database.
+				// Passes all the data from the form, to the api to be added to the Quizzes Table.
+				var resource = addQuiz;
+				var addingQuiz = resource.get({quizCategory: quizObject.category, quizTitle: quizObject.title, quizDescription: quizObject.description, userID: $scope.userID});
+				addingQuiz.$promise.then(function(data) {
+					console.log(data);
 
-				if(data.quizID)
-				{
-					// This will add the user and new quiz to the Created_quiz table.
-					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
-					var dataObject = createdQuiz.get({quizID: data.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
-					dataObject.$promise.then(function(data){
-						console.log(data);
+					if(data.quizID)
+					{
+						// This will add the user and new quiz to the Created_quiz table.
+						var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
+						var dataObject = createdQuiz.get({quizID: data.quizID, userID: $scope.userID, currentNumber: 1, completed: 'No'});
+						dataObject.$promise.then(function(data){
+							console.log(data);
 
-						if($window.localStorage)
-						{
-							$window.localStorage.setItem('quizID', data.quiz_ID);
-						}else
-						{
-							$cookieStore.set('quizID', data.quiz_ID);
-						}
+							if($window.localStorage)
+							{
+								$window.localStorage.setItem('quizID', data.quiz_ID);
+							}else
+							{
+								$cookieStore.set('quizID', data.quiz_ID);
+							}
 
-						$scope.quizID = data.quiz_ID;
-						$window.location.href = '#/contribute/1';
+							$scope.quizID = data.quiz_ID;
+							$window.location.href = '#/contribute/1';
 
-					});
-				}
-			});		
+						});
+					}
+				});		
+			}else
+			{
+				//Quiz already existed and therefor just needs to be updated.
+				var resource = $resource('http://codequiz.io/update-quiz/:quizID/:userID/:category/:title/:description');
+				var addData = resource.get({quizID: $scope.quizID, userID: $scope.userID, category: quizObject.category, title: quizObject.title, description: quizObject.description});
+				addData.$promise.then(function(successObject){
+
+					$window.location.href = '#/contribute/1';
+
+				});
+			}
+			
 		}
 	}
 

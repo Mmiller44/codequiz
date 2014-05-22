@@ -49,6 +49,26 @@ class QuizController extends BaseController {
 		return $getAllTypeQuery->get();
 	}
 
+	public function updateQuiz($quizID,$userID,$quizCategory,$quizTitle,$quizDescription)
+	{
+		$quiz = Quizzes::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
+		$existing = $quiz->first();
+		
+		// Setting an if condition to check whether the quiz should be categorised as front or back end based on sub_category.
+		if($quizCategory === 'PHP' || $quizCategory === 'ColdFusion' || $quizCategory === 'Python')
+		{
+			$existing->main_category = 'Back End';
+		}else
+		{
+			$existing->main_category = 'Front End';
+		}
+
+		$existing->title = $quizTitle;
+		$existing->description = $quizDescription;
+		$existing->sub_category = $quizCategory;
+		$existing->save();
+	}
+
 	// This function gets called to add a new quiz to the database.
 	// variables are called through route params.
 	public function addQuiz($quizCategory, $quizTitle, $quizDescription, $userID)

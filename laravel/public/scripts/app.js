@@ -4,7 +4,7 @@
 
 'use strict';
 
-var app = angular.module('codequizApp', [
+angular.module('codequizApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
