@@ -93,6 +93,14 @@ angular.module('codequizApp')
 		$scope.hideContinue = false;
 	}
 
+	if($scope.routeNumber > 1)
+	{
+		$scope.back = true;
+	}else
+	{
+		$scope.back = false;
+	}
+
 	// This function gets called when the continue button is clicked.
 	// It creates the quiz in the DB. And also creates a new row in the Created_quiz Table.
 	$scope.submitQuizInfo = function(quizObject)
