@@ -27,7 +27,7 @@ angular.module('codequizApp')
 		$scope.getQuestions = getQuestions.query({quizID: $scope.quizID});
 		$scope.getQuestions.$promise.then(function(data){
 			var currentNumber = $scope.routeNumber - 1;
-			if($scope.question)
+			if(data[currentNumber])
 			{
 				$scope.question = {
 					a: data[currentNumber].a,
