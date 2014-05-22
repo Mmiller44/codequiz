@@ -161,7 +161,7 @@ angular.module('codequizApp')
 			addingQuiz.$promise.then(function(data) {
 				console.log(data);
 
-				if(data.quiz_ID)
+				if(data.quizID)
 				{
 					// This will add the user and new quiz to the Created_quiz table.
 					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
@@ -171,13 +171,13 @@ angular.module('codequizApp')
 
 						if($window.localStorage)
 						{
-							$window.localStorage.setItem('quizID', data.quiz_ID);
+							$window.localStorage.setItem('quizID', data.quizID);
 						}else
 						{
-							$cookieStore.set('quizID', data.quiz_ID);
+							$cookieStore.set('quizID', data.quizID);
 						}
 
-						$scope.quizID = data.quiz_ID;
+						$scope.quizID = data.quizID;
 						$window.location.href = '#/contribute/1';
 
 					});
