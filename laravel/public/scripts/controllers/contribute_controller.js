@@ -177,7 +177,7 @@ angular.module('codequizApp')
 							$cookieStore.set('quizID', data.quiz_ID);
 						}
 
-						$scope.quizID = data.quizID;
+						$scope.quizID = data.quiz_ID;
 						$window.location.href = '#/contribute/1';
 
 					});
