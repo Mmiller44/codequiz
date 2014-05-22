@@ -210,6 +210,7 @@ angular.module('codequizApp')
 					var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation});
 					QuestionObject.$promise.then(function(data){
 						$scope.routeNumber++;
+						$window.location.href = '#/contribute/' + $scope.routeNumber;
 					});						
 				}else
 				{
@@ -218,6 +219,7 @@ angular.module('codequizApp')
 					QuestionObject.$promise.then(function(data)
 					{
 						$scope.routeNumber++;
+						$window.location.href = '#/contribute/' + $scope.routeNumber;
 					});			
 				}
 
