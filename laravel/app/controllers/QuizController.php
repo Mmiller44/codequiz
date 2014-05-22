@@ -89,7 +89,7 @@ class QuizController extends BaseController {
 		$addQuiz->title = $quizTitle;
 		$addQuiz->description = $quizDescription;
 		$addQuiz->user_ID = $userID;
-		$addQuiz->quiz_ranking = '0';
+		$addQuiz->quiz_ranking = '1';
 		$addQuiz->completed = 'No';
 		$addQuiz->save();
 
