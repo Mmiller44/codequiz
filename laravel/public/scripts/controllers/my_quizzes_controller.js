@@ -101,31 +101,31 @@ angular.module('codequizApp')
 		unpublish.$promise.then(function(success){
 			$scope.quizData = $scope.getQuizzes.query({username: $scope.user});
 			$scope.quizData.$promise.then(function(data){
-			$scope.published = [];
-			$scope.unpublished = [];
-			$scope.noQuizzes = false;
-    		$scope.noPublish =  true;
+				$scope.published = [];
+				$scope.unpublished = [];
+				$scope.noQuizzes = false;
+	    		$scope.noPublish =  true;
 
-			if(data.length > 0)
-			{
-				for(var i = 0;i<data.length;i++)
+				if(data.length > 0)
 				{
-					data[i].quiz_ranking = parseInt(data[i].quiz_ranking);
+					for(var i = 0;i<data.length;i++)
+					{
+						data[i].quiz_ranking = parseInt(data[i].quiz_ranking);
 
-					if(data[i].completed == 'Yes')
-					{
-						$scope.published.push(data[i]);
-						$scope.noPublish = false;
-					}else
-					{
-						$scope.unpublished.push(data[i]);
+						if(data[i].completed == 'Yes')
+						{
+							$scope.published.push(data[i]);
+							$scope.noPublish = false;
+						}else
+						{
+							$scope.unpublished.push(data[i]);
+						}
 					}
+				}else 
+				{
+					$scope.noQuizzes = true;
 				}
-			}else 
-			{
-				$scope.noQuizzes = true;
-			}
-	});
+			});
 		});
 	}	
 
