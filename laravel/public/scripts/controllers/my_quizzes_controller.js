@@ -83,7 +83,7 @@ angular.module('codequizApp')
 			$cookieStore.set('quizID', ID);
 		}
 
-		$window.location.href = '#/contribute/1';
+		$window.location.href = '#/contribute/';
 	}
 
 	// This is used for displaying the proper amount of stars based off the quizzes rating.
