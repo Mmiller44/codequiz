@@ -40,10 +40,9 @@ angular.module('codequizApp')
 
 	// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
 	// the category that was clicked to get to this page, which is also the $routeParam.
-	var getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
-	var quizData = getQuizzes.query({username: $scope.user});
-	quizData.$promise.then(function(data){
-		$scope.newData = data;
+	var $scope.getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
+	var $scope.quizData = $scope.getQuizzes.query({username: $scope.user});
+	$scope.quizData.$promise.then(function(data){
 		$scope.published = [];
 		$scope.unpublished = [];
 
@@ -100,28 +99,31 @@ angular.module('codequizApp')
 		var resource = $resource('http://codequiz.io/unpublish-quiz/:quizID/:completed');
 		var unpublish = resource.get({quizID: quizID, completed: 'No'});
 		unpublish.$promise.then(function(success){
+			var $scope.quizData = $scope.getQuizzes.query({username: $scope.user});
+			$scope.quizData.$promise.then(function(data){
 			$scope.published = [];
 			$scope.unpublished = [];
-			
-			if($scope.newData.length > 0)
-			{
-				for(var i = 0;i<$scope.newData.length;i++)
-				{
-					$scope.newData[i].quiz_ranking = parseInt($scope.newData[i].quiz_ranking);
 
-					if($scope.newData[i].completed == 'Yes')
+			if(data.length > 0)
+			{
+				for(var i = 0;i<data.length;i++)
+				{
+					data[i].quiz_ranking = parseInt(data[i].quiz_ranking);
+
+					if(data[i].completed == 'Yes')
 					{
-						$scope.published.push($scope.newData[i]);
+						$scope.published.push(data[i]);
 						$scope.noPublish = false;
 					}else
 					{
-						$scope.unpublished.push($scope.newData[i]);
+						$scope.unpublished.push(data[i]);
 					}
 				}
 			}else 
 			{
 				$scope.noQuizzes = true;
 			}
+	});
 		});
 	}	
 
