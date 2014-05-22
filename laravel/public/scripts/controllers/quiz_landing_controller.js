@@ -8,11 +8,13 @@ angular.module('codequizApp')
 		$scope.user = $window.localStorage.getItem('username');
 		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
 		$scope.userID = $window.localStorage.getItem('userID');
+    	$window.localStorage.setItem('quizID', '');
 	}else
 	{
 		$scope.user = $cookieStore.get('username');
 		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
-		$scope.userID = $cookieStore.get('userID');
+		$scope.userID = $cookieStore.set('userID');
+    	$cookieStore.set('quizID', '');
 	}
 
     // Setting the images on the accordions to be the plus.png by default.

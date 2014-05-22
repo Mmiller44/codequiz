@@ -32,7 +32,7 @@ angular.module('codequizApp')
 			$scope.quiz = {
 				title: returnedQuiz.title,
 				description: returnedQuiz.description,
-				category: returnedQuiz.category
+				category: returnedQuiz.sub_category
 			}
 		});
 	}

@@ -9,11 +9,13 @@ angular.module('codequizApp')
 		$scope.user = $window.localStorage.getItem('username');
 		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
 		$scope.userID = $window.localStorage.getItem('userID');
+		$window.localStorage.setItem('userID','');
 	}else
 	{
 		$scope.user = $cookieStore.get('username');
 		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 		$scope.userID = $cookieStore.get('userID');
+		$cookieStore.set('quizID', '');
 	}
 
   	$scope.isUser = false;
