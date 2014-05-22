@@ -161,7 +161,7 @@ angular.module('codequizApp')
 			addingQuiz.$promise.then(function(data) {
 				console.log(data);
 
-				if(data.quizID)
+				if(data.quiz_ID)
 				{
 					// This will add the user and new quiz to the Created_quiz table.
 					var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
@@ -171,10 +171,10 @@ angular.module('codequizApp')
 
 						if($window.localStorage)
 						{
-							$window.localStorage.setItem('quizID', data.quizID);
+							$window.localStorage.setItem('quizID', data.quiz_ID);
 						}else
 						{
-							$cookieStore.set('quizID', data.quizID);
+							$cookieStore.set('quizID', data.quiz_ID);
 						}
 
 						$scope.quizID = data.quizID;
@@ -210,7 +210,7 @@ angular.module('codequizApp')
 					var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
 					var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation});
 					QuestionObject.$promise.then(function(data){
-						$window.location.href = '#/contribute/' + $scope.routeNumber;
+
 					});						
 				}else
 				{
@@ -218,7 +218,7 @@ angular.module('codequizApp')
 					var QuestionObject = addQuestion.get({questionID: $scope.questionID,question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation});
 					QuestionObject.$promise.then(function(data)
 					{
-						$window.location.href = '#/contribute/' + $scope.routeNumber;
+
 					});			
 				}
 
