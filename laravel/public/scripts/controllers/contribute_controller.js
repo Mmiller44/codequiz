@@ -23,18 +23,22 @@ angular.module('codequizApp')
 		var getQuestions = $resource('http://codequiz.io/get-questions/:quizID');
 		$scope.getQuestions = getQuestions.query({quizID: $scope.quizID});
 		$scope.getQuestions.$promise.then(function(data){
-				$scope.question = {
-					a: data[$scope.routeNumber].a,
-					b: data[$scope.routeNumber].b,
-					c: data[$scope.routeNumber].c,
-					d: data[$scope.routeNumber].d,
-					correctAnswer: data[$scope.routeNumber].correct_answer,
-					explanation: data[$scope.routeNumber].explanation,
-					question: data[$scope.routeNumber].question
-				}
-
+			$scope.question = {
+				a: data[$scope.routeNumber].a,
+				b: data[$scope.routeNumber].b,
+				c: data[$scope.routeNumber].c,
+				d: data[$scope.routeNumber].d,
+				correctAnswer: data[$scope.routeNumber].correct_answer,
+				explanation: data[$scope.routeNumber].explanation,
+				text: data[$scope.routeNumber].question
+			};
+			
+			$scope.questionID = data[$scope.routeNumber].question_ID;
+			$scope.existingQuestion = true;
 			console.log(data);
-		}, function(error){
+		}, function(error) {
+
+			$scope.existingQuestion = false;
 			console.log('No questions Exist');
 		});
 	}
@@ -152,7 +156,7 @@ angular.module('codequizApp')
 					dataObject.$promise.then(function(data){
 						console.log(data);
 
-						$rootScope.quizID = data.quizID;
+						$scope.quizID = data.quizID;
 						$window.location.href = '#/contribute/1';
 
 					});
@@ -174,7 +178,7 @@ angular.module('codequizApp')
 
 				// Update the table to reflect how many questions they have entered.
 				var createdQuiz = $resource('http://codequiz.io/update-contribute-position/:quizID/:userID/:currentNumber/:completed');
-				var dataObject = createdQuiz.get({quizID: $rootScope.quizID, userID: $scope.userID, currentNumber: $scope.routeNumber, completed: 'No'});
+				var dataObject = createdQuiz.get({quizID: $scope.quizID, userID: $scope.userID, currentNumber: $scope.routeNumber, completed: 'No'});
 				dataObject.$promise.then(function(data){
 					$scope.currentNumber = data.currentNumber;
 				});
@@ -183,14 +187,14 @@ angular.module('codequizApp')
 				{
 					// Now I need to store the actual question.
 					var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
-					var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $rootScope.quizID, quizCategoryID: 1, explanation: question.explanation});
+					var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation});
 					QuestionObject.$promise.then(function(data){
 						$window.location.href = '#/contribute/' + $scope.routeNumber;
 					});						
 				}else
 				{
 					var addQuestion = $resource('http://codequiz.io/update-question/:questionID/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
-					var QuestionObject = addQuestion.get({questionID: question.questionID,question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $rootScope.quizID, quizCategoryID: 1, explanation: question.explanation});
+					var QuestionObject = addQuestion.get({questionID: $scope.questionID,question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation});
 					QuestionObject.$promise.then(function(data)
 					{
 						$window.location.href = '#/contribute/' + $scope.routeNumber;
@@ -207,7 +211,7 @@ angular.module('codequizApp')
 	$scope.publishQuiz = function()
 	{
 		var publishResource = $resource('http://codequiz.io/publish-quiz/:quizID/:completed');
-		var returnedObject = publishResource.get({quizID: $rootScope.quizID, completed: 'Yes'},function(){
+		var returnedObject = publishResource.get({quizID: $scope.quizID, completed: 'Yes'},function(){
 			console.log(returnedObject);
 		});
 	}
