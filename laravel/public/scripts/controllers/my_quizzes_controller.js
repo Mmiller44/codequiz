@@ -40,8 +40,8 @@ angular.module('codequizApp')
 
 	// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
 	// the category that was clicked to get to this page, which is also the $routeParam.
-	var $scope.getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
-	var $scope.quizData = $scope.getQuizzes.query({username: $scope.user});
+	$scope.getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
+	$scope.quizData = $scope.getQuizzes.query({username: $scope.user});
 	$scope.quizData.$promise.then(function(data){
 		$scope.published = [];
 		$scope.unpublished = [];
@@ -99,7 +99,7 @@ angular.module('codequizApp')
 		var resource = $resource('http://codequiz.io/unpublish-quiz/:quizID/:completed');
 		var unpublish = resource.get({quizID: quizID, completed: 'No'});
 		unpublish.$promise.then(function(success){
-			var $scope.quizData = $scope.getQuizzes.query({username: $scope.user});
+			$scope.quizData = $scope.getQuizzes.query({username: $scope.user});
 			$scope.quizData.$promise.then(function(data){
 			$scope.published = [];
 			$scope.unpublished = [];
