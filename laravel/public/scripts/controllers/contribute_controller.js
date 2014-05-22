@@ -24,16 +24,16 @@ angular.module('codequizApp')
 		$scope.getQuestions = getQuestions.query({quizID: $scope.quizID});
 		$scope.getQuestions.$promise.then(function(data){
 			$scope.question = {
-				a: data[$scope.routeNumber].a,
-				b: data[$scope.routeNumber].b,
-				c: data[$scope.routeNumber].c,
-				d: data[$scope.routeNumber].d,
-				correctAnswer: data[$scope.routeNumber].correct_answer,
-				explanation: data[$scope.routeNumber].explanation,
-				text: data[$scope.routeNumber].question
+				a: data[$scope.routeNumber - 1].a,
+				b: data[$scope.routeNumber - ].b,
+				c: data[$scope.routeNumber - 1].c,
+				d: data[$scope.routeNumber - 1].d,
+				correctAnswer: data[$scope.routeNumber - 1].correct_answer,
+				explanation: data[$scope.routeNumber - 1].explanation,
+				text: data[$scope.routeNumber - 1].question
 			};
-			
-			$scope.questionID = data[$scope.routeNumber].question_ID;
+
+			$scope.questionID = data[$scope.routeNumber - 1].question_ID;
 			$scope.existingQuestion = true;
 			console.log(data);
 		}, function(error) {
