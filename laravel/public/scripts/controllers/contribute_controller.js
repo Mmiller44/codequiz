@@ -23,7 +23,14 @@ angular.module('codequizApp')
 		var getQuestions = $resource('http://codequiz.io/get-questions/:quizID');
 		$scope.getQuestions = getQuestions.query({quizID: $scope.quizID});
 		$scope.getQuestions.$promise.then(function(data){
-				$scope.question = {a: data[$scope.routeNumber].a}
+				$scope.question = {
+					a: data[$scope.routeNumber].a,
+					b: data[$scope.routeNumber].b,
+					c: data[$scope.routeNumber].c,
+					d: data[$scope.routeNumber].d,
+					correctAnswer: data[$scope.routeNumber].correctAnswer,
+					}
+			console.log(data);
 		}, function(error){
 			console.log('No questions Exist');
 		});
