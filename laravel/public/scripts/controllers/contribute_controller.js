@@ -192,7 +192,6 @@ angular.module('codequizApp')
 		{
 			if(question.text && question.a && question.b && question.c && question.d && question.correctAnswer)
 			{
-				$scope.routeNumber++;
 				// This is the data the user entered for the question.
 				// It contains: .text, .a, .b, .c, .d, .correctAnswer and explanation;
 				console.log(question);
@@ -210,7 +209,7 @@ angular.module('codequizApp')
 					var addQuestion = $resource('http://codequiz.io/add-question/:question/:a/:b/:c/:d/:correctAnswer/:quizID/:quizCategoryID/:explanation');
 					var QuestionObject = addQuestion.get({question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation});
 					QuestionObject.$promise.then(function(data){
-
+						$scope.routeNumber++;
 					});						
 				}else
 				{
@@ -218,7 +217,7 @@ angular.module('codequizApp')
 					var QuestionObject = addQuestion.get({questionID: $scope.questionID,question: question.text, a: question.a, b: question.b, c: question.c, d: question.d, correctAnswer: question.correctAnswer, quizID: $scope.quizID, quizCategoryID: 1, explanation: question.explanation});
 					QuestionObject.$promise.then(function(data)
 					{
-
+						$scope.routeNumber++;
 					});			
 				}
 
