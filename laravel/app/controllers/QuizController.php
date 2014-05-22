@@ -140,4 +140,16 @@ class QuizController extends BaseController {
 		}
 	}
 
+	public function unpublishQuiz($quizID,$completed)
+	{
+		$getQuiz = Quizzes::where('quiz_ID', '=', $quizID);
+		$quizData = $getQuiz->first();
+
+		if($quizData)
+		{
+			$quizData->completed = $completed;
+			$quizData->save();
+		}
+	}
+
 }

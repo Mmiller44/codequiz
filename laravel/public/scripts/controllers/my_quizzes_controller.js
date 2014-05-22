@@ -91,6 +91,16 @@ angular.module('codequizApp')
 	// This is used for displaying the proper amount of stars based off the quizzes rating.
 	$scope.getNumber = function(num) {
 	    return new Array(num);   
+	}
+
+	$scope.unpublishQuiz = function(quizID)
+	{
+		var resource = $resource('http://codequiz.io/unpublish-quiz/:quizID/:completed');
+		var unpublish = resource.get({quizID: quizID, completed: 'No'});
+		unpublish.$promise.then(function(success){
+				$scope.published = [];
+				$scope.unpublished = [];
+		});
 	}	
 
 }]);

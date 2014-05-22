@@ -20,6 +20,9 @@ Route::get('get-all-by/{username}', 'QuizController@getAllBy');
 // Publish the quiz.
 Route::get('publish-quiz/{quizID}/{completed}', 'QuizController@publishQuiz');
 
+// Unpublish the quiz.
+Route::get('unpublish-quiz/{quizID}/{completed}', 'QuizController@unpublishQuiz');
+
 // Retrieve quiz Info -  Title, description, etc.
 Route::get('get-quiz/{quizID}/{userID}', 'QuizController@getQuiz');
 
