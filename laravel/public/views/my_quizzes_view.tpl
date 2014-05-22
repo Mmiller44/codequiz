@@ -38,7 +38,7 @@
 
         <section class="main-section" id="front_end">
           <!-- content goes here -->
-          <div class="row" ng-hide="noQuizzes">
+          <div class="row" ng-hide="noQuizzes" ng-model="reload">
             <div class="small-6-centered columns">
               <h2 class="section_title" ng-hide="noPublish">Published Quizzes</h2>
               <dl class="accordion front_end_accordion" data-accordion>
