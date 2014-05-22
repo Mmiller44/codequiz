@@ -24,7 +24,7 @@ angular.module('codequizApp')
 	// The input fields get set with the existing data.
 	if($scope.quizID)
 	{	
-		var getQuizInfo = $resource('http://codequiz.io/:quizID/:userID/');
+		var getQuizInfo = $resource('http://codequiz.io/get-quiz/:quizID/:userID/');
 		var quizObject = getQuizInfo.query({quizID: $scope.quizID, userID: $scope.userID});
 		quizObject.$promise.then(function(returnedQuiz){
 			console.log(returnedQuiz);
