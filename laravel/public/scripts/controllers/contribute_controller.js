@@ -171,13 +171,13 @@ angular.module('codequizApp')
 
 						if($window.localStorage)
 						{
-							$window.localStorage.setItem('quizID', data.quizID);
+							$window.localStorage.setItem('quizID', data.quiz_ID);
 						}else
 						{
-							$cookieStore.set('quizID', data.quizID);
+							$cookieStore.set('quizID', data.quiz_ID);
 						}
 
-						$scope.quizID = data.quizID;
+						$scope.quizID = data.quiz_ID;
 						$window.location.href = '#/contribute/1';
 
 					});
