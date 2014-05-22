@@ -43,6 +43,7 @@ angular.module('codequizApp')
 	var getQuizzes = $resource('http://codequiz.io/get-all-by/:username');
 	var quizData = getQuizzes.query({username: $scope.user});
 	quizData.$promise.then(function(data){
+		$scope.newData = data;
 		$scope.published = [];
 		$scope.unpublished = [];
 
@@ -99,7 +100,28 @@ angular.module('codequizApp')
 		var resource = $resource('http://codequiz.io/unpublish-quiz/:quizID/:completed');
 		var unpublish = resource.get({quizID: quizID, completed: 'No'});
 		unpublish.$promise.then(function(success){
-			$scope.reload = 'true';
+			$scope.published = [];
+			$scope.unpublished = [];
+			
+			if($scope.newData.length > 0)
+			{
+				for(var i = 0;i<$scope.newData.length;i++)
+				{
+					$scope.newData[i].quiz_ranking = parseInt($scope.newData[i].quiz_ranking);
+
+					if($scope.newData[i].completed == 'Yes')
+					{
+						$scope.published.push($scope.newData[i]);
+						$scope.noPublish = false;
+					}else
+					{
+						$scope.unpublished.push($scope.newData[i]);
+					}
+				}
+			}else 
+			{
+				$scope.noQuizzes = true;
+			}
 		});
 	}	
 
