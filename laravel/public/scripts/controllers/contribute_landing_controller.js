@@ -25,7 +25,7 @@ angular.module('codequizApp')
 	if($scope.quizID)
 	{	
 		var getQuizInfo = $resource('http://codequiz.io/get-quiz/:quizID/:userID/');
-		var quizObject = getQuizInfo.query({quizID: $scope.quizID, userID: $scope.userID});
+		var quizObject = getQuizInfo.get({quizID: $scope.quizID, userID: $scope.userID});
 		quizObject.$promise.then(function(returnedQuiz){
 			console.log(returnedQuiz);
 			$scope.createText = 'Next';
