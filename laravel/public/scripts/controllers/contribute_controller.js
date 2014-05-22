@@ -43,7 +43,7 @@ angular.module('codequizApp')
 				console.log(data);
 			}else
 			{
-				$sope.existingQuestion = false;
+				$scope.existingQuestion = false;
 			}
 		});
 	}
