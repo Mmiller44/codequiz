@@ -33,7 +33,7 @@ class RatingController extends BaseController {
 		$addNumbers = 0;
 		$averageRating = 0;
 
-		for(var $i=0; $i < $ratingData.length; $i++)
+		for($i=0; $i < $ratingData.length; $i++)
 		{
 			$addNumbers += $ratingData[$i].rating;
 		}
@@ -46,5 +46,5 @@ class RatingController extends BaseController {
 		$quizData->get();
 		$quizData->quiz_ranking = $roundedAverage;
 	}
-	
+
 }
