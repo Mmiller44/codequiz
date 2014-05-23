@@ -32,6 +32,7 @@ class RatingController extends BaseController {
 		$countRating = count($ratingData);
 		$addNumbers = 0;
 		$averageRating = 0;
+		echo $ratingData;
 
 		for($i=0; $i < $countRating; $i++)
 		{
