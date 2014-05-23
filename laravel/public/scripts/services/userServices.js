@@ -81,7 +81,7 @@ angular.module('codequizApp')
 				$window.localStorage.setItem('username', username);
 				$window.localStorage.setItem('name', userObject.dataInfo.name);
 				$window.localStorage.setItem('location', userObject.dataInfo.locale);
-				$window.localStorage.setItem('profileImage', 'images/defaultPerson.jpg');
+				$window.localStorage.setItem('profileImage', encodeURIComponent('images/defaultPerson.jpg'));
 				$window.localStorage.setItem('website', encodeURIComponent(userObject.dataInfo.link));
 
 				if(userObject.dataInfo.name == undefined)
