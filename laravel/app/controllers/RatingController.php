@@ -9,6 +9,9 @@ class RatingController extends BaseController {
 	// This function will handle adding a quiz rating from a user to the database.
 	public function rateQuiz($quizID,$userID,$rating)
 	{
+		// This function searches the Rating table to see if this user has already rated this quiz.
+		// If they have, then it overrides the previous data.
+		// Otherwise, the data is added as a new entry.
 		$data = Rating::where('quiz_ID', '=', $quizID)->where('user_ID', '=', $userID);
 		$existingData = $data->first();
 
@@ -22,9 +25,6 @@ class RatingController extends BaseController {
 		$existingData->rating = $rating;
 		$existingData->save();
 
-		// This function searches the Rating table to see if this user has already rated this quiz.
-		// If they have, then it overrides the previous data.
-		// Otherwise, the data is added as a new entry.
 
 		// Now that a rating has changed, I need to get the average and set the quizzes rating to this average.
 		$ratingData = Rating::where('quiz_ID', '=', $quizID);
@@ -32,20 +32,21 @@ class RatingController extends BaseController {
 		$countRating = count($ratingData);
 		$addNumbers = 0;
 		$averageRating = 0;
-		echo $ratingData;
 
-		for($i=0; $i < $countRating; $i++)
-		{
-			$addNumbers += $ratingData[$i].rating;
-		}
+		return $ratingData;
 
-		$averageRating = ($addNumbers / $countRating);
+		// for($i=0; $i < $countRating; $i++)
+		// {
+		// 	$addNumbers += $ratingData[$i].rating;
+		// }
 
-		$roundedAverage = round($averageRating);
+		// $averageRating = ($addNumbers / $countRating);
 
-		$quizData = Quizzes::where('quiz_ID', '=', $quizID);
-		$quizData->get();
-		$quizData->quiz_ranking = $roundedAverage;
+		// $roundedAverage = round($averageRating);
+
+		// $quizData = Quizzes::where('quiz_ID', '=', $quizID);
+		// $quizData->get();
+		// $quizData->quiz_ranking = $roundedAverage;
 	}
 
 }
