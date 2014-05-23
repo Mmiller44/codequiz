@@ -25,6 +25,26 @@ class RatingController extends BaseController {
 		// This function searches the Rating table to see if this user has already rated this quiz.
 		// If they have, then it overrides the previous data.
 		// Otherwise, the data is added as a new entry.
-	}
 
+		// Now that a rating has changed, I need to get the average and set the quizzes rating to this average.
+		$ratingData = Rating::where('quiz_ID', '=', $quizID);
+		$ratingData->get();
+		$countRating = $ratingData.length;
+		$addNumbers = 0;
+		$averageRating = 0;
+
+		for(var $i=0; $i < $ratingData.length; $i++)
+		{
+			$addNumbers += $ratingData[$i].rating;
+		}
+
+		($addNumbers / $countRating) = $averageRating;
+
+		$roundedAverage = round($averageRating);
+
+		$quizData = Quizzes::where('quiz_ID', '=', $quizID);
+		$quizData->get();
+		$quizData->quiz_ranking = $roundedAverage;
+	}
+	
 }

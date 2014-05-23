@@ -36,6 +36,7 @@ angular.module('codequizApp')
     addNewRating.$promise.then(function(){
       // Rating was successfully added to the DB.
       // Now the quiz ranking needs to be changed / updated.
+      
 
 
     });
