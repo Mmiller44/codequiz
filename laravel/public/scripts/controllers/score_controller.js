@@ -8,13 +8,13 @@ angular.module('codequizApp')
     $scope.user = $window.localStorage.getItem('username');
     $scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
     $scope.userID = $window.localStorage.getItem('userID');
-    $scope.quizID = $window.localStorage.getItem('quizID');
+    $window.localStorage.setItem('quizID', '');
   }else
   {
     $scope.user = $cookieStore.get('username');
     $scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
     $scope.userID = $cookieStore.get('userID');
-    $scope.quizID = $cookieStore.get('quizID');
+    $cookieStore.set('quizID', '');
   }
 
 	$scope.duration = 1;
@@ -30,13 +30,13 @@ angular.module('codequizApp')
 
   $scope.addRating = function(rating)
   {
-      
+
     var resource = rateQuiz;
-    var addNewRating = resource.get({quizID: $scope.quizID,userID: $scope.userID,rating: rating,});
+    var addNewRating = resource.get({quizID: $rootScope.quizID,userID: $scope.userID,rating: rating,});
     addNewRating.$promise.then(function(){
       // Rating was successfully added to the DB.
       // Now the quiz ranking needs to be changed / updated.
-      
+
 
     });
 

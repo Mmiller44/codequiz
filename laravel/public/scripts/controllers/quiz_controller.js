@@ -98,6 +98,7 @@ angular.module('codequizApp')
         if(newNumber + 1 == $scope.questions.length)
         {
             $scope.completed = 'yes';
+            $rootScope.quizID = $scope.questions[0].quiz_ID;
             $window.location.href = '#/score';
         }else
         {
