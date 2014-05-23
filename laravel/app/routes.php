@@ -103,4 +103,9 @@ Route::get('get-contribute-position/{quizID}/{userID}', 'QuizController@getContr
 Route::get('report-question/{questionID}/{userID}/{reasonOne}/{reasonTwo}/{reasonThree}/{reasonFour}', 'ReportController@addReport');
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Rate Quiz
+// Add a rating
+Route::get('rate-quiz/{quizID}/{userID}/{rating}', 'RatingController@rateQuiz');
+
 
