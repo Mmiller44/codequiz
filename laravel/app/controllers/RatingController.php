@@ -28,25 +28,23 @@ class RatingController extends BaseController {
 
 		// Now that a rating has changed, I need to get the average and set the quizzes rating to this average.
 		$ratingData = Rating::where('quiz_ID', '=', $quizID);
-		$ratingData->get();
+		$data = $ratingData->get();
 		$countRating = count($ratingData);
 		$addNumbers = 0;
 		$averageRating = 0;
 
-		return (string)$ratingData;
+		for($i=0; $i < $countRating; $i++)
+		{
+			$addNumbers += $data[$i].rating;
+		}
 
-		// for($i=0; $i < $countRating; $i++)
-		// {
-		// 	$addNumbers += $ratingData[$i].rating;
-		// }
+		$averageRating = ($addNumbers / $countRating);
 
-		// $averageRating = ($addNumbers / $countRating);
+		$roundedAverage = round($averageRating);
 
-		// $roundedAverage = round($averageRating);
-
-		// $quizData = Quizzes::where('quiz_ID', '=', $quizID);
-		// $quizData->get();
-		// $quizData->quiz_ranking = $roundedAverage;
+		$quizData = Quizzes::where('quiz_ID', '=', $quizID);
+		$quizData->get();
+		$quizData->quiz_ranking = $roundedAverage;
 	}
 
 }
