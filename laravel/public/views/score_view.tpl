@@ -67,7 +67,7 @@
                   <input type="radio" name="report_question" ng-model="rating" value="2"><mark class="report">Could be better.</mark><br>
                   <input type="radio" name="report_question" ng-model="rating" value="1"><mark class="report">Not worth my time.</mark><br>
                 </form>
-                <input type="submit" class="button report_button close-reveal-modal" value="Submit Rating" ng-click="addRating(rating)">
+                <input type="submit" class="button close-reveal-modal" value="Submit Rating" ng-click="addRating(rating)">
               </div>
 
             </div><!-- /columns -->
