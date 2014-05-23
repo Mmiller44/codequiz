@@ -30,16 +30,15 @@ angular.module('codequizApp')
 
   $scope.addRating = function(rating)
   {
-    console.log(rating);
-    
-    // var resource = rateQuiz;
-    // var addNewRating = resource.get({quizID: $scope.quizID,userID: $scope.userID,rating: rating,});
-    // addNewRating.$promise.then(function(){
-    //   // Rating was successfully added to the DB.
-    //   // Now the quiz ranking needs to be changed / updated.
+      
+    var resource = rateQuiz;
+    var addNewRating = resource.get({quizID: $scope.quizID,userID: $scope.userID,rating: rating,});
+    addNewRating.$promise.then(function(){
+      // Rating was successfully added to the DB.
+      // Now the quiz ranking needs to be changed / updated.
+      
 
-
-    // });
+    });
 
   }
 
