@@ -44,7 +44,7 @@
               <h2 class="section_title">All Quizzes by {{searchUser}}</strong></h2>
               <dl class="accordion front_end_accordion" data-accordion>
                 <dd class="no_hover" ng-repeat="quizzes in published">
-                  <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img src="{{imageSrc}}" width="20" height="20"></mark></a>
+                  <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="plus"><img ng-src="{{imageSrc}}" width="20" height="20"></mark></a>
                   <div id="panel{{quizzes.quiz_ID}}" class="content">
                     <p>{{quizzes.description}}</p>
                     <h3 class="star">Rating:<img ng-repeat="rating in getNumber(quizzes.quiz_ranking) track by $index" src="images/star.png" width="20" height="20"></h3>
