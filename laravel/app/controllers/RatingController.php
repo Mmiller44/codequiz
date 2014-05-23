@@ -42,7 +42,7 @@ class RatingController extends BaseController {
 
 		$roundedAverage = round($averageRating);
 
-		return $roundedAverage;
+		return $addNumbers;
 		// $quizData = Quizzes::where('quiz_ID', '=', $quizID)->first();
 		// $quizData->quiz_ranking = 3;
 		// $quizData->save();
