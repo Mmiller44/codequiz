@@ -62,12 +62,12 @@
                 <a class="close-reveal-modal">&#215;</a>
                 <p>Please select how you would rate this quiz.</p>
                 <form class="flag_form" action="">
-                  <input type="radio" name="report_question" value="1"><mark class="report">I loved it!</mark><br>
-                  <input type="radio" name="report_question" value="2"><mark class="report">It was pretty good.</mark><br>
-                  <input type="radio" name="report_question" value="3"><mark class="report">Could be better.</mark><br>
-                  <input type="radio" name="report_question" value="4"><mark class="report">Not worth my time.</mark><br>
+                  <input type="radio" name="report_question" ng-model="rating" value="4"><mark class="report">I loved it!</mark><br>
+                  <input type="radio" name="report_question" ng-model="rating" value="3"><mark class="report">It was pretty good.</mark><br>
+                  <input type="radio" name="report_question" ng-model="rating" value="2"><mark class="report">Could be better.</mark><br>
+                  <input type="radio" name="report_question" ng-model="rating" value="1"><mark class="report">Not worth my time.</mark><br>
                 </form>
-                <input type="submit" class="button report_button" value="Submit Rating">
+                <input type="submit" class="button report_button" value="Submit Rating" ng-click="addRating(rating)">
               </div>
 
             </div><!-- /columns -->

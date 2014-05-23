@@ -22,8 +22,6 @@ angular.module('codequizApp')
 }])
 
 
-
-
 // This handles getting all the questions for the quiz the user clicked on.
   .factory('getQuestions',['$resource','$rootScope','$routeParams',function($resource,$rootScope,$routeParams){
 	// Establishing the $resource connection.
@@ -54,6 +52,12 @@ angular.module('codequizApp')
 		// API call to add a quiz to Quizzes table.
 		var answerAPI = $resource('http://codequiz.io/store-answer/:userID/:userQuizID/:questionID/:userAnswer/:correct/:score', {});
 		return answerAPI;
+}])
+
+	.factory('rateQuiz',['$resource',function($resource){
+
+		return $resource('http://codequiz.io/rate-quiz/:quizID/:userID/:rating');
+
 }]);
 
 
