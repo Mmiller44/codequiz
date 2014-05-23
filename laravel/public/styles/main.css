@@ -497,7 +497,7 @@ span.answer_d {
 }
 
 .button.delete {
-	background-color: #ea2929;
+	background-color: #E95353;
 	color: #f3f3f3;
 	text-align: center;
 	font-weight: bold;
@@ -508,7 +508,7 @@ span.answer_d {
 }
 
 .delete:hover {
-	background-color: #d32323;
+	background-color: #E95353;
 }
 
 .delete img{
