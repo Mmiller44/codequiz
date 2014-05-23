@@ -33,19 +33,18 @@ class RatingController extends BaseController {
 		$addNumbers = 0;
 		$averageRating = 0;
 
-		return $data;
-		// for($i=0; $i < $countRating; $i++)
-		// {
-		// 	$addNumbers += $data[$i].rating;
-		// }
+		for($i=0; $i < $countRating; $i++)
+		{
+			$addNumbers += $data[$i]->rating;
+		}
 
-		// $averageRating = ($addNumbers / $countRating);
+		$averageRating = ($addNumbers / $countRating);
 
-		// $roundedAverage = round($averageRating);
+		$roundedAverage = round($averageRating);
 
-		// $quizData = Quizzes::where('quiz_ID', '=', $quizID);
-		// $quizData->get();
-		// $quizData->quiz_ranking = $roundedAverage;
+		$quizData = Quizzes::where('quiz_ID', '=', $quizID);
+		$quizData->get();
+		$quizData->quiz_ranking = $roundedAverage;
 	}
 
 }
