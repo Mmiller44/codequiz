@@ -38,7 +38,7 @@ class RatingController extends BaseController {
 			$addNumbers += $ratingData[$i].rating;
 		}
 
-		($addNumbers / $countRating) = $averageRating;
+		$averageRating = ($addNumbers / $countRating);
 
 		$roundedAverage = round($averageRating);
 
