@@ -12,7 +12,7 @@ Route::get('get-specific-category/{main_category}', 'QuizController@getSpecificQ
 Route::get('get-sub-category/{sub_category}', 'QuizController@getQuizSubCategory');
 
 // Gets all quizzes that are in the same sub_category.
-Route::get('get-type-of/{sub_category}', 'QuizController@getQuizType');
+Route::get('get-type-of/{sub_category}/', 'QuizController@getQuizType');
 
 // Get all quizzes created by a certain user.
 Route::get('get-all-by/{username}', 'QuizController@getAllBy');
