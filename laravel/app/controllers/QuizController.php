@@ -46,7 +46,7 @@ class QuizController extends BaseController {
 	{
 		$getAllTypeQuery = Quizzes::where('sub_category', '=', $category)
 		->join('Users', 'Quizzes.user_ID', '=', 'Users.user_ID')
-		->join('UserQuiz', 'Quizzes.user_ID', '=', 'UserQuiz.user_ID');
+		->join('User_quiz', 'Quizzes.user_ID', '=', 'User_quiz.user_ID');
 		return $getAllTypeQuery->get();
 	}
 
