@@ -25,23 +25,23 @@ angular.module('codequizApp')
   	$scope.published = [];
 
     // Setting the images on the accordions to be the plus.png by default.
-    $scope.imageSrc = 'images/plus.png';
+    $scope.imageSrc = 'images/arrow.png';
 
-	// Setting a function that will swap out the image of ONLY the clicked accordion.
-	$scope.toggleImage = function(){
-		
-		this.toggle;
+    	// Setting a function that will swap out the image of ONLY the clicked accordion.
+		$scope.toggleImage = function(){
+			
+			this.toggle;
 
-		if(this.toggle)
-		{
-			this.imageSrc = 'images/plus.png';
-			this.toggle = !this.toggle;
-		}else
-		{
-			this.imageSrc = 'images/minus.png';
-			this.toggle = !this.toggle;
-		}
-	};
+			if(this.toggle)
+			{
+				this.imageSrc = 'images/arrow.png';
+				this.toggle = !this.toggle;
+			}else
+			{
+				this.imageSrc = 'images/minus.png';
+				this.toggle = !this.toggle;
+			}
+		};
 
 	$scope.setQuizID = function(ID) {
 		$rootScope.quizID = ID;

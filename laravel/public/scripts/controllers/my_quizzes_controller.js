@@ -17,26 +17,27 @@ angular.module('codequizApp')
 		$cookieStore.set('quizID', '');
 	}
 
-    // Setting the images on the accordions to be the plus.png by default.
-    $scope.imageSrc = 'images/plus.png';
     $scope.noQuizzes = false;
     $scope.noPublish =  true;
 
-	// Setting a function that will swap out the image of ONLY the clicked accordion.
-	$scope.toggleImage = function(){
-		
-		this.toggle;
+    // Setting the images on the accordions to be the plus.png by default.
+    $scope.imageSrc = 'images/arrow.png';
 
-		if(this.toggle)
-		{
-			this.imageSrc = 'images/plus.png';
-			this.toggle = !this.toggle;
-		}else
-		{
-			this.imageSrc = 'images/minus.png';
-			this.toggle = !this.toggle;
-		}
-	};
+    	// Setting a function that will swap out the image of ONLY the clicked accordion.
+		$scope.toggleImage = function(){
+			
+			this.toggle;
+
+			if(this.toggle)
+			{
+				this.imageSrc = 'images/arrow.png';
+				this.toggle = !this.toggle;
+			}else
+			{
+				this.imageSrc = 'images/minus.png';
+				this.toggle = !this.toggle;
+			}
+		};
 
 	// This will use the $rootScope.title variable to make a resource call for all quizzes labeled under
 	// the category that was clicked to get to this page, which is also the $routeParam.
