@@ -191,6 +191,12 @@ span[class^='hljs'] {
 	white-space: pre-wrap;
 }
 
+code[class^='hljs'] {
+	width: 500px;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
 #questionContainer {
 	padding-left: 10px;
 	background-color: #282B2E;
