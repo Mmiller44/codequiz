@@ -48,7 +48,7 @@ angular.module('codequizApp')
 			console.log(data);
 			$scope.questionInfo = [];
 
-			for(var i=0; i<=data.length;i++)
+			for(var i=0; i<data.length;i++)
 			{
 				if(data[i].correct === 'no')
 				{
