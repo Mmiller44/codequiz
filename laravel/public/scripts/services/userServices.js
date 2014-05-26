@@ -125,16 +125,13 @@ angular.module('codequizApp')
 				}
 
 				$window.location.href = '#/home';
-				return true;
+
 			},function(error){
 
     			$window.location.href = '#/home';
-    			return true;
     			
   			});
-    }, function(error){
-		return false;
-	});
+    });
 }])
 
 
@@ -203,7 +200,7 @@ angular.module('codequizApp')
   			$window.location.href = '#/home';
 
 	}, function(error){
-		$window.location.href="#/";
+		$window.location.href="#/home";
 	});
 
 }]);

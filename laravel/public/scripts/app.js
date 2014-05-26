@@ -22,62 +22,43 @@ angular.module('codequizApp', [
       })
       .when('/home', {
         templateUrl: 'views/home.tpl',
-        controller: 'HomeCtrl',
-        logginRequired: true
+        controller: 'HomeCtrl'
       })
       .when('/quiz_landing/:sub_category', {
         templateUrl: 'views/quiz_landing_view.tpl',
-        controller: 'quiz_landing_controller',
-        logginRequired: true
+        controller: 'quiz_landing_controller'
       })
       .when('/quiz/:quizID/', {
         templateUrl: 'views/quiz_view.tpl',
-        controller: 'quiz_controller',
-        logginRequired: true
+        controller: 'quiz_controller'
       })
       .when('/score', {
         templateUrl: 'views/score_view.tpl',
-        controller: 'score_controller',
-        logginRequired: true
+        controller: 'score_controller'
       })
       .when('/contribute', {
         templateUrl: 'views/contribute_landing_view.tpl',
-        controller: 'contribute_landing_controller',
-        logginRequired: true
+        controller: 'contribute_landing_controller'
       })
       .when('/contribute/:number', {
         templateUrl: 'views/contribute_view.tpl',
-        controller: 'contribute_controller',
-        logginRequired: true
+        controller: 'contribute_controller'
       })
       .when('/quizzes/:username', {
         templateUrl: 'views/user_quizzes_view.tpl',
-        controller: 'user_quizzes_controller',
-        logginRequired: true
+        controller: 'user_quizzes_controller'
       })
       .when('/myQuizzes', {
         templateUrl: 'views/my_quizzes_view.tpl',
-        controller: 'my_quizzes_controller',
-        logginRequired: true
+        controller: 'my_quizzes_controller'
       })
       .when('/answers', {
         templateUrl: 'views/answers_view.tpl',
-        controller: 'answers_controller',
-        logginRequired: true
+        controller: 'answers_controller'
       })
       .otherwise({
         redirectTo: '/'
       });
 
-
-$rootScope.$on('$routeChangeStart',['getFacebook' ,function (event, next, getFacebook) {
-
-    var userAuthenticated = getFacebook; /* Check if the user is logged in */
-
-    if (!userAuthenticated && !next.logginRequired) {
-        $rootScope.savedLocation = $location.url();
-        $location.path('#/');
-    }
-}]);
 
   });
