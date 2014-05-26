@@ -15,7 +15,7 @@ angular.module('codequizApp')
 }])
 
 // FINDUSER based on provider_ID
-  .factory('findUser',['$resource','$cookieStore','$window',function($resource,$cookieStore,$window){
+  .factory('findUser',['$resource','$cookieStore','$window','$scope',function($resource,$cookieStore,$window,$scope){
 
 	if($window.localStorage)
 	{
