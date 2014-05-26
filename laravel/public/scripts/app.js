@@ -74,7 +74,7 @@ $rootScope.$on('$routeChangeStart',['getFacebook' ,function (event, next, getFac
 
     var userAuthenticated = getFacebook; /* Check if the user is logged in */
 
-    if (!userAuthenticated && !next.isLogin) {
+    if (!userAuthenticated && !next.logginRequired) {
         $rootScope.savedLocation = $location.url();
         $location.path('#/');
     }
