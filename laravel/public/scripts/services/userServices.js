@@ -2,6 +2,18 @@
 
 angular.module('codequizApp')
 
+// GET ALL USERS
+  .factory('getAllUsers',['$resource','$rootScope',function($resource,$rootScope){
+
+	var Users = $resource('http://codequiz.io/get-all-users/');
+
+	// Variable object to hold all the results returned.
+	var objectOne = Users.query({}, function() {
+			console.log(objectOne);
+		});
+
+}])
+
 // FINDUSER based on provider_ID
   .factory('findUser',['$resource','$cookieStore','$window',function($resource,$cookieStore,$window){
 
@@ -23,27 +35,30 @@ angular.module('codequizApp')
 		var profileImage = $cookieStore.get('profileImage');
 	}
 
-		// Making an api call to add or update a user to my database. Data gets returned back.
-		var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
+	if(!name)
+	{
+		$window.location.href = '#/';
+	}
 
-		// userObject holds all returned results
-		var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
-			
-			if(userObject)
+	// Making an api call to add or update a user to my database. Data gets returned back.
+	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
+
+	// userObject holds all returned results
+	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
+		
+		if(userObject)
+		{
+			if($window.localStorage)
 			{
-				if($window.localStorage)
-				{
-					$window.localStorage.setItem('userID', userObject.user_ID);
-				}else
-				{
-					$cookieStore.put('userID', userObject.user_ID);
-				}
-
+				$window.localStorage.setItem('userID', userObject.user_ID);
+			}else
+			{
+				$cookieStore.put('userID', userObject.user_ID);
 			}
 
-		},function(error){
-			$window.$location = '#/';
-		});
+		}
+
+	});
 
 }])
 
@@ -187,8 +202,6 @@ angular.module('codequizApp')
 
   			$window.location.href = '#/home';
 
-	}, function(error){
-		$window.location.href="#/home";
 	});
 
 }]);
