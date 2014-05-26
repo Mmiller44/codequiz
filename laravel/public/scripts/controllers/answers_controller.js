@@ -20,7 +20,7 @@ angular.module('codequizApp')
 
 	if(!$scope.userQuizID)
 	{
-		$window.$location = '#/home';
+		$window.location.href = '#/home';
 	}
 
     // Setting the images on the accordions to be the plus.png by default.

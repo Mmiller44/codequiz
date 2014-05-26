@@ -202,6 +202,8 @@ angular.module('codequizApp')
 
   			$window.location.href = '#/home';
 
+	},function(error){
+		console.log('IT FAILED!');
 	});
 
 }]);
