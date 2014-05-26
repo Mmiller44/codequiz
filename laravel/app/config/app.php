@@ -172,8 +172,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Social'          => 'Codesleeve\Social\Social',		
-
+		'Social'          => 'Codesleeve\Social\Social',
 	),
 
 );

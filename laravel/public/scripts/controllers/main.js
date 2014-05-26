@@ -49,9 +49,7 @@ angular.module('codequizApp')
 		var returnedObject = twitter.get(function(){
 
 			$window.location.href=returnedObject.login;
-
-			console.log('callback function for twitter ran.');
-
+			
 		});
 	};
 
