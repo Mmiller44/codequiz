@@ -17,6 +17,14 @@ angular.module('codequizApp')
     	$cookieStore.set('quizID', '');
 	}
 
+	if(!$scope.user)
+	{
+		$scope.loggedIn = false;
+	}else
+	{
+		$scope.loggedIn = true;
+	}
+
     // Setting the images on the accordions to be the plus.png by default.
     $scope.imageSrc = 'images/arrow.png';
 

@@ -49,14 +49,24 @@
                     <p>{{quizzes.description}}</p>
                     <h3 class="star">Rating:<img ng-repeat="rank in getNumber(quizzes.quiz_ranking) track by $index" src="images/star.png" width="20" height="20"></h3>
                     <h4>By <a href="#/quizzes/{{quizzes.username}}" class="usernameLink">{{quizzes.username}}</a></h4>
-                    <a ng-href="#/quiz/{{quizzes.quiz_ID}}/" ng-click='setQuizID(quizzes.quiz_ID)' class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
+                    <a ng-href="" ng-hide="loggedIn" class="button front_start" data-reveal-id="logIn">Start Quiz<img src="images/play.png" width="30" height="30"></a>
+                    <a ng-href="#/quiz/{{quizzes.quiz_ID}}/" ng-hide="!loggedIn" ng-click='setQuizID(quizzes.quiz_ID)' class="button front_start">Start Quiz<img src="images/play.png" width="30" height="30"></a>
                   </div>
                 </dd>
-
-
               </dl>
             </div>
           </div>
+
+
+          <div id="Login" class="reveal-modal small" data-reveal>
+            <h3 class="flag_header">Whoops!</h3>
+            <a class="close-reveal-modal">&#215;</a>
+            <p>You must log in to continue.</p>
+            <a href="" ng-click="facebookLogin()" class="button facebook close-reveal-modal" id="homeButton"><img src="images/fb_logo.png" width="35" height="35">Facebook Login</a>
+
+            <a href="" ng-click="twitterLogin()" class="button twitter text-center close-reveal-modal"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
+          </div> <!-- /log In modal -->
+
         </section>
 
       <a class="exit-off-canvas"></a>
