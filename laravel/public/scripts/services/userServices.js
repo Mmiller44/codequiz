@@ -19,6 +19,7 @@ angular.module('codequizApp')
 
 	if($window.localStorage)
 	{
+		$scope.user = $window.localStorage.getItem('name');
 		var providerID = $window.localStorage.getItem('providerID');
 		var username = $window.localStorage.getItem('username');
 		var name = $window.localStorage.getItem('name');
@@ -27,6 +28,7 @@ angular.module('codequizApp')
 		var profileImage = $window.localStorage.getItem('profileImage');
 	}else
 	{
+		$scope.user = $cookieStore.get('name');
 		var providerID = $cookieStore.get('providerID');
 		var username = $cookieStore.get('username');
 		var name = $cookieStore.get('name');
@@ -35,30 +37,31 @@ angular.module('codequizApp')
 		var profileImage = $cookieStore.get('profileImage');
 	}
 
-	if(!name)
+	if(!$scope.user)
 	{
 		$window.location.href = '#/';
-	}
+	}else
+	{
+		// Making an api call to add or update a user to my database. Data gets returned back.
+		var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
-	// Making an api call to add or update a user to my database. Data gets returned back.
-	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
+		// userObject holds all returned results
+		var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
+			
+			if(userObject)
+			{
+				if($window.localStorage)
+				{
+					$window.localStorage.setItem('userID', userObject.user_ID);
+				}else
+				{
+					$cookieStore.put('userID', userObject.user_ID);
+				}
 
-	// userObject holds all returned results
-	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
-		
-		if(userObject)
-		{
-			if($window.localStorage)
-			{
-				$window.localStorage.setItem('userID', userObject.user_ID);
-			}else
-			{
-				$cookieStore.put('userID', userObject.user_ID);
 			}
 
-		}
-
-	});
+		});
+	}
 
 }])
 
