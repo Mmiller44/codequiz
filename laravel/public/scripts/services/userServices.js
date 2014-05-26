@@ -20,6 +20,12 @@ angular.module('codequizApp')
 	if($window.localStorage)
 	{
 		$scope.user = $window.localStorage.getItem('name');
+
+		if(!$scope.user)
+		{
+			$window.location.href = '#/';
+		}
+
 		var providerID = $window.localStorage.getItem('providerID');
 		var username = $window.localStorage.getItem('username');
 		var name = $window.localStorage.getItem('name');
@@ -29,6 +35,12 @@ angular.module('codequizApp')
 	}else
 	{
 		$scope.user = $cookieStore.get('name');
+
+		if(!$scope.user)
+		{
+			$window.location.href = '#/';
+		}
+
 		var providerID = $cookieStore.get('providerID');
 		var username = $cookieStore.get('username');
 		var name = $cookieStore.get('name');
@@ -37,11 +49,6 @@ angular.module('codequizApp')
 		var profileImage = $cookieStore.get('profileImage');
 	}
 
-	if(!$scope.user)
-	{
-		$window.location.href = '#/';
-	}else
-	{
 		// Making an api call to add or update a user to my database. Data gets returned back.
 		var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
@@ -61,7 +68,6 @@ angular.module('codequizApp')
 			}
 
 		});
-	}
 
 }])
 
