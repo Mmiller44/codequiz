@@ -55,6 +55,7 @@ angular.module('codequizApp')
 					data[i].question_ID = i + 1;
 					$scope.questionInfo.push(data[i]);
 				}
+				console.log(i);
 			}
 	});
 
