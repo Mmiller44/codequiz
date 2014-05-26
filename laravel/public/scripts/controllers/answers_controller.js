@@ -39,6 +39,7 @@ angular.module('codequizApp')
 	var getMissed = allMissed.query({quizID: $rootScope.quizID, userID: $scope.userID});
 	getMissed.$promise.then(function(data){
 			console.log(data);
+			$scope.questionInfo = data;
 	});
 
 }]);

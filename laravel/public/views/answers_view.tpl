@@ -42,11 +42,13 @@
             <div class="small-6-centered columns">
               <h2 class="section_title">Missed Questions</strong></h2>
               <dl class="accordion front_end_accordion" data-accordion>
-                <dd class="no_hover">
-                  <a ng-href="#panel{{quizzes.quiz_ID}}" target="_self" ng-click="toggleImage()">{{quizzes.title}} <mark class="arrow"><img ng-src="{{imageSrc}}"></mark></a>
-                  <div id="panel{{quizzes.quiz_ID}}" class="content">
-                    <p>Put question here</p>
-                    <p>Put explanation here.</p>
+                <dd class="no_hover" ng-repeat="question in questionInfo">
+                  <a ng-href="#panel{{question.question_ID}}" target="_self" ng-click="toggleImage()">Question #{{question}}<mark class="arrow"><img ng-src="{{imageSrc}}"></mark></a>
+                  <div id="panel{{question.question_ID}}" class="content">
+                    <p>
+                      <code class="question" language="javascript" hljs source="question.question"></code>
+                    </p>
+                    <p ng-bind='question.explanation'></p>
                   </div>
                 </dd>
               </dl>            
