@@ -42,10 +42,10 @@ class AnswersController extends BaseController {
 
 	public function getMissed($quizID,$userID)
 	{
-		$missedQuestions = Questions::where('quiz_ID', '=', $quizID);
-		$answers = QuizAnswers::where('user_ID', '=', $userID);
+		$missedQuestions = Questions::where('quiz_ID', '=', $quizID)->get();
+		$answers = QuizAnswers::where('user_ID', '=', $userID)->get();
 
-		$obj = $missedQuestions->join($answers, $missedQuestions->question_ID, '=', $answers->question_ID);
+		$obj = $missedQuestions->join('Quiz_answers', $missedQuestions->question_ID, '=', $answers->question_ID);
 		return $obj->get();
 	}
 
