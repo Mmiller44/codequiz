@@ -2,18 +2,6 @@
 
 angular.module('codequizApp')
 
-// GET ALL USERS
-  .factory('getAllUsers',['$resource','$rootScope',function($resource,$rootScope){
-
-	var Users = $resource('http://codequiz.io/get-all-users/');
-
-	// Variable object to hold all the results returned.
-	var objectOne = Users.query({}, function() {
-			console.log(objectOne);
-		});
-
-}])
-
 // FINDUSER based on provider_ID
   .factory('findUser',['$resource','$cookieStore','$window',function($resource,$cookieStore,$window){
 
@@ -54,7 +42,7 @@ angular.module('codequizApp')
 			}
 
 		},function(error){
-			$window.location.href = '#/';
+			$window.$location = '#/';
 		});
 
 }])
