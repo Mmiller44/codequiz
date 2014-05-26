@@ -42,6 +42,9 @@ class AnswersController extends BaseController {
 
 	public function getMissed($quizID,$userID)
 	{
+		// This will get all questions from Questions table with the specified quiz_ID.
+		// Join them to all the quiz_Answers where question_ID's match.
+		// But only where the user_ID is the same as the one passed in.
 		$missedQuestions = Questions::where('quiz_ID', '=', $quizID)
 		->join('Quiz_answers', 'Questions.question_ID', '=', 'Quiz_answers.question_ID')
 		->where('user_ID', '=', $userID);
