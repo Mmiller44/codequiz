@@ -98,7 +98,13 @@
       <textarea ng-model="input.custom" name="input4"></textarea>
     </form>
     
-    <a ng-href="" id="reportButton" class="button close-reveal-modal" ng-click="submitReport(input)">Send Report</a>
+    <a ng-href="" id="reportButton" class="button close-reveal-modal" ng-click="submitReport(input)" data-reveal-id="ThankYou">Send Report</a>
+
+    <div id="ThankYou" class="reveal-modal small" data-reveal>
+      <h3 class="flag_header">Saved!</h3>
+      <a class="close-reveal-modal">&#215;</a>
+      <p>Thank you for letting us know about this question. We will be looking into this further.</p>
+    </div> <!-- /ThankYou modal -->
 
   </div>
 <script>

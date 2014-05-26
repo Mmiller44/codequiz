@@ -74,7 +74,6 @@
                 <h3 class="flag_header">Saved!</h3>
                 <a class="close-reveal-modal">&#215;</a>
                 <p>Thank you for rating the quiz!</p>
-                <button class="button close-reveal-modal">Close</button>
               </div> <!-- /ThankYou modal -->
             </div><!-- /columns -->
 
