@@ -56,8 +56,10 @@ class AnswersController extends BaseController {
 		{
 			if($obj[$i]->correct === 'no')
 			{
+				$newArray = array();
+				$newArray['question'] = $obj[$i]->question;
 				$obj[$i]->question_ID = $i;
-				$wrongArray[] = array($i => $obj[$i]);
+				$wrongArray[] = $newArray;
 			}
 		}
 
