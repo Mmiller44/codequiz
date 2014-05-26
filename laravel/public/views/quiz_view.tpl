@@ -89,7 +89,6 @@
     <a class="close-reveal-modal">&#215;</a>
     <p>Please select the options below that best relate to why you are flagging this question.</p>
    
-
     <form class="flag_form" novalidate>
       <input type="checkbox" ng-model="input.radio1" name="input1" value="No correct Answer is given"><mark class="report">No correct answer is given.</mark><br>
       <input type="checkbox" ng-model="input.radio2" name="input2" value="Question is worded wrong"><mark class="report">Question is worded wrong.</mark><br>

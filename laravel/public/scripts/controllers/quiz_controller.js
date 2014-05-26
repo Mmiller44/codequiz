@@ -135,6 +135,10 @@ angular.module('codequizApp')
         {
             reason3 = 'Not fit for this category.';
         }
+        if(!$scope.reportData.custom)
+        {
+            $scope.reportData.custom = "Null";
+        }
 
         var reportResource = $resource('http://codequiz.io/report-question/:questionID/:userID/:reasonOne/:reasonTwo/:reasonThree/:reasonFour');
         var data = reportResource.get({questionID: questionID, userID: $scope.userID, reasonOne: reason1, reasonTwo: reason2, reasonThree: reason3, reasonFour: $scope.reportData.custom}, function(){
