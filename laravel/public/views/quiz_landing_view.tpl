@@ -58,7 +58,7 @@
           </div>
 
 
-          <div id="Login" class="reveal-modal small" data-reveal>
+          <div id="logIn" class="reveal-modal small" data-reveal>
             <h3 class="flag_header">Whoops!</h3>
             <a class="close-reveal-modal">&#215;</a>
             <p>You must log in to continue.</p>
