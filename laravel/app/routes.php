@@ -63,6 +63,8 @@ Route::get('get-facebook-user/', 'UsersController@getFacebookUser');
 // This route saves the users answer along with their id, the quizID, questionID and if they were right.
 Route::get('store-answer/{userID}/{userQuizID}/{questionID}/{userAnswer}/{correct}', 'AnswersController@saveAnswer');
 
+// Get all Missed questions + answers.
+Route::get('get-missed-questions/{quizID}/{userID}', 'AnswersController@getMissed');
 
 
 
