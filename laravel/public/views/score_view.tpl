@@ -62,14 +62,20 @@
                 <a class="close-reveal-modal">&#215;</a>
                 <p>Please select how you would rate this quiz.</p>
                 <form class="flag_form" action="">
-                  <input type="radio" name="report_question" ng-model="rating" value="4"><mark class="report">I loved it!</mark><br>
-                  <input type="radio" name="report_question" ng-model="rating" value="3"><mark class="report">It was pretty good.</mark><br>
-                  <input type="radio" name="report_question" ng-model="rating" value="2"><mark class="report">Could be better.</mark><br>
-                  <input type="radio" name="report_question" ng-model="rating" value="1"><mark class="report">Not worth my time.</mark><br>
+                  <input type="radio" name="rate_question" ng-model="rating" value="4"><mark class="report">I loved it!</mark><br>
+                  <input type="radio" name="rate_question" ng-model="rating" value="3"><mark class="report">It was pretty good.</mark><br>
+                  <input type="radio" name="rate_question" ng-model="rating" value="2"><mark class="report">Could be better.</mark><br>
+                  <input type="radio" name="rate_question" ng-model="rating" value="1"><mark class="report">Not worth my time.</mark><br>
                 </form>
-                <input type="submit" id="reportButton" class="button close-reveal-modal" value="Submit Rating" ng-click="addRating(rating)">
+                <input type="submit" id="reportButton" class="button close-reveal-modal" value="Submit Rating" ng-click="addRating(rating)" data-reveal-id="ThankYou">
               </div>
 
+              <div id="ThankYou" class="reveal-modal small" data-reveal>
+                <h3 class="flag_header">Saved!</h3>
+                <a class="close-reveal-modal">&#215;</a>
+                <p>Thank you for rating the quiz!</p>
+                <button class="button close-reveal-modal">Close</button>
+              </div> <!-- /ThankYou modal -->
             </div><!-- /columns -->
 
           </div><!-- /row -->
