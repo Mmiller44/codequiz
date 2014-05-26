@@ -125,14 +125,15 @@ angular.module('codequizApp')
 				}
 
 				$window.location.href = '#/home';
-
+				return true;
 			},function(error){
 
     			$window.location.href = '#/home';
+    			return true;
     			
   			});
     }, function(error){
-		$window.location.href="#/";
+		return false;
 	});
 }])
 
