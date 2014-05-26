@@ -32,13 +32,17 @@ angular.module('codequizApp')
 
   $scope.addRating = function(rating)
   {
-
     var resource = rateQuiz;
     var addNewRating = resource.get({quizID: $rootScope.quizID,userID: $scope.userID,rating: rating,});
     addNewRating.$promise.then(function(){
       // Rating was successfully added to the DB.
     });
+  }
 
+  $scope.viewAnswers = function(ID)
+  {
+      $rootScope.quizID = ID;
+      $window.location.href = '#/answers';
   }
 
 
