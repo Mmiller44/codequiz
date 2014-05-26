@@ -53,7 +53,7 @@ class AnswersController extends BaseController {
 
 		$array = array();
 
-		for($i=0;$i < count($obj); $i++)
+		for($i=0;$i < count($obj[0]); $i++)
 		{
 			if($obj[$i]->correct === 'no')
 			{
