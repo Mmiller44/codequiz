@@ -53,12 +53,12 @@ class AnswersController extends BaseController {
 
 		$array = array();
 
-		for($i=0;$i < count($obj[0]); $i++)
+		for($i=0;$i < count($obj); $i++)
 		{
 			if($obj[$i]->correct === 'no')
 			{
 				$obj[$i]->question_ID = $i;
-				$array[] = array($i => $obj[$i]);
+				$array[] = array($i => $obj);
 			}
 		}
 
