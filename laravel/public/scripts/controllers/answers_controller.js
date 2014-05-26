@@ -52,7 +52,7 @@ angular.module('codequizApp')
 			{
 				if(data[i].correct === 'no')
 				{
-					data[i].question_ID = i;
+					data[i].question_ID = i + 1;
 					$scope.questionInfo.push(data[i]);
 				}
 			}
