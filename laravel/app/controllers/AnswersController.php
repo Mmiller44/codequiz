@@ -48,6 +48,7 @@ class AnswersController extends BaseController {
 		$missedQuestions = Questions::where('quiz_ID', '=', $quizID)
 		->join('Quiz_answers', 'Questions.question_ID', '=', 'Quiz_answers.question_ID')
 		->where('user_ID', '=', $userID);
+		->where('correct', '=', 'no');
 		return $missedQuestions->get();
 	}
 
