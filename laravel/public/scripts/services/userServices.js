@@ -19,13 +19,6 @@ angular.module('codequizApp')
 
 	if($window.localStorage)
 	{
-		$scope.user = $window.localStorage.getItem('name');
-
-		if(!$scope.user)
-		{
-			$window.location.href = '#/';
-		}
-
 		var providerID = $window.localStorage.getItem('providerID');
 		var username = $window.localStorage.getItem('username');
 		var name = $window.localStorage.getItem('name');
@@ -34,13 +27,6 @@ angular.module('codequizApp')
 		var profileImage = $window.localStorage.getItem('profileImage');
 	}else
 	{
-		$scope.user = $cookieStore.get('name');
-
-		if(!$scope.user)
-		{
-			$window.location.href = '#/';
-		}
-
 		var providerID = $cookieStore.get('providerID');
 		var username = $cookieStore.get('username');
 		var name = $cookieStore.get('name');
@@ -67,6 +53,8 @@ angular.module('codequizApp')
 
 			}
 
+		},function(error){
+			$window.location.href = '#/';
 		});
 
 }])
