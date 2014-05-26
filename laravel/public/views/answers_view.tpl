@@ -48,6 +48,8 @@
                     <p>
                       <code class="question" language="javascript" hljs source="question.question"></code>
                     </p>
+                    <p>Correct Answer: {{question.correct_answer}}</p>
+                    <p>You answered: {{question.user_answer}}</p>
                     <p ng-bind='question.explanation'></p>
                   </div>
                 </dd>
