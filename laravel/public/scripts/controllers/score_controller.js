@@ -41,7 +41,14 @@ angular.module('codequizApp')
 
   $scope.viewAnswers = function(ID)
   {
-      $rootScope.quizID = ID;
+      if($window.localStorage)
+      {
+        $window.localStorage.setItem('userQuizID', ID);
+      }else
+      {
+        $cookieStore.set('userQuizID', ID);
+      }
+      
       $window.location.href = '#/answers';
   }
 

@@ -9,11 +9,18 @@ angular.module('codequizApp')
 		$scope.user = $window.localStorage.getItem('username');
 		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
 		$scope.userID = $window.localStorage.getItem('userID');
+		$scope.userQuizID = $window.localStorage.getItem('userQuizID');
 	}else
 	{
 		$scope.user = $cookieStore.get('username');
 		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 		$scope.userID = $cookieStore.get('userID');
+		$scope.userQuizID = $cookieStore.get('userQuizID');
+	}
+
+	if(!$scope.userQuizID)
+	{
+		$window.location.href = '#/home';
 	}
 
     // Setting the images on the accordions to be the plus.png by default.
@@ -36,7 +43,7 @@ angular.module('codequizApp')
 		};
 
 	var allMissed = $resource('http://codequiz.io/get-missed-questions/:quizID/:userID');
-	var getMissed = allMissed.query({quizID: $rootScope.quizID, userID: $scope.userID});
+	var getMissed = allMissed.query({quizID: $scope.userQuizID, userID: $scope.userID});
 	getMissed.$promise.then(function(data){
 			console.log(data);
 			$scope.questionInfo = [];
