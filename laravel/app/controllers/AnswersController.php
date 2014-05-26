@@ -48,7 +48,7 @@ class AnswersController extends BaseController {
 		// Also only returns the data for answers that the user got wrong.
 		$missedQuestions = Questions::where('quiz_ID', '=', $quizID)
 		->join('Quiz_answers', 'Questions.question_ID', '=', 'Quiz_answers.question_ID')
-		->where('user_ID', '=', $userID)
+		->where('user_ID', '=', $userID);
 		$obj = $missedQuestions->get();
 		$wrongArray = array();
 
