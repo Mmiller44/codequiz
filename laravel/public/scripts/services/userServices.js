@@ -15,31 +15,41 @@ angular.module('codequizApp')
 }])
 
 // FINDUSER based on provider_ID
-  .factory('findUser',['$resource','$cookieStore','$window','$route',function($resource,$cookieStore,$window,$route){
+  .factory('findUser',['$resource','$cookieStore','$window','$route','$q',function($resource,$cookieStore,$window,$route,$q){
 
+  	var deferred = $q;
+
+var get = function() 
+{
+	var userObject = {};
 	if($window.localStorage)
 	{
-		var providerID = $window.localStorage.getItem('providerID');
-		var username = $window.localStorage.getItem('username');
-		var name = $window.localStorage.getItem('name');
-		var location = $window.localStorage.getItem('location');
-		var website = $window.localStorage.getItem('website');
-		var profileImage = $window.localStorage.getItem('profileImage');
+		
+		userObject.provider_ID = $window.localStorage.getItem('providerID');
+		userObject.username = $window.localStorage.getItem('username');
+		userObject.name = $window.localStorage.getItem('name');
+		userObject.location = $window.localStorage.getItem('location');
+		userObject.website = $window.localStorage.getItem('website');
+		userObject.profileImage = $window.localStorage.getItem('profileImage');
 	}else
 	{
-		var providerID = $cookieStore.get('providerID');
-		var username = $cookieStore.get('username');
-		var name = $cookieStore.get('name');
-		var location = $cookieStore.get('location');
-		var website = $cookieStore.get('website');
-		var profileImage = $cookieStore.get('profileImage');
+		userObject.provider_ID = $cookieStore.get('providerID');
+		userObject.username = $cookieStore.get('username');
+		userObject.name = $cookieStore.get('name');
+		userObject.location = $cookieStore.get('location');
+		userObject.website = $cookieStore.get('website');
+		userObject.profileImage = $cookieStore.get('profileImage');
 	}
+
+	return userObject;
+}
+
 
 	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
 	// userObject holds all returned results
-	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
+	var userData = newUser.get(get()).$promise.then(function(userObject) {
 
 			if($window.localStorage)
 			{
