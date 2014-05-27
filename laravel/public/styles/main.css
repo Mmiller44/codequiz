@@ -324,13 +324,6 @@ mark.plus {
 	margin-top: 60px;
 }
 
-#logIn {
-	height: 200px;
-	width: 300px;
-	top: 20%;
-	left: 10%;
-}
-
 .button {
 	background-color: #232d3b;
 }
@@ -745,6 +738,18 @@ span.answer_d {
 
 
 
+@media only screen and (max-width: 40em) { 
+	#logIn {
+		height: 200px;
+		width: 300px;
+		top: 20%;
+		left: 10%;
+		min-height: 300px;
+	}
 
+	#logIn a {
+		width: 100%;
+	}
+}
 
 
