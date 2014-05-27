@@ -206,7 +206,6 @@ var get = function()
 			}
 
 		}
-			$route.reload();
   			// $window.location.href = '#/';
 
 	});
