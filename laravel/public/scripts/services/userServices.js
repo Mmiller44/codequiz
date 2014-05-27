@@ -48,6 +48,7 @@ var get = function()
 	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
+	console.log('get',get());
 	// userObject holds all returned results
 	var userData = newUser.get(get()).$promise.then(function(userObject) {
 
