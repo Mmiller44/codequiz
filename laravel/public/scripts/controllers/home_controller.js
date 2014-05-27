@@ -36,4 +36,6 @@ angular.module('codequizApp')
 		$rootScope.title = title;
 	};
 
+	$scope.init();
+
 }]);
