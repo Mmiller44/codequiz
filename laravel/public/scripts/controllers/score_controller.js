@@ -26,6 +26,11 @@ angular.module('codequizApp')
 
 	$scope.duration = 1;
 
+  if($rootScope.finalScore == 100)
+  {
+    $scope.hideButton = true;
+  }
+
   $scope.addRating = function(rating)
   {
     var resource = rateQuiz;
