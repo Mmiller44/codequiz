@@ -2,9 +2,7 @@
 
 angular.module('codequizApp')
   .controller('HomeCtrl', ['$scope','$resource','findUser','$window','getQuizCategory','$cookieStore','$rootScope','findTwitter','getFacebook', function($scope, $resource, findUser, $window, getQuizCategory,$cookieStore,$rootScope,findTwitter,getFacebook) {
-	
-	$scope.init = function() {
-		
+			
 		if($window.localStorage)
 		{
 			$scope.user = $window.localStorage.getItem('username');
@@ -26,7 +24,6 @@ angular.module('codequizApp')
 		{
 			$scope.loggedIn = true;
 		}
-	}
 
 
 	// Declaring a function that gets called from the view.
@@ -35,7 +32,4 @@ angular.module('codequizApp')
 	$scope.loadTitles = function(title){
 		$rootScope.title = title;
 	};
-
-	$scope.init();
-
 }]);

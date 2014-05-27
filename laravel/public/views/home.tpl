@@ -1,4 +1,4 @@
-<div class="page" ng-controller="HomeCtrl" ng-init="init()">
+<div class="page">
    <div class="off-canvas-wrap">
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
