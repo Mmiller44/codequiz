@@ -18,7 +18,7 @@ angular.module('codequizApp')
 	$scope.timeOut = false;
 
 	$timeout(function() {
-        timeOut = true;
+        $scope.timeOut = true;
     }, 3000);
 
 
