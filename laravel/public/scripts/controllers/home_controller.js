@@ -2,28 +2,32 @@
 
 angular.module('codequizApp')
   .controller('HomeCtrl', ['$scope','$resource','findUser','$window','getQuizCategory','$cookieStore','$rootScope','findTwitter','getFacebook', function($scope, $resource, findUser, $window, getQuizCategory,$cookieStore,$rootScope,findTwitter,getFacebook) {
-
-	if($window.localStorage)
-	{
-		$scope.user = $window.localStorage.getItem('username');
-		$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
-		$window.localStorage.setItem('quizID', '');
-	}else
-	{
-		$scope.user = $cookieStore.get('username');
-		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
-		$cookieStore.set('quizID', '');
-	}
 	
-	findUser.get();
+	$scope.init = function() {
+		
+		if($window.localStorage)
+		{
+			$scope.user = $window.localStorage.getItem('username');
+			$scope.userImage = decodeURIComponent($window.localStorage.getItem('profileImage'));
+			$window.localStorage.setItem('quizID', '');
+		}else
+		{
+			$scope.user = $cookieStore.get('username');
+			$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
+			$cookieStore.set('quizID', '');
+		}		
 
-	if(!$scope.user)
-	{
-		$scope.loggedIn = false;
-	}else
-	{
-		$scope.loggedIn = true;
+		findUser.get();
+		
+		if(!$scope.user)
+		{
+			$scope.loggedIn = false;
+		}else
+		{
+			$scope.loggedIn = true;
+		}
 	}
+
 
 	// Declaring a function that gets called from the view.
 	// This function will handle loading the next page to display all the correct titles and quiz info.
