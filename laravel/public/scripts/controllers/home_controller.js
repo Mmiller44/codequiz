@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('codequizApp')
-  .controller('HomeCtrl', ['$scope','$resource','findUser','$window','getQuizCategory','$cookieStore','$rootScope','findTwitter','getFacebook', function($scope, $resource, findUser, $window, getQuizCategory,$cookieStore,$rootScope,findTwitter,getFacebook) {
+  .controller('HomeCtrl', ['$scope','$resource','findUser','$window','getQuizCategory','$cookieStore','$rootScope','findTwitter','getFacebook','$timeout', function($scope, $resource, findUser, $window, getQuizCategory,$cookieStore,$rootScope,findTwitter,getFacebook,$timeout) {
 
 	if($window.localStorage)
 	{
@@ -14,6 +14,14 @@ angular.module('codequizApp')
 		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 		$cookieStore.set('quizID', '');
 	}
+
+	$scope.timeOut = false;
+
+	$timeout(function() {
+        timeOut = true;
+    }, 3000);
+
+
 
 	if(!$scope.user)
 	{

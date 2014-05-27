@@ -45,7 +45,7 @@
           </div>
         </aside>
         <section class="main-section">
-          <div class="alert-box radius">
+          <div ng-hide="timeOut" class="alert-box radius success">
             <p>First time here? <a href="#/about">Check us out!</a></p>
           </div>
           <!-- content goes here -->
