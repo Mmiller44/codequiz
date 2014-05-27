@@ -17,7 +17,7 @@ angular.module('codequizApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/home.html',
+        templateUrl: 'views/home.tpl',
         controller: 'HomeCtrl'
       })
       .when('/home', {
