@@ -73,7 +73,7 @@ angular.module('codequizApp')
 
 
 // Get Facebook user
-.factory('getFacebook',['$resource','$rootScope','$cookieStore','$window',function($resource,$rootScope,$cookieStore,$window){
+.factory('getFacebook',['$resource','$rootScope','$cookieStore','$window','findUser',function($resource,$rootScope,$cookieStore,$window,findUser){
 
   	// Making an api call to add or update a user to my database. Data gets returned back.
   	var user = $resource('http://codequiz.io/get-facebook-user');
@@ -136,11 +136,9 @@ angular.module('codequizApp')
 					$cookieStore.put('profileImage', encodeURIComponent(userData.picture.data.url));
 				}
 
-				$window.location.href = '#/';
+				findUser();
 
 			},function(error){
-
-				$window.location.href = '#/';
 
 			});
 		});
@@ -148,7 +146,7 @@ angular.module('codequizApp')
 
 
 // See if a Twitter user exists.
-.factory('findTwitter',['$resource','$rootScope','$cookieStore','$window','$route','findUser',function($resource,$rootScope,$cookieStore,$window,$route,findUser){
+.factory('findTwitter',['$resource','$rootScope','$cookieStore','$window','findUser',function($resource,$rootScope,$cookieStore,$window,findUser){
 
   	// This call gets an object containing all the information for the user.
   	// I will use this info to search my own database, and add them if necessary.
@@ -208,10 +206,8 @@ angular.module('codequizApp')
   			}
 
   		}
-  		
+
   		findUser();
-  		console.log('Done storing info.');
-  			// $window.location.href = '#/';
 
   		});
 
