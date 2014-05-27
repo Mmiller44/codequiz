@@ -18,6 +18,14 @@ angular.module('codequizApp')
 		$cookieStore.set('quizID', '');
 	}
 
+	if(!$scope.user)
+	{
+		$scope.loggedIn = false;
+	}else
+	{
+		$scope.loggedIn = true;
+	}
+
   	$scope.isUser = false;
   	$scope.searchUser = $routeParams.username;
   	$scope.noUser = true;
@@ -77,5 +85,27 @@ angular.module('codequizApp')
 	$scope.getNumber = function(num){
 		return new Array(num);
 	}
+
+	// Authorization for a Facebook account. returns a URL, which I redirect to. User signs in and authorizes.
+	$scope.facebookLogin = function()
+	{
+		var facebook = $resource('/login-facebook');
+		var returnedObject = facebook.get(function(){
+
+			$window.location.href=returnedObject.login;
+			
+		});
+	};
+
+	// Authorization for a Twitter account. returns a URL, which I redirect to. User signs in and authorizes.
+	$scope.twitterLogin = function()
+	{
+		var twitter = $resource('/login-twitter');
+		var returnedObject = twitter.get(function(){
+
+			$window.location.href=returnedObject.login;
+			
+		});
+	}	
 
 }]);
