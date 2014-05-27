@@ -324,6 +324,13 @@ mark.plus {
 	margin-top: 60px;
 }
 
+#logIn {
+	height: 200px;
+	width: 300px;
+	top: 20%;
+	left: 10%;
+}
+
 .button {
 	background-color: #232d3b;
 }
