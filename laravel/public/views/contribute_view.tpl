@@ -63,8 +63,8 @@
                 </ol>
               </div>
                 <form id='contribution_form'>
-                  <h3>Question #{{routeNumber}}</h3>
-                    <textarea id="first" ng-model="question.text" placeholder="Type your question out just like you would in a text editor. Comments, strings, variables and numbers are all supported and highlighted." class="contributeDesc" title="Line Breaks are needed for breaking up code.
+                  <h3 id="first">Question #{{routeNumber}}</h3>
+                    <textarea ng-model="question.text" placeholder="Type your question out just like you would in a text editor. Comments, strings, variables and numbers are all supported and highlighted." class="contributeDesc" title="Line Breaks are needed for breaking up code.
             Ex: // What is counter equal to?
                 var counter = 10;
                 counter++;
@@ -104,14 +104,10 @@
       <ol class="joyride-list" data-joyride>
         <li data-id="first" data-text="Next" data-options="tip_location: top">
           <p>Line Breaks are very important!</p>
-          <o>Ex: // What is counter equal to?</p>
+          <p>Ex: // What is counter equal to?</p>
           <p>var counter = 10;</p>
           <p>counter++</p>
           <p>counter = ? </p>
-        </li>
-        <li data-id="Stop1" data-class="custom so-awesome" data-text="Next">
-          <h4>Stop #1</h4>
-          <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
         </li>
       </ol>
 
