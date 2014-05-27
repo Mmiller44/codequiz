@@ -63,14 +63,14 @@
                 </ol>
               </div>
                 <form id='contribution_form'>
-                  <h3 id="firstStop">Question #{{routeNumber}}</h3>
+                  <h3>Question #{{routeNumber}}</h3>
                     <textarea ng-model="question.text" placeholder="Type your question out just like you would in a text editor. Comments, strings, variables and numbers are all supported and highlighted." class="contributeDesc" title="Line Breaks are needed for breaking up code.
             Ex: // What is counter equal to?
                 var counter = 10;
                 counter++;
                 counter = ?;"></textarea>
                   <label>A
-                    <input id="secondStop" type="text" ng-model="question.a" id="inputText" placeholder="Ex: Cascading Style Sheets" />
+                    <input type="text" ng-model="question.a" id="inputText" placeholder="Ex: Cascading Style Sheets" />
                   </label>
                   <label>B
                     <input type="text" ng-model="question.b" id="inputText1" placeholder="Ex: Creative Style Selectors" />
@@ -90,7 +90,7 @@
                       <option value="D">D</option>
                     </select>
                   </label>
-                  <label id="thirdStop">Explanation
+                  <label>Explanation
                     <textarea ng-model="question.explanation" class="contributeDesc" placeholder="Be descriptive and helpful. Remember this is going to teach someone why they were wrong!"></textarea>
                   </label>
                   <a ng-href="#/contribute/{{routeNumber - 1}}" ng-show="back" class="button report_button">Back</a>
@@ -101,28 +101,10 @@
 
       <a class="exit-off-canvas"></a>
 
-      <ol class="joyride-list" data-joyride>
-        <li data-id="firstStop" data-options="tip_animation:fade">
-            <p>Line Breaks are very important!</p>
-            <p>Ex: // What is counter equal to?</p>
-            <p>var counter = 10;</p>
-            <p>counter++</p>
-            <p>counter = ? </p>
-        </li>
-        <li data-id="secondStop" data-options="tip_animation:fade">
-            <p>Answer options are placed here. Text will wrap itself for smaller devices.</p>
-        </li>
-        <li data-id="thirdStop" data-options="tip_animation:fade">
-            <p>Lastly, explain why the correct answer is correct. Remember, this will be used to teach someone something new :)</p>
-        </li>
-
-      </ol>
-
 
       </div>
     </div>
   </div> <!-- Closing Page -->
 <script>
   $(document).foundation();
-  $(document).foundation('joyride', 'start');
 </script>

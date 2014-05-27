@@ -48,7 +48,7 @@
           <!-- content goes here -->
           <!-- FRONT END -->
           <div class="row" id="front_end">
-            <div class="small-6-centered columns">
+            <div class="small-6-centered large-12 columns">
               <h2 class="section_title">Front End</h2>
               <dl class="accordion front_end_accordion">
                 <dd ng-repeat="quiz in $root.frontQuizzes">
@@ -59,7 +59,7 @@
           </div>
           <!-- BACK END -->
           <div class="row" id="back_end">
-            <div class="small-6-centered columns">
+            <div class="small-6-centered large-12 columns">
               <h2 class="section_title">Back End</h2>
               <dl class="accordion back_end_accordion">
                 <dd ng-repeat="quiz in $root.backQuizzes">
