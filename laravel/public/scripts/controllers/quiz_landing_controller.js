@@ -104,5 +104,5 @@ angular.module('codequizApp')
 			$window.location.href=returnedObject.login;
 			
 		});
-
+	}
 }]);
