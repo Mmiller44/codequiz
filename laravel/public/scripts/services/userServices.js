@@ -35,10 +35,10 @@ angular.module('codequizApp')
 		var profileImage = $cookieStore.get('profileImage');
 	}
 
-	if(!name)
-	{
-		$window.location.href = '#/';
-	}
+	// if(!name)
+	// {
+	// 	$window.location.href = '#/';
+	// }
 
 	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
@@ -202,8 +202,6 @@ angular.module('codequizApp')
 
   			$window.location.href = '#/home';
 
-	},function(error){
-		console.log('IT FAILED!');
 	});
 
 }]);

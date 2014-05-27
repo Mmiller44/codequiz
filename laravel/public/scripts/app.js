@@ -57,7 +57,7 @@ angular.module('codequizApp', [
         controller: 'answers_controller'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
       });
 
 
