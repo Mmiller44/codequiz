@@ -69,6 +69,10 @@ a {
 	color: #f3f3f3;
 }
 
+#logIn a.button {
+	width: 100%;
+}
+
 .title:hover {
 	color: #ef7b47;
 }
