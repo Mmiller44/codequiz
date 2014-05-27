@@ -1,4 +1,4 @@
-<div class="page">
+<div class="page" data-ng-controller="HomeCtrl">
    <div class="off-canvas-wrap">
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
