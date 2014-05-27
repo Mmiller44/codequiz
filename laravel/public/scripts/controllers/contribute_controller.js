@@ -242,6 +242,7 @@ angular.module('codequizApp')
 		var publishResource = $resource('http://codequiz.io/publish-quiz/:quizID/:completed');
 		var returnedObject = publishResource.get({quizID: $scope.quizID, completed: 'Yes'},function(){
 			console.log(returnedObject);
+			$window.location.href = "#contribute/";
 		});
 	}
 

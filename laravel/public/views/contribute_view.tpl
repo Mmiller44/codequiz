@@ -104,7 +104,8 @@
             <h3 class="flag_header">Published!</h3>
             <a class="close-reveal-modal">&#215;</a>
             <p>Your quiz can now be viewed by the public.</p>
-            <p>To view, edit or publish any of your quizzes, head to <a href="#/myQuizzes">My Quizzes</a></p>
+            <p>To view, edit or publish any of your quizzes</p>
+            <p>head to <a href="#/myQuizzes" id="reportButton" class="button close-reveal-modal">My Quizzes</a></p>
           </div> <!-- /log In modal -->
 
       <a class="exit-off-canvas"></a>
