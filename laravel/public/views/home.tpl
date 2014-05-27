@@ -47,8 +47,8 @@
         <section class="main-section">
           <!-- content goes here -->
           <!-- FRONT END -->
-          <div class="row" id="front_end">
-            <div class="small-6-centered columns">
+          <div class="row">
+            <div id="front_end" class="small-6-centered columns">
               <h2 class="section_title">Front End</h2>
               <dl class="accordion front_end_accordion">
                 <dd ng-repeat="quiz in $root.frontQuizzes">
