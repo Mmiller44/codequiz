@@ -206,6 +206,8 @@ var get = function()
 			}
 
 		}
+
+		console.log('Done storing info.');
   			// $window.location.href = '#/';
 
 	});
