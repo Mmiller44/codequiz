@@ -60,9 +60,9 @@ angular.module('codequizApp')
 			},function(error){
 				return 'error';
 			});
-		};
-	};
-	
+		},
+	}
+
 }])
 
 
