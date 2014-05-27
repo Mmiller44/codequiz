@@ -56,9 +56,7 @@
                 </dd>
               </dl>
             </div>
-          </div>
           <!-- BACK END -->
-          <div class="row" id="back_end">
             <div class="small-6-centered columns">
               <h2 class="section_title">Back End</h2>
               <dl class="accordion back_end_accordion">
