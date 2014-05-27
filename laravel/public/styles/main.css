@@ -747,7 +747,7 @@ span.answer_d {
 		min-height: 300px;
 	}
 
-	#logIn a {
+	#logIn a.button {
 		width: 100%;
 	}
 }
