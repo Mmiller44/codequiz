@@ -16,7 +16,8 @@ angular.module('codequizApp')
 	}
 
 	$scope.findUser = findUser;
-
+	console.log($scope.findUser);
+	
 	if(!$scope.user)
 	{
 		$scope.loggedIn = false;
