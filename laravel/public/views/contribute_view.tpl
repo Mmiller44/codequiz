@@ -108,17 +108,14 @@
             <p>var counter = 10;</p>
             <p>counter++</p>
             <p>counter = ? </p>
-            <a href="#" class="small button joyride-next-tip">Next</a>
             <a href="#" class="joyride-close-tip">&times;</a>
         </li>
         <li data-id="second" data-options="tip_animation:fade">
             <p>Answer options are placed here. Text will wrap itself for smaller devices.</p>
-            <a href="#" class="small button joyride-next-tip">Next</a>
             <a href="#" class="joyride-close-tip">&times;</a>
         </li>
         <li data-id="third" data-options="tip_animation:fade">
             <p>Lastly, explain why the correct answer is correct. Remember, this will be used to teach someone something new :)</p>
-            <a href="#" class="small button joyride-next-tip">Next</a>
             <a href="#" class="joyride-close-tip">&times;</a>
         </li>
 
