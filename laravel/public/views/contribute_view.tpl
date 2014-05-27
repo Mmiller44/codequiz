@@ -102,13 +102,20 @@
       <a class="exit-off-canvas"></a>
 
       <ol class="joyride-list" data-joyride>
-        <li data-id="first" data-text="Next" data-options="tip_location: top">
-          <p>Line Breaks are very important!</p>
-          <p>Ex: // What is counter equal to?</p>
-          <p>var counter = 10;</p>
-          <p>counter++</p>
-          <p>counter = ? </p>
-        </li>
+        <li data-id="first">
+        <div class="joyride-tip-guide">
+          <span class="joyride-nub top"></span>
+          <div class="joyride-content-wrapper">
+            <p>Line Breaks are very important!</p>
+            <p>Ex: // What is counter equal to?</p>
+            <p>var counter = 10;</p>
+            <p>counter++</p>
+            <p>counter = ? </p>
+            <a href="#" class="small button joyride-next-tip">Next</a>
+            <a href="#close" class="joyride-close-tip">&times;</a>
+          </div>
+        </div>
+      </li>
       </ol>
 
 
