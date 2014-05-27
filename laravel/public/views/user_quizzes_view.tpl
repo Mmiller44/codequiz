@@ -3,7 +3,7 @@
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
         <section class="middle tab-bar-section">
-          <a href="#/home" class="title">Code <mark class="orange">Quiz</mark></a>
+          <a href="#/" class="title">Code <mark class="orange">Quiz</mark></a>
         </section>
 
         <section class="right-small">
@@ -15,7 +15,7 @@
           <div ng-hide="loggedIn">
             <ul class="off-canvas-list">
               <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
-              <li class="borderTop"><a href="#/home">Home</a></li>
+              <li class="borderTop"><a href="#/">Home</a></li>
               <li><a href="#/contribute">Contribute</a></li>
             </ul>
           </div>
@@ -24,7 +24,7 @@
               <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
             <img ng-src="{{userImage}}" class="profileImage" alt="Profile Picture" title="You!">
             <h2 class="profileUser">{{user}}</h2>
-              <li class="borderTop"><a href="#/home">Home</a></li>
+              <li class="borderTop"><a href="#/">Home</a></li>
               <li><a href="#/contribute">Contribute</a></li>
               <li><a href="#/myQuizzes">My Quizzes</a></li>
             </ul>

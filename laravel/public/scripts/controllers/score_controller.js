@@ -21,7 +21,7 @@ angular.module('codequizApp')
 
   if(!$scope.user || !$rootScope.finalScore)
   {
-    $window.location.href = "#/home";
+    $window.location.href = "#/";
   }
 
 	$scope.duration = 1;

@@ -19,7 +19,7 @@ angular.module('codequizApp')
 
 	if(!$scope.user)
 	{
-		$window.location.href="#/home";
+		$window.location.href="#/";
 	}
 
 	$scope.createText = 'Create!';

@@ -20,10 +20,6 @@ angular.module('codequizApp', [
         templateUrl: 'views/home.tpl',
         controller: 'HomeCtrl'
       })
-      .when('/home', {
-        templateUrl: 'views/home.tpl',
-        controller: 'HomeCtrl'
-      })
       .when('/quiz_landing/:sub_category', {
         templateUrl: 'views/quiz_landing_view.tpl',
         controller: 'quiz_landing_controller'
@@ -57,7 +53,7 @@ angular.module('codequizApp', [
         controller: 'answers_controller'
       })
       .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/'
       });
 
 

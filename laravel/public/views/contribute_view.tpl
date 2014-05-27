@@ -3,7 +3,7 @@
      <div class="inner-wrap">
       <nav class="tab-bar" role="navigation">
         <section class="middle tab-bar-section">
-          <a href="#/home" class="title">Code <mark class="orange">Quiz</mark></a>
+          <a href="#/" class="title">Code <mark class="orange">Quiz</mark></a>
         </section>
 
         <section class="right-small">
@@ -16,7 +16,7 @@
             <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
           <img ng-src="{{userImage}}" class="profileImage" alt="Profile Picture" title="You!">
           <h2 class="profileUser">{{user}}</h2>
-            <li class="borderTop"><a href="#/home">Home</a></li>
+            <li class="borderTop"><a href="#/">Home</a></li>
             <li><a href="#/contribute">Contribute</a></li>
             <li><a href="#/myQuizzes">My Quizzes</a></li>
           </ul>
@@ -95,7 +95,7 @@
                   </label>
                   <a ng-href="#/contribute/{{routeNumber - 1}}" ng-show="back" class="button report_button">Back</a>
                   <a ng-href="" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Next</a>
-                  <a ng-href="#/home" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Publish</a>
+                  <a ng-href="#/" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Publish</a>
                 </form>
         </section>
 

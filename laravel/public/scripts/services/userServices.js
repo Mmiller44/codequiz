@@ -59,6 +59,8 @@ angular.module('codequizApp')
 		return 'error';
 	});
 
+	return userData;
+
 }])
 
 
@@ -126,11 +128,11 @@ angular.module('codequizApp')
 					$cookieStore.put('profileImage', encodeURIComponent(userData.picture.data.url));
 				}
 
-				$window.location.href = '#/home';
+				$window.location.href = '#/';
 
 			},function(error){
 
-    			$window.location.href = '#/home';
+    			$window.location.href = '#/';
     			
   			});
     });
@@ -199,7 +201,7 @@ angular.module('codequizApp')
 
 		}
 
-  			$window.location.href = '#/home';
+  			$window.location.href = '#/';
 
 	});
 

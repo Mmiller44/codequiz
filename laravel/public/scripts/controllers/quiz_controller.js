@@ -21,7 +21,7 @@ angular.module('codequizApp')
 
     if(!$scope.user)
     {
-        $window.location.href = "#/home";
+        $window.location.href = "#/";
     }
 
     // Setting a scope variable to be a counter for how many answers they have right.
