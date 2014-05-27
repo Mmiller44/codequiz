@@ -64,7 +64,7 @@
               </div>
                 <form id='contribution_form'>
                   <h3>Question #{{routeNumber}}</h3>
-                    <textarea data-tooltip ng-model="question.text" placeholder="Type your question out just like you would in a text editor. Comments, strings, variables and numbers are all supported and highlighted." class="contributeDesc has-tip"  title="Line Breaks are needed for breaking up code.
+                    <textarea ng-model="question.text" placeholder="Type your question out just like you would in a text editor. Comments, strings, variables and numbers are all supported and highlighted." class="contributeDesc" title="Line Breaks are needed for breaking up code.
             Ex: // What is counter equal to?
                 var counter = 10;
                 counter++;
@@ -91,7 +91,7 @@
                     </select>
                   </label>
                   <label>Explanation
-                    <textarea data-tooltip ng-model="question.explanation" class="contributeDesc has-tip" placeholder="Be descriptive and helpful. Remember this is going to teach someone why they were wrong!" title="Make sure you are right!"></textarea>
+                    <textarea ng-model="question.explanation" class="contributeDesc" placeholder="Be descriptive and helpful. Remember this is going to teach someone why they were wrong!"></textarea>
                   </label>
                   <a ng-href="#/contribute/{{routeNumber - 1}}" ng-show="back" class="button report_button">Back</a>
                   <a ng-href="" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Next</a>

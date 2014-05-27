@@ -45,6 +45,9 @@
           </div>
         </aside>
         <section class="main-section">
+          <div class="alert-box radius">
+            <p>First time here? <a href="#/about">Check us out!</a></p>
+          </div>
           <!-- content goes here -->
           <!-- FRONT END -->
           <div class="row" id="front_end">
