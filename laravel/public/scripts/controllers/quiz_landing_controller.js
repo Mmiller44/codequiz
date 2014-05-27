@@ -17,6 +17,8 @@ angular.module('codequizApp')
     	$cookieStore.set('quizID', '');
 	}
 
+	findUser.get();
+
 	if(!$scope.user)
 	{
 		$scope.loggedIn = false;
