@@ -121,4 +121,5 @@
   </div> <!-- Closing Page -->
 <script>
   $(document).foundation();
+  $(document).foundation('joyride', 'start');
 </script>
