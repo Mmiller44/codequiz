@@ -41,9 +41,6 @@ angular.module('codequizApp')
 	// userObject holds all returned results
 	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
 
-		if(userObject)
-		{
-			console.log('findUser userObject exists');
 			if($window.localStorage)
 			{
 				$window.localStorage.setItem('userID', userObject.user_ID);
@@ -51,11 +48,11 @@ angular.module('codequizApp')
 			{
 				$cookieStore.put('userID', userObject.user_ID);
 			}
-
+			console.log(userObject);
 			$route.reload();
-		}
 
 	},function(error){
+		console.log(error);
 		return 'error';
 	});
 
