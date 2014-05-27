@@ -3,7 +3,7 @@
 angular.module('codequizApp')
 
 // GET ALL USERS
-  .factory('getAllUsers',['$resource','$rootScope',function($resource,$rootScope){
+  .factory('getAllUsers',['$resource',function($resource){
 
 	var Users = $resource('http://codequiz.io/get-all-users/');
 

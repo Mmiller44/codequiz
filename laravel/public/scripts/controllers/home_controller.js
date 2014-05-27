@@ -14,10 +14,6 @@ angular.module('codequizApp')
 		$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 		$cookieStore.set('quizID', '');
 	}
-
-	$scope.findUser = findUser;
-	$scope.$apply();
-	console.log($scope.findUser);
 	
 	if(!$scope.user)
 	{

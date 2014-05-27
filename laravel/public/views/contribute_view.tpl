@@ -95,9 +95,17 @@
                   </label>
                   <a ng-href="#/contribute/{{routeNumber - 1}}" ng-show="back" class="button report_button">Back</a>
                   <a ng-href="" ng-click="storeQuestion(question)" ng-hide="hideContinue" class="button report_button">Next</a>
-                  <a ng-href="#/" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Publish</a>
+                  <a ng-href="" data-reveal-id="logIn" ng-hide="showSubmit" ng-click="publishQuiz()" class="button report_button">Publish</a>
                 </form>
         </section>
+
+
+          <div id="logIn" class="reveal-modal small" data-reveal>
+            <h3 class="flag_header">Published!</h3>
+            <a class="close-reveal-modal">&#215;</a>
+            <p>Your quiz can now be viewed by the public.</p>
+            <p>To view, edit or publish any of your quizzes, head to <a href="#/myQuizzes">My Quizzes</a></p>
+          </div> <!-- /log In modal -->
 
       <a class="exit-off-canvas"></a>
 
