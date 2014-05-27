@@ -70,7 +70,7 @@
                 counter++;
                 counter = ?;"></textarea>
                   <label>A
-                    <input type="text" ng-model="question.a" id="inputText" placeholder="Ex: Cascading Style Sheets" />
+                    <input id="second" type="text" ng-model="question.a" id="inputText" placeholder="Ex: Cascading Style Sheets" />
                   </label>
                   <label>B
                     <input type="text" ng-model="question.b" id="inputText1" placeholder="Ex: Creative Style Selectors" />
@@ -90,7 +90,7 @@
                       <option value="D">D</option>
                     </select>
                   </label>
-                  <label>Explanation
+                  <label id="third">Explanation
                     <textarea ng-model="question.explanation" class="contributeDesc" placeholder="Be descriptive and helpful. Remember this is going to teach someone why they were wrong!"></textarea>
                   </label>
                   <a ng-href="#/contribute/{{routeNumber - 1}}" ng-show="back" class="button report_button">Back</a>
@@ -108,9 +108,20 @@
             <p>var counter = 10;</p>
             <p>counter++</p>
             <p>counter = ? </p>
-            <a href="" class="small button joyride-next-tip">Next</a>
-            <a href="" class="joyride-close-tip">&times;</a>
+            <a href="#" class="small button joyride-next-tip">Next</a>
+            <a href="#" class="joyride-close-tip">&times;</a>
         </li>
+        <li data-id="second" data-options="tip_animation:fade">
+            <p>Answer options are placed here. Text will wrap itself for smaller devices.</p>
+            <a href="#" class="small button joyride-next-tip">Next</a>
+            <a href="#" class="joyride-close-tip">&times;</a>
+        </li>
+        <li data-id="third" data-options="tip_animation:fade">
+            <p>Lastly, explain why the correct answer is correct. Remember, this will be used to teach someone something new :)</p>
+            <a href="#" class="small button joyride-next-tip">Next</a>
+            <a href="#" class="joyride-close-tip">&times;</a>
+        </li>
+
       </ol>
 
 
