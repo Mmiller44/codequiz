@@ -71,9 +71,9 @@
             <h3 class="flag_header">Whoops!</h3>
             <a class="close-reveal-modal">&#215;</a>
             <p>You must log in to continue.</p>
-            <a href="" ng-click="facebookLogin()" class="button facebook close-reveal-modal" id="homeButton"><img src="images/fb_logo.png" width="35" height="35">Facebook Login</a>
+            <a href="" ng-click="facebookLogin()" class="button facebook" id="homeButton"><img src="images/fb_logo.png" width="35" height="35">Facebook Login</a>
 
-            <a href="" ng-click="twitterLogin()" class="button twitter text-center close-reveal-modal"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
+            <a href="" ng-click="twitterLogin()" class="button twitter text-center"><img src="images/twitter.png" width="40" height="40">Twitter Login</a>
           </div> <!-- /log In modal -->
 
         </section>

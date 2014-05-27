@@ -17,6 +17,11 @@ angular.module('codequizApp')
 		$cookieStore.set('quizID', '');
 	}
 
+	if(!$scope.user)
+	{
+		$window.location.href = "#/home";
+	}
+
     $scope.noQuizzes = false;
     $scope.noPublish =  true;
 

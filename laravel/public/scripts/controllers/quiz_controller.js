@@ -19,6 +19,11 @@ angular.module('codequizApp')
         $cookieStore.set('quizID', '');
     }
 
+    if(!$scope.user)
+    {
+        $window.location.href = "#/home";
+    }
+
     // Setting a scope variable to be a counter for how many answers they have right.
     // if the variable doesn't exist. Make it and set it to 0;
     if(!$scope.score)

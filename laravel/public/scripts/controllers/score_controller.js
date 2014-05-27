@@ -19,16 +19,12 @@ angular.module('codequizApp')
     $cookieStore.set('quizID', '');
   }
 
-	$scope.duration = 1;
-
-  if(!$rootScope.finalScore)
+  if(!$scope.user || !$rootScope.finalScore)
   {
-  	$window.location.href = '#/home';
-
-  }else if($rootScope.finalScore < 50)
-  {
-  	$scope.duration = 1;
+    $window.location.href = "#/home";
   }
+
+	$scope.duration = 1;
 
   $scope.addRating = function(rating)
   {

@@ -17,6 +17,11 @@ angular.module('codequizApp')
 		$scope.quizID = $cookieStore.get('quizID');
 	}
 
+	if(!$scope.user)
+	{
+		$window.location.href="#/home";
+	}
+
 	$scope.createText = 'Create!';
 
 	// Checking to see if there is a quiz ID set.
