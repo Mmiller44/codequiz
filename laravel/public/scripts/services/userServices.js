@@ -38,29 +38,31 @@ angular.module('codequizApp')
 	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
-	// userObject holds all returned results
-	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
-		console.log('findUser get ran.');
-		if(userObject)
-		{
-			console.log('finUser userObject exists');
-			if($window.localStorage)
-			{
-				$window.localStorage.setItem('userID', userObject.user_ID);
-			}else
-			{
-				$cookieStore.put('userID', userObject.user_ID);
-			}
+	return {
+		get: function(){
+			// userObject holds all returned results
+			var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
 
-			return true;
-		}
+				if(userObject)
+				{
+					console.log('findUser userObject exists');
+					if($window.localStorage)
+					{
+						$window.localStorage.setItem('userID', userObject.user_ID);
+					}else
+					{
+						$cookieStore.put('userID', userObject.user_ID);
+					}
 
-	},function(error){
-		return 'error';
-	});
+					return true;
+				}
 
-	return userData;
-
+			},function(error){
+				return 'error';
+			});
+		};
+	};
+	
 }])
 
 

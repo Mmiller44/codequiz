@@ -44,7 +44,7 @@
             }(document, 'script', 'facebook-jssdk'));</script>
           </div>
         </aside>
-        <section class="main-section">
+        <section class="main-section" ng-bind="$root.frontQuizzes">
           <!-- content goes here -->
           <!-- FRONT END -->
           <div class="row">
