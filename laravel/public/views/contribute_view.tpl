@@ -101,22 +101,19 @@
 
       <a class="exit-off-canvas"></a>
 
-      <ol id="instructions" class="joyride-list" data-joyride>
+      <ol class="joyride-list" data-joyride>
         <li data-id="firstStop" data-options="tip_animation:fade">
             <p>Line Breaks are very important!</p>
             <p>Ex: // What is counter equal to?</p>
             <p>var counter = 10;</p>
             <p>counter++</p>
             <p>counter = ? </p>
-            <a href="#" class="joyride-close-tip">&times;</a>
         </li>
         <li data-id="secondStop" data-options="tip_animation:fade">
             <p>Answer options are placed here. Text will wrap itself for smaller devices.</p>
-            <a href="#" class="joyride-close-tip">&times;</a>
         </li>
         <li data-id="thirdStop" data-options="tip_animation:fade">
             <p>Lastly, explain why the correct answer is correct. Remember, this will be used to teach someone something new :)</p>
-            <a href="#" class="joyride-close-tip">&times;</a>
         </li>
 
       </ol>
@@ -127,5 +124,5 @@
   </div> <!-- Closing Page -->
 <script>
   $(document).foundation();
-  $('#instructions').foundation('joyride', 'start');
+  $(document).foundation('joyride', 'start');
 </script>
