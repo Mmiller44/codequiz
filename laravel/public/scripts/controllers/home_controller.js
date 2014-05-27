@@ -15,7 +15,7 @@ angular.module('codequizApp')
 		$cookieStore.set('quizID', '');
 	}
 
-	
+	$scope.findUser = findUser;
 
 	if(!$scope.user)
 	{

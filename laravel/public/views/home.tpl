@@ -11,7 +11,7 @@
         </section>
       </nav>
 
-        <aside class="right-off-canvas-menu">
+        <aside class="right-off-canvas-menu" ng-bind="findUser">
          <div ng-hide="loggedIn">
             <ul class="off-canvas-list">
               <li><label id="nav-label">Code <mark class="orange">Quiz</mark></label></li>
