@@ -142,7 +142,7 @@ angular.module('codequizApp')
 
 
 // See if a Twitter user exists.
-  .factory('findTwitter',['$resource','$rootScope','$cookieStore','$window',function($resource,$rootScope,$cookieStore,$window){
+  .factory('findTwitter',['$resource','$rootScope','$cookieStore','$window','$route',function($resource,$rootScope,$cookieStore,$window,$route){
   	
   	// This call gets an object containing all the information for the user.
   	// I will use this info to search my own database, and add them if necessary.
@@ -202,8 +202,8 @@ angular.module('codequizApp')
 			}
 
 		}
-
-  			$window.location.href = '#/';
+			$route.reload();
+  			// $window.location.href = '#/';
 
 	});
 

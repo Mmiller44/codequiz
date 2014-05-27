@@ -13,7 +13,7 @@ angular.module('codequizApp')
 			$scope.user = $cookieStore.get('username');
 			$scope.userImage = decodeURIComponent($cookieStore.get('profileImage'));
 			$cookieStore.set('quizID', '');
-		}		
+		}
 
 		findUser.get();
 		
