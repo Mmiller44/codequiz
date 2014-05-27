@@ -90,9 +90,9 @@
                   <label>Description
                     <textarea ng-model="quiz.description" class="contributeDesc animated {{shake3}}" placeholder="Brief description of your quiz. Make it engaging!" required ></textarea>
                   </label>
-                  <a ng-hide="!loggedIn" class="button contributeButton">Create A Quiz</a>
-                  <a ng-hide="loggedIn" ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">{{createText}}</a>
-                  <a ng-hide="loggedIn" ng-href="#/myQuizzes" class="button contributeButton">My Quizzes</a>
+                  <a ng-hide="loggedIn" class="button contributeButton" data-reveal-id="logIn">Create A Quiz</a>
+                  <a ng-hide="!loggedIn" ng-href="" ng-click="submitQuizInfo(quiz)" class="button contributeButton">{{createText}}</a>
+                  <a ng-hide="!loggedIn" ng-href="#/myQuizzes" class="button contributeButton">My Quizzes</a>
             </form>
 
           <div id="logIn" class="reveal-modal small" data-reveal>

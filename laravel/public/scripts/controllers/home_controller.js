@@ -15,6 +15,14 @@ angular.module('codequizApp')
 		$cookieStore.set('quizID', '');
 	}
 
+	if(!$scope.user)
+	{
+		$scope.loggedIn = false;
+	}else
+	{
+		$scope.loggedIn = true;
+	}
+
 	// Declaring a function that gets called from the view.
 	// This function will handle loading the next page to display all the correct titles and quiz info.
 	// The parameter for the function is being generated in the view, from the other resource calls.
