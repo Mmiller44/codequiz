@@ -15,7 +15,7 @@ angular.module('codequizApp')
 }])
 
 // FINDUSER based on provider_ID
-  .factory('findUser',['$resource','$cookieStore','$window',function($resource,$cookieStore,$window){
+  .factory('findUser',['$resource','$cookieStore','$window','$route',function($resource,$cookieStore,$window,$route){
 
 	if($window.localStorage)
 	{
@@ -38,30 +38,26 @@ angular.module('codequizApp')
 	// Making an api call to add or update a user to my database. Data gets returned back.
 	var newUser = $resource('http://codequiz.io/add-new-user/:provider_ID/:username/:name/:location/:website/:profileImage');
 
-	return {
-		get: function(){
-			// userObject holds all returned results
-			var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
+	// userObject holds all returned results
+	var userData = newUser.get({provider_ID: providerID, username: username, name: name, location: location, website: website, profileImage: profileImage}).$promise.then(function(userObject) {
 
-				if(userObject)
-				{
-					console.log('findUser userObject exists');
-					if($window.localStorage)
-					{
-						$window.localStorage.setItem('userID', userObject.user_ID);
-					}else
-					{
-						$cookieStore.put('userID', userObject.user_ID);
-					}
+		if(userObject)
+		{
+			console.log('findUser userObject exists');
+			if($window.localStorage)
+			{
+				$window.localStorage.setItem('userID', userObject.user_ID);
+			}else
+			{
+				$cookieStore.put('userID', userObject.user_ID);
+			}
 
-					return true;
-				}
+			$route.reload();
+		}
 
-			},function(error){
-				return 'error';
-			});
-		},
-	}
+	},function(error){
+		return 'error';
+	});
 
 }])
 
