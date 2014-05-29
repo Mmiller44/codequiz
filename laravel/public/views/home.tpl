@@ -58,7 +58,9 @@
               </dl>
             </div>
           </div>
+        </div>
           <!-- BACK END -->
+          <div class="row">
             <div class="small-6-centered columns">
               <h2 class="section_title">Back End</h2>
               <dl class="accordion back_end_accordion">
